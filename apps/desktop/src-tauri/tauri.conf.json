@@ -1,0 +1,62 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "identifier": "com.localbrain.desktop",
+  "productName": "LocalBrain",
+  "version": "0.1.0",
+  "build": {
+    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "pnpm dev",
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:3001"
+  },
+  "app": {
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' https://api.openai.com wss://localhost:*; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; media-src 'self' data:;"
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "center": true,
+        "x": null,
+        "y": null,
+        "maximized": false,
+        "visible": true,
+        "decorations": true,
+        "alwaysOnTop": false,
+        "contentProtected": false,
+        "skipTaskbar": false,
+        "theme": null
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": [],
+    "copyright": "",
+    "category": "DeveloperTool",
+    "macOS": {
+      "entitlements": null,
+      "exceptionDomain": "",
+      "frameworks": [],
+      "minimumSystemVersion": "10.13",
+      "providerShortName": null,
+      "signingIdentity": null
+    },
+    "shortDescription": "AI-powered local environment command center",
+    "longDescription": "LocalBrain is a privacy-first macOS desktop application that gives power-users voice, chat and graphical control over their computer."
+  }
+}

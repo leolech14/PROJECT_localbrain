@@ -1,0 +1,26 @@
+{
+  "registry": {
+    "3000": {
+      "project": "liquid-glass-components",
+      "path": "/Users/lech/COMPONENTS_library",
+      "process": "preview-server",
+      "started": "2025-07-31T10:30:00Z",
+      "pid": null,
+      "status": "reserved"
+    }
+  },
+  "preferences": {
+    "liquid-glass-components": {
+      "preferred": 3000,
+      "alternatives": [3001, 3002]
+    }
+  },
+  "history": [
+    {
+      "port": 3000,
+      "project": "liquid-glass-components",
+      "action": "reserved",
+      "timestamp": "2025-07-31T10:30:00Z"
+    }
+  ]
+}

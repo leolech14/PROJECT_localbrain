@@ -1,0 +1,19 @@
+{
+  "name": "localbrain-api-server",
+  "version": "1.0.0",
+  "description": "API middleware for LocalBrain Retool integration",
+  "main": "localbrain_api_server.js",
+  "scripts": {
+    "start": "node localbrain_api_server.js",
+    "dev": "nodemon localbrain_api_server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "ws": "^8.13.0",
+    "@tauri-apps/api": "^2.0.0-rc.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

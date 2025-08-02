@@ -1,0 +1,36 @@
+{
+  "name": "localbrain-enterprise",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Privacy-first AI-powered local environment command centre",
+  "author": "LocalBrain Team",
+  "license": "Apache-2.0 OR MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter=desktop dev --port 3000",
+    "build": "pnpm --filter=desktop build",
+    "build:mac": "pnpm --filter=desktop build:mac",
+    "test": "pnpm -r test",
+    "test:e2e": "pnpm --filter=tests test:e2e",
+    "coverage": "pnpm -r coverage",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format",
+    "clean": "pnpm -r clean && rm -rf node_modules",
+    "postinstall": "node scripts/dev-postinstall.js",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "husky": "^9.1.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.3.0",
+    "typescript": "^5.5.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md}": "prettier --write",
+    "*.{js,jsx,ts,tsx}": "eslint --fix"
+  }
+}

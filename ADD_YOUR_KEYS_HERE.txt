@@ -1,0 +1,27 @@
+🔑 ADD YOUR API KEYS HERE
+========================
+
+QUICK START:
+-----------
+1. Run this command:
+   ./setup-keys.sh
+
+2. Enter your OpenAI API key when prompted
+
+OR manually edit the .env file:
+------------------------------
+1. Open .env file in this directory
+2. Replace "your-real-openai-api-key-here" with your actual OpenAI API key
+3. Save the file
+
+Your OpenAI API key should look like: sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Get your key from: https://platform.openai.com/api-keys
+
+The app is configured to use:
+- Model: o3 (as requested)
+- Voice: maple (as requested)
+- Wake word: "Hey Brain"
+
+After adding your key, start the app with:
+pnpm --filter=desktop dev

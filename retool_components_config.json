@@ -1,0 +1,362 @@
+{
+  "localBrainRetoolComponents": {
+    "mainContainer": {
+      "type": "container",
+      "properties": {
+        "layout": "column",
+        "height": "100vh",
+        "backgroundColor": "#0f0f0f"
+      },
+      "children": ["header", "bodyContainer"]
+    },
+    
+    "header": {
+      "type": "container",
+      "properties": {
+        "height": "60px",
+        "backgroundColor": "#1a1a1a",
+        "padding": "0 20px",
+        "layout": "row",
+        "alignItems": "center"
+      },
+      "children": [
+        {
+          "type": "text",
+          "properties": {
+            "value": "🧠 LocalBrain",
+            "fontSize": "24px",
+            "fontWeight": "bold",
+            "color": "#ffffff"
+          }
+        },
+        {
+          "type": "navigation",
+          "properties": {
+            "items": [
+              { "label": "Chat", "value": "chat" },
+              { "label": "Agents", "value": "agents" },
+              { "label": "Tools", "value": "tools" },
+              { "label": "Knowledge", "value": "knowledge" }
+            ]
+          }
+        }
+      ]
+    },
+    
+    "bodyContainer": {
+      "type": "container",
+      "properties": {
+        "layout": "row",
+        "flex": 1,
+        "gap": "10px",
+        "padding": "10px"
+      },
+      "children": ["leftPanel", "centerPanel", "rightPanel"]
+    },
+    
+    "leftPanel": {
+      "type": "container",
+      "properties": {
+        "width": "25%",
+        "backgroundColor": "#1a1a1a",
+        "borderRadius": "8px",
+        "padding": "15px"
+      },
+      "components": [
+        {
+          "id": "fileExplorer",
+          "type": "tree",
+          "properties": {
+            "data": "{{ fileTreeQuery.data }}",
+            "expandedKeys": ["root", "src"],
+            "showLine": true,
+            "showIcon": true,
+            "searchable": true,
+            "onSelect": "{{ selectedFile.setValue(self.selectedValue) }}"
+          }
+        }
+      ]
+    },
+    
+    "centerPanel": {
+      "type": "container",
+      "properties": {
+        "width": "50%",
+        "layout": "column",
+        "gap": "10px"
+      },
+      "children": ["chatPane", "terminalPane"]
+    },
+    
+    "chatPane": {
+      "type": "container",
+      "properties": {
+        "height": "60%",
+        "backgroundColor": "#1a1a1a",
+        "borderRadius": "8px",
+        "padding": "15px",
+        "layout": "column"
+      },
+      "components": [
+        {
+          "id": "chatMessages",
+          "type": "listView",
+          "properties": {
+            "data": "{{ chatHistory.data }}",
+            "height": "calc(100% - 120px)",
+            "itemHeight": "auto",
+            "template": "<div class='message-{{item.role}}'><strong>{{item.role}}:</strong> {{item.content}}</div>"
+          }
+        },
+        {
+          "id": "voiceIndicator",
+          "type": "container",
+          "properties": {
+            "layout": "row",
+            "alignItems": "center",
+            "gap": "10px",
+            "marginBottom": "10px"
+          },
+          "components": [
+            {
+              "type": "icon",
+              "properties": {
+                "icon": "microphone",
+                "color": "{{ voiceActive.value ? '#4ade80' : '#6b7280' }}"
+              }
+            },
+            {
+              "type": "text",
+              "properties": {
+                "value": "{{ voiceActive.value ? 'Listening...' : 'Say \"Hey Brain\"' }}",
+                "color": "#9ca3af"
+              }
+            }
+          ]
+        },
+        {
+          "id": "chatInput",
+          "type": "container",
+          "properties": {
+            "layout": "row",
+            "gap": "10px"
+          },
+          "components": [
+            {
+              "id": "messageInput",
+              "type": "textArea",
+              "properties": {
+                "placeholder": "Type a message or say 'Hey Brain'...",
+                "rows": 2,
+                "flex": 1
+              }
+            },
+            {
+              "id": "sendButton",
+              "type": "button",
+              "properties": {
+                "text": "Send",
+                "variant": "primary",
+                "onClick": "{{ sendMessage.trigger() }}"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    
+    "terminalPane": {
+      "type": "container",
+      "properties": {
+        "height": "40%",
+        "backgroundColor": "#000000",
+        "borderRadius": "8px",
+        "padding": "10px",
+        "fontFamily": "monospace"
+      },
+      "components": [
+        {
+          "id": "terminalTabs",
+          "type": "tabs",
+          "properties": {
+            "tabs": [
+              { "label": "Terminal 1", "value": "term1" },
+              { "label": "Terminal 2", "value": "term2" },
+              { "label": "+", "value": "new" }
+            ]
+          }
+        },
+        {
+          "id": "terminalOutput",
+          "type": "text",
+          "properties": {
+            "value": "{{ terminalHistory.data.map(cmd => `$ ${cmd.command}\\n${cmd.output}`).join('\\n\\n') }}",
+            "copyable": true,
+            "markdown": false,
+            "style": {
+              "color": "#00ff00",
+              "backgroundColor": "#000000",
+              "padding": "10px",
+              "height": "calc(100% - 80px)",
+              "overflowY": "auto"
+            }
+          }
+        },
+        {
+          "id": "terminalInput",
+          "type": "textInput",
+          "properties": {
+            "placeholder": "$ Enter command...",
+            "onSubmit": "{{ executeCommand.trigger() }}",
+            "style": {
+              "backgroundColor": "#1a1a1a",
+              "color": "#00ff00",
+              "fontFamily": "monospace"
+            }
+          }
+        }
+      ]
+    },
+    
+    "rightPanel": {
+      "type": "container",
+      "properties": {
+        "width": "25%",
+        "backgroundColor": "#1a1a1a",
+        "borderRadius": "8px",
+        "padding": "15px"
+      },
+      "components": [
+        {
+          "id": "editorTabs",
+          "type": "tabs",
+          "properties": {
+            "tabs": [
+              { "label": "Editor", "value": "editor" },
+              { "label": "Preview", "value": "preview" }
+            ]
+          }
+        },
+        {
+          "id": "codeEditor",
+          "type": "codeEditor",
+          "properties": {
+            "mode": "{{ getFileMode(selectedFile.value) }}",
+            "value": "{{ selectedFileContent.data }}",
+            "theme": "vs-dark",
+            "hidden": "{{ editorTabs.value !== 'editor' }}"
+          }
+        },
+        {
+          "id": "preview",
+          "type": "iframe",
+          "properties": {
+            "src": "{{ previewUrl.value }}",
+            "hidden": "{{ editorTabs.value !== 'preview' }}"
+          }
+        }
+      ]
+    },
+    
+    "agentsCanvas": {
+      "type": "customComponent",
+      "properties": {
+        "iframeCode": "<script src='https://unpkg.com/vis-network/standalone/umd/vis-network.min.js'></script>\\n<div id='network' style='width: 100%; height: 400px;'></div>\\n<script>\\n  const nodes = new vis.DataSet([\\n    {id: 1, label: 'Main Agent', color: '#4ade80'},\\n    {id: 2, label: 'Code Assistant', color: '#60a5fa'},\\n    {id: 3, label: 'Data Analyst', color: '#f59e0b'}\\n  ]);\\n  const edges = new vis.DataSet([\\n    {from: 1, to: 2},\\n    {from: 1, to: 3}\\n  ]);\\n  const container = document.getElementById('network');\\n  const data = {nodes: nodes, edges: edges};\\n  const options = {\\n    nodes: {shape: 'dot', size: 30},\\n    physics: {enabled: true}\\n  };\\n  const network = new vis.Network(container, data, options);\\n</script>"
+      }
+    },
+    
+    "settingsModal": {
+      "type": "modal",
+      "properties": {
+        "title": "LocalBrain Settings",
+        "width": "600px"
+      },
+      "components": [
+        {
+          "type": "form",
+          "properties": {
+            "data": "{{ settings.value }}",
+            "fields": [
+              {
+                "label": "Offline Mode",
+                "type": "switch",
+                "key": "offlineMode"
+              },
+              {
+                "label": "STT Provider",
+                "type": "select",
+                "key": "sttProvider",
+                "options": [
+                  { "label": "OpenAI Whisper", "value": "openai" },
+                  { "label": "Local Whisper", "value": "local" }
+                ]
+              },
+              {
+                "label": "LLM Provider",
+                "type": "select",
+                "key": "llmProvider",
+                "options": [
+                  { "label": "OpenAI GPT-4", "value": "openai" },
+                  { "label": "Ollama (Local)", "value": "ollama" }
+                ]
+              },
+              {
+                "label": "Enable Audit Logging",
+                "type": "switch",
+                "key": "auditLogging"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  
+  "queries": {
+    "chatHistory": {
+      "resource": "retoolDatabase",
+      "query": "SELECT * FROM chat_messages WHERE session_id = {{ currentSession.value }} ORDER BY created_at ASC"
+    },
+    
+    "sendMessage": {
+      "resource": "openaiAPI",
+      "type": "POST",
+      "endpoint": "/v1/chat/completions",
+      "body": {
+        "model": "gpt-4",
+        "messages": "{{ formatMessages(chatHistory.data, messageInput.value) }}",
+        "temperature": 0.7
+      },
+      "onSuccess": "{{ addMessageToChat.trigger() }}"
+    },
+    
+    "executeCommand": {
+      "resource": "customAPI",
+      "endpoint": "/execute",
+      "method": "POST",
+      "body": {
+        "command": "{{ terminalInput.value }}",
+        "cwd": "{{ currentDirectory.value }}"
+      }
+    },
+    
+    "fileTreeQuery": {
+      "resource": "retoolStorage",
+      "type": "list",
+      "path": "/",
+      "transformer": "return formatFileTree(data)"
+    }
+  },
+  
+  "transformers": {
+    "formatMessages": "return [...chatHistory, {role: 'user', content: messageInput}].map(m => ({role: m.role, content: m.content}))",
+    
+    "formatFileTree": "return data.map(file => ({\\n  label: file.name,\\n  value: file.path,\\n  children: file.type === 'directory' ? [] : null,\\n  icon: file.type === 'directory' ? 'folder' : 'file'\\n}))",
+    
+    "getFileMode": "const ext = file.split('.').pop();\\nconst modeMap = {\\n  js: 'javascript',\\n  ts: 'typescript',\\n  py: 'python',\\n  rs: 'rust',\\n  md: 'markdown'\\n};\\nreturn modeMap[ext] || 'text'"
+  },
+  
+  "styles": {
+    "custom_css": ".message-user {\\n  background: #2563eb;\\n  color: white;\\n  padding: 10px;\\n  border-radius: 8px;\\n  margin: 5px 0;\\n  align-self: flex-end;\\n}\\n\\n.message-assistant {\\n  background: #374151;\\n  color: white;\\n  padding: 10px;\\n  border-radius: 8px;\\n  margin: 5px 0;\\n  align-self: flex-start;\\n}\\n\\n.terminal-output {\\n  font-family: 'Consolas', 'Monaco', monospace;\\n  white-space: pre-wrap;\\n  word-wrap: break-word;\\n}"
+  }
+}

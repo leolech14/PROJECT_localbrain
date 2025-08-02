@@ -1,0 +1,178 @@
+#################################################################################################
+#  LOCALBRAIN ENTERPRISE – “ONE‑SHOT” CODE‑GEN SPEC v1.0                                       #
+#  Paste **exactly** this block into your autonomous coding agent (e.g. gpt‑engineer‑enterprise)#
+#  The agent MUST emit a complete, security‑hardened, production‑ready codebase that compiles,  #
+#  passes all tests, and ships a signed macOS DMG ≤ 50 MB.                                      #
+#                                                                                               #
+#  ✱✱✱  YOU ARE: a senior staff engineer with proven expertise in Rust, React, SQL, security,   #
+#         CI/CD and cloud/on‑device AI. Follow this spec literally unless a contradiction is    #
+#         detected—in that case, stop and surface a blocking error.                             #
+#################################################################################################
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 0 • OUTPUT FORMAT RULES
+──────────────────────────────────────────────────────────────────────────────────────────────────
+0.1 Emit the repo as **pseudo‑files**: start each file with `// FILE: <relative‑path>`  
+    and end with a newline.  
+0.2 Order: root configs ➞ shared packages ➞ application code ➞ tests ➞ docs.  
+0.3 Include **no third‑party source**; only list them as deps in `Cargo.toml` / `package.json`.  
+0.4 Never embed secrets; read runtime keys from `.env`.  
+0.5 Total fenced payload ≤ 30 000 tokens (agent may stream in multiple messages if needed).  
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 1 • EXECUTIVE OVERVIEW
+──────────────────────────────────────────────────────────────────────────────────────────────────
+• **Product** LocalBrain: a privacy‑first, Tauri‑based desktop command centre (macOS 12+) with  
+  multimodal AI, voice control, secure file ops, plugin ecosystem and knowledge management.  
+• **Edition** Enterprise‑grade: SSO, encrypted storage, audit logging, CI pipeline with security  
+  scanning, unit+integration+E2E tests, >90 % branch coverage.  
+• **Binary target** Signed & notarised universal DMG ≤ 50 MB; auto‑update via GitHub Releases.  
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 2 • APPROVED TECH STACK (LOCKED)
+──────────────────────────────────────────────────────────────────────────────────────────────────
+| Layer                     | Technology & Version (or “Latest stable on 2025‑08‑01”)          |
+|---------------------------|-------------------------------------------------------------------|
+| Desktop Shell            | **Tauri 2** (Rust 1.78, WKWebView)                                |
+| Front‑end                | React 18 + Vite 5 + TypeScript 5 + TailwindCSS 3                  |
+| State & Settings         | sqlcipher via `@tauri-apps/plugin-sqlite`, Zod schema validation  |
+| Editor                   | Monaco Editor 0.51                                                |
+| Terminal                 | xterm.js 5 ↔ Rust PTY (`tokio-pty-process` ≥ 0.5)                 |
+| Package Manager          | **pnpm workspaces** 8                                             |
+| STT Providers (switchable)| ① OpenAI Whisper API ② whisper.cpp (local)                       |
+| TTS Providers (switchable)| ① OpenAI TTS API     ② Piper TTS (local)                         |
+| LLM Providers (switchable)| ① OpenAI `gpt‑4o`      ② Ollama local (`llama3‑8b‑instr`)        |
+| Auth / SSO               | Tauri OIDC plugin (Auth0/Okta compliant)                          |
+| Native Crash Reporting   | Sentry Rust/Browser SDKs (opt‑in, PII‑scrubbed)                   |
+| Plugin Runtime           | Rust dylibs **or** WebAssembly (wasmtime); per‑plugin ACL         |
+| CI/CD                    | GitHub Actions, Codesigning & Notarisation via `apple‑os‑action`  |
+| QA Framework             | Jest 30, Playwright 1.44, Tarpaulin for Rust coverage             |
+| Lint / Static Analysis   | ESLint, Biome, Clippy, cargo‑audit, cargo‑deny                    |
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 3 • FUNCTIONAL REQUIREMENTS
+──────────────────────────────────────────────────────────────────────────────────────────────────
+F‑1 Four‑Pane UI (Chat, Terminal, Preview/Editor, File Explorer) with snap‑and‑resize.  
+F‑2 **Voice Control**: wake‑word (“Hey Brain”), streaming STT, TTS responses, offline fallback.  
+F‑3 **Context Manager**: CRUD prompt sets, bootstrap on launch.  
+F‑4 **Agents Canvas**: Graph view of agent constellation; nodes editable in modal Monaco.  
+F‑5 **Toolkit Library**: searchable catalogue of tools/APIs/scripts with metadata.  
+F‑6 **Knowledge Base Browser**: browse, tag and embed datasets, vector stores and media assets.  
+F‑7 **Scoped File‑System**: user‑granted roots only; diff preview on writes; Git status colours.  
+F‑8 **Terminal Bridge**: multi‑tab PTY, command queue, status badges, output streaming to LLM.  
+F‑9 **Plugin System**: hot‑load plugins; manifest declares `fs`, `process`, `network`, `tts` etc.  
+F‑10 **Offline Mode**: toggle routes all STT/TTS/LLM calls to local providers; network blocked.  
+F‑11 **Security & Compliance**: AES‑256 at‑rest, TLS 1.3 in transit, OWASP top‑10 hardening.  
+F‑12 **Audit Log**: immutable append‑only SQLite table of user actions and LLM commands.  
+F‑13 **Accessibility & i18n**: full keyboard nav, WCAG 2.1 AA, English + i18n ready via i18next.  
+F‑14 **Auto‑Update Channel**: semantic versioning, delta updates, rollback on failure.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 4 • NON‑FUNCTIONAL REQUIREMENTS
+──────────────────────────────────────────────────────────────────────────────────────────────────
+N‑1 Idle RAM ≤ 100 MB; CPU idle ≤ 1 %.  
+N‑2  P95 voice round‑trip latency (speech→text→LLM→speech) ≤ 2.5 s cloud, ≤ 4 s local.  
+N‑3 Unit + integration coverage ≥ 90 % branches; E2E suite covers critical flows.  
+N‑4 Build & test pipeline completes in ≤ 15 min on GitHub medium runner.  
+N‑5 No CVEs with HIGH/CRITICAL severity in `cargo‑audit` / `npm audit` at build time.  
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 5 • REPO LAYOUT (GENERATE EXACTLY)
+──────────────────────────────────────────────────────────────────────────────────────────────────
+localbrain/
+├── .env.example
+├── pnpm-workspace.yaml
+├── package.json
+├── LICENSE
+├── apps/
+│   └── desktop/
+│       ├── src-tauri/
+│       │   ├── Cargo.toml
+│       │   ├── build.rs
+│       │   └── src/
+│       │       ├── main.rs
+│       │       ├── commands.rs
+│       │       └── plugins/
+│       └── src/
+│           ├── main.tsx
+│           ├── routes.tsx
+│           ├── components/ (ChatPane, TerminalPane, ...)
+│           ├── stores/      (settings.ts, auth.ts)
+│           ├── hooks/
+│           └── styles/
+├── packages/
+│   ├── core/        # capability providers & shared utils
+│   ├── ui/          # atomic / molecule components
+│   └── types/       # global TypeScript types
+├── plugins/         # sample plugin
+│   └── hello-world/
+│       ├── manifest.json
+│       └── src/lib.rs
+├── tests/           # Playwright & Jest
+├── scripts/         # dev‑postinstall, codesign, release
+└── docs/            # ADRs, architecture diagrams
+(Note: add README.md, CHANGELOG.md, CONTRIBUTING.md as part of docs)
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 6 • BUILD & RUN COMMANDS (MUST WORK)
+──────────────────────────────────────────────────────────────────────────────────────────────────
+# Development
+pnpm install
+pnpm --filter=desktop dev      # live‑reload Vite + Tauri
+
+# Tests + lint + security
+pnpm lint && pnpm test && pnpm coverage
+cargo clippy -- -D warnings
+cargo audit && cargo deny check licenses
+
+# CI build (DMG)
+pnpm --filter=desktop build:mac    # produces notarised DMG
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 7 • CI/CD PIPELINE (GENERATE .github/workflows)
+──────────────────────────────────────────────────────────────────────────────────────────────────
+• Workflow “ci.yml”: install pnpm & Rust, build, run tests, upload coverage to Codecov,  
+  run `cargo‑audit`, `npm audit`, SCA scan (`osv‑scanner`), artefact notarisation.  
+• Workflow “release.yml”: on tag v*, build signed DMG, create GitHub Release with checksum.  
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 8 • ACCEPTANCE TEST MATRIX (IMPLEMENT IN tests/)
+──────────────────────────────────────────────────────────────────────────────────────────────────
+T‑1 **Unit • Settings encryption**: writes + reads round‑trip secret key.  
+T‑2 **Unit • Capability provider switch**: toggling offline returns mock local transcript.  
+T‑3 **Integration • Voice query**: Play “fixtures/hey_brain_time.wav” ⇒ app speaks HH:MM.  
+T‑4 **Integration • Terminal**: type `echo $((2+40))` ⇒ Chat pane summarises “42”.  
+T‑5 **E2E • Plugin sandbox**: malicious plugin requesting `process` without permission fails.  
+T‑6 **Security • Audit log tamper**: attempt direct SQL update raises `FOREIGN KEY` violation.  
+T‑7 **Performance • Cold start**: app shown in ≤ 2.0 s on M1 base.  
+Coverage goal: ≥ 90 % branches overall, ≥ 95 % for Rust commands.  
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 9 • CODING CONVENTIONS
+──────────────────────────────────────────────────────────────────────────────────────────────────
+C‑1 Prettier + ESLint (Airbnb) for TS; rustfmt + clippy for Rust.  
+C‑2 Commit hooks via Husky enforce formatting & lint.  
+C‑3 All async Rust functions return `anyhow::Result<T>`.  
+C‑4 Front‑end state managed by `zustand` with middleware for persistence.  
+C‑5 Tailwind utility classes only; no custom CSS unless component‑specific.  
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 10 • LICENSE & LEGAL
+──────────────────────────────────────────────────────────────────────────────────────────────────
+• Dual‑license code under Apache‑2.0 OR MIT; sample plugins under MIT.  
+• Bundle THIRD‑PARTY‑LICENSES generated via `cargo‑about` + `oss-attribution-generator`.  
+• Sentry and telemetry are **opt‑in**; default OFF per GDPR/CCPA.  
+
+──────────────────────────────────────────────────────────────────────────────────────────────────
+SECTION 11 • DELIVERABLES SUMMARY (MUST EMIT)
+──────────────────────────────────────────────────────────────────────────────────────────────────
+✅ All files per layout in §5  
+✅ Declarative dependency manifests (Cargo, package.json, pnpm‑workspace)  
+✅ CI workflows under `.github/workflows/`  
+✅ Full test suite under `tests/` with fixtures  
+✅ Documentation: README, CHANGELOG, CONTRIBUTING, ADR‑001 (“Why Tauri 2”), ARCHITECTURE.md  
+✅ Post‑generation shell script `scripts/apply.sh` to materialise pseudo‑files
+
+#################################################################################################
+# END OF SPEC – BEGIN OUTPUTTING PSEUDO‑FILES NOW                                              #
+#################################################################################################

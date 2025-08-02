@@ -1,0 +1,137 @@
+{
+  "version": "3.33.16",
+  "appTemplate": {
+    "rootScreen": null,
+    "version": "3.33.16"
+  },
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "customDocumentTitleEnabled": false,
+  "experimentalFeatures": {
+    "sourceControlTemplateDehydration": true
+  },
+  "experimentalPerfFeatures": {
+    "batchCommitModelEnabled": false,
+    "skipDepCycleCheckingEnabled": false,
+    "useQueryDiffCheckingEnabled": false
+  },
+  "folders": [],
+  "globalJavaScript": null,
+  "instrumentationEnabled": false,
+  "isGlobalWidget": false,
+  "isMobileApp": false,
+  "multiScreenMobileApp": false,
+  "notificationsSettings": {
+    "globalToastDateTime": "sameAsViewer",
+    "globalToastPosition": "bottomRight"
+  },
+  "organizationId": null,
+  "pageLoadValueOverrides": [],
+  "pageUuid": "6b8f9c10-2d3e-11ee-8f4a-ef1b7e40e4d1",
+  "protectedAppAuthentication": false,
+  "resourcesOrder": [],
+  "appMaxWidth": "100%",
+  "createdAppVersion": "3.33.16",
+  "customShortcuts": [],
+  "isAppBuilder": false,
+  "isFormApp": false,
+  "markdownLinkBehavior": "auto",
+  "pageId": "6b8f9c10-2d3e-11ee-8f4a-ef1b7e40e4d1",
+  "pageName": "LocalBrain",
+  "queryStatusVisibility": false,
+  "responsiveLayoutDisabled": false,
+  "urlFragmentDefinitions": [],
+  "widgets": {
+    "container1": {
+      "children": ["text1", "text2"],
+      "events": {},
+      "frame": {
+        "backgroundColor": "#0a0a0a",
+        "borderRadius": "0px",
+        "borderWidth": "0px",
+        "padding": "12px"
+      },
+      "id": "container1",
+      "margin": "0px",
+      "name": "container1",
+      "padding": "12px",
+      "pluginType": "container",
+      "position": {
+        "col": 0,
+        "height": 12,
+        "row": 0,
+        "width": 12
+      },
+      "template": {
+        "align": "start",
+        "justify": "start",
+        "layoutType": "auto",
+        "wrap": false
+      },
+      "type": "container"
+    },
+    "text1": {
+      "events": {},
+      "frame": {},
+      "id": "text1",
+      "margin": "4px 8px",
+      "name": "text1",
+      "padding": "0",
+      "parentId": "container1",
+      "pluginType": "text",
+      "position": {
+        "autoHeight": true,
+        "col": 0,
+        "height": 1,
+        "row": 0,
+        "width": 12
+      },
+      "style": {
+        "fontSize": "24px",
+        "fontWeight": "600",
+        "textColor": "#fbbf24"
+      },
+      "template": {
+        "align": "left",
+        "type": "h2",
+        "value": "LocalBrain Control Center",
+        "verticalAlign": "center"
+      },
+      "type": "text"
+    },
+    "text2": {
+      "events": {},
+      "frame": {},
+      "id": "text2",
+      "margin": "4px 8px",
+      "name": "text2",
+      "padding": "0",
+      "parentId": "container1",
+      "pluginType": "text",
+      "position": {
+        "autoHeight": true,
+        "col": 0,
+        "height": 1,
+        "row": 1,
+        "width": 12
+      },
+      "template": {
+        "align": "left",
+        "value": "Welcome to LocalBrain. Add components to build your interface.",
+        "verticalAlign": "center"
+      },
+      "type": "text"
+    },
+    "query1": {
+      "id": "query1",
+      "name": "query1",
+      "pluginType": "query",
+      "template": {
+        "queryRefreshTime": "",
+        "queryTimeout": "10000",
+        "resourceName": "javascript",
+        "transformer": "return data"
+      },
+      "type": "query"
+    }
+  }
+}

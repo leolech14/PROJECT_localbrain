@@ -1,0 +1,646 @@
+{
+  "version": "3.0.0",
+  "pageUuid": "localbrain-main",
+  "appTemplate": {
+    "version": "2.118.0",
+    "experimentalFeatures": {
+      "sourceControlTemplateDehydration": true
+    },
+    "appThemeId": null,
+    "preloadedAppJavaScript": null,
+    "preloadedAppJSLinks": [],
+    "testEntities": [],
+    "tests": [],
+    "appStyles": "",
+    "customDocumentTitle": "",
+    "customDocumentTitleEnabled": false,
+    "customShortcuts": [],
+    "folders": [],
+    "queryStatusVisibility": false,
+    "markdownLinkBehavior": "auto",
+    "experimentalPerfFeatures": {
+      "batchCommitModelEnabled": false,
+      "skipDepCycleCheckingEnabled": false,
+      "useQueryDiffCheckingEnabled": false
+    },
+    "pageLoadValueOverrides": [],
+    "customDocumentAttributes": [],
+    "libraries": [],
+    "globalJavaScript": "",
+    "protectedAppAuthentication": false,
+    "protectedAppSettings": null,
+    "isGlobalWidget": false,
+    "isMobileApp": false,
+    "mobileAppSettings": null,
+    "createdAt": null,
+    "inAppRetoolPillAppearance": "NO_OVERRIDE",
+    "multiScreenMobileApp": false,
+    "mobileAppCapabilities": null,
+    "formAppSettings": null
+  },
+  "modules": {},
+  "tempStates": [],
+  "queries": [
+    {
+      "queryConfigType": "SqlQueryUnified",
+      "queryConfig": {
+        "id": "loadFileTree",
+        "type": "SqlQueryUnified",
+        "resourceName": "JavaScriptQuery",
+        "compoundQueryId": null,
+        "userInsertedUuid": "3e4b5c6d-7e8f-4a9b-1c2d-3e4f5a6b7c8d",
+        "query": "// Load file tree\nconst response = await fetch('http://localhost:3001/api/files/tree?path=' + encodeURIComponent(currentDirectory.value || '/'));\nconst data = await response.json();\n\nif (data.success) {\n  return data.data.map(file => ({\n    key: file.path,\n    title: file.name,\n    isLeaf: !file.is_dir,\n    icon: file.is_dir ? '📁' : '📄',\n    children: file.is_dir ? [] : undefined\n  }));\n}\nreturn [];",
+        "resourceType": "javascript"
+      }
+    },
+    {
+      "queryConfigType": "SqlQueryUnified", 
+      "queryConfig": {
+        "id": "sendMessage",
+        "type": "SqlQueryUnified",
+        "resourceName": "JavaScriptQuery",
+        "compoundQueryId": null,
+        "userInsertedUuid": "4e5b6c7d-8e9f-5a0b-2c3d-4e5f6a7b8c9d",
+        "query": "// Send chat message\nconst message = messageInput.value.trim();\nif (!message) return;\n\n// Add user message\nmessages.setValue([...messages.value, {\n  id: utils.uuid(),\n  role: 'user',\n  content: message,\n  timestamp: new Date().toISOString()\n}]);\n\nmessageInput.setValue('');\nisProcessing.setValue(true);\n\ntry {\n  const response = await fetch('http://localhost:3001/api/chat/send', {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json',\n      'Authorization': 'Bearer ' + (localStorage.values.authToken || '')\n    },\n    body: JSON.stringify({\n      message: message,\n      context: currentContext.value,\n      sessionId: currentSession.value || 'default'\n    })\n  });\n  \n  const result = await response.json();\n  \n  if (result.success) {\n    messages.setValue([...messages.value, {\n      id: utils.uuid(),\n      role: 'assistant',\n      content: result.data,\n      timestamp: new Date().toISOString()\n    }]);\n  } else {\n    utils.showNotification({\n      title: 'Error',\n      description: result.error || 'Failed to send message',\n      notificationType: 'error'\n    });\n  }\n} catch (error) {\n  utils.showNotification({\n    title: 'Error',\n    description: error.message,\n    notificationType: 'error'\n  });\n} finally {\n  isProcessing.setValue(false);\n}",
+        "resourceType": "javascript"
+      }
+    }
+  ],
+  "folderState": {},
+  "globalJavaScript": "",
+  "page": {
+    "id": "localbrain-main",
+    "name": "LocalBrain",
+    "appId": null,
+    "data": {
+      "type": "Screen",
+      "key": null,
+      "containerKey": null,
+      "parent": null,
+      "templateId": null,
+      "resourceName": null,
+      "resourceQuery": null,
+      "transformer": null,
+      "runWhenModelUpdates": true,
+      "compoundQueryId": null,
+      "confirmationMessage": null,
+      "isGlobalWidget": false,
+      "userInsertedUuid": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      "children": {
+        "body": {
+          "containers": ["rootContainer"]
+        }
+      },
+      "position2": {},
+      "frame": {
+        "padding": "0"
+      }
+    },
+    "modules": []
+  },
+  "resources": [],
+  "containers": {
+    "rootContainer": {
+      "type": "Container",
+      "key": "rootContainer",
+      "templateId": null,
+      "parent": null,
+      "children": {
+        "header": {
+          "containers": ["headerBar"]
+        },
+        "body": {
+          "containers": ["mainContent"]
+        },
+        "footer": {
+          "containers": ["statusBar"]
+        }
+      },
+      "frame": {
+        "padding": "0px",
+        "borderWidth": "0px",
+        "borderStyle": "solid",
+        "borderColor": "transparent",
+        "borderRadius": "0px",
+        "backgroundColor": "#0a0a0a",
+        "backgroundImage": null,
+        "backgroundImageFit": "cover",
+        "backgroundImagePosition": "center",
+        "backgroundImageRepeat": "no-repeat"
+      },
+      "position2": {
+        "containerKey": "body",
+        "key": "rootContainer",
+        "row": 0,
+        "col": 0,
+        "height": 100,
+        "width": 24
+      }
+    },
+    "headerBar": {
+      "type": "Container",
+      "key": "headerBar",
+      "templateId": null,
+      "parent": "rootContainer",
+      "children": {
+        "body": {
+          "components": {
+            "text1": {
+              "type": "Text",
+              "key": "text1",
+              "templateId": null,
+              "parent": "headerBar",
+              "position2": {
+                "containerKey": "body",
+                "key": "text1",
+                "row": 0,
+                "col": 0,
+                "height": 1,
+                "width": 4
+              },
+              "frame": {
+                "padding": "4px 8px"
+              },
+              "text": "🧠 LocalBrain",
+              "textSize": "20px",
+              "textColor": "#fbbf24",
+              "textAlign": "left",
+              "textWeight": "bold",
+              "textStyle": "normal",
+              "textDecoration": "none",
+              "backgroundColor": "transparent"
+            }
+          },
+          "containers": []
+        }
+      },
+      "frame": {
+        "padding": "8px 16px",
+        "borderWidth": "0px 0px 1px 0px",
+        "borderStyle": "solid",
+        "borderColor": "#27272a",
+        "borderRadius": "0px",
+        "backgroundColor": "#111111",
+        "backgroundImage": null,
+        "backgroundImageFit": "cover",
+        "backgroundImagePosition": "center",
+        "backgroundImageRepeat": "no-repeat"
+      },
+      "position2": {
+        "containerKey": "header",
+        "key": "headerBar",
+        "row": 0,
+        "col": 0,
+        "height": 2,
+        "width": 24
+      }
+    },
+    "mainContent": {
+      "type": "Container",
+      "key": "mainContent",
+      "templateId": null,
+      "parent": "rootContainer",
+      "children": {
+        "body": {
+          "containers": ["chatPanel", "terminalPanel"]
+        }
+      },
+      "frame": {
+        "padding": "8px",
+        "borderWidth": "0px",
+        "borderStyle": "solid",
+        "borderColor": "transparent",
+        "borderRadius": "0px",
+        "backgroundColor": "transparent",
+        "backgroundImage": null,
+        "backgroundImageFit": "cover",
+        "backgroundImagePosition": "center",
+        "backgroundImageRepeat": "no-repeat"
+      },
+      "position2": {
+        "containerKey": "body",
+        "key": "mainContent",
+        "row": 0,
+        "col": 0,
+        "height": 96,
+        "width": 24
+      }
+    },
+    "chatPanel": {
+      "type": "Container",
+      "key": "chatPanel",
+      "templateId": null,
+      "parent": "mainContent",
+      "children": {
+        "header": {
+          "components": {
+            "text2": {
+              "type": "Text",
+              "key": "text2",
+              "templateId": null,
+              "parent": "chatPanel",
+              "position2": {
+                "containerKey": "header",
+                "key": "text2",
+                "row": 0,
+                "col": 0,
+                "height": 1,
+                "width": 12
+              },
+              "frame": {
+                "padding": "4px"
+              },
+              "text": "Chat",
+              "textSize": "16px",
+              "textColor": "#ffffff",
+              "textAlign": "left",
+              "textWeight": "500",
+              "textStyle": "normal",
+              "textDecoration": "none",
+              "backgroundColor": "transparent"
+            }
+          },
+          "containers": []
+        },
+        "body": {
+          "components": {
+            "messageList": {
+              "type": "ListView",
+              "key": "messageList",
+              "templateId": null,
+              "parent": "chatPanel",
+              "position2": {
+                "containerKey": "body",
+                "key": "messageList",
+                "row": 0,
+                "col": 0,
+                "height": 36,
+                "width": 24
+              },
+              "frame": {
+                "padding": "8px",
+                "borderWidth": "0px",
+                "borderStyle": "solid",
+                "borderColor": "transparent",
+                "borderRadius": "8px",
+                "backgroundColor": "transparent"
+              },
+              "data": "{{ messages.value }}",
+              "itemHeight": "auto",
+              "showBorder": false,
+              "showDropShadow": false,
+              "scrollbarEnabled": true,
+              "instanceValues": {},
+              "enableInfiniteScroll": false
+            }
+          },
+          "containers": []
+        },
+        "footer": {
+          "components": {
+            "messageInput": {
+              "type": "TextInput",
+              "key": "messageInput",
+              "templateId": null,
+              "parent": "chatPanel",
+              "position2": {
+                "containerKey": "footer",
+                "key": "messageInput",
+                "row": 0,
+                "col": 0,
+                "height": 2,
+                "width": 18
+              },
+              "frame": {
+                "padding": "8px",
+                "borderWidth": "1px",
+                "borderStyle": "solid",
+                "borderColor": "#374151",
+                "borderRadius": "8px",
+                "backgroundColor": "#1a1a1a"
+              },
+              "placeholder": "Type a message or say 'Hey Brain'...",
+              "value": "",
+              "textColor": "#ffffff",
+              "placeholderColor": "#6b7280",
+              "required": false,
+              "disabled": false,
+              "readOnly": false,
+              "hideLabel": true,
+              "showClear": false,
+              "patternType": null,
+              "validationMessage": "",
+              "tooltipText": "",
+              "loading": false,
+              "autoComplete": false,
+              "maxLength": null,
+              "autoFocus": false,
+              "spellCheck": true
+            },
+            "sendButton": {
+              "type": "Button",
+              "key": "sendButton",
+              "templateId": null,
+              "parent": "chatPanel",
+              "position2": {
+                "containerKey": "footer",
+                "key": "sendButton",
+                "row": 0,
+                "col": 18,
+                "height": 2,
+                "width": 6
+              },
+              "frame": {
+                "padding": "8px 16px",
+                "borderWidth": "0px",
+                "borderStyle": "solid",
+                "borderColor": "transparent",
+                "borderRadius": "8px",
+                "backgroundColor": "#2563eb"
+              },
+              "text": "Send",
+              "textColor": "#ffffff",
+              "textSize": "14px",
+              "textWeight": "500",
+              "textAlign": "center",
+              "disabled": "{{ !messageInput.value || isProcessing.value }}",
+              "loading": "{{ isProcessing.value }}",
+              "tooltipText": "",
+              "styleVariant": "solid",
+              "submit": false,
+              "iconBefore": null,
+              "iconAfter": null
+            }
+          },
+          "containers": []
+        }
+      },
+      "frame": {
+        "padding": "16px",
+        "borderWidth": "0px",
+        "borderStyle": "solid",
+        "borderColor": "transparent",
+        "borderRadius": "8px",
+        "backgroundColor": "#111111",
+        "backgroundImage": null,
+        "backgroundImageFit": "cover",
+        "backgroundImagePosition": "center",
+        "backgroundImageRepeat": "no-repeat"
+      },
+      "position2": {
+        "containerKey": "body",
+        "key": "chatPanel",
+        "row": 0,
+        "col": 0,
+        "height": 50,
+        "width": 12
+      },
+      "showHeader": true,
+      "showFooter": true,
+      "showBody": true,
+      "headerHeight": "40px",
+      "footerHeight": "auto"
+    },
+    "terminalPanel": {
+      "type": "Container",
+      "key": "terminalPanel",
+      "templateId": null,
+      "parent": "mainContent",
+      "children": {
+        "header": {
+          "components": {
+            "text3": {
+              "type": "Text",
+              "key": "text3",
+              "templateId": null,
+              "parent": "terminalPanel",
+              "position2": {
+                "containerKey": "header",
+                "key": "text3",
+                "row": 0,
+                "col": 0,
+                "height": 1,
+                "width": 12
+              },
+              "frame": {
+                "padding": "4px"
+              },
+              "text": "Terminal",
+              "textSize": "16px",
+              "textColor": "#ffffff",
+              "textAlign": "left",
+              "textWeight": "500",
+              "textStyle": "normal",
+              "textDecoration": "none",
+              "backgroundColor": "transparent"
+            }
+          },
+          "containers": []
+        },
+        "body": {
+          "components": {
+            "terminalOutput": {
+              "type": "Text",
+              "key": "terminalOutput",
+              "templateId": null,
+              "parent": "terminalPanel",
+              "position2": {
+                "containerKey": "body",
+                "key": "terminalOutput",
+                "row": 0,
+                "col": 0,
+                "height": 20,
+                "width": 24
+              },
+              "frame": {
+                "padding": "8px",
+                "borderWidth": "0px",
+                "borderStyle": "solid",
+                "borderColor": "transparent",
+                "borderRadius": "0px",
+                "backgroundColor": "#000000"
+              },
+              "text": "$ LocalBrain Terminal Ready\n$ ",
+              "textSize": "14px",
+              "textColor": "#4ade80",
+              "textAlign": "left",
+              "textWeight": "400",
+              "textStyle": "normal",
+              "textDecoration": "none",
+              "backgroundColor": "#000000",
+              "fontFamily": "monospace"
+            }
+          },
+          "containers": []
+        },
+        "footer": {
+          "components": {
+            "terminalInput": {
+              "type": "TextInput",
+              "key": "terminalInput",
+              "templateId": null,
+              "parent": "terminalPanel",
+              "position2": {
+                "containerKey": "footer",
+                "key": "terminalInput",
+                "row": 0,
+                "col": 0,
+                "height": 2,
+                "width": 24
+              },
+              "frame": {
+                "padding": "8px",
+                "borderWidth": "0px",
+                "borderStyle": "solid",
+                "borderColor": "transparent",
+                "borderRadius": "0px",
+                "backgroundColor": "#1a1a1a"
+              },
+              "placeholder": "$ Enter command...",
+              "value": "",
+              "textColor": "#4ade80",
+              "placeholderColor": "#374151",
+              "required": false,
+              "disabled": false,
+              "readOnly": false,
+              "hideLabel": true,
+              "showClear": false,
+              "patternType": null,
+              "validationMessage": "",
+              "tooltipText": "",
+              "loading": false,
+              "autoComplete": false,
+              "maxLength": null,
+              "autoFocus": false,
+              "spellCheck": false,
+              "fontFamily": "monospace"
+            }
+          },
+          "containers": []
+        }
+      },
+      "frame": {
+        "padding": "0px",
+        "borderWidth": "0px",
+        "borderStyle": "solid",
+        "borderColor": "transparent",
+        "borderRadius": "8px",
+        "backgroundColor": "#000000",
+        "backgroundImage": null,
+        "backgroundImageFit": "cover",
+        "backgroundImagePosition": "center",
+        "backgroundImageRepeat": "no-repeat"
+      },
+      "position2": {
+        "containerKey": "body",
+        "key": "terminalPanel",
+        "row": 0,
+        "col": 12,
+        "height": 50,
+        "width": 12
+      },
+      "showHeader": true,
+      "showFooter": true,
+      "showBody": true,
+      "headerHeight": "40px",
+      "footerHeight": "auto"
+    },
+    "statusBar": {
+      "type": "Container",
+      "key": "statusBar",
+      "templateId": null,
+      "parent": "rootContainer",
+      "children": {
+        "body": {
+          "components": {
+            "statusText": {
+              "type": "Text",
+              "key": "statusText",
+              "templateId": null,
+              "parent": "statusBar",
+              "position2": {
+                "containerKey": "body",
+                "key": "statusText",
+                "row": 0,
+                "col": 0,
+                "height": 1,
+                "width": 12
+              },
+              "frame": {
+                "padding": "4px"
+              },
+              "text": "{{ settings.value.offlineMode ? 'Offline Mode' : 'Connected' }}",
+              "textSize": "12px",
+              "textColor": "#6b7280",
+              "textAlign": "left",
+              "textWeight": "400",
+              "textStyle": "normal",
+              "textDecoration": "none",
+              "backgroundColor": "transparent"
+            }
+          },
+          "containers": []
+        }
+      },
+      "frame": {
+        "padding": "4px 16px",
+        "borderWidth": "1px 0px 0px 0px",
+        "borderStyle": "solid",
+        "borderColor": "#27272a",
+        "borderRadius": "0px",
+        "backgroundColor": "#111111",
+        "backgroundImage": null,
+        "backgroundImageFit": "cover",
+        "backgroundImagePosition": "center",
+        "backgroundImageRepeat": "no-repeat"
+      },
+      "position2": {
+        "containerKey": "footer",
+        "key": "statusBar",
+        "row": 0,
+        "col": 0,
+        "height": 2,
+        "width": 24
+      }
+    }
+  },
+  "variables": [
+    {
+      "id": "messages",
+      "name": "messages",
+      "value": "[]",
+      "deprecated": false
+    },
+    {
+      "id": "currentContext",
+      "name": "currentContext",
+      "value": "[]",
+      "deprecated": false
+    },
+    {
+      "id": "isProcessing",
+      "name": "isProcessing",
+      "value": "false",
+      "deprecated": false
+    },
+    {
+      "id": "currentSession",
+      "name": "currentSession",
+      "value": "'default'",
+      "deprecated": false
+    },
+    {
+      "id": "currentDirectory",
+      "name": "currentDirectory",
+      "value": "'/Users'",
+      "deprecated": false
+    },
+    {
+      "id": "settings",
+      "name": "settings",
+      "value": "{\n  offlineMode: false,\n  theme: 'dark',\n  sttProvider: 'openai',\n  ttsProvider: 'openai',\n  llmProvider: 'openai'\n}",
+      "deprecated": false
+    }
+  ],
+  "version": "77.0.0"
+}

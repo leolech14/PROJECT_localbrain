@@ -1,0 +1,721 @@
+{
+  "name": "LocalBrain Enterprise",
+  "description": "AI-powered local environment command center in Retool",
+  "version": "1.0.0",
+  "theme": "dark",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "components": {
+    "root": {
+      "type": "container",
+      "properties": {
+        "id": "rootContainer",
+        "backgroundColor": "#0a0a0a",
+        "height": "100vh",
+        "layout": "column",
+        "padding": "0"
+      },
+      "children": ["headerBar", "mainContent", "statusBar"]
+    },
+    
+    "headerBar": {
+      "type": "container",
+      "properties": {
+        "id": "headerBar",
+        "height": "48px",
+        "backgroundColor": "#111111",
+        "borderBottom": "1px solid #27272a",
+        "layout": "row",
+        "alignItems": "center",
+        "padding": "0 16px",
+        "gap": "16px"
+      },
+      "components": [
+        {
+          "type": "text",
+          "properties": {
+            "value": "🧠 LocalBrain",
+            "fontSize": "20px",
+            "fontWeight": "600",
+            "color": "#fbbf24"
+          }
+        },
+        {
+          "type": "container",
+          "properties": {
+            "layout": "row",
+            "flex": 1,
+            "justifyContent": "center",
+            "gap": "8px"
+          },
+          "components": [
+            {
+              "type": "button",
+              "id": "navChat",
+              "properties": {
+                "text": "Chat",
+                "variant": "{{ currentView.value === 'chat' ? 'primary' : 'ghost' }}",
+                "onClick": "{{ currentView.setValue('chat') }}"
+              }
+            },
+            {
+              "type": "button",
+              "id": "navTerminal",
+              "properties": {
+                "text": "Terminal",
+                "variant": "{{ currentView.value === 'terminal' ? 'primary' : 'ghost' }}",
+                "onClick": "{{ currentView.setValue('terminal') }}"
+              }
+            },
+            {
+              "type": "button",
+              "id": "navAgents",
+              "properties": {
+                "text": "Agents",
+                "variant": "{{ currentView.value === 'agents' ? 'primary' : 'ghost' }}",
+                "onClick": "{{ currentView.setValue('agents') }}"
+              }
+            },
+            {
+              "type": "button",
+              "id": "navContext",
+              "properties": {
+                "text": "Context",
+                "variant": "{{ currentView.value === 'context' ? 'primary' : 'ghost' }}",
+                "onClick": "{{ currentView.setValue('context') }}"
+              }
+            },
+            {
+              "type": "button",
+              "id": "navToolkit",
+              "properties": {
+                "text": "Toolkit",
+                "variant": "{{ currentView.value === 'toolkit' ? 'primary' : 'ghost' }}",
+                "onClick": "{{ currentView.setValue('toolkit') }}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "container",
+          "properties": {
+            "layout": "row",
+            "gap": "12px",
+            "alignItems": "center"
+          },
+          "components": [
+            {
+              "type": "icon",
+              "id": "offlineIndicator",
+              "properties": {
+                "icon": "wifi-off",
+                "color": "#f59e0b",
+                "size": "20px",
+                "hidden": "{{ !settings.value.offlineMode }}",
+                "tooltip": "Offline Mode Active"
+              }
+            },
+            {
+              "type": "icon",
+              "id": "voiceIndicator",
+              "properties": {
+                "icon": "microphone",
+                "color": "{{ voiceActive.value ? '#4ade80' : '#6b7280' }}",
+                "size": "20px",
+                "onClick": "{{ toggleVoice.trigger() }}",
+                "tooltip": "{{ voiceActive.value ? 'Voice Active' : 'Click to activate voice' }}"
+              }
+            },
+            {
+              "type": "button",
+              "id": "settingsButton",
+              "properties": {
+                "icon": "settings",
+                "variant": "ghost",
+                "onClick": "{{ settingsModal.open() }}"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    
+    "mainContent": {
+      "type": "container",
+      "properties": {
+        "id": "mainContent",
+        "flex": 1,
+        "layout": "row",
+        "padding": "8px",
+        "gap": "8px",
+        "backgroundColor": "#0a0a0a"
+      },
+      "children": ["sidebar", "centerContent", "rightPanel"]
+    },
+    
+    "sidebar": {
+      "type": "container",
+      "properties": {
+        "id": "sidebar",
+        "width": "{{ sidebarCollapsed.value ? '48px' : '240px' }}",
+        "backgroundColor": "#111111",
+        "borderRadius": "8px",
+        "padding": "12px",
+        "transition": "width 0.2s ease"
+      },
+      "components": [
+        {
+          "type": "button",
+          "id": "sidebarToggle",
+          "properties": {
+            "icon": "{{ sidebarCollapsed.value ? 'chevron-right' : 'chevron-left' }}",
+            "variant": "ghost",
+            "size": "small",
+            "onClick": "{{ sidebarCollapsed.setValue(!sidebarCollapsed.value) }}"
+          }
+        },
+        {
+          "type": "container",
+          "properties": {
+            "hidden": "{{ sidebarCollapsed.value }}",
+            "marginTop": "16px"
+          },
+          "components": [
+            {
+              "type": "text",
+              "properties": {
+                "value": "File Explorer",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "color": "#9ca3af",
+                "marginBottom": "8px"
+              }
+            },
+            {
+              "type": "tree",
+              "id": "fileExplorer",
+              "properties": {
+                "data": "{{ fileTree.data }}",
+                "expandedKeys": "{{ expandedFolders.value }}",
+                "selectedKeys": "{{ [selectedFile.value] }}",
+                "showLine": true,
+                "showIcon": true,
+                "height": "calc(100vh - 200px)",
+                "onSelect": "{{ handleFileSelect.trigger() }}",
+                "onExpand": "{{ expandedFolders.setValue(self.expandedKeys) }}"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    
+    "centerContent": {
+      "type": "container",
+      "properties": {
+        "id": "centerContent",
+        "flex": 1,
+        "layout": "column",
+        "gap": "8px"
+      },
+      "children": ["chatPanel", "terminalPanel"]
+    },
+    
+    "chatPanel": {
+      "type": "container",
+      "properties": {
+        "id": "chatPanel",
+        "flex": "{{ currentView.value === 'chat' ? 2 : 1 }}",
+        "backgroundColor": "#111111",
+        "borderRadius": "8px",
+        "padding": "16px",
+        "layout": "column",
+        "hidden": "{{ !['chat', 'terminal'].includes(currentView.value) }}"
+      },
+      "components": [
+        {
+          "type": "container",
+          "properties": {
+            "layout": "row",
+            "alignItems": "center",
+            "marginBottom": "12px"
+          },
+          "components": [
+            {
+              "type": "text",
+              "properties": {
+                "value": "Chat",
+                "fontSize": "16px",
+                "fontWeight": "500",
+                "flex": 1
+              }
+            },
+            {
+              "type": "container",
+              "properties": {
+                "layout": "row",
+                "gap": "8px",
+                "alignItems": "center"
+              },
+              "components": [
+                {
+                  "type": "tag",
+                  "properties": {
+                    "text": "{{ currentContext.value.length }} contexts",
+                    "color": "blue",
+                    "hidden": "{{ currentContext.value.length === 0 }}"
+                  }
+                },
+                {
+                  "type": "button",
+                  "properties": {
+                    "text": "Clear",
+                    "size": "small",
+                    "variant": "ghost",
+                    "onClick": "{{ clearChat.trigger() }}"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listView",
+          "id": "chatMessages",
+          "properties": {
+            "data": "{{ messages.value }}",
+            "height": "calc(100% - 120px)",
+            "rowHeight": "auto",
+            "showBorder": false,
+            "template": {
+              "type": "container",
+              "properties": {
+                "padding": "8px",
+                "layout": "column",
+                "gap": "4px"
+              },
+              "components": [
+                {
+                  "type": "container",
+                  "properties": {
+                    "layout": "row",
+                    "alignItems": "flex-start",
+                    "gap": "12px"
+                  },
+                  "components": [
+                    {
+                      "type": "avatar",
+                      "properties": {
+                        "label": "{{ item.role === 'user' ? 'U' : 'AI' }}",
+                        "backgroundColor": "{{ item.role === 'user' ? '#2563eb' : '#059669' }}",
+                        "size": "small"
+                      }
+                    },
+                    {
+                      "type": "container",
+                      "properties": {
+                        "flex": 1,
+                        "layout": "column",
+                        "gap": "4px"
+                      },
+                      "components": [
+                        {
+                          "type": "text",
+                          "properties": {
+                            "value": "{{ item.role }}",
+                            "fontSize": "12px",
+                            "fontWeight": "500",
+                            "color": "#9ca3af"
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "properties": {
+                            "value": "{{ item.content }}",
+                            "markdown": true,
+                            "copyable": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "container",
+          "properties": {
+            "layout": "column",
+            "gap": "8px",
+            "marginTop": "auto"
+          },
+          "components": [
+            {
+              "type": "container",
+              "properties": {
+                "layout": "row",
+                "gap": "8px",
+                "alignItems": "center",
+                "hidden": "{{ !voiceTranscript.value }}"
+              },
+              "components": [
+                {
+                  "type": "icon",
+                  "properties": {
+                    "icon": "microphone",
+                    "color": "#4ade80",
+                    "size": "16px"
+                  }
+                },
+                {
+                  "type": "text",
+                  "properties": {
+                    "value": "{{ voiceTranscript.value }}",
+                    "fontSize": "14px",
+                    "color": "#9ca3af"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "properties": {
+                "layout": "row",
+                "gap": "8px"
+              },
+              "components": [
+                {
+                  "type": "button",
+                  "id": "voiceButton",
+                  "properties": {
+                    "icon": "microphone",
+                    "variant": "{{ voiceActive.value ? 'primary' : 'outline' }}",
+                    "onClick": "{{ toggleVoice.trigger() }}",
+                    "tooltip": "Hold to speak"
+                  }
+                },
+                {
+                  "type": "textArea",
+                  "id": "messageInput",
+                  "properties": {
+                    "placeholder": "Type a message or say 'Hey Brain'...",
+                    "rows": 2,
+                    "flex": 1,
+                    "value": "{{ messageText.value }}",
+                    "onChange": "{{ messageText.setValue(event.target.value) }}",
+                    "onKeyDown": "{{ event.key === 'Enter' && !event.shiftKey && sendMessage.trigger() }}"
+                  }
+                },
+                {
+                  "type": "button",
+                  "id": "sendButton",
+                  "properties": {
+                    "text": "Send",
+                    "variant": "primary",
+                    "disabled": "{{ !messageText.value.trim() || isProcessing.value }}",
+                    "loading": "{{ isProcessing.value }}",
+                    "onClick": "{{ sendMessage.trigger() }}"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    
+    "terminalPanel": {
+      "type": "container",
+      "properties": {
+        "id": "terminalPanel",
+        "flex": "{{ currentView.value === 'terminal' ? 2 : 1 }}",
+        "backgroundColor": "#000000",
+        "borderRadius": "8px",
+        "layout": "column",
+        "hidden": "{{ !['chat', 'terminal'].includes(currentView.value) }}"
+      },
+      "components": [
+        {
+          "type": "tabs",
+          "id": "terminalTabs",
+          "properties": {
+            "value": "{{ activeTerminal.value }}",
+            "onChange": "{{ activeTerminal.setValue(event.target.value) }}",
+            "style": {
+              "backgroundColor": "#1a1a1a",
+              "borderRadius": "8px 8px 0 0"
+            }
+          },
+          "tabs": "{{ terminals.value.map(t => ({ label: `Terminal ${t.index}`, value: t.id })).concat([{ label: '+', value: 'new' }]) }}"
+        },
+        {
+          "type": "html",
+          "id": "terminalOutput",
+          "properties": {
+            "html": "<div id='terminal-{{ activeTerminal.value }}' style='height: 100%; background: black;'></div>",
+            "height": "calc(100% - 80px)",
+            "style": {
+              "fontFamily": "'JetBrains Mono', 'Monaco', monospace",
+              "fontSize": "14px",
+              "lineHeight": "1.5",
+              "padding": "8px"
+            }
+          }
+        },
+        {
+          "type": "textInput",
+          "id": "terminalCommand",
+          "properties": {
+            "placeholder": "$ Enter command...",
+            "value": "{{ terminalInput.value }}",
+            "onChange": "{{ terminalInput.setValue(event.target.value) }}",
+            "onPressEnter": "{{ executeCommand.trigger() }}",
+            "style": {
+              "backgroundColor": "#1a1a1a",
+              "border": "none",
+              "color": "#4ade80",
+              "fontFamily": "'JetBrains Mono', monospace",
+              "fontSize": "14px",
+              "padding": "12px"
+            }
+          }
+        }
+      ]
+    },
+    
+    "rightPanel": {
+      "type": "container",
+      "properties": {
+        "id": "rightPanel",
+        "width": "400px",
+        "backgroundColor": "#111111",
+        "borderRadius": "8px",
+        "padding": "16px",
+        "layout": "column"
+      },
+      "components": [
+        {
+          "type": "tabs",
+          "id": "rightPanelTabs",
+          "properties": {
+            "value": "{{ rightPanelView.value }}",
+            "onChange": "{{ rightPanelView.setValue(event.target.value) }}"
+          },
+          "tabs": [
+            { "label": "Editor", "value": "editor" },
+            { "label": "Preview", "value": "preview" },
+            { "label": "Diff", "value": "diff" }
+          ]
+        },
+        {
+          "type": "codeEditor",
+          "id": "codeEditor",
+          "properties": {
+            "mode": "{{ getFileMode(selectedFile.value) }}",
+            "value": "{{ fileContent.value }}",
+            "onChange": "{{ fileContent.setValue(event.target.value) }}",
+            "theme": "monokai",
+            "height": "calc(100vh - 200px)",
+            "hidden": "{{ rightPanelView.value !== 'editor' }}",
+            "showLineNumbers": true,
+            "wrapLines": false
+          }
+        },
+        {
+          "type": "iframe",
+          "id": "previewPane",
+          "properties": {
+            "src": "{{ previewUrl.value }}",
+            "height": "calc(100vh - 200px)",
+            "hidden": "{{ rightPanelView.value !== 'preview' }}"
+          }
+        },
+        {
+          "type": "custom",
+          "id": "diffViewer",
+          "properties": {
+            "hidden": "{{ rightPanelView.value !== 'diff' }}",
+            "model": {
+              "original": "{{ originalContent.value }}",
+              "modified": "{{ fileContent.value }}"
+            },
+            "iframeCode": "<script src='https://unpkg.com/monaco-editor@latest/min/vs/loader.js'></script>\n<div id='diff-container' style='height: 100%;'></div>\n<script>\n  require.config({ paths: { vs: 'https://unpkg.com/monaco-editor@latest/min/vs' } });\n  require(['vs/editor/editor.main'], function() {\n    window.Retool.subscribe(function(model) {\n      const diffEditor = monaco.editor.createDiffEditor(document.getElementById('diff-container'), {\n        theme: 'vs-dark',\n        readOnly: false\n      });\n      diffEditor.setModel({\n        original: monaco.editor.createModel(model.original, 'javascript'),\n        modified: monaco.editor.createModel(model.modified, 'javascript')\n      });\n    });\n  });\n</script>"
+          }
+        }
+      ]
+    },
+    
+    "statusBar": {
+      "type": "container",
+      "properties": {
+        "id": "statusBar",
+        "height": "24px",
+        "backgroundColor": "#111111",
+        "borderTop": "1px solid #27272a",
+        "layout": "row",
+        "alignItems": "center",
+        "padding": "0 16px",
+        "gap": "16px"
+      },
+      "components": [
+        {
+          "type": "text",
+          "properties": {
+            "value": "{{ currentDirectory.value }}",
+            "fontSize": "12px",
+            "color": "#6b7280"
+          }
+        },
+        {
+          "type": "container",
+          "properties": {
+            "flex": 1
+          }
+        },
+        {
+          "type": "text",
+          "properties": {
+            "value": "{{ settings.value.llmProvider === 'openai' ? 'GPT-4' : 'Ollama' }}",
+            "fontSize": "12px",
+            "color": "#6b7280"
+          }
+        },
+        {
+          "type": "text",
+          "properties": {
+            "value": "•",
+            "color": "#374151"
+          }
+        },
+        {
+          "type": "text",
+          "properties": {
+            "value": "{{ activeSessions.value }} active",
+            "fontSize": "12px",
+            "color": "#6b7280"
+          }
+        },
+        {
+          "type": "text",
+          "properties": {
+            "value": "•",
+            "color": "#374151"
+          }
+        },
+        {
+          "type": "text",
+          "properties": {
+            "value": "{{ new Date().toLocaleTimeString() }}",
+            "fontSize": "12px",
+            "color": "#6b7280"
+          }
+        }
+      ]
+    }
+  },
+  
+  "queries": {
+    "sendMessage": {
+      "type": "javascript",
+      "code": "const message = messageText.value.trim();\nif (!message) return;\n\n// Add user message\nmessages.setValue([...messages.value, {\n  id: utils.uuid(),\n  role: 'user',\n  content: message,\n  timestamp: new Date().toISOString()\n}]);\n\nmessageText.setValue('');\nisProcessing.setValue(true);\n\ntry {\n  const response = await localbrainAPI.run({\n    method: 'POST',\n    endpoint: '/chat/send',\n    body: {\n      message: message,\n      context: currentContext.value,\n      sessionId: currentSession.value\n    }\n  });\n  \n  if (response.success) {\n    messages.setValue([...messages.value, {\n      id: utils.uuid(),\n      role: 'assistant',\n      content: response.data,\n      timestamp: new Date().toISOString()\n    }]);\n    \n    // Speak response if enabled\n    if (settings.value.autoSpeak) {\n      speakText.trigger({ text: response.data });\n    }\n  }\n} catch (error) {\n  utils.showNotification({\n    title: 'Error',\n    description: error.message,\n    notificationType: 'error'\n  });\n} finally {\n  isProcessing.setValue(false);\n}"
+    },
+    
+    "executeCommand": {
+      "type": "javascript", 
+      "code": "const command = terminalInput.value.trim();\nif (!command) return;\n\nterminalInput.setValue('');\n\nawait localbrainAPI.run({\n  method: 'POST',\n  endpoint: '/terminal/input',\n  body: {\n    sessionId: activeTerminal.value,\n    input: command + '\\n'\n  }\n});"
+    },
+    
+    "loadFileTree": {
+      "resource": "localbrainAPI",
+      "type": "GET",
+      "endpoint": "/files/tree",
+      "params": {
+        "path": "{{ currentDirectory.value }}"
+      },
+      "runOnPageLoad": true,
+      "transformer": "return data.map(file => ({\n  key: file.path,\n  title: file.name,\n  isLeaf: file.type !== 'directory',\n  icon: file.type === 'directory' ? 'folder' : 'file',\n  children: file.type === 'directory' ? [] : undefined\n}))"
+    },
+    
+    "toggleVoice": {
+      "type": "javascript",
+      "code": "if (voiceActive.value) {\n  // Stop voice session\n  await localbrainAPI.run({\n    method: 'POST',\n    endpoint: '/voice/stop',\n    body: { sessionId: voiceSessionId.value }\n  });\n  voiceActive.setValue(false);\n  voiceSessionId.setValue(null);\n} else {\n  // Start voice session\n  const response = await localbrainAPI.run({\n    method: 'POST',\n    endpoint: '/voice/start',\n    body: {\n      mode: 'chain',\n      sttProvider: settings.value.sttProvider,\n      ttsProvider: settings.value.ttsProvider\n    }\n  });\n  \n  if (response.success) {\n    voiceSessionId.setValue(response.data);\n    voiceActive.setValue(true);\n    \n    // Start listening for transcripts\n    startVoiceListener.trigger();\n  }\n}"
+    }
+  },
+  
+  "state": {
+    "currentView": {
+      "initialValue": "chat",
+      "persistent": true
+    },
+    "sidebarCollapsed": {
+      "initialValue": false,
+      "persistent": true
+    },
+    "messages": {
+      "initialValue": [],
+      "persistent": false
+    },
+    "currentContext": {
+      "initialValue": [],
+      "persistent": false
+    },
+    "voiceActive": {
+      "initialValue": false,
+      "persistent": false
+    },
+    "voiceSessionId": {
+      "initialValue": null,
+      "persistent": false
+    },
+    "terminals": {
+      "initialValue": [],
+      "persistent": false
+    },
+    "activeTerminal": {
+      "initialValue": null,
+      "persistent": false
+    },
+    "selectedFile": {
+      "initialValue": null,
+      "persistent": false
+    },
+    "fileContent": {
+      "initialValue": "",
+      "persistent": false
+    },
+    "settings": {
+      "initialValue": {
+        "offlineMode": false,
+        "sttProvider": "openai",
+        "ttsProvider": "openai", 
+        "llmProvider": "openai",
+        "theme": "dark",
+        "autoSpeak": false,
+        "auditLogging": true
+      },
+      "persistent": true
+    }
+  },
+  
+  "resources": {
+    "localbrainAPI": {
+      "type": "restapi",
+      "baseUrl": "http://localhost:3001/api",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer {{ localStorage.values.authToken }}"
+      }
+    },
+    
+    "localbrainWS": {
+      "type": "websocket",
+      "url": "ws://localhost:3001/ws",
+      "onConnect": "console.log('WebSocket connected')",
+      "onMessage": "handleWebSocketMessage.trigger({{ message }})"
+    }
+  }
+}

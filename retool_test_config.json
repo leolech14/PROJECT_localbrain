@@ -1,0 +1,26 @@
+{
+  "testQueries": {
+    "testConnection": {
+      "resource": "localbrainAPI",
+      "endpoint": "/health",
+      "method": "GET"
+    },
+    "testChat": {
+      "resource": "localbrainAPI", 
+      "endpoint": "/chat/send",
+      "method": "POST",
+      "body": {
+        "message": "Hello LocalBrain",
+        "context": []
+      }
+    },
+    "testTerminal": {
+      "resource": "localbrainAPI",
+      "endpoint": "/terminal/create",
+      "method": "POST",
+      "body": {
+        "shell": "/bin/bash"
+      }
+    }
+  }
+}
