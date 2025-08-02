@@ -520,6 +520,35 @@ pub fn write_file(path: String, content: String, state: State<AppStateManager>) 
     }
 }
 
+// Delete file or directory
+#[tauri::command]
+pub fn delete_file(path: String, state: State<AppStateManager>) -> ApiResponse<()> {
+    use std::fs;
+
+    let settings = match state.state.lock() {
+        Ok(app_state) => app_state.settings.clone(),
+        Err(e) => return ApiResponse::error(format!("Failed to get settings: {}", e)),
+    };
+
+    // Check if path is allowed
+    let is_allowed = settings.allowed_roots.iter().any(|root| path.starts_with(root));
+    if !is_allowed {
+        return ApiResponse::error("Access denied: Path not in allowed roots".to_string());
+    }
+
+    // Determine if path is a directory
+    let result = match fs::metadata(&path) {
+        Ok(metadata) if metadata.is_dir() => fs::remove_dir_all(&path),
+        Ok(_) => fs::remove_file(&path),
+        Err(e) => return ApiResponse::error(format!("Failed to access path: {}", e)),
+    };
+
+    match result {
+        Ok(_) => ApiResponse::success(()),
+        Err(e) => ApiResponse::error(format!("Failed to delete file: {}", e)),
+    }
+}
+
 // Terminal commands
 #[tauri::command]
 pub async fn create_terminal(config: HashMap<String, String>) -> ApiResponse<String> {

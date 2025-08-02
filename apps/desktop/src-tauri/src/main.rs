@@ -40,6 +40,7 @@ fn main() {
             read_directory,
             read_file,
             write_file,
+            delete_file,
             create_terminal,
             close_terminal,
             start_voice_session,
