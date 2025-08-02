@@ -57,6 +57,7 @@ interface AppState {
   // Terminal state
   activeTerminals: string[]
   currentTerminal: string | null
+  recentTerminalOutput: string
   
   // Chat state
   messages: Array<{
@@ -85,6 +86,7 @@ interface AppState {
   createTerminal: (config?: any) => Promise<string>
   closeTerminal: (terminalId: string) => Promise<void>
   setCurrentTerminal: (terminalId: string) => void
+  appendTerminalOutput: (output: string) => void
   
   // Chat actions
   sendMessage: (content: string) => Promise<void>
@@ -152,6 +154,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   // Terminal state
   activeTerminals: [],
   currentTerminal: null,
+  recentTerminalOutput: '',
   
   // Chat state
   messages: [],
@@ -337,6 +340,13 @@ export const useAppStore = create<AppState>((set, get) => ({
   setCurrentTerminal: (terminalId: string) => {
     set({ currentTerminal: terminalId })
   },
+  appendTerminalOutput: (output: string) => {
+    set(state => {
+      const combined = `${state.recentTerminalOutput}${output}`
+      const lines = combined.split('\n')
+      return { recentTerminalOutput: lines.slice(-20).join('\n') }
+    })
+  },
   
   // Chat actions
   sendMessage: async (content: string) => {
@@ -359,7 +369,16 @@ export const useAppStore = create<AppState>((set, get) => ({
         role: msg.role,
         content: msg.content
       }))
-      
+
+      const { recentTerminalOutput } = get()
+      if (recentTerminalOutput.trim()) {
+        messages.unshift({
+          role: 'system',
+          content: `Recent terminal output:
+${recentTerminalOutput}`
+        })
+      }
+
       // Add current message to history
       messages.push({
         role: 'user',
