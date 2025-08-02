@@ -10,7 +10,8 @@ import {
   RefreshCw,
   Search,
   ChevronRight,
-  ChevronDown
+  ChevronDown,
+  Trash2
 } from 'lucide-react'
 import { invoke } from '@tauri-apps/api/core'
 import { useAppStore } from '../../stores/appStore'
@@ -49,7 +50,7 @@ export function FileExplorerPanel() {
   const [currentPath, setCurrentPath] = useState('/Users')
   const [selectedFile, setSelectedFile] = useState<string | null>(null)
   const [gitStatuses, setGitStatuses] = useState<Map<string, GitFileStatus>>(new Map())
-  const { settings } = useAppStore()
+  const { settings, deleteFile } = useAppStore()
   
   useEffect(() => {
     loadDirectory(currentPath)
@@ -278,29 +279,52 @@ export function FileExplorerPanel() {
     loadDirectory(currentPath)
     loadGitStatus(currentPath)
   }
+
+  const handleDeleteSelected = async () => {
+    if (!selectedFile) return
+    if (confirm(`Delete ${selectedFile}?`)) {
+      try {
+        await deleteFile(selectedFile)
+        setSelectedFile(null)
+        await loadDirectory(currentPath)
+        await loadGitStatus(currentPath)
+      } catch (error) {
+        console.error('Failed to delete file:', error)
+      }
+    }
+  }
   
   return (
     <div className="flex flex-col h-full bg-black">
       {/* Header */}
       <div className="px-3 py-2 border-b border-gray-900">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-sm font-semibold">Explorer</h3>
-          <div className="flex items-center space-x-1">
-            <button
-              onClick={refresh}
-              className="p-1 hover:bg-black rounded transition-colors"
-              title="Refresh"
-            >
-              <RefreshCw className="w-4 h-4" />
-            </button>
-            <button
-              className="p-1 hover:bg-black rounded transition-colors"
-              title="New File"
-            >
-              <Plus className="w-4 h-4" />
-            </button>
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="text-sm font-semibold">Explorer</h3>
+            <div className="flex items-center space-x-1">
+              <button
+                onClick={refresh}
+                className="p-1 hover:bg-black rounded transition-colors"
+                title="Refresh"
+              >
+                <RefreshCw className="w-4 h-4" />
+              </button>
+              {selectedFile && (
+                <button
+                  onClick={handleDeleteSelected}
+                  className="p-1 hover:bg-black rounded transition-colors"
+                  title="Delete File"
+                >
+                  <Trash2 className="w-4 h-4" />
+                </button>
+              )}
+              <button
+                className="p-1 hover:bg-black rounded transition-colors"
+                title="New File"
+              >
+                <Plus className="w-4 h-4" />
+              </button>
+            </div>
           </div>
-        </div>
         
         {/* Search */}
         <div className="relative">

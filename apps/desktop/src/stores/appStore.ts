@@ -94,6 +94,7 @@ interface AppState {
   navigateTo: (path: string) => void
   selectFile: (path: string) => void
   selectFiles: (paths: string[]) => void
+  deleteFile: (path: string) => Promise<void>
   
   // Error handling
   setError: (error: string | null) => void
@@ -431,7 +432,20 @@ export const useAppStore = create<AppState>((set, get) => ({
   selectFiles: (paths: string[]) => {
     set({ selectedFiles: paths })
   },
-  
+
+  deleteFile: async (path: string) => {
+    try {
+      const response = await invoke<{success: boolean, error?: string}>('delete_file', { path })
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to delete file')
+      }
+    } catch (error) {
+      console.error('Failed to delete file:', error)
+      set({ error: error instanceof Error ? error.message : 'Failed to delete file' })
+      throw error
+    }
+  },
+
   // Error handling
   setError: (error: string | null) => {
     set({ error })
