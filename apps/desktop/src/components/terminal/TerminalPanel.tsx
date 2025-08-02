@@ -20,6 +20,7 @@ export function TerminalPanel() {
   const terminalsRef = useRef<Map<string, Terminal>>(new Map())
   const fitAddonsRef = useRef<Map<string, FitAddon>>(new Map())
   const unlistenersRef = useRef<Map<string, () => void>>(new Map())
+  const appendTerminalOutput = useAppStore(state => state.appendTerminalOutput)
   const initializedRef = useRef(false)
   
   useEffect(() => {
@@ -80,6 +81,7 @@ export function TerminalPanel() {
           if (terminal) {
             terminal.write('Terminal initialized...\r\n')
           }
+              appendTerminalOutput(event.payload)
         }, 100)
         
         fitAddonsRef.current.set(activeTabId, fitAddon)
@@ -106,6 +108,7 @@ export function TerminalPanel() {
               if (terminal) {
                 terminal.write(event.payload)
               }
+              appendTerminalOutput(event.payload)
             })
             
             console.log('Listener setup complete')

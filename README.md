@@ -9,6 +9,7 @@ LocalBrain is a privacy-first macOS desktop application that gives power-users v
 | Feature | Description |
 |---------|-------------|
 | **🎤 Voice Interface** | Always-listening wake-word ("Hey Brain"), streaming STT with OpenAI Whisper API or on-device whisper.cpp fallback |
+| **🧩 Context-Aware Chat** | Voice transcripts feed into chat and recent terminal output is included for richer responses |
 | **🤖 AI Orchestration** | Unified capability layer routes prompts to OpenAI gpt-4o or Ollama local models. Offline mode blocks all network AI calls |
 | **💻 Terminal Integration** | Multi-tab xterm.js front-end bridged to a secure Rust PTY (tokio-pty-process) |
 | **📁 File Management** | Explorer with read, diff-preview write, Git-status colouring and scoped access to user-granted roots only |

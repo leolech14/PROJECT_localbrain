@@ -1,8 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Send, Mic } from 'lucide-react'
 import { invoke } from '@tauri-apps/api/core'
+import { listen } from '@tauri-apps/api/event'
 import { useAppStore } from '../../stores/appStore'
 import { VoiceAmplitudeVisualizer } from '../voice/VoiceAmplitudeVisualizer'
+
+interface VoiceTranscriptEvent {
+  session_id: string
+  transcript: string
+  is_final: boolean
+}
+
 
 interface Message {
   id: string
@@ -16,9 +24,9 @@ export function ChatPanel() {
   const { voice_enabled: voiceEnabled } = settings
   const [input, setInput] = useState('')
   const [audioStream, setAudioStream] = useState<MediaStream | undefined>()
+  const [sessionId, setSessionId] = useState<string | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
-  const audioChunksRef = useRef<Blob[]>([])
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   
   const scrollToBottom = () => {
@@ -28,6 +36,24 @@ export function ChatPanel() {
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+  useEffect(() => {
+    const unlisten = listen<VoiceTranscriptEvent>('voice-transcript', (event) => {
+      if (event.payload.session_id === sessionId) {
+        if (event.payload.is_final) {
+          sendMessage(event.payload.transcript)
+          setInput('')
+        } else {
+          setInput(event.payload.transcript)
+        }
+      }
+    })
+
+    return () => {
+      unlisten.then(f => f())
+    }
+  }, [sessionId, sendMessage])
+
   
   // Auto-resize textarea on input change
   useEffect(() => {
@@ -64,88 +90,52 @@ export function ChatPanel() {
   
   const toggleRecording = async () => {
     if (isListening) {
-      // Stop recording
       if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
         mediaRecorderRef.current.stop()
       }
-      
       if (audioStream) {
         audioStream.getTracks().forEach(track => track.stop())
         setAudioStream(undefined)
       }
-      
       await stopVoiceSession()
+      setSessionId(null)
     } else {
       try {
-        // Request microphone access
-        const stream = await navigator.mediaDevices.getUserMedia({ 
+        const stream = await navigator.mediaDevices.getUserMedia({
           audio: {
             echoCancellation: true,
             noiseSuppression: true,
             autoGainControl: true
-          } 
+          }
         })
-        
         setAudioStream(stream)
-        
-        // Start recording
-        const mediaRecorder = new MediaRecorder(stream)
+        const mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' })
         mediaRecorderRef.current = mediaRecorder
-        audioChunksRef.current = []
-        
-        mediaRecorder.ondataavailable = (event) => {
-          if (event.data.size > 0) {
-            audioChunksRef.current.push(event.data)
-          }
-        }
-        
-        mediaRecorder.onstop = async () => {
-          const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' })
-          
-          // Convert to base64 for sending to backend
-          const reader = new FileReader()
-          reader.onloadend = async () => {
-            const base64Audio = reader.result?.toString().split(',')[1]
-            if (base64Audio) {
-              // Send to backend for STT processing
-              await processVoiceInput(base64Audio)
-            }
-          }
-          reader.readAsDataURL(audioBlob)
-        }
-        
-        mediaRecorder.start()
         await startVoiceSession()
+        const id = useAppStore.getState().voiceSessionId
+        setSessionId(id)
+        mediaRecorder.ondataavailable = async (event) => {
+          if (event.data.size > 0 && id) {
+            const reader = new FileReader()
+            reader.onloadend = async () => {
+              const base64 = reader.result?.toString().split(',')[1]
+              if (base64) {
+                const audioData = Array.from(atob(base64), c => c.charCodeAt(0))
+                await invoke('voice_add_audio_chunk', { sessionId: id, audioData })
+              }
+            }
+            reader.readAsDataURL(event.data)
+          }
+        }
+        mediaRecorder.start(1000)
       } catch (error) {
         console.error('Error accessing microphone:', error)
         alert('Unable to access microphone. Please check your permissions.')
       }
     }
   }
-  
-  const processVoiceInput = async (audioData: string) => {
-    try {
-      // This would normally call the backend STT service
-      // For now, we'll simulate it by sending a message
-      const transcribedText = await invoke<string>('transcribe_audio', { audioData })
-      
-      if (transcribedText) {
-        // Append transcribed text to existing input
-        setInput(prevInput => {
-          // Add a space if there's already text
-          const separator = prevInput.trim() ? ' ' : ''
-          return prevInput + separator + transcribedText
-        })
-        
-        // Option 2: Send directly to chat (uncomment if preferred)
-        // await sendMessage(transcribedText)
-      }
-    } catch (error) {
-      console.error('Error processing voice input:', error)
-    }
-  }
-  
-  return (
+
+return (
     <div className="flex flex-col h-full bg-black">
       {/* Header */}
       <div className="px-3 py-1.5 border-b border-gray-900">
