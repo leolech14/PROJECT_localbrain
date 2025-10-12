@@ -1,0 +1,104 @@
+{
+  "$schema": "./token-schema.json",
+  "version": "1.0.0",
+  "created": "2025-10-08",
+  "description": "OKLCH lightness ramps for LocalBrain design system",
+  "ramps": {
+    "neutral": {
+      "description": "Neutral gray scale with perceptually uniform lightness",
+      "hue": 250,
+      "chroma": 0.02,
+      "steps": [
+        { "name": "50", "lightness": 0.98, "usage": "Lightest background, surface" },
+        { "name": "100", "lightness": 0.95, "usage": "Subtle background" },
+        { "name": "200", "lightness": 0.90, "usage": "Hover states, borders" },
+        { "name": "300", "lightness": 0.82, "usage": "Disabled text, placeholders" },
+        { "name": "400", "lightness": 0.70, "usage": "Secondary text" },
+        { "name": "500", "lightness": 0.58, "usage": "Primary text" },
+        { "name": "600", "lightness": 0.46, "usage": "Emphasized text" },
+        { "name": "700", "lightness": 0.34, "usage": "Strong emphasis" },
+        { "name": "800", "lightness": 0.22, "usage": "Darkest text" },
+        { "name": "900", "lightness": 0.15, "usage": "Maximum contrast" },
+        { "name": "950", "lightness": 0.12, "usage": "Near black" }
+      ]
+    },
+    "accent": {
+      "description": "Primary brand accent color ramp",
+      "hue": 230,
+      "chroma": 0.12,
+      "steps": [
+        { "name": "50", "lightness": 0.97, "usage": "Subtle accent background" },
+        { "name": "100", "lightness": 0.92, "usage": "Light accent background" },
+        { "name": "200", "lightness": 0.84, "usage": "Accent hover states" },
+        { "name": "300", "lightness": 0.73, "usage": "Accent borders" },
+        { "name": "400", "lightness": 0.60, "usage": "Accent secondary" },
+        { "name": "500", "lightness": 0.50, "usage": "Primary accent - main brand" },
+        { "name": "600", "lightness": 0.42, "usage": "Accent emphasis" },
+        { "name": "700", "lightness": 0.34, "usage": "Accent strong" },
+        { "name": "800", "lightness": 0.26, "usage": "Accent dark" },
+        { "name": "900", "lightness": 0.18, "usage": "Accent darkest" },
+        { "name": "950", "lightness": 0.13, "usage": "Accent near black" }
+      ]
+    },
+    "success": {
+      "description": "Success/positive feedback color ramp",
+      "hue": 150,
+      "chroma": 0.10,
+      "steps": [
+        { "name": "50", "lightness": 0.97, "usage": "Success background light" },
+        { "name": "100", "lightness": 0.92, "usage": "Success background" },
+        { "name": "200", "lightness": 0.84, "usage": "Success hover" },
+        { "name": "300", "lightness": 0.73, "usage": "Success border" },
+        { "name": "400", "lightness": 0.60, "usage": "Success secondary" },
+        { "name": "500", "lightness": 0.50, "usage": "Success primary" },
+        { "name": "600", "lightness": 0.42, "usage": "Success emphasis" },
+        { "name": "700", "lightness": 0.34, "usage": "Success strong" },
+        { "name": "800", "lightness": 0.26, "usage": "Success dark" },
+        { "name": "900", "lightness": 0.18, "usage": "Success darkest" },
+        { "name": "950", "lightness": 0.13, "usage": "Success near black" }
+      ]
+    },
+    "warning": {
+      "description": "Warning/caution color ramp",
+      "hue": 60,
+      "chroma": 0.11,
+      "steps": [
+        { "name": "50", "lightness": 0.97, "usage": "Warning background light" },
+        { "name": "100", "lightness": 0.92, "usage": "Warning background" },
+        { "name": "200", "lightness": 0.84, "usage": "Warning hover" },
+        { "name": "300", "lightness": 0.73, "usage": "Warning border" },
+        { "name": "400", "lightness": 0.60, "usage": "Warning secondary" },
+        { "name": "500", "lightness": 0.52, "usage": "Warning primary" },
+        { "name": "600", "lightness": 0.44, "usage": "Warning emphasis" },
+        { "name": "700", "lightness": 0.36, "usage": "Warning strong" },
+        { "name": "800", "lightness": 0.28, "usage": "Warning dark" },
+        { "name": "900", "lightness": 0.20, "usage": "Warning darkest" },
+        { "name": "950", "lightness": 0.15, "usage": "Warning near black" }
+      ]
+    },
+    "error": {
+      "description": "Error/danger color ramp",
+      "hue": 25,
+      "chroma": 0.13,
+      "steps": [
+        { "name": "50", "lightness": 0.97, "usage": "Error background light" },
+        { "name": "100", "lightness": 0.92, "usage": "Error background" },
+        { "name": "200", "lightness": 0.84, "usage": "Error hover" },
+        { "name": "300", "lightness": 0.73, "usage": "Error border" },
+        { "name": "400", "lightness": 0.60, "usage": "Error secondary" },
+        { "name": "500", "lightness": 0.50, "usage": "Error primary" },
+        { "name": "600", "lightness": 0.42, "usage": "Error emphasis" },
+        { "name": "700", "lightness": 0.34, "usage": "Error strong" },
+        { "name": "800", "lightness": 0.26, "usage": "Error dark" },
+        { "name": "900", "lightness": 0.18, "usage": "Error darkest" },
+        { "name": "950", "lightness": 0.13, "usage": "Error near black" }
+      ]
+    }
+  },
+  "notes": {
+    "lightness": "Lightness values range from 0.98 (near white) to 0.12 (near black) for maximum flexibility",
+    "chroma": "Chroma is kept low (0.02-0.13) to ensure subtle, professional color palette",
+    "perceptual": "OKLCH ensures perceptually uniform lightness - equal lightness steps appear equal to human eye",
+    "accessibility": "Lightness values chosen to support APCA contrast requirements (≥60 body, ≥75 interactive)"
+  }
+}

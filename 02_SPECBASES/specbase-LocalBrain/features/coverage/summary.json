@@ -1,0 +1,74 @@
+[
+  {
+    "spec": "LB-BROWSE-003",
+    "status": "FAIL",
+    "pass": 0,
+    "total": 2
+  },
+  {
+    "spec": "LB-CONTAINER-009",
+    "status": "FAIL",
+    "pass": 0,
+    "total": 1
+  },
+  {
+    "spec": "LB-DATA-POOL-011",
+    "status": "INVALID",
+    "pass": 0,
+    "total": 0
+  },
+  {
+    "spec": "LB-EDIT-006",
+    "status": "FAIL",
+    "pass": 0,
+    "total": 1
+  },
+  {
+    "spec": "LB-FILE-004",
+    "status": "INVALID",
+    "pass": 0,
+    "total": 0
+  },
+  {
+    "spec": "LB-ITERZIP-010",
+    "status": "FAIL",
+    "pass": 0,
+    "total": 1
+  },
+  {
+    "spec": "LB-MEM-005",
+    "status": "FAIL",
+    "pass": 0,
+    "total": 1
+  },
+  {
+    "spec": "LB-ORCH-002",
+    "status": "FAIL",
+    "pass": 1,
+    "total": 2
+  },
+  {
+    "spec": "LB-ORCH-CORE-012",
+    "status": "INVALID",
+    "pass": 0,
+    "total": 0
+  },
+  {
+    "spec": "LB-TASK-007",
+    "status": "FAIL",
+    "pass": 0,
+    "total": 1
+  },
+  {
+    "spec": "LB-TELEMETRY-008",
+    "status": "FAIL",
+    "pass": 0,
+    "total": 1
+  },
+  {
+    "spec": "LB-VOICE-001",
+    "status": "FAIL",
+    "pass": 0,
+    "total": 2
+  }
+]

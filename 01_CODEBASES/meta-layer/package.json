@@ -1,0 +1,56 @@
+{
+  "name": "@localbrain/meta-layer",
+  "version": "1.0.0",
+  "description": "Self-aware MCP orchestration system for automatic project birth detection and agent swarm coordination",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "meta-layer",
+    "mcp",
+    "orchestration",
+    "agent-swarm",
+    "auto-scaffolding",
+    "project-birth-detection",
+    "claude",
+    "ai-agents"
+  ],
+  "author": "Agent A (UI Velocity Specialist)",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/jest": "^29.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist",
+    "src",
+    "templates",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/localbrain/meta-layer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/localbrain/meta-layer/issues"
+  },
+  "homepage": "https://github.com/localbrain/meta-layer#readme"
+}

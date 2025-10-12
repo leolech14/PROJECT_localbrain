@@ -1,0 +1,164 @@
+/**
+ * Core Module - {{projectName}}
+ * ==============================
+ *
+ * Core business logic and functionality for {{projectName}}.
+ *
+ * Author: {{author}}
+ * Created: {{date format="YYYY-MM-DD"}}
+ */
+
+export interface CoreConfig {
+  verbose?: boolean;
+  outputDir?: string;
+  [key: string]: any;
+}
+
+export interface CommandResult {
+  success: boolean;
+  message: string;
+  data?: any;
+  error?: Error;
+}
+
+/**
+ * Main core class for {{projectName}}
+ */
+export class {{projectName}}Core {
+  private config: CoreConfig;
+
+  constructor(config: CoreConfig = {}) {
+    this.config = {
+      verbose: false,
+      outputDir: './output',
+      ...config
+    };
+  }
+
+  /**
+   * Initialize the core system
+   */
+  async initialize(): Promise<void> {
+    if (this.config.verbose) {
+      console.log('🚀 Initializing {{projectName}}...');
+    }
+
+    // TODO: Add initialization logic
+    // - Load configuration
+    // - Setup logging
+    // - Validate environment
+    // - Initialize resources
+  }
+
+  /**
+   * Execute main functionality
+   */
+  async execute(input: any): Promise<CommandResult> {
+    try {
+      if (this.config.verbose) {
+        console.log('📋 Processing input:', input);
+      }
+
+      // TODO: Add main business logic here
+      // This is where the core functionality of your tool goes
+
+      return {
+        success: true,
+        message: '{{projectName}} executed successfully',
+        data: { input, processed: true }
+      };
+
+    } catch (error) {
+      return {
+        success: false,
+        message: `Failed to execute: ${error.message}`,
+        error: error as Error
+      };
+    }
+  }
+
+  /**
+   * Cleanup resources
+   */
+  async cleanup(): Promise<void> {
+    if (this.config.verbose) {
+      console.log('🧹 Cleaning up resources...');
+    }
+
+    // TODO: Add cleanup logic
+    // - Close connections
+    // - Save state
+    // - Release resources
+  }
+
+  /**
+   * Get current configuration
+   */
+  getConfig(): CoreConfig {
+    return { ...this.config };
+  }
+
+  /**
+   * Update configuration
+   */
+  updateConfig(newConfig: Partial<CoreConfig>): void {
+    this.config = { ...this.config, ...newConfig };
+  }
+}
+
+/**
+ * Default core commands for CLI
+ */
+export const coreCommands = [
+  {
+    name: 'run',
+    description: 'Execute {{projectName}} with default settings',
+    handler: async (options: any) => {
+      const core = new {{projectName}}Core(options);
+      await core.initialize();
+
+      const result = await core.execute(options);
+
+      if (result.success) {
+        console.log('✅', result.message);
+        if (result.data) {
+          console.log('📊 Result:', JSON.stringify(result.data, null, 2));
+        }
+      } else {
+        console.error('❌', result.message);
+        if (options.verbose && result.error) {
+          console.error('Stack trace:', result.error.stack);
+        }
+        process.exit(1);
+      }
+
+      await core.cleanup();
+    }
+  },
+  {
+    name: 'version',
+    description: 'Show detailed version information',
+    handler: async () => {
+      console.log('{{projectName}} v{{version}}');
+      console.log('Author: {{author}}');
+      console.log('Built with: META Layer AutoScaffolder');
+      console.log('Created: {{date format="YYYY-MM-DD"}}');
+    }
+  },
+  {
+    name: 'config',
+    description: 'Show current configuration',
+    handler: async (options: any) => {
+      const core = new {{projectName}}Core(options);
+      const config = core.getConfig();
+
+      console.log('📋 Current Configuration:');
+      console.log(JSON.stringify(config, null, 2));
+    }
+  }
+];
+
+/**
+ * Export default core instance
+ */
+export default {{projectName}}Core;

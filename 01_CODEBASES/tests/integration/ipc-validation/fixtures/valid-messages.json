@@ -1,0 +1,116 @@
+{
+  "ui_intent_openPanel": {
+    "type": "UI_INTENT",
+    "traceId": "test-001",
+    "timestamp": "2025-10-08T15:30:00.000Z",
+    "version": "1.0",
+    "source": "web",
+    "payload": {
+      "intent": "openPanel",
+      "target": {
+        "type": "sidebar",
+        "id": "agent-proposals-panel"
+      },
+      "parameters": {
+        "width": 400,
+        "animation": {
+          "duration": 200,
+          "easing": "ease-out"
+        }
+      },
+      "metadata": {
+        "priority": "high",
+        "timeout": 5000,
+        "retryable": true
+      }
+    },
+    "context": {
+      "userId": "user-123",
+      "sessionId": "session-456",
+      "agentId": "agent-789"
+    }
+  },
+  "ack_success": {
+    "type": "ACK",
+    "traceId": "test-001",
+    "timestamp": "2025-10-08T15:30:00.150Z",
+    "version": "1.0",
+    "status": {
+      "code": 200,
+      "message": "Panel opened successfully",
+      "category": "success"
+    },
+    "result": {
+      "data": {
+        "panelId": "agent-proposals-panel",
+        "opened": true
+      },
+      "metadata": {
+        "processingTime": 145,
+        "affectedElements": ["sidebar"]
+      }
+    }
+  },
+  "nack_validation_error": {
+    "type": "NACK",
+    "traceId": "test-002",
+    "timestamp": "2025-10-08T15:30:01.000Z",
+    "version": "1.0",
+    "status": {
+      "code": 400,
+      "message": "Invalid message format",
+      "category": "validation_error"
+    },
+    "error": {
+      "code": "SCHEMA_VALIDATION_FAILED",
+      "message": "Missing required field: payload.target.id",
+      "retryable": false
+    }
+  },
+  "error_critical": {
+    "type": "ERROR",
+    "traceId": "test-003",
+    "timestamp": "2025-10-08T15:30:02.000Z",
+    "version": "1.0",
+    "error": {
+      "code": "BRIDGE_CONNECTION_LOST",
+      "severity": "critical",
+      "message": "Lost connection to Swift bridge",
+      "recovery": {
+        "retryable": true,
+        "retryAfter": 5000,
+        "fallbackAction": "Reconnect to Swift bridge"
+      }
+    },
+    "diagnostics": {
+      "stackTrace": "at SwiftBridgeClient.sendToSwift:410",
+      "context": {
+        "lastHeartbeat": "2025-10-08T15:29:30.000Z"
+      },
+      "timestamp": "2025-10-08T15:30:02.000Z"
+    }
+  },
+  "heartbeat_healthy": {
+    "type": "HEARTBEAT",
+    "traceId": "test-004",
+    "timestamp": "2025-10-08T15:30:05.000Z",
+    "version": "1.0",
+    "source": "web",
+    "health": {
+      "status": "healthy",
+      "uptime": 3600
+    },
+    "metrics": {
+      "messagesSent": 150,
+      "messagesReceived": 145,
+      "errorCount": 2,
+      "averageLatency": 45.5,
+      "queueDepth": 0
+    },
+    "capabilities": [
+      "ui-intent-handling",
+      "schema-validation",
+      "error-recovery"
+    ]
+  }
+}

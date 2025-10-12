@@ -1,0 +1,38 @@
+# Dependencies (NEVER commit node_modules!)
+node_modules/
+*/node_modules/
+**/node_modules/
+**/*node_modules*
+.obsidian/plugins/*/node_modules/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+main.js
+
+# Development
+.DS_Store
+.env
+.env.local
+.env.*.local
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/hotkeys.json
+.obsidian/app.json
+.obsidian/appearance.json
+.obsidian/core-plugins.json
+.obsidian/core-plugins-migration.json

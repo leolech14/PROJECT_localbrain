@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+/**
+ * {{projectName}}
+ * ================
+ *
+ * {{description}}
+ *
+ * Author: {{author}}
+ * Created: {{date format="YYYY-MM-DD"}}
+ * Version: {{version}}
+ */
+
+import { Command } from 'commander';
+import { coreCommands } from './core';
+import { logger } from './utils';
+
+const program = new Command();
+
+program
+  .name('{{projectName.toLowerCase().replace(/\s+/g, "-")}}')
+  .description('{{description}}')
+  .version('{{version}}');
+
+// Core commands
+coreCommands.forEach(cmd => {
+  program
+    .command(cmd.name)
+    .description(cmd.description)
+    .option('-v, --verbose', 'Verbose output')
+    .action(cmd.handler);
+});
+
+// Global error handling
+program.on('command:*', () => {
+  console.error('Invalid command: %s', program.args.join(' '));
+  process.exit(1);
+});
+
+// Parse command line arguments
+program.parse();
+
+// If no command provided, show help
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+}

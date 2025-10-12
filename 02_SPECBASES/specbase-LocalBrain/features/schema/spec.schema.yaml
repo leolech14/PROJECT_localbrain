@@ -1,0 +1,80 @@
+title: "Executable Spec Front-Matter"
+type: object
+required: [spec_id, title, version, owners, platforms, priority, acceptance_criteria, assertions]
+properties:
+  spec_id: { type: string, pattern: "^[A-Z]{2,5}-[A-Z0-9]+-[0-9]{3,4}$" }
+  title:   { type: string, minLength: 3 }
+  version: { type: string, pattern: "^\\d+\\.\\d+\\.\\d+$" }
+  owners:  { type: array, items: { type: string }, minItems: 1 }
+  status:  { type: string, enum: [draft, ready, deprecated] }
+  platforms:
+    type: array
+    items: { type: string, enum: [web, electron, ios] }
+    minItems: 1
+  priority: { type: string, enum: [p0, p1, p2, p3] }
+  tags: { type: array, items: { type: string } }
+  depends_on: { type: array, items: { type: string } }
+  acceptance_criteria:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required: [ac_id, text]
+      properties:
+        ac_id: { type: string, pattern: "AC-[0-9]{3,4}" }
+        text:  { type: string, minLength: 10 }
+  probes_required:
+    type: array
+    items: { type: string }
+  runtime_checks:
+    type: array
+    items:
+      type: object
+      required: [kind]
+      properties:
+        kind:
+          type: string
+          enum: [symbol_exists, env_toggle, permission_gate]
+        symbol: { type: string }
+        toggle: { type: string }
+        gate:   { type: string }
+  tests:
+    type: array
+    items:
+      type: object
+      required: [id, platforms, steps]
+      properties:
+        id: { type: string, pattern: "^T-[A-Z]+-[0-9]{3,4}$" }
+        platforms: { type: array, items: { enum: [web, electron, ios] } }
+        steps:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required: [action]
+            properties:
+              action: { type: string }
+              params: { type: object, additionalProperties: true }
+  assertions:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required: [ac_id, kind]
+      properties:
+        ac_id: { type: string }
+        kind:
+          type: string
+          enum: [metric_threshold, event_occurs, event_occurs_any, ui_visible, output_contains, duration_leq]
+        optional: { type: boolean }
+        metric:   { type: string }
+        threshold: { type: string }
+        event:    { type: string }
+        selector: { type: string }
+        text:     { type: string }
+        duration_ms: { type: integer, minimum: 1 }
+  evidence:
+    type: object
+    properties:
+      screenshots: { type: boolean }
+      telemetry_dump: { type: boolean }

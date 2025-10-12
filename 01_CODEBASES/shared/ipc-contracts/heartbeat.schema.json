@@ -1,0 +1,248 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://localbrain.dev/schemas/ipc/heartbeat.schema.json",
+  "title": "Heartbeat Message",
+  "description": "Keep-alive message to monitor bridge connection health",
+  "type": "object",
+  "required": ["type", "traceId", "timestamp", "version", "health"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "HEARTBEAT",
+      "description": "Message type identifier"
+    },
+    "traceId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for this heartbeat"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of heartbeat"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Schema version",
+      "default": "1.0"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["swift", "web"],
+      "description": "Origin of the heartbeat"
+    },
+    "health": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["healthy", "degraded", "unhealthy"],
+          "description": "Overall health status"
+        },
+        "uptime": {
+          "type": "number",
+          "description": "Time since bridge initialization in milliseconds"
+        },
+        "lastActivity": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of last non-heartbeat message"
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Performance and operational metrics",
+      "properties": {
+        "messagesSent": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total messages sent since connection"
+        },
+        "messagesReceived": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total messages received since connection"
+        },
+        "errorCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total errors encountered"
+        },
+        "averageLatency": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Average message round-trip latency in milliseconds"
+        },
+        "pendingMessages": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of messages awaiting response"
+        },
+        "queueDepth": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of messages in processing queue"
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "description": "Current capabilities and feature flags",
+      "properties": {
+        "supportedIntents": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of supported UI intent types"
+        },
+        "features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "description": "Feature flags and their enabled status"
+        },
+        "protocolVersion": {
+          "type": "string",
+          "description": "Supported IPC protocol version"
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "object",
+      "description": "Diagnostic information",
+      "properties": {
+        "memoryUsage": {
+          "type": "number",
+          "description": "Memory usage in MB (if available)"
+        },
+        "cpuUsage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "CPU usage percentage (if available)"
+        },
+        "activeConnections": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of active bridge connections"
+        },
+        "reconnectCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of reconnections since start"
+        }
+      }
+    },
+    "config": {
+      "type": "object",
+      "description": "Current configuration",
+      "properties": {
+        "heartbeatInterval": {
+          "type": "number",
+          "description": "Heartbeat interval in milliseconds"
+        },
+        "timeout": {
+          "type": "number",
+          "description": "Message timeout in milliseconds"
+        },
+        "maxRetries": {
+          "type": "integer",
+          "description": "Maximum retry attempts"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "type": "HEARTBEAT",
+      "traceId": "heartbeat-550e8400-e29b-41d4-a716-446655440000",
+      "timestamp": "2025-10-08T14:40:00.000Z",
+      "version": "1.0",
+      "source": "swift",
+      "health": {
+        "status": "healthy",
+        "uptime": 7200000,
+        "lastActivity": "2025-10-08T14:39:45.000Z"
+      },
+      "metrics": {
+        "messagesSent": 3421,
+        "messagesReceived": 3418,
+        "errorCount": 3,
+        "averageLatency": 42,
+        "pendingMessages": 0,
+        "queueDepth": 0
+      },
+      "capabilities": {
+        "supportedIntents": [
+          "openPanel",
+          "closePanel",
+          "togglePanel",
+          "resizePanel",
+          "showSidebar",
+          "hideSidebar",
+          "displayAgentProposal"
+        ],
+        "features": {
+          "offline_support": true,
+          "real_time_updates": true,
+          "batch_operations": false
+        },
+        "protocolVersion": "1.0"
+      },
+      "diagnostics": {
+        "memoryUsage": 45.2,
+        "cpuUsage": 12.5,
+        "activeConnections": 1,
+        "reconnectCount": 0
+      },
+      "config": {
+        "heartbeatInterval": 30000,
+        "timeout": 5000,
+        "maxRetries": 3
+      }
+    },
+    {
+      "type": "HEARTBEAT",
+      "traceId": "heartbeat-7c9e6679-7425-40de-944b-e07fc1f90ae7",
+      "timestamp": "2025-10-08T14:40:30.000Z",
+      "version": "1.0",
+      "source": "web",
+      "health": {
+        "status": "degraded",
+        "uptime": 7230000,
+        "lastActivity": "2025-10-08T14:38:15.000Z"
+      },
+      "metrics": {
+        "messagesSent": 3418,
+        "messagesReceived": 3421,
+        "errorCount": 12,
+        "averageLatency": 125,
+        "pendingMessages": 5,
+        "queueDepth": 3
+      },
+      "capabilities": {
+        "supportedIntents": [
+          "openPanel",
+          "updateLayout",
+          "approveProposal",
+          "rejectProposal"
+        ],
+        "features": {
+          "offline_support": false,
+          "real_time_updates": true,
+          "batch_operations": true
+        },
+        "protocolVersion": "1.0"
+      },
+      "diagnostics": {
+        "activeConnections": 1,
+        "reconnectCount": 2
+      }
+    }
+  ]
+}

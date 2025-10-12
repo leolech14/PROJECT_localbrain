@@ -1,0 +1,52 @@
+{
+  "name": "@localbrain/rag-index",
+  "version": "1.0.0",
+  "description": "RAG Index for LocalBrain Specifications - Fast Search & Intelligence",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "index": "node dist/cli.js index",
+    "search": "node dist/cli.js search",
+    "refresh": "node dist/cli.js refresh"
+  },
+  "keywords": [
+    "rag",
+    "search",
+    "embeddings",
+    "localbrain",
+    "specifications"
+  ],
+  "author": "Agent C (Backend Services Specialist)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "node-fetch": "^3.3.2",
+    "sqlite3": "^5.1.6",
+    "sqlite": "^5.0.1",
+    "marked": "^9.1.2",
+    "glob": "^10.3.10",
+    "dotenv": "^16.3.1",
+    "commander": "^9.4.1",
+    "chalk": "^5.3.0",
+    "ora": "^6.3.1",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.0",
+    "@types/express": "^4.17.17",
+    "@types/cors": "^2.8.13",
+    "@types/fs-extra": "^11.0.1",
+    "typescript": "^5.1.6",
+    "jest": "^29.6.2",
+    "@types/jest": "^29.5.4",
+    "ts-jest": "^29.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "finops-specification-validator",
+  "version": "1.0.0",
+  "description": "CI validation suite for Financial Intelligence Platform specifications",
+  "main": "validate-all.js",
+  "scripts": {
+    "validate": "node validate-all.js",
+    "validate:front-matter": "node front-matter-validator.js",
+    "validate:promotion-gates": "node promotion-gate-checker.js",
+    "validate:security": "node security-boundary-linter.js",
+    "install-deps": "npm install",
+    "prevalidate": "npm run install-deps"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "finops",
+    "validation",
+    "ci",
+    "specifications",
+    "security",
+    "front-matter"
+  ],
+  "author": "Financial Intelligence Platform Team",
+  "license": "MIT"
+}

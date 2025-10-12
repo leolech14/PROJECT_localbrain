@@ -1,0 +1,100 @@
+{
+  "score": 48.5685,
+  "grade": "F - Critical Issues",
+  "status": "Needs Attention",
+  "critical_insights": {
+    "scale_assessment": {
+      "category": "small_ecosystem",
+      "total_projects": 9,
+      "total_files": 879,
+      "complexity_level": "medium",
+      "maturity_level": "developing"
+    },
+    "ecosystem_intelligence": {
+      "ecosystem_health": 60.5,
+      "diversity_metrics": {
+        "shannon_diversity": 0.6730116670092565,
+        "dominant_type": [
+          "other",
+          6
+        ],
+        "type_distribution": {
+          "other": 6,
+          "web": 4
+        }
+      },
+      "coordination_assessment": {
+        "standardization_score": 25,
+        "common_patterns": [
+          "High documentation coverage"
+        ],
+        "coordination_issues": [],
+        "recommendations": [
+          "Implement ecosystem-wide standards"
+        ]
+      },
+      "patterns_detected": []
+    },
+    "performance_metrics": {
+      "scan_time": 0.020122289657592773,
+      "scan_rate": 43682.9016457541,
+      "analysis_strategy": "SMALL_ECOSYSTEM_ANALYSIS",
+      "confidence_level": 0.8,
+      "sampling_efficiency": {
+        "files_per_second": 0,
+        "insights_per_file": 0,
+        "coverage_ratio": 0,
+        "efficiency_score": 0
+      }
+    },
+    "strategic_recommendations": [],
+    "immediate_actions": [],
+    "risk_analysis": {
+      "overall_risk_level": "low",
+      "critical_risks": [],
+      "risk_mitigation_strategies": []
+    },
+    "optimization_opportunities": [],
+    "quality_assessment": {
+      "data_completeness": 8.79,
+      "insight_depth": 60,
+      "actionability": 0,
+      "overall_score": 26.637
+    },
+    "meta_analysis": {
+      "analysis_effectiveness": {
+        "objectives_met": [
+          "Strategy: SMALL_ECOSYSTEM_ANALYSIS",
+          "Confidence: 80%"
+        ],
+        "limitations_encountered": [],
+        "adaptations_required": false,
+        "overall_effectiveness": "medium"
+      },
+      "data_extraction_quality": {
+        "breadth": 40,
+        "depth": 50,
+        "accuracy": 80.0,
+        "overall_quality": 56.0
+      },
+      "confidence_justification": "Confidence level is 80% based on:\n\u2022 50% sampling rate due to scale constraints\n",
+      "limitations": [
+        "Limited to 50% sampling due to project scale"
+      ]
+    }
+  },
+  "performance_metrics": {
+    "total_time": 11.44203495979309,
+    "time_efficiency": "needs_improvement",
+    "files_processed": 879,
+    "projects_processed": 9,
+    "processing_rate": 76.82199915388959,
+    "memory_usage": "unknown",
+    "strategy_effectiveness": "high"
+  },
+  "meta_purpose": null,
+  "problems": [],
+  "naming_conventions": {},
+  "directory_analysis": {},
+  "files_data": []
+}

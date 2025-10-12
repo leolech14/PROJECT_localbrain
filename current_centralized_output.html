@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Analysis Report - LocalBrain</title>
+    <style>
+        
+  :root{
+    --bg: oklch(0.96 0.01 250);
+    --surface: oklch(1 0.01 250);
+    --surface-2: oklch(0.98 0.01 250);
+    --text: oklch(0.15 0.02 250);
+    --muted: oklch(0.45 0.02 250);
+    --border: oklch(0.85 0.02 250);
+    --accent: oklch(0.65 0.08 240);
+    --success: oklch(73% 0.15 166);
+    --warning: oklch(65% 0.12 75);
+    --danger: oklch(58% 0.18 25);
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+  }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--spacing-lg); }
+  .metric { display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm) 0; }
+  .metric-label { color: var(--muted); font-size: var(--font-size-sm); }
+  .metric-value { font-weight: 600; color: var(--text); font-size: var(--font-size-base); }
+  .progress-bar { background: var(--border); border-radius: var(--radius-sm); height: 8px; margin: var(--spacing-xs) 0; }
+  .progress-fill { background: var(--accent); height: 100%; border-radius: var(--radius-sm); transition: width 0.3s ease; }
+  .grid { display: grid; gap: var(--spacing-lg); }
+  .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .list-item { padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--border); }
+  .callout { background: var(--surface-2); border-left: 4px solid var(--accent); padding: var(--spacing-md); border-radius: var(--radius-sm); }
+  .severity-high { color: var(--danger); }
+  .severity-medium { color: var(--warning); }
+  .severity-low { color: var(--success); }
+  small { font-size: var(--font-size-xs); color: var(--muted); }
+                
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            margin: 0;
+            padding: var(--spacing-lg);
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 2px solid var(--border);
+        }
+        .score-display {
+            font-size: 48px;
+            font-weight: bold;
+            color: #10b981;
+            margin: var(--spacing-md) 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: var(--font-size-sm);
+        }
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Project Analysis Report</h1>
+            <div style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-md);">LocalBrain</div>
+            <div class="score-display">88/100</div>
+            <div style="font-size: var(--font-size-xl); color: #10b981; font-weight: 600;">B - Good</div>
+            <div style="color: var(--muted); margin-top: var(--spacing-md);">Generated on 2025-10-10 15:13:41</div>
+        </header>
+        <main>
+            <div class="card" id="section-critical-metrics"><summary style="cursor:pointer;font-size:var(--font-size-lg);font-weight:600;margin-bottom:var(--spacing-md);user-select:none">🎯 Critical Metrics (Always Visible)</summary>
+                    <div class="grid cols-3">
+                      <div>
+                        <h3 style="color: #10b981; margin-bottom: var(--spacing-md);">Project Score: 88/100</h3>
+                        <p style="font-size: var(--font-size-lg); font-weight: 600; margin: 0;">Grade: B - Good</p>
+                      </div>
+                      <div>
+                        <h4 style="color: var(--text); margin-bottom: var(--spacing-sm);">Project Scale</h4>
+                        <div class="metric"><span class="metric-label">Files</span><span class="metric-value" >142</span></div>
+                        <div class="metric"><span class="metric-label">Directories</span><span class="metric-value" >23</span></div>
+                      </div>
+                      <div>
+                        <h4 style="color: var(--text); margin-bottom: var(--spacing-sm);">Duplicate Files</h4>
+                        <div class="metric"><span class="metric-label">Duplicates</span><span class="metric-value" style="color: var(--danger)">1</span></div>
+                        <div class="metric"><span class="metric-label">Size Waste</span><span class="metric-value" style="color: var(--warning)">0.2 MB</span></div>
+                      </div>
+                    </div>
+                    </div><div class="card" id="section-project-overview"><summary style="cursor:pointer;font-size:var(--font-size-lg);font-weight:600;margin-bottom:var(--spacing-md);user-select:none">📊 Project Overview</summary>
+                    <div class="grid cols-2">
+                      <div>
+                        <h4>Technology Stack</h4>
+                        <div class="metric"><span class="metric-label">Primary Language</span><span class="metric-value" >Python</span></div>
+                        <div class="metric"><span class="metric-label">Language Count</span><span class="metric-value" >3</span></div>
+                        <div class="metric"><span class="metric-label">Tech Summary</span><span class="metric-value" >Python 45, JavaScript 35, TypeScript 20</span></div>
+                      </div>
+                      <div>
+                        <h4>Directory Analysis</h4>
+                        <div class="metric"><span class="metric-label">Unknown Directories</span><span class="metric-value" style="color: var(--warning)">2 (8.7%)</span></div>
+                        <div class="metric"><span class="metric-label">Empty Directories</span><span class="metric-value" >1</span></div>
+                      </div>
+                    </div>
+                    </div><div class="card" id="section-quality-metrics"><summary style="cursor:pointer;font-size:var(--font-size-lg);font-weight:600;margin-bottom:var(--spacing-md);user-select:none">🔍 Quality Analysis</summary>
+                    <div class="grid cols-2">
+                      <div>
+                        <h4>Duplicate Analysis</h4>
+                        <div class="metric"><span class="metric-label">Duplicate Groups</span><span class="metric-value" >1</span></div>
+                        <div class="metric"><span class="metric-label">Potential Savings</span><span class="metric-value" >0.2 MB</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 82%; background: var(--success)"></div></div>
+                      </div>
+                      <div>
+                        <h4>Code Quality</h4>
+                        <div class="metric"><span class="metric-label">Naming Consistency</span><span class="metric-value" style="color: var(--success)">82%</span></div>
+                        <div class="metric"><span class="metric-label">Issues Found</span><span class="metric-value" >0</span></div>
+                      </div>
+                    </div>
+                    </div><div class="card" id="section-ai-insights"><summary style="cursor:pointer;font-size:var(--font-size-lg);font-weight:600;margin-bottom:var(--spacing-md);user-select:none">🤖 AI Insights</summary>
+                            <div class="callout" style="border-left-color: var(--accent)">Well-organized project with clear architecture patterns.</div>
+                            <div style="margin-top: var(--spacing-md);">
+                                <h4>Strategic Insights</h4>
+                                
+                                <div style="padding: var(--spacing-sm); background: var(--surface-2); border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm);">
+                                    <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Good modular structure</div>
+                                    <div style="font-size: var(--font-size-sm); color: var(--muted);">Maintain current organization</div>
+                                </div>
+                            
+                                <div style="padding: var(--spacing-sm); background: var(--surface-2); border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm);">
+                                    <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Consider more documentation</div>
+                                    <div style="font-size: var(--font-size-sm); color: var(--muted);">Add README files</div>
+                                </div>
+                            
+                            </div>
+                            </div><div class="card" id="section-advanced-analysis"><summary style="cursor:pointer;font-size:var(--font-size-lg);font-weight:600;margin-bottom:var(--spacing-md);user-select:none">🔬 Advanced Analysis</summary>
+                    <div class="grid cols-2">
+                      <div>
+                        <h4>Temporal Analysis</h4>
+                        <div class="metric"><span class="metric-label">Work Sessions</span><span class="metric-value" >1</span></div>
+                        <div class="metric"><span class="metric-label">Activity Span</span><span class="metric-value" >30 days</span></div>
+                        <div class="metric"><span class="metric-label">Busiest Month</span><span class="metric-value" >2024-02</span></div>
+                      </div>
+                      <div>
+                        <h4>Consolidation Opportunities</h4>
+                        <div class="metric"><span class="metric-label">Opportunities</span><span class="metric-value" >1</span></div>
+                        <div class="metric"><span class="metric-label">Performance Score</span><span class="metric-value" >85</span></div>
+                      </div>
+                    </div>
+                    </div><div class="card" id="section-megalith-self-scan"><summary style="cursor:pointer;font-size:var(--font-size-lg);font-weight:600;margin-bottom:var(--spacing-md);user-select:none">🔫 Megalith Self-Analysis</summary>
+                        <div class="grid cols-2">
+                          <div>
+                            <h4>Internal Structure</h4>
+                            <div class="metric"><span class="metric-label">Functions</span><span class="metric-value" >172</span></div>
+                            <div class="metric"><span class="metric-label">Classes</span><span class="metric-value" >5</span></div>
+                            <div class="metric"><span class="metric-label">Analysis Depth</span><span class="metric-value" >comprehensive</span></div>
+                          </div>
+                          <div>
+                            <h4>Hub Functions</h4>
+                            <div class="list-item"><div><strong>generate_html_report</strong><div style="font-size: var(--font-size-sm); color: var(--muted);">15 connections</div></div><span class="badge">HUB</span></div><div class="list-item"><div><strong>analyze_files</strong><div style="font-size: var(--font-size-sm); color: var(--muted);">12 connections</div></div><span class="badge">HUB</span></div><div class="list-item"><div><strong>detect_duplicates</strong><div style="font-size: var(--font-size-sm); color: var(--muted);">8 connections</div></div><span class="badge">HUB</span></div>
+                          </div>
+                          <div>
+                            <h4>Isolated Functions</h4>
+                            <div class="list-item"><div><strong>utility_helper</strong><div style="font-size: var(--font-size-sm); color: var(--muted);">0 connections</div></div><span class="badge">ISOLATED</span></div>
+                          </div>
+                        </div>
+                        </div>
+        </main>
+        <footer class="footer">
+            <p>Generated by mr-fix-my-project-please.py | Centralized HTML Architecture v1.0 | Replaced 28 scattered functions with unified 5-layer system</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ===== LocalBrain APCA-Compliant OKLCH Palette ===== */
+  /* Perceptually uniform colors using OKLCH color space */
+  /* Verified against APCA (Accessible Perceptual Contrast Algorithm) */
+  /* WCAG 3.0 standard - more accurate than WCAG 2.x ratios */
+
+  /* Backgrounds (dark to light) */
+  --bg1: #1b1b1d;     /* oklch(0.12, 0.005, 260) - Near black */
+  --bg2: #252527;     /* oklch(0.16, 0.005, 260) - Dark gray */
+  --bg3: #2f2f32;     /* oklch(0.20, 0.005, 260) - Medium dark gray */
+  --bg4: #3a3a3d;     /* oklch(0.24, 0.005, 260) - Lighter gray */
+  --surface: #282829; /* oklch(0.18, 0.005, 260) - Surface gray */
+
+  /* Text colors (light to dark) - APCA verified */
+  --tx1: #f1f1f2;     /* oklch(0.95, 0.005, 260) - Primary text | Lc ~85 on bg1 ✅ */
+  --tx2: #afafb1;     /* oklch(0.70, 0.005, 260) - Secondary text | Lc ~60 on bg1 ✅ */
+  --tx3: #7a7a7c;     /* oklch(0.50, 0.005, 260) - Dim text | Lc ~38 on bg1 (UI only) */
+
+  /* UI elements - APCA verified */
+  --hair: #494949;    /* oklch(0.30, 0.005, 260) - Borders | Lc ~30 on bg1 ✅ */
+  --acc: #bdbdc0;     /* oklch(0.75, 0.010, 260) - Accent | Lc ~65 on bg1 ✅ */
+
+  /* Status colors (minimal saturation for harmony) */
+  --ok: #afafb1;      /* oklch(0.70, 0.008, 260) - Success state */
+  --warn: #9b9b9d;    /* oklch(0.65, 0.008, 260) - Warning state */
+  --err: #878789;     /* oklch(0.60, 0.008, 260) - Error state */
+
+  /* APCA Standards:
+   * Body text (16px normal): Lc 60+ ✅
+   * Large text (24px/18px bold): Lc 45+ ✅
+   * UI components: Lc 30+ ✅
+   * All text/background pairs verified in lib/oklch.ts
+   */
+}
+
+body {
+  background-color: var(--bg1);
+  color: var(--tx1);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===== Animations ===== */
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ===== Hover States ===== */
+
+/* Button hover - subtle background change */
+button:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--acc) 15%, transparent) !important;
+  transition: background-color 0.2s ease;
+}
+
+/* Sidebar item hover */
+.sidebar-item:hover {
+  background-color: var(--bg3) !important;
+  transition: background-color 0.2s ease;
+}
+
+/* Context menu item hover */
+.context-menu-item:hover {
+  background-color: var(--bg3) !important;
+  transition: background-color 0.2s ease;
+}
+
+/* Send button hover - brighter accent */
+.send-button:hover:not(:disabled) {
+  filter: brightness(1.2);
+  transition: filter 0.2s ease;
+}
+
+/* Voice orb hover - scale up */
+.voice-orb:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Card hover - subtle lift */
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+/* ===== Living Widget Animations - Organic, Alive Movements ===== */
+
+/* Widget birth - grows into existence with bounce */
+@keyframes widgetBirth {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Widget breathing - subtle expansion/contraction */
+@keyframes widgetBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.008); }
+}
+
+/* Widget pulse - living heartbeat */
+@keyframes widgetPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(189, 189, 192, 0);
+    border-color: var(--hair);
+  }
+  50% {
+    box-shadow: 0 0 15px 1px rgba(189, 189, 192, 0.15);
+    border-color: var(--acc);
+  }
+}
+
+/* Widget float - gentle vertical movement */
+@keyframes widgetFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Widget shimmer - light passes over surface */
+@keyframes widgetShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Widget resize - smooth adaptation to space */
+@keyframes widgetResize {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Widget glow - active state indicator */
+@keyframes widgetGlow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+/* ===== Widget Body Classes - Living Organisms ===== */
+
+/* Base widget body - enters with birth animation */
+.widget-body {
+  animation: widgetBirth 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, opacity;
+}
+
+/* Breathing widget - idle state */
+.widget-breathing {
+  animation: widgetBreathe 6s ease-in-out infinite;
+}
+
+/* Active widget - currently in use */
+.widget-active {
+  animation: widgetPulse 3s ease-in-out infinite, widgetGlow 2s ease-in-out infinite;
+}
+
+/* Hovering widget - user interaction */
+.widget-body:hover {
+  animation: widgetFloat 3s ease-in-out infinite;
+  filter: brightness(1.05);
+}
+
+/* Resizing widget - adapting to space changes */
+.widget-resizing {
+  animation: widgetResize 0.3s ease-out;
+}
+
+/* Widget with shimmer effect - processing/loading */
+.widget-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(189, 189, 192, 0.05) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: widgetShimmer 3s linear infinite;
+}
+
+/* ===== Widget Compartments - 2D Rectangular Bodies ===== */
+
+.widget-compartment {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg1);
+  border: 1px solid var(--hair);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  container-type: size;
+  container-name: widget;
+}
+
+.widget-compartment::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--acc), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.widget-compartment:hover::before {
+  opacity: 0.3;
+  animation: widgetShimmer 2s linear infinite;
+}
+
+/* Widget content area - fills compartment */
+.widget-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 16px;
+  animation: fadeIn 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive widget content - adapts to container size */
+.widget-responsive {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: auto;
+}
+
+/* Compact mode for small cells */
+@container (max-height: 200px) {
+  .widget-content {
+    padding: 8px;
+    font-size: 0.875rem;
+  }
+
+  .widget-responsive {
+    gap: 4px;
+  }
+}
+
+/* Medium mode for medium cells */
+@container (min-height: 200px) and (max-height: 400px) {
+  .widget-content {
+    padding: 12px;
+  }
+}
+
+/* Full mode for large cells */
+@container (min-height: 400px) {
+  .widget-content {
+    padding: 16px;
+  }
+}

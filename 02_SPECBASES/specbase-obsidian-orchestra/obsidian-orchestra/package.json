@@ -1,0 +1,33 @@
+{
+  "name": "obsidian-finops-specifications",
+  "version": "3.0.0",
+  "description": "Agentic-Native Financial Intelligence Platform Specifications",
+  "type": "module",
+  "scripts": {
+    "docs:index": "node scripts/build-index.js",
+    "docs:validate": "node scripts/check-frontmatter-fixed.js",
+    "docs:security": "node scripts/security-boundary-linter-final.js",
+    "docs:promote": "node scripts/check-promotion-practical.js",
+    "docs:ci": "npm run docs:index && npm run docs:validate && npm run docs:security && npm run docs:promote",
+    "validate:all": "npm run docs:ci"
+  },
+  "devDependencies": {
+    "chalk": "^5.3.0",
+    "globby": "^13.2.2",
+    "gray-matter": "^4.0.3",
+    "yaml": "^2.3.4"
+  },
+  "keywords": [
+    "agentic-native",
+    "financial-intelligence",
+    "specifications",
+    "obsidian",
+    "documentation",
+    "ci-validation"
+  ],
+  "author": "Lech & Financial Intelligence Platform Team",
+  "license": "MIT",
+  "dependencies": {
+    "pluggy-sdk": "^0.77.0"
+  }
+}

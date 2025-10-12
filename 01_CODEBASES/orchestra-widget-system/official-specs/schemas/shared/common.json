@@ -1,0 +1,359 @@
+{
+  "$id": "https://localbrain.ai/schemas/shared/common.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Common Schema Definitions",
+  "description": "Shared schemas used across Orchestra LocalBrain",
+  "type": "object",
+  "definitions": {
+    "UUID": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Universally Unique Identifier"
+    },
+    "Timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp"
+    },
+    "Pagination": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 20
+        },
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "hasNext": {
+          "type": "boolean"
+        },
+        "hasPrev": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SortCriteria": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["asc", "desc"],
+          "default": "desc"
+        }
+      }
+    },
+    "FilterCriteria": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Dynamic filter criteria"
+    },
+    "SearchQuery": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fuzzy": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "required": ["error", "message", "timestamp"],
+      "properties": {
+        "error": {
+          "type": "string",
+          "description": "Error code identifier"
+        },
+        "message": {
+          "type": "string",
+          "description": "Human-readable error message"
+        },
+        "details": {
+          "type": "object",
+          "description": "Additional error details"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "requestId": {
+          "$ref": "#/definitions/UUID"
+        }
+      }
+    },
+    "SuccessResponse": {
+      "type": "object",
+      "required": ["success", "timestamp"],
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "const": true
+        },
+        "data": {
+          "description": "Response data"
+        },
+        "message": {
+          "type": "string",
+          "description": "Success message"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "requestId": {
+          "$ref": "#/definitions/UUID"
+        }
+      }
+    },
+    "ProviderType": {
+      "type": "string",
+      "enum": ["anthropic", "openai", "google", "ollama", "openrouter"],
+      "description": "Supported AI provider types"
+    },
+    "TokenUsage": {
+      "type": "object",
+      "required": ["input", "output", "total"],
+      "properties": {
+        "input": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Input tokens used"
+        },
+        "output": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Output tokens generated"
+        },
+        "total": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total tokens used"
+        },
+        "cost": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Cost in USD"
+        }
+      }
+    },
+    "Position": {
+      "type": "object",
+      "required": ["x", "y"],
+      "properties": {
+        "x": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "X coordinate"
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Y coordinate"
+        }
+      }
+    },
+    "Size": {
+      "type": "object",
+      "required": ["width", "height"],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Width in pixels or grid units"
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Height in pixels or grid units"
+        }
+      }
+    },
+    "Coordinates": {
+      "type": "object",
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": {
+          "type": "number",
+          "description": "X coordinate"
+        },
+        "y": {
+          "type": "number",
+          "description": "Y coordinate"
+        },
+        "z": {
+          "type": "number",
+          "description": "Z coordinate"
+        }
+      }
+    },
+    "Color": {
+      "type": "object",
+      "required": ["r", "g", "b"],
+      "properties": {
+        "r": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "g": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "b": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "a": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 1
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "required": ["id", "email"],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/UUID"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "avatar": {
+          "type": "string",
+          "format": "uri"
+        },
+        "preferences": {
+          "type": "object"
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "updatedAt": {
+          "$ref": "#/definitions/Timestamp"
+        }
+      }
+    },
+    "Session": {
+      "type": "object",
+      "required": ["id", "userId", "createdAt"],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/UUID"
+        },
+        "userId": {
+          "$ref": "#/definitions/UUID"
+        },
+        "token": {
+          "type": "string",
+          "description": "Session token"
+        },
+        "expiresAt": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "lastAccessed": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "RateLimit": {
+      "type": "object",
+      "required": ["limit", "remaining", "resetAt"],
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Rate limit quota"
+        },
+        "remaining": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Remaining quota"
+        },
+        "resetAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "When quota resets"
+        },
+        "retryAfter": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Seconds to wait before retry"
+        }
+      }
+    },
+    "HealthStatus": {
+      "type": "object",
+      "required": ["status", "timestamp"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["healthy", "degraded", "unhealthy"],
+          "description": "Overall health status"
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": ["pass", "fail", "warn"]
+              },
+              "message": {
+                "type": "string"
+              },
+              "duration": {
+                "type": "number",
+                "description": "Check duration in milliseconds"
+              }
+            }
+          }
+        },
+        "timestamp": {
+          "$ref": "#/definitions/Timestamp"
+        },
+        "uptime": {
+          "type": "number",
+          "description": "Service uptime in seconds"
+        }
+      }
+    }
+  }
+}

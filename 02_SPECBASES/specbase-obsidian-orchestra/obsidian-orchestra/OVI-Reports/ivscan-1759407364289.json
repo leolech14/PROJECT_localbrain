@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-10-02T12:16:04.289Z",
+  "viewExists": true,
+  "horizontalBar": {
+    "objectExists": true,
+    "mounted": false
+  },
+  "controlPanel": {
+    "objectExists": true,
+    "domPresent": true
+  },
+  "dom": {
+    "barPresent": true,
+    "rect": {
+      "x": 343.9765930175781,
+      "y": 1783.494140625,
+      "w": 2291.664306640625,
+      "h": 69.99893951416016
+    }
+  }
+}

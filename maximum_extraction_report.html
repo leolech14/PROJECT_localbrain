@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>🔨 Mr. Fix-My-Project-Please — LocalBrain</title>
+<style>
+  :root{
+    --bg: oklch(0.86 0.02 250);
+    --surface: oklch(0.93 0.02 250);
+    --surface-2: oklch(0.89 0.02 250);
+    --text: oklch(0.23 0.03 250);
+    --muted: oklch(0.45 0.02 250);
+    --border: oklch(0.76 0.02 250);
+    --accent: oklch(0.58 0.09 240);
+    --focus: oklch(0.52 0.10 240);
+    --radius: 14px;
+    --ui: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
+  }
+  html, body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--ui);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:24px auto;padding:0 16px 72px;display:grid;gap:16px}
+  h1{font-size:clamp(22px,2.6vw,30px);margin:0}
+  h2{font-size:clamp(18px,2.2vw,24px);margin:0 0 12px}
+  h3{font-size:16px;margin:16px 0 8px}
+  .lead{color:var(--muted);margin:4px 0 0}
+  .grid{display:grid;gap:12px}
+  .cols-2{grid-template-columns:repeat(2,1fr)}
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  .cols-4{grid-template-columns:repeat(4,1fr)}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
+  .card h2{margin:0 0 8px;font-size:clamp(16px,2vw,20px)}
+  .table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+  .table th,.table td{padding:10px 12px;text-align:left;vertical-align:top}
+  .table thead th{background:linear-gradient(to bottom,var(--surface),var(--surface-2));font-weight:600}
+  .table tbody tr:nth-child(even){background:var(--surface-2)}
+  .mono{font-family:var(--mono);font-size:0.95em}
+  .pill{display:inline-block;padding:4px 8px;border:1px solid var(--border);border-radius:999px;background:var(--surface-2);font-size:12px;color:var(--muted)}
+  .small{font-size:12px;color:var(--muted)}
+  .callout{border-left:4px solid var(--accent);padding:10px 12px;background:var(--surface);border-radius:10px}
+  .status-high{color:#e53e3e}
+  .status-medium{color:#dd6b20}
+  .status-low{color:#38a169}
+  .status-good{color:var(--accent)}
+  pre{background:var(--surface-2);padding:12px;border-radius:8px;overflow-x:auto;font-size:11px;line-height:1.4}
+  
+  :root[data-theme="dark"]{
+    --bg: #0f1318;
+    --surface: #151a1f;
+    --surface-2: #10161d;
+    --ink: #e6ebf2;
+    --text: var(--ink);
+    --muted: #a3adbb;
+    --border: #2a3441;
+    --accent: #ffd85e;
+  }
+  :root[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+  :root[data-theme="dark"] .card,:root[data-theme="dark"] .table{background:var(--surface)!important;color:var(--ink)!important;border-color:var(--border)!important}
+  :root[data-theme="dark"] .lead{color:var(--muted)!important}
+  :root[data-theme="dark"] th{background:var(--surface-2)!important}
+  
+  .toggles{position:fixed;top:10px;right:10px;z-index:9999;display:flex;gap:8px}
+  .toggle-btn{padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-size:14px}
+  .toggle-btn:hover{opacity:0.9}
+</style>
+</head>
+<body>
+  <div class="toggles">
+    <button class="toggle-btn" onclick="toggleTheme()">🌙/☀️</button>
+    <button class="toggle-btn" onclick="toggleLang()">EN/PT</button>
+  </div>
+
+  <main class="wrap">
+    <header>
+      <h1 data-i18n="title">🔨 Mr. Fix-My-Project-Please</h1>
+      <p class="lead"><span class="pill">LocalBrain</span> • <span data-i18n="subtitle">Maximum Information Extraction with AI Analysis</span></p>
+    </header>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section class="card">
+      <h2 data-i18n="executive_summary">📊 Executive Summary</h2>
+      <table class="table">
+        <thead><tr><th data-i18n="metric">Metric</th><th data-i18n="value">Value</th><th data-i18n="status_header">Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong data-i18n="health_score">Health Score</strong></td><td class="mono">48.6/100</td><td>F - Critical Issues</td></tr>
+          <tr><td><strong data-i18n="total_files">Total Files</strong></td><td class="mono">879</td><td>Needs Attention</td></tr>
+          <tr><td><strong data-i18n="total_directories">Total Directories</strong></td><td class="mono">163</td><td>🗂️ <span data-i18n="organized">Organized</span></td></tr>
+          <tr><td><strong data-i18n="analysis_time">Analysis Time</strong></td><td class="mono">0.00s</td><td>⚡ <span data-i18n="fast">Fast</span></td></tr>
+          <tr><td><strong data-i18n="strategy">Strategy</strong></td><td class="mono">Standard</td><td>🎯 <span data-i18n="adaptive">Adaptive</span></td></tr>
+        </tbody>
+      </table>
+      <div class="callout" style="margin-top:16px">
+        <strong>🎯 <span data-i18n="key_insights">Key Insights:</span></strong>
+        <ul style="margin:8px 0 0 16px">
+          <li><strong data-i18n="project_scale">Project Scale:</strong> small_ecosystem</li>
+          <li><strong data-i18n="maturity_level">Maturity Level:</strong> developing</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WHOLE NUMBERS -->
+    <section class="card">
+      <h2 data-i18n="whole_numbers">📊 Whole Numbers</h2>
+      <div class="grid cols-4">
+        <div class="card">
+          <div class="small" data-i18n="files">Files</div>
+          <div style="font-size:2rem;font-weight:700;font-family:var(--mono)">879</div>
+        </div>
+        <div class="card">
+          <div class="small" data-i18n="directories">Directories</div>
+          <div style="font-size:2rem;font-weight:700;font-family:var(--mono)">163</div>
+        </div>
+        <div class="card">
+          <div class="small" data-i18n="score">Score</div>
+          <div style="font-size:2rem;font-weight:700;font-family:var(--mono)">49</div>
+        </div>
+        <div class="card">
+          <div class="small" data-i18n="duplicates">Duplicates</div>
+          <div style="font-size:2rem;font-weight:700;font-family:var(--mono)">34</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILE SYSTEM MAP -->
+    <section class="card">
+      <h2 data-i18n="file_system_map">🗺️ File System Map (ASCII Tree)</h2>
+      <pre class="mono small">LocalBrain/\n├── 01_CODEBASES/\n│   ├── LocalBrain/\n│   │   ├── Assets.xcassets/\n│   │   ├── Core/\n│   │   ├── LocalBrain.xcdatamodeld/\n│   │   ├── Models/\n│   │   ├── Resources/\n│   │   ├── Services/\n│   │   ├── Views/\n│   │   ├── WidgetSystem/\n│   │   ├── Widgets/\n│   │   ├── Info.plist\n│   │   ├── LocalBrain.entitlements\n│   │   ├── LocalBrainApp.swift\n│   │   └── README_SWIFT_APP.md\n│   ├── backend/\n│   │   ├── ledger/\n│   │   ├── policy-engine/\n│   │   ├── rag/\n│   │   └── schemas/\n│   ├── design/\n│   │   ├── apca/\n│   │   ├── mockups/\n│   │   ├── motion/\n│   │   ├── storybook/\n│   │   ├── tokens/\n│   │   └── README_DESIGN_SYSTEM.md\n│   ├── localbrain-electron/\n│   │   ├── main/\n│   │   ├── renderer/\n│   │   ├── APCA_OKLCH_IMPLEMENTATION.md\n│   │   ├── INTEGRATION_PLAN.md\n│   │   ├── PHASE_1_COMPLETE.md\n│   │   ├── README_NEXTJS_PROTOTYPE.md\n│   │   ├── main.js\n│   │   ├── package-lock.json\n│   │   ├── package.json\n│   │   └── preload.js\n│   ├── localbrain-ui/\n│   │   └── components/\n│   ├── meta-layer/\n│   │   ├── src/\n│   │   ├── templates/\n│   │   ├── tests/\n│   │   ├── README.md\n│   │   ├── package.json\n│   │   └── tsconfig.json\n│   ├── orchestra-widget-system/\n│   │   ├── INFRASTRUCTURE/\n│   │   ├── LocalBrain/\n│   │   ├── official-specs/\n│   │   ├── COMMUNICATION_TO_SONNET_4_5.md\n│   │   ├── IMPLEMENTATION_COMPLETE.md\n│   │   ├── OFFICIAL_README.md\n│   │   ├── README_WIDGET_SYSTEM.md\n│   │   ├── package-lock.json\n│   │   └── package.json\n│   ├── shared/\n│   │   └── ipc-contracts/\n│   └── tests/\n│       └── integration/\n├── 02_SPECBASES/\n│   ├── LocalBrain/\n│   │   ├── BACKLOG/\n│   │   └── GOVERNANCE/\n│   ├── components/\n│   │   ├── T009_Sidebar_Component_Spec.md\n│   │   └── T011_TopNav_Component_Spec.md\n│   ├── features/\n│   │   └── LB-AI-COMPONENT-GENERATOR-020.spec.md\n│   ├── specbase-LocalBrain/\n│   │   ├── base/\n│   │   ├── features/\n│   │   └── README_SPECIFICATION_SYSTEM.md\n│   ├── specbase-obsidian-orchestra/\n│   │   └── obsidian-orchestra/\n│   ├── CODEBASES_CONSOLIDATION_ANALYSIS.md\n│   └── README.md\n├── 03_ITERATION_CONTEXT/\n│   ├── ITERATION_01/\n│   │   └── ITERATION_01_STATUS.md\n│   └── ITERATION_02/\n│       ├── FILES_GENERATED_ITERATION_02.md\n│       └── ITERATION_02_STATUS.md\n├── 04_AGENT_FRAMEWORK/\n│   ├── CHATGPT5_SUPERVISION/\n│   │   ├── agent_workflow/\n│   │   ├── AGENT_COORDINATION.md\n│   │   ├── COMPLIANCE_CHECKLIST.md\n│   │   ├── CRITICAL_ISSUES.md\n│   │   ├── CURRENT_STATUS.md\n│   │   ├── PROJECT_REALITY.md\n│   │   ├── README.md\n│   │   ├── README_AGENT_FRAMEWORK.md\n│   │   └── SPEC_CODE_ANALYSIS.md\n│   ├── INSTRUCTIONS/\n│   │   ├── AGENT_A_UI_VELOCITY.md\n│   │   ├── AGENT_B_DESIGN_SYSTEM.md\n│   │   ├── AGENT_C_BACKEND_SERVICES.md</pre>
+    </section>
+
+    <!-- TECHNOLOGY STACK -->
+    
+        <section class="card">
+          <h2 data-i18n="tech_stack">🔧 Technology Stack</h2>
+          <div class="grid cols-2">
+            <div>
+              <h3 data-i18n="languages">Programming Languages</h3>
+              <table class="table">
+                <thead><tr><th data-i18n="language">Language</th><th data-i18n="percentage">Usage</th></tr></thead>
+                <tbody><tr><td><strong>JavaScript</strong></td><td class='mono'>33.9%</td></tr><tr><td><strong>TypeScript</strong></td><td class='mono'>30.6%</td></tr><tr><td><strong>Swift</strong></td><td class='mono'>16.2%</td></tr><tr><td><strong>Python</strong></td><td class='mono'>10.1%</td></tr><tr><td><strong>React (TSX)</strong></td><td class='mono'>9.2%</td></tr></tbody>
+              </table>
+            </div>
+            <div>
+              <h3 data-i18n="package_managers">Package Managers</h3>
+              <div class="callout">Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Node.js/npm<br>Python/pip<br>Node.js/npm</div>
+            </div>
+          </div>
+        </section>
+        
+
+    <!-- TEMPORAL EVOLUTION -->
+    
+        <section class="card">
+          <h2 data-i18n="temporal_evolution">📈 Temporal Evolution Timeline</h2>
+          <h3 data-i18n="monthly_activity">Monthly Activity Pattern</h3>
+          <table class="table">
+            <thead><tr><th data-i18n="month">Month</th><th data-i18n="files_modified">Files Modified</th></tr></thead>
+            <tbody><tr><td>2025-10</td><td class='mono'>1,195</td></tr><tr><td>2025-09</td><td class='mono'>101</td></tr><tr><td>2025-08</td><td class='mono'>18</td></tr></tbody>
+          </table>
+        </section>
+        
+
+    <!-- WORK SESSIONS -->
+    
+        <section class="card">
+          <h2 data-i18n="work_sessions">🗂️ Recent Work Sessions</h2>
+          <table class="table">
+            <thead><tr><th data-i18n="session_start">Start</th><th data-i18n="duration">Duration</th><th data-i18n="files_changed">Files</th></tr></thead>
+            <tbody>
+            <tr>
+              <td>2025-10-10 12:24</td>
+              <td class='mono'>250 min</td>
+              <td class='mono'>35</td>
+            </tr>
+            
+            <tr>
+              <td>2025-10-09 14:29</td>
+              <td class='mono'>802 min</td>
+              <td class='mono'>386</td>
+            </tr>
+            
+            <tr>
+              <td>2025-10-08 09:38</td>
+              <td class='mono'>913 min</td>
+              <td class='mono'>378</td>
+            </tr>
+            
+            <tr>
+              <td>2025-10-07 19:37</td>
+              <td class='mono'>117 min</td>
+              <td class='mono'>24</td>
+            </tr>
+            
+            <tr>
+              <td>2025-10-07 12:30</td>
+              <td class='mono'>115 min</td>
+              <td class='mono'>10</td>
+            </tr>
+            
+            <tr>
+              <td>2025-10-06 14:48</td>
+              <td class='mono'>638 min</td>
+              <td class='mono'>155</td>
+            </tr>
+            
+            <tr>
+              <td>2025-10-05 16:16</td>
+              <td class='mono'>235 min</td>
+              <td class='mono'>10</td>
+            </tr>
+            
+            <tr>
+              <td>2025-10-04 18:25</td>
+              <td class='mono'>392 min</td>
+              <td class='mono'>59</td>
+            </tr>
+            
+            <tr>
+              <td>2025-10-02 09:16</td>
+              <td class='mono'>187 min</td>
+              <td class='mono'>105</td>
+            </tr>
+            
+            <tr>
+              <td>2025-10-01 13:50</td>
+              <td class='mono'>610 min</td>
+              <td class='mono'>32</td>
+            </tr>
+            </tbody>
+          </table>
+        </section>
+        
+
+    <!-- FILE TYPE DISTRIBUTION -->
+    
+        <section class="card">
+          <h2 data-i18n="file_type_distribution">📊 File Type Distribution</h2>
+          <table class="table">
+            <thead><tr><th data-i18n="extension">Extension</th><th data-i18n="count">Count</th><th data-i18n="percentage">Percentage</th></tr></thead>
+            <tbody><tr><td class='mono'>.md</td><td class='mono'>398</td><td class='mono'>45.3%</td></tr><tr><td class='mono'>.ts</td><td class='mono'>90</td><td class='mono'>10.2%</td></tr><tr><td class='mono'>.json</td><td class='mono'>69</td><td class='mono'>7.8%</td></tr><tr><td class='mono'>.swift</td><td class='mono'>69</td><td class='mono'>7.8%</td></tr><tr><td class='mono'>.pdf</td><td class='mono'>48</td><td class='mono'>5.5%</td></tr><tr><td class='mono'>.tsx</td><td class='mono'>39</td><td class='mono'>4.4%</td></tr><tr><td class='mono'>.png</td><td class='mono'>28</td><td class='mono'>3.2%</td></tr><tr><td class='mono'>.cjs</td><td class='mono'>26</td><td class='mono'>3.0%</td></tr><tr><td class='mono'>.py</td><td class='mono'>25</td><td class='mono'>2.8%</td></tr><tr><td class='mono'>.js</td><td class='mono'>18</td><td class='mono'>2.0%</td></tr><tr><td class='mono'>.sh</td><td class='mono'>10</td><td class='mono'>1.1%</td></tr><tr><td class='mono'>.template</td><td class='mono'>9</td><td class='mono'>1.0%</td></tr><tr><td class='mono'>(no ext)</td><td class='mono'>7</td><td class='mono'>0.8%</td></tr><tr><td class='mono'>.html</td><td class='mono'>7</td><td class='mono'>0.8%</td></tr><tr><td class='mono'>.mjs</td><td class='mono'>5</td><td class='mono'>0.6%</td></tr></tbody>
+          </table>
+        </section>
+        
+
+    <!-- DIRECTORY PURPOSES -->
+    
+        <section class="card">
+          <h2 data-i18n="directory_intelligence">🎯 Directory Intelligence Matrix</h2>
+          <div class="grid cols-2">
+            <div>
+              <h3 data-i18n="purpose_distribution">Purpose Distribution</h3>
+              <table class="table">
+                <thead><tr><th data-i18n="purpose">Purpose</th><th data-i18n="count">Count</th></tr></thead>
+                <tbody><tr><td><strong>Unknown</strong></td><td class='mono'>4494</td></tr><tr><td><strong>Source Code</strong></td><td class='mono'>761</td></tr><tr><td><strong>Build</strong></td><td class='mono'>431</td></tr><tr><td><strong>Testing</strong></td><td class='mono'>283</td></tr><tr><td><strong>Scripts</strong></td><td class='mono'>118</td></tr><tr><td><strong>Data</strong></td><td class='mono'>55</td></tr><tr><td><strong>Configuration</strong></td><td class='mono'>53</td></tr><tr><td><strong>Temp</strong></td><td class='mono'>49</td></tr><tr><td><strong>Assets</strong></td><td class='mono'>32</td></tr><tr><td><strong>Documentation</strong></td><td class='mono'>14</td></tr><tr><td><strong>Backup</strong></td><td class='mono'>2</td></tr></tbody>
+              </table>
+            </div>
+            <div>
+              <h3 data-i18n="high_priority_dirs">High-Priority Directories</h3>
+              <table class="table">
+                <thead><tr><th data-i18n="directory">Directory</th><th data-i18n="purpose">Purpose</th><th data-i18n="files">Files</th></tr></thead>
+                <tbody><tr><td>packages/brain-cli/dist/lib</td><td>source_code</td><td class='mono'>12</td></tr><tr><td>packages/brain-cli/node_modules/zod/v4/core</td><td>source_code</td><td class='mono'>64</td></tr><tr><td>packages/brain-cli/node_modules/zod/src/v4/core</td><td>source_code</td><td class='mono'>18</td></tr><tr><td>packages/brain-cli/node_modules/zod/src/v4/mini/tests</td><td>testing</td><td class='mono'>12</td></tr><tr><td>packages/brain-cli/node_modules/zod/src/v4/classic/tests</td><td>testing</td><td class='mono'>64</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        
+
+    <!-- DUPLICATES & CONSOLIDATION -->
+    
+        <section class="card">
+          <h2 data-i18n="duplicate_files">🔍 Duplicate Files Analysis</h2>
+          <div class="callout" style="margin-bottom:12px">
+            <strong data-i18n="total_wasted">Total Wasted Space:</strong> 3.66 MB
+          </div>
+          <table class="table">
+            <thead><tr><th data-i18n="files">Files</th><th data-i18n="copies">Copies</th><th data-i18n="wasted_space">Wasted</th></tr></thead>
+            <tbody>
+            <tr>
+              <td class='small'>• mr-fix-my-project-please.py.bak<br>• mr-fix-my-project-please.py.backup-before-cleanup</td>
+              <td class='mono'>2</td>
+              <td class='mono status-medium'>0.73 MB</td>
+            </tr>
+            
+            <tr>
+              <td class='small'>• mr-fix-test-original.py<br>• mr-fix-my-project-please.py.backup-$(date +%Y%m%d-%H%M%S)<br>• mr-fix-my-project-please.py.backup-phase1</td>
+              <td class='mono'>3</td>
+              <td class='mono status-medium'>1.43 MB</td>
+            </tr>
+            
+            <tr>
+              <td class='small'>• analysis_output.log<br>• analysis_output.html</td>
+              <td class='mono'>2</td>
+              <td class='mono status-medium'>0.00 MB</td>
+            </tr>
+            
+            <tr>
+              <td class='small'>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/ARCH__audit__audit-of-markdown-specifications-vs-deep-research-documents-1.pdf<br>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/ARCH__audit__audit-of-markdown-specifications-vs-deep-research-documents.pdf</td>
+              <td class='mono'>2</td>
+              <td class='mono status-medium'>0.08 MB</td>
+            </tr>
+            
+            <tr>
+              <td class='small'>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/SEC__security__security-first-autonomous-spending-system-dr-0031-design-implementation.pdf<br>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/SEC__security__security-first-autonomous-spending-system-dr-0031-design-implementation-1.pdf</td>
+              <td class='mono'>2</td>
+              <td class='mono status-medium'>0.15 MB</td>
+            </tr>
+            
+            <tr>
+              <td class='small'>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/ARCH__audit__open-finance-connectors-brazil-architecture-implementation-report.pdf<br>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/ARCH__audit__open-finance-connectors-brazil-architecture-implementation-report-1.pdf</td>
+              <td class='mono'>2</td>
+              <td class='mono status-medium'>0.24 MB</td>
+            </tr>
+            
+            <tr>
+              <td class='small'>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/LEDG__orchestrator__symphony-orchestrator-fast-safe-explainable-multi-agent-router.pdf<br>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/LEDG__orchestrator__symphony-orchestrator-fast-safe-explainable-multi-agent-router-1.pdf</td>
+              <td class='mono'>2</td>
+              <td class='mono status-medium'>0.28 MB</td>
+            </tr>
+            
+            <tr>
+              <td class='small'>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/DOC__docs__expert-recommendations-for-obsidian-vault-intelligence-plugin-success.pdf<br>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/DOC__docs__expert-recommendations-for-obsidian-vault-intelligence-plugin-success-1.pdf</td>
+              <td class='mono'>2</td>
+              <td class='mono status-medium'>0.09 MB</td>
+            </tr>
+            
+            <tr>
+              <td class='small'>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/ARCH__audit__final-architecture-audit-obsidian-finops-100-compliant-os.pdf<br>• 02_SPECBASES/specbase-obsidian-orchestra/obsidian-orchestra/pdfs/ARCH__audit__final-architecture-audit-obsidian-finops-100-compliant-os-1.pdf</td>
+              <td class='mono'>2</td>
+              <td class='mono status-medium'>0.12 MB</td>
+            </tr>
+            
+            <tr>
+              <td class='small'>• .obsidian/app.json<br>• .obsidian/appearance.json<br>• 01_CODEBASES/localbrain-electron/renderer/out/server/pages-manifest.json<br>• 01_CODEBASES/localbrain-electron/renderer/out/server/app-paths-manifest.json<br>• 01_CODEBASES/localbrain-electron/renderer/.next/server/app/demo/page/react-loadable-manifest.json</td>
+              <td class='mono'>11</td>
+              <td class='mono status-medium'>0.00 MB</td>
+            </tr>
+            </tbody>
+          </table>
+        </section>
+        
+    
+        <section class="card">
+          <h2 data-i18n="consolidation_opportunities">🔄 Consolidation Opportunities</h2>
+          <p class="small" data-i18n="consolidation_desc">Purpose-driven cluster consolidation: safe merging, deduplication, and reorganization suggestions.</p>
+          
+            <div class="callout" style="margin-bottom:8px">
+              <strong>Exact Duplicate:</strong> Delete duplicates, keep one<br>
+              <small class="small"></small>
+            </div>
+            
+            <div class="callout" style="margin-bottom:8px">
+              <strong>Exact Duplicate:</strong> Delete duplicates, keep one<br>
+              <small class="small"></small>
+            </div>
+            
+            <div class="callout" style="margin-bottom:8px">
+              <strong>Exact Duplicate:</strong> Delete duplicates, keep one<br>
+              <small class="small"></small>
+            </div>
+            
+            <div class="callout" style="margin-bottom:8px">
+              <strong>Exact Duplicate:</strong> Delete duplicates, keep one<br>
+              <small class="small"></small>
+            </div>
+            
+            <div class="callout" style="margin-bottom:8px">
+              <strong>Exact Duplicate:</strong> Delete duplicates, keep one<br>
+              <small class="small"></small>
+            </div>
+            
+            <div class="callout" style="margin-bottom:8px">
+              <strong>Exact Duplicate:</strong> Delete duplicates, keep one<br>
+              <small class="small"></small>
+            </div>
+            
+            <div class="callout" style="margin-bottom:8px">
+              <strong>Exact Duplicate:</strong> Delete duplicates, keep one<br>
+              <small class="small"></small>
+            </div>
+            
+            <div class="callout" style="margin-bottom:8px">
+              <strong>Exact Duplicate:</strong> Delete duplicates, keep one<br>
+              <small class="small"></small>
+            </div>
+            
+            <div class="callout" style="margin-bottom:8px">
+              <strong>Exact Duplicate:</strong> Delete duplicates, keep one<br>
+              <small class="small"></small>
+            </div>
+            
+            <div class="callout" style="margin-bottom:8px">
+              <strong>Exact Duplicate:</strong> Delete duplicates, keep one<br>
+              <small class="small"></small>
+            </div>
+            
+        </section>
+        
+
+    <!-- NAMING PATTERNS -->
+    
+        <section class="card">
+          <h2 data-i18n="naming_patterns">📝 Naming Pattern Analysis</h2>
+          <div class="callout" style="margin-bottom:12px">
+            <strong data-i18n="recommended_convention">Recommended Convention:</strong> SCREAMING_SNAKE_CASE
+          </div>
+          <table class="table">
+            <thead><tr><th data-i18n="convention">Convention</th><th data-i18n="usage">Usage</th></tr></thead>
+            <tbody><tr><td>SCREAMING_SNAKE_CASE</td><td class='mono'>247</td></tr><tr><td>kebab-case</td><td class='mono'>160</td></tr><tr><td>PascalCase</td><td class='mono'>82</td></tr><tr><td>snake_case</td><td class='mono'>43</td></tr><tr><td>camelCase</td><td class='mono'>7</td></tr></tbody>
+          </table>
+        </section>
+        
+
+    <!-- EMPTY DIRECTORIES -->
+    
+        <section class="card">
+          <h2 data-i18n="empty_directories">📁 Empty Directories (7)</h2>
+          <div class="callout">
+            <div class="small">• sniper-gun-mcp-server/src/tools<br>• 04_AGENT_FRAMEWORK/mcp-integration/implementations<br>• 01_CODEBASES/localbrain-electron/renderer/.next/static/tqPTdzWkGZvoSfrbQgirH<br>• 01_CODEBASES/localbrain-ui/components/grid/styles<br>• 01_CODEBASES/meta-layer/templates/infrastructure<br>• .git/refs/heads/release<br>• .git/refs/tags</div>
+          </div>
+          <p class="small" data-i18n="empty_dirs_action">These directories can be safely removed to clean up the project structure.</p>
+        </section>
+        
+
+    <!-- LLM INSIGHTS / CURIOSITIES -->
+    
+
+    <!-- STRONG POINTS (REAL) -->
+    <section class="card">
+      <h2 data-i18n="strong_points">💪 Strong Points</h2>
+      <ul><li data-i18n='strong_tech'>Well-defined technology stack</li><li data-i18n='strong_active'>Active development with consistent work sessions</li><li data-i18n='strong_docs'>Documentation infrastructure in place</li></ul>
+    </section>
+
+    <!-- WEAK POINTS (REAL) -->
+    <section class="card">
+      <h2 data-i18n="weak_points">⚠️ Weak Points</h2>
+      <ul><li class='status-medium'><strong data-i18n='weak_dups'>Duplicate files detected:</strong> 34 sets of duplicates wasting storage space</li><li class='status-medium'><strong data-i18n='weak_consolidation'>Consolidation opportunities:</strong> 37 areas needing organization</li></ul>
+    </section>
+
+    <!-- ROBUSTNESS OPPORTUNITIES (REAL) -->
+    <section class="card">
+      <h2 data-i18n="robustness_opportunities">🛡️ Opportunities to Increase System Robustness</h2>
+      <ul><li class='status-medium'><strong data-i18n='robust_dedup'>Remove duplicate files:</strong> Eliminate redundancy and save storage</li><li class='status-low'><strong data-i18n='robust_clean'>Clean up empty directories:</strong> Remove unused directory structure</li><li class='status-medium'><strong data-i18n='robust_doppler'>Configure Doppler:</strong> Enable AI-powered analysis with GPT-5</li><li class='status-medium'><strong data-i18n='robust_consolidate'>Consolidate scattered files:</strong> Merge and organize similar-purpose content</li></ul>
+    </section>
+
+    <footer style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border);text-align:center">
+      <p class="small">Generated by <strong>Mr. Fix-My-Project-Please</strong> • 2025-10-10 16:35:37</p>
+      <p class="small" data-i18n="footer_desc">Multi-Layer Adaptive Analysis with Maximum Information Extraction</p>
+    </footer>
+  </main>
+
+  <script>
+    const translations = {
+      'en': {
+        'title': '🔨 Mr. Fix-My-Project-Please',
+        'subtitle': 'Maximum Information Extraction with AI Analysis',
+        'executive_summary': '📊 Executive Summary',
+        'metric': 'Metric',
+        'value': 'Value',
+        'status_header': 'Status',
+        'health_score': 'Health Score',
+        'total_files': 'Total Files',
+        'total_directories': 'Total Directories',
+        'analysis_time': 'Analysis Time',
+        'strategy': 'Strategy',
+        'organized': 'Organized',
+        'fast': 'Fast',
+        'adaptive': 'Adaptive',
+        'key_insights': 'Key Insights:',
+        'project_scale': 'Project Scale',
+        'maturity_level': 'Maturity Level',
+        'whole_numbers': '📊 Whole Numbers',
+        'files': 'Files',
+        'directories': 'Directories',
+        'score': 'Score',
+        'duplicates': 'Duplicates',
+        'file_system_map': '🗺️ File System Map (ASCII Tree)',
+        'strong_points': '💪 Strong Points',
+        'weak_points': '⚠️ Weak Points',
+        'robustness_opportunities': '🛡️ Opportunities to Increase System Robustness',
+        'footer_desc': 'Multi-Layer Adaptive Analysis with Maximum Information Extraction'
+      },
+      'pt': {
+        'title': '🔨 Mr. Fix-My-Project-Please',
+        'subtitle': 'Extração Máxima de Informação com Análise IA',
+        'executive_summary': '📊 Resumo Executivo',
+        'metric': 'Métrica',
+        'value': 'Valor',
+        'status_header': 'Status',
+        'health_score': 'Pontuação de Saúde',
+        'total_files': 'Total de Arquivos',
+        'total_directories': 'Total de Diretórios',
+        'analysis_time': 'Tempo de Análise',
+        'strategy': 'Estratégia',
+        'organized': 'Organizado',
+        'fast': 'Rápido',
+        'adaptive': 'Adaptativo',
+        'key_insights': 'Insights Principais:',
+        'project_scale': 'Escala do Projeto',
+        'maturity_level': 'Nível de Maturidade',
+        'whole_numbers': '📊 Números Totais',
+        'files': 'Arquivos',
+        'directories': 'Diretórios',
+        'score': 'Pontuação',
+        'duplicates': 'Duplicados',
+        'file_system_map': '🗺️ Mapa do Sistema de Arquivos (Árvore ASCII)',
+        'strong_points': '💪 Pontos Fortes',
+        'weak_points': '⚠️ Pontos Fracos',
+        'robustness_opportunities': '🛡️ Oportunidades para Aumentar Robustez do Sistema',
+        'footer_desc': 'Análise Adaptativa Multi-Camada com Extração Máxima de Informação'
+      }
+    };
+
+    let currentLang = localStorage.getItem('language') || 'en';
+    let currentTheme = localStorage.getItem('theme') || 'light';
+
+    function toggleTheme() {
+      currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      localStorage.setItem('theme', currentTheme);
+    }
+
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'pt' : 'en';
+      localStorage.setItem('language', currentLang);
+      updateTranslations();
+    }
+
+    function updateTranslations() {
+      document.querySelectorAll('[data-i18n]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n');
+        if (translations[currentLang] && translations[currentLang][key]) {
+          elem.textContent = translations[currentLang][key];
+        }
+      });
+    }
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateTranslations();
+    window.addEventListener('DOMContentLoaded', updateTranslations);
+  </script>
+</body>
+</html>

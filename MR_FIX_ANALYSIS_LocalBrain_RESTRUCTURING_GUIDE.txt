@@ -1,0 +1,225 @@
+========================================================================================
+📋 RESTRUCTURING GUIDE: mr-fix-my-project-please.py
+   From 734KB Monolith to Modular Architecture
+========================================================================================
+
+🎯 CURRENT ARCHITECTURE ANALYSIS:
+----------------------------------------------------------------------------------------
+
+The analyzer is currently a 206-function monolith containing:
+- HTML generation engine
+- Project analysis algorithms
+- Color schema management
+- Chart/graph generation
+- Calendar/timeline rendering
+- Multiple report formats
+
+Current Organization:
+  • Single 734KB Python file
+  • 206 functions (some >200 lines)
+  • Mixed concerns (analysis + rendering + data + UI)
+  • No clear module boundaries
+
+
+💡 PROPOSED MODULAR ARCHITECTURE:
+----------------------------------------------------------------------------------------
+
+mr-fix-my-project/
+├── core/
+│   ├── analyzer.py              # Project analysis engine
+│   ├── file_scanner.py          # File system operations
+│   ├── dependency_mapper.py     # Dependency analysis
+│   └── metrics_calculator.py    # Complexity/metrics
+│
+├── html_generation/
+│   ├── base_generator.py        # Base HTML generation
+│   ├── calendar_generator.py    # Calendar/timeline views
+│   ├── chart_generator.py       # SVG chart generation
+│   ├── report_builder.py        # Report assembly
+│   └── template_engine.py       # HTML templates
+│
+├── color_systems/
+│   ├── schemas.py               # Color schema definitions
+│   ├── palette_manager.py       # Palette operations
+│   └── theme_builder.py         # Theme generation
+│
+├── data/
+│   ├── project_model.py         # Project data structures
+│   ├── analysis_results.py      # Analysis results model
+│   └── export_formats.py        # JSON/CSV/etc exports
+│
+└── utils/
+    ├── formatting.py            # Text formatting utilities
+    ├── date_helpers.py          # Date/time operations
+    └── file_operations.py       # File I/O helpers
+
+Entry Point:
+  main.py                        # CLI interface
+
+
+🔥 PRIORITY REFACTORING TARGETS:
+----------------------------------------------------------------------------------------
+
+PRIORITY 1 - High Complexity Functions (Extract First):
+
+  • _enforce_width_limits
+    - Current: 200 lines, complexity 77
+    - Recommendation: Split into 3-5 smaller functions
+    - Target module: Determine by function purpose
+    - Impact: Easier testing, better maintainability
+
+  • generate_ascii_section_map
+    - Current: 127 lines, complexity 56
+    - Recommendation: Split into 3-5 smaller functions
+    - Target module: Determine by function purpose
+    - Impact: Easier testing, better maintainability
+
+  • _parse_markdown_to_html
+    - Current: 172 lines, complexity 43
+    - Recommendation: Split into 3-5 smaller functions
+    - Target module: Determine by function purpose
+    - Impact: Easier testing, better maintainability
+
+  • _generate_temporal_html_optimized
+    - Current: 200 lines, complexity 42
+    - Recommendation: Split into 3-5 smaller functions
+    - Target module: Determine by function purpose
+    - Impact: Easier testing, better maintainability
+
+  • scan_project_optimized
+    - Current: 200 lines, complexity 37
+    - Recommendation: Split into 3-5 smaller functions
+    - Target module: Determine by function purpose
+    - Impact: Easier testing, better maintainability
+
+  • _sniper_entity_scan
+    - Current: 163 lines, complexity 35
+    - Recommendation: Split into 3-5 smaller functions
+    - Target module: Determine by function purpose
+    - Impact: Easier testing, better maintainability
+
+  • perform_optimized_surface_scan
+    - Current: 192 lines, complexity 34
+    - Recommendation: Split into 3-5 smaller functions
+    - Target module: Determine by function purpose
+    - Impact: Easier testing, better maintainability
+
+  • _generate_action_plan_html_optimized
+    - Current: 200 lines, complexity 33
+    - Recommendation: Split into 3-5 smaller functions
+    - Target module: Determine by function purpose
+    - Impact: Easier testing, better maintainability
+
+  • _generate_action_plan_html
+    - Current: 200 lines, complexity 29
+    - Recommendation: Split into 3-5 smaller functions
+    - Target module: Determine by function purpose
+    - Impact: Easier testing, better maintainability
+
+  • _get_relatable_time_label
+    - Current: 87 lines, complexity 27
+    - Recommendation: Split into 3-5 smaller functions
+    - Target module: Determine by function purpose
+    - Impact: Easier testing, better maintainability
+
+
+PRIORITY 2 - Category Consolidation:
+Extract large categories into dedicated modules:
+
+  HTML Generation (65 functions):
+    → Extract to dedicated module
+    → Create class-based API
+    → Add unit tests
+
+  Other (43 functions):
+    → Extract to dedicated module
+    → Create class-based API
+    → Add unit tests
+
+  Getters (28 functions):
+    → Extract to dedicated module
+    → Create class-based API
+    → Add unit tests
+
+  Private/Helper (16 functions):
+    → Extract to dedicated module
+    → Create class-based API
+    → Add unit tests
+
+  Creation (10 functions):
+    → Extract to dedicated module
+    → Create class-based API
+    → Add unit tests
+
+
+🔧 REFACTORING STRATEGY:
+----------------------------------------------------------------------------------------
+
+PHASE 1 - Extract Core Analysis (Week 1)
+  • Separate analysis logic from HTML generation
+  • Create ProjectAnalyzer class
+  • Extract file scanning into separate module
+  • Add tests for analysis functions
+
+PHASE 2 - Modularize HTML Generation (Week 2)
+  • Extract HTML generators into html_generation/
+  • Create base classes for generators
+  • Separate chart/calendar/report generation
+  • Template-based approach for HTML
+
+PHASE 3 - Color System Separation (Week 3)
+  • Extract all color schemas to schemas.py
+  • Create ColorSchemaManager class
+  • Separate palette operations
+  • Add schema validation
+
+PHASE 4 - Data Layer Abstraction (Week 4)
+  • Define clear data models
+  • Separate data from presentation
+  • Add export format handlers
+  • Implement serialization
+
+PHASE 5 - Utilities & Polish (Week 5)
+  • Extract common utilities
+  • Add comprehensive tests
+  • Create CLI interface
+  • Documentation generation
+
+
+📈 EXPECTED BENEFITS:
+----------------------------------------------------------------------------------------
+
+Current State:
+  • Single file: 734KB
+  • Functions: 206
+  • Maintainability: LOW (everything coupled)
+  • Testability: LOW (no clear boundaries)
+  • Reusability: LOW (monolithic structure)
+
+After Restructuring:
+  • Multiple modules: ~50-80KB each
+  • Functions: Same 206, but organized
+  • Maintainability: HIGH (clear separation)
+  • Testability: HIGH (isolated units)
+  • Reusability: HIGH (pluggable components)
+  • Development speed: 3-5x faster
+  • Bug rate: 50-70% reduction
+
+
+🚀 QUICK WINS (Implement Today!):
+----------------------------------------------------------------------------------------
+
+1. Extract Color Schemas (15 minutes)
+   • Move all *_SCHEMA dicts to schemas.py
+   • Create SchemaManager class
+   • Import from new module
+
+2. Extract HTML Templates (30 minutes)
+   • Move large HTML strings to template files
+   • Create template loader function
+   • Use string.Template or Jinja2
+
+3. Create ProjectData Class (20 minutes)
+   • Define data structure for project info
+   • Separate data from analysis logic
+   • Enable easier testing

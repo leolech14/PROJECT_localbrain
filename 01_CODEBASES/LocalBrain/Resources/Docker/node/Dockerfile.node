@@ -1,0 +1,61 @@
+#
+#  Node.js Docker Template
+#  LocalBrain - Secure Node.js Execution Environment
+#
+#  Created by Claude Code Team
+#  Date: 2025-10-05
+#
+
+FROM node:20-slim
+
+# Set environment variables
+ENV NODE_ENV=production \
+    NODE_OPTIONS="--max-old-space-size=512" \
+    NPM_CONFIG_LOGLEVEL="warn" \
+    NPM_CONFIG_PROGRESS="false"
+
+# Create non-root user for security
+RUN groupadd -r localbrain && \
+    useradd -r -g localbrain -u 1000 -s /bin/bash localbrain
+
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        curl \
+        git \
+        python3 \
+        && rm -rf /var/lib/apt/lists/*
+
+# Create workspace directory
+WORKDIR /workspace
+
+# Set up Node.js environment
+RUN npm install -g npm@latest && \
+    npm cache clean --force
+
+# Install common Node.js packages for development
+RUN npm install -g \
+    typescript@5.1.6 \
+    ts-node@10.9.1 \
+    nodemon@3.0.1 \
+    jest@29.6.2 \
+    eslint@8.46.0 \
+    prettier@3.0.1
+
+# Create directories for the application
+RUN mkdir -p /workspace/{code,input,output,temp,logs} && \
+    chown -R localbrain:localbrain /workspace
+
+# Switch to non-root user
+USER localbrain
+
+# Set default command
+CMD ["node", "--version"]
+
+# Labels for metadata
+LABEL maintainer="LocalBrain" \
+      version="1.0.0" \
+      description="Secure Node.js execution environment for LocalBrain" \
+      security.level="restricted" \
+      localbrain.template="node-20"

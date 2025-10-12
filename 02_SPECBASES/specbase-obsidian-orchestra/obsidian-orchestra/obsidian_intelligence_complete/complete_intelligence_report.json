@@ -1,0 +1,272 @@
+{
+  "obsidian_intelligence_report": {
+    "timestamp": "2025-09-27 23:56:36",
+    "vault_path": ".",
+    "reverse_engineering_note": "FREE alternative to InfraNodus ($600/year)",
+    "executive_summary": {
+      "total_documents": 50,
+      "total_connections": 1053,
+      "communities_detected": 3,
+      "avg_connections_per_doc": 21.06,
+      "network_density": 0.8595918367346939
+    },
+    "network_intelligence": {
+      "top_influential_nodes": [
+        [
+          "EDIT-RULES",
+          9.3489
+        ],
+        [
+          "15_SECURITY_FABRIC",
+          73.7189
+        ],
+        [
+          "COMPLETE_FINANCIAL_INTELLIGENCE_PLATFORM_SPECIFICATION",
+          0.6206999999999999
+        ],
+        [
+          "62_EXTERNAL_ADAPTERS",
+          71.98360000000001
+        ],
+        [
+          "20_DASHBOARD_INDICATORS",
+          60.82590000000001
+        ],
+        [
+          "04_GRID_VIEW_CANVAS",
+          61.040000000000006
+        ],
+        [
+          "06_MARKETPLACE_PAGE",
+          63.4439
+        ],
+        [
+          "44_DATABASE_VIEWER",
+          27.4492
+        ],
+        [
+          "90_PACKAGE_CONFIGURATION",
+          17.456100000000003
+        ],
+        [
+          "16_OPEN_FINANCE_CONNECTOR",
+          81.8356
+        ],
+        [
+          "61_WALLET_MANAGEMENT",
+          75.5788
+        ],
+        [
+          "70_OKLCH_DESIGN_SYSTEM",
+          25.250100000000003
+        ],
+        [
+          "22_APPROVAL_TRAY",
+          59.0709
+        ],
+        [
+          "0.2_MODULE_AGENTS_TRIFACE",
+          77.12110000000001
+        ],
+        [
+          "03_FOOTER_COMPONENT",
+          63.807900000000004
+        ],
+        [
+          "10_DATA_POOL",
+          57.252900000000004
+        ],
+        [
+          "SECURITY_TESTING_STRATEGY",
+          65.8815
+        ],
+        [
+          "2025-09-27",
+          0.0
+        ],
+        [
+          "51_AGENT_RUNTIME",
+          71.9689
+        ],
+        [
+          "21_AGENT_CONSOLE",
+          59.672700000000006
+        ]
+      ],
+      "community_breakdown": {
+        "Topic_module": 8,
+        "Content_agentcontr": 2,
+        "Content_production": 2
+      },
+      "connection_types": {
+        "direct_wikilinks": "Strong semantic relationships",
+        "paragraph_context": "InfraNodus secret sauce - contextual connections",
+        "tag_relationships": "Topic-based clustering",
+        "header_similarity": "Structural content relationships"
+      }
+    },
+    "structural_analysis": [
+      {
+        "type": "isolated_valuable_content",
+        "count": 12,
+        "nodes": [
+          "EDIT-RULES",
+          "15_SECURITY_FABRIC",
+          "COMPLETE_FINANCIAL_INTELLIGENCE_PLATFORM_SPECIFICATION",
+          "16_OPEN_FINANCE_CONNECTOR",
+          "0.2_MODULE_AGENTS_TRIFACE",
+          "SECURITY_TESTING_STRATEGY",
+          "POLICY_AS_CODE",
+          "KILL_SWITCH_AUDIT_TRAIL",
+          "PROJECT_ARCHITECTURE",
+          "0.4_AGENT_BUILDER"
+        ],
+        "priority": "HIGH",
+        "suggestion": "Rich content needs more connections for discoverability",
+        "impact": "Knowledge silos reduce information flow"
+      },
+      {
+        "type": "sparse_communities",
+        "count": 1,
+        "communities": [
+          [
+            "Topic_module",
+            0.0
+          ]
+        ],
+        "priority": "MEDIUM",
+        "suggestion": "Increase internal links within topic communities",
+        "impact": "Better topic cohesion and knowledge clustering"
+      }
+    ],
+    "ai_suggestions": [
+      {
+        "type": "semantic_similarity",
+        "doc1": "30_REVENUE_SUMMARY",
+        "doc2": "31_EXPENSE_ANALYSIS",
+        "reason": "Content similarity: 0.362",
+        "details": "Common topics: optimization, payment, multi-entity, complex, }",
+        "confidence": 0.3624161073825503
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "01_HEADER_COMPONENT",
+        "doc2": "02_SIDEBAR_COMPONENT",
+        "reason": "Content similarity: 0.337",
+        "details": "Common topics: responsive, transaction, real-time, integration:, deliverables:",
+        "confidence": 0.33676092544987146
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "51_AGENT_RUNTIME",
+        "doc2": "53_INTELLIGENCE_LAYER",
+        "reason": "Content similarity: 0.337",
+        "details": "Common topics: optimization, core, agent, started, service",
+        "confidence": 0.33663366336633666
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "51_AGENT_RUNTIME",
+        "doc2": "front-matter-template",
+        "reason": "Content similarity: 0.335",
+        "details": "Common topics: agent, core, started, i2, state",
+        "confidence": 0.33519553072625696
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "31_EXPENSE_ANALYSIS",
+        "doc2": "32_BANK_ACCOUNTS",
+        "reason": "Content similarity: 0.331",
+        "details": "Common topics: multi-entity, }, transaction, deliverables:, -",
+        "confidence": 0.33098591549295775
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "50_DATA_POOL_ENGINE",
+        "doc2": "front-matter-template",
+        "reason": "Content similarity: 0.311",
+        "details": "Common topics: agent, core, user, acceptance, i2",
+        "confidence": 0.31088082901554404
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "30_REVENUE_SUMMARY",
+        "doc2": "32_BANK_ACCOUNTS",
+        "reason": "Content similarity: 0.310",
+        "details": "Common topics: multi-entity, }, investment, real-time, deliverables:",
+        "confidence": 0.3096774193548387
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "50_DATA_POOL_ENGINE",
+        "doc2": "52_MARKETPLACE_ENGINE",
+        "reason": "Content similarity: 0.308",
+        "details": "Common topics: agent, core, user, acceptance, i2",
+        "confidence": 0.308411214953271
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "50_DATA_POOL_ENGINE",
+        "doc2": "53_INTELLIGENCE_LAYER",
+        "reason": "Content similarity: 0.303",
+        "details": "Common topics: optimization, core, agent, i2, analytics",
+        "confidence": 0.30275229357798167
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "51_AGENT_RUNTIME",
+        "doc2": "52_MARKETPLACE_ENGINE",
+        "reason": "Content similarity: 0.298",
+        "details": "Common topics: agent, core, i2, management, state",
+        "confidence": 0.2975609756097561
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "53_INTELLIGENCE_LAYER",
+        "doc2": "front-matter-template",
+        "reason": "Content similarity: 0.293",
+        "details": "Common topics: agent, core, started, i2, intelligence",
+        "confidence": 0.2925531914893617
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "61_WALLET_MANAGEMENT",
+        "doc2": "front-matter-template",
+        "reason": "Content similarity: 0.282",
+        "details": "Common topics: agent, core, started, i2, state",
+        "confidence": 0.2822966507177033
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "04_GRID_VIEW_CANVAS",
+        "doc2": "05_CHIP_VIEW_CANVAS",
+        "reason": "Content similarity: 0.280",
+        "details": "Common topics: without, components, prevent, complex, empty",
+        "confidence": 0.2799188640973631
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "20_DASHBOARD_INDICATORS",
+        "doc2": "30_REVENUE_SUMMARY",
+        "reason": "Content similarity: 0.279",
+        "details": "Common topics: complex, }, real-time, tax, explanation",
+        "confidence": 0.279445727482679
+      },
+      {
+        "type": "semantic_similarity",
+        "doc1": "52_MARKETPLACE_ENGINE",
+        "doc2": "front-matter-template",
+        "reason": "Content similarity: 0.271",
+        "details": "Common topics: agent, core, user, acceptance, i2",
+        "confidence": 0.2712765957446808
+      }
+    ],
+    "actionable_insights": [
+      "Review top centrality nodes - these are your knowledge hubs",
+      "Strengthen sparse communities with internal links",
+      "Create index pages for large topic clusters",
+      "Add bidirectional links to improve navigation",
+      "Connect isolated high-value content to the network"
+    ]
+  }
+}

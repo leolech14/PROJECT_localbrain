@@ -1,0 +1,330 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://localbrain.dev/schemas/policy.schema.json",
+  "title": "Policy Schema",
+  "description": "Schema for policy-as-code definitions in LocalBrain",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this policy",
+      "pattern": "^[a-zA-Z0-9_-]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this policy",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of what this policy controls"
+    },
+    "version": {
+      "type": "string",
+      "description": "Policy version using semantic versioning",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether this policy is currently active",
+      "default": true
+    },
+    "priority": {
+      "type": "integer",
+      "description": "Policy priority (higher numbers take precedence)",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this policy was created"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this policy was last updated"
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "Agent or user who created this policy",
+      "pattern": "^[A-D]|USER|SYSTEM$"
+    },
+    "scope": {
+      "type": "object",
+      "description": "Defines the scope where this policy applies",
+      "properties": {
+        "agents": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-D]$"
+          },
+          "description": "List of agent IDs this policy applies to (empty = all agents)"
+        },
+        "contexts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["UI", "BACKEND", "INTEGRATION", "ALL"]
+          },
+          "description": "Context areas where this policy applies"
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Specific components this policy applies to (empty = all components)"
+        }
+      },
+      "required": ["contexts"]
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for this rule"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable name for this rule"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "ALLOW_LIST",
+              "DENY_LIST",
+              "RATE_LIMIT",
+              "SCHEMA_VALIDATION",
+              "PERMISSION_CHECK",
+              "RESOURCE_LIMIT",
+              "TIME_WINDOW",
+              "CONTEXT_VALIDATION"
+            ],
+            "description": "Type of rule to enforce"
+          },
+          "enabled": {
+            "type": "boolean",
+            "default": true
+          },
+          "conditions": {
+            "type": "object",
+            "description": "Conditions that trigger this rule",
+            "properties": {
+              "operation": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "CREATE_COMPONENT",
+                    "UPDATE_COMPONENT",
+                    "DELETE_COMPONENT",
+                    "MOVE_COMPONENT",
+                    "RESIZE_COMPONENT",
+                    "CHANGE_PROPERTY",
+                    "IPC_MESSAGE",
+                    "API_CALL",
+                    "FILE_ACCESS",
+                    "DATABASE_WRITE"
+                  ]
+                },
+                "description": "Operations this rule applies to"
+              },
+              "agent": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-D]$"
+                },
+                "description": "Agents this rule applies to"
+              },
+              "component": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Component types this rule applies to"
+              },
+              "property": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Properties this rule applies to"
+              },
+              "custom": {
+                "type": "object",
+                "description": "Custom conditions using expression language"
+              }
+            }
+          },
+          "actions": {
+            "type": "object",
+            "description": "Actions to take when rule is triggered",
+            "oneOf": [
+              {
+                "title": "Allow List Action",
+                "properties": {
+                  "allow": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of allowed items (tools, properties, etc.)"
+                  },
+                  "block": {
+                    "type": "boolean",
+                    "description": "Whether to block non-allowed items",
+                    "default": true
+                  }
+                },
+                "required": ["allow"]
+              },
+              {
+                "title": "Deny List Action",
+                "properties": {
+                  "deny": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of denied items"
+                  }
+                },
+                "required": ["deny"]
+              },
+              {
+                "title": "Rate Limit Action",
+                "properties": {
+                  "maxRequests": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Maximum requests allowed"
+                  },
+                  "timeWindow": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Time window in seconds"
+                  },
+                  "strategy": {
+                    "type": "string",
+                    "enum": ["FIXED_WINDOW", "SLIDING_WINDOW", "TOKEN_BUCKET"],
+                    "default": "SLIDING_WINDOW"
+                  }
+                },
+                "required": ["maxRequests", "timeWindow"]
+              },
+              {
+                "title": "Schema Validation Action",
+                "properties": {
+                  "schema": {
+                    "type": "string",
+                    "description": "JSON schema reference or inline schema"
+                  },
+                  "strict": {
+                    "type": "boolean",
+                    "description": "Whether to be strict about additional properties",
+                    "default": true
+                  }
+                },
+                "required": ["schema"]
+              },
+              {
+                "title": "Resource Limit Action",
+                "properties": {
+                  "resource": {
+                    "type": "string",
+                    "description": "Resource type to limit (memory, cpu, disk, etc.)"
+                  },
+                  "limit": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Resource limit value"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "description": "Unit of measurement (bytes, percent, etc.)"
+                  }
+                },
+                "required": ["resource", "limit", "unit"]
+              },
+              {
+                "title": "Time Window Action",
+                "properties": {
+                  "start": {
+                    "type": "string",
+                    "format": "time",
+                    "description": "Start time (HH:MM format)"
+                  },
+                  "end": {
+                    "type": "string",
+                    "format": "time",
+                    "description": "End time (HH:MM format)"
+                  },
+                  "timezone": {
+                    "type": "string",
+                    "description": "Timezone identifier (UTC, America/New_York, etc.)",
+                    "default": "UTC"
+                  },
+                  "days": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+                    },
+                    "description": "Days of week this applies to"
+                  }
+                },
+                "required": ["start", "end"]
+              }
+            ]
+          },
+          "consequences": {
+            "type": "object",
+            "description": "What happens when rule is violated",
+            "properties": {
+              "action": {
+                "type": "string",
+                "enum": ["BLOCK", "WARN", "LOG", "ESCALATE", "QUARANTINE"],
+                "description": "Action to take on violation",
+                "default": "BLOCK"
+              },
+              "message": {
+                "type": "string",
+                "description": "Message to show to user/agent on violation"
+              },
+              "escalation": {
+                "type": "object",
+                "properties": {
+                  "to": {
+                    "type": "string",
+                    "enum": ["AGENT_E", "AGENT_F", "USER", "SYSTEM"],
+                    "description": "Who to escalate to"
+                  },
+                  "threshold": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Number of violations before escalation"
+                  },
+                  "timeWindow": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Time window for escalation counting"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": ["id", "name", "type", "actions"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["id", "name", "version", "scope", "rules"],
+  "additionalProperties": false
+}

@@ -1,0 +1,151 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# LocalBrain Design System
+
+Welcome to the **LocalBrain Design System** - a modern, accessible, and performant design system built on industry-leading standards.
+
+## 🎨 Core Principles
+
+### OKLCH Color Space
+All colors use the **OKLCH color space** (Oklab Lightness, Chroma, Hue) for perceptually uniform color representation:
+- **Lightness (L)**: 0.0 (black) → 1.0 (white) - perceptually uniform brightness
+- **Chroma (C)**: 0.0 (gray) → 0.37+ (vivid) - color intensity
+- **Hue (H)**: 0-360° - color angle (230° = blue, 142° = green, 29° = orange, 347° = red)
+
+**Benefits**:
+- Predictable lightness across all hues
+- Consistent contrast ratios
+- Better than HSL, RGB, or Hex for design systems
+
+### APCA Contrast Algorithm
+We enforce **WCAG 3.0 APCA** (Accessible Perceptual Contrast Algorithm):
+- **≥60 Lc** for body text (readable paragraphs)
+- **≥75 Lc** for interactive elements (buttons, links, small text)
+- More accurate than WCAG 2.1 contrast ratios
+- Accounts for human perception of lightness
+
+### WCAG 2.2 AA Compliance
+All components meet **WCAG 2.2 AA** standards:
+- ✅ Color contrast (APCA ≥60 body, ≥75 interactive)
+- ✅ Touch targets (44×44px minimum)
+- ✅ Focus visible (clear focus indicators)
+- ✅ Reduced motion (respects `prefers-reduced-motion`)
+- ✅ Keyboard navigation (full keyboard support)
+- ✅ Screen reader support (semantic HTML + ARIA)
+
+### Motion & Accessibility
+Our motion system includes:
+- **7 duration tokens** (instant → very slow)
+- **8 easing curves** (Material Design 3 + custom)
+- **Automatic reduced motion** - All animations become instant when `prefers-reduced-motion: reduce` is enabled
+- **3 strategies**: instant (default), fade-only, slower
+
+---
+
+## 📚 Documentation Structure
+
+### Design Tokens
+Explore the foundational design tokens:
+- **Colors** - OKLCH color ramps and semantic tokens
+- **Spacing** - Spacing scale (4px base)
+- **Typography** - Font scales and hierarchy
+- **Motion** - Duration, easing, and reduced motion
+
+### Components
+Browse the component library:
+- **Buttons** - Primary, secondary, tertiary variants
+- **Forms** - Inputs, selects, checkboxes, radios
+- **Navigation** - Menus, tabs, breadcrumbs
+- **Feedback** - Alerts, toasts, modals
+- **Layout** - Grids, containers, spacing
+
+### Patterns
+Common UI patterns and best practices:
+- **Form layouts** - Login, registration, multi-step
+- **Data display** - Tables, lists, cards
+- **Navigation patterns** - Sidebar, top bar, mobile menu
+- **Loading states** - Skeletons, spinners, progress
+
+---
+
+## 🚀 Quick Start
+
+### Installation
+```bash
+npm install @localbrain/design-system
+```
+
+### Usage (React)
+```typescript
+import { Button } from '@localbrain/design-system';
+import '@localbrain/design-system/styles.css';
+
+function App() {
+  return <Button variant="primary">Click me</Button>;
+}
+```
+
+### Usage (CSS Variables)
+```css
+.my-component {
+  background: var(--color-surface-bg);
+  color: var(--color-surface-text);
+  padding: var(--spacing-4);
+  transition: all var(--motion-quick) var(--motion-ease-out);
+}
+```
+
+### Usage (OKLCH)
+```css
+.custom-color {
+  /* Direct OKLCH usage */
+  background: oklch(0.97 0.02 250);  /* Light surface */
+  color: oklch(0.22 0.04 262);        /* Dark text */
+}
+```
+
+---
+
+## 🧪 Testing
+
+### Visual Regression
+Every component is tested with **Chromatic** for visual regressions:
+- Automatic screenshots on every commit
+- Compare changes visually before merging
+- Catch unintended UI changes
+
+### Accessibility Testing
+Every story includes **@storybook/addon-a11y** checks:
+- Color contrast validation (APCA)
+- Keyboard navigation testing
+- Screen reader compatibility
+- Focus management validation
+
+### Interaction Testing
+Interactive components include **@storybook/addon-interactions**:
+- User flow testing
+- Event handler validation
+- State management testing
+
+---
+
+## 📖 Resources
+
+### Design System
+- [OKLCH Color Space](https://oklch.com/)
+- [APCA Contrast Calculator](https://www.myndex.com/APCA/)
+- [WCAG 2.2 Guidelines](https://www.w3.org/WAI/WCAG22/quickref/)
+- [Material Design 3](https://m3.material.io/)
+
+### LocalBrain Docs
+- [Token System README](../tokens/README.md)
+- [APCA Validation README](../apca/README.md)
+- [Motion System README](../motion/README.md)
+
+---
+
+**Built with ❤️ by Agent B (Design System Specialist)**
+**Version**: 1.0.0
+**Sprint 1, Day 1** - 2025-10-08

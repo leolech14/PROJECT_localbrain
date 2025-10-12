@@ -1,0 +1,251 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://localbrain.dev/schemas/ipc/error.schema.json",
+  "title": "Error Message",
+  "description": "Detailed error message for critical failures or unexpected conditions",
+  "type": "object",
+  "required": ["type", "traceId", "timestamp", "version", "error"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "ERROR",
+      "description": "Message type identifier"
+    },
+    "traceId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Trace ID (may match original intent or be new for bridge-level errors)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of error occurrence"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Schema version",
+      "default": "1.0"
+    },
+    "error": {
+      "type": "object",
+      "required": ["code", "message", "severity"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "BRIDGE_CONNECTION_LOST",
+            "BRIDGE_TIMEOUT",
+            "MESSAGE_SERIALIZATION_FAILED",
+            "MESSAGE_DESERIALIZATION_FAILED",
+            "SCHEMA_VALIDATION_FAILED",
+            "PROTOCOL_VERSION_MISMATCH",
+            "HANDLER_NOT_FOUND",
+            "HANDLER_EXCEPTION",
+            "PERMISSION_CHECK_FAILED",
+            "RATE_LIMIT_EXCEEDED",
+            "RESOURCE_EXHAUSTED",
+            "INTERNAL_BRIDGE_ERROR",
+            "UNKNOWN_ERROR"
+          ],
+          "description": "Machine-readable error code"
+        },
+        "message": {
+          "type": "string",
+          "description": "Human-readable error message"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"],
+          "description": "Error severity level"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "connection",
+            "serialization",
+            "validation",
+            "protocol",
+            "handler",
+            "permission",
+            "rate_limit",
+            "resource",
+            "internal",
+            "unknown"
+          ],
+          "description": "Error category for easier classification"
+        },
+        "details": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Additional error context and details"
+        },
+        "stackTrace": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Stack trace for debugging (optional, development only)"
+        }
+      }
+    },
+    "recovery": {
+      "type": "object",
+      "description": "Recovery information and suggestions",
+      "properties": {
+        "retryable": {
+          "type": "boolean",
+          "description": "Whether the operation can be retried"
+        },
+        "retryAfter": {
+          "type": "number",
+          "description": "Suggested retry delay in milliseconds"
+        },
+        "maxRetries": {
+          "type": "integer",
+          "description": "Maximum number of retry attempts recommended"
+        },
+        "fallbackAction": {
+          "type": "string",
+          "description": "Suggested fallback action"
+        },
+        "userMessage": {
+          "type": "string",
+          "description": "User-friendly message to display"
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "description": "Contextual information about the error",
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["swift", "web", "bridge"],
+          "description": "Where the error originated"
+        },
+        "component": {
+          "type": "string",
+          "description": "Specific component that raised the error"
+        },
+        "originalIntent": {
+          "type": "object",
+          "description": "Original intent that caused the error (if applicable)"
+        },
+        "state": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Relevant state information at time of error"
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "object",
+      "description": "Diagnostic information for troubleshooting",
+      "properties": {
+        "bridgeVersion": {
+          "type": "string",
+          "description": "IPC bridge version"
+        },
+        "platform": {
+          "type": "string",
+          "description": "Platform information (swift/web)"
+        },
+        "connectionId": {
+          "type": "string",
+          "description": "Bridge connection identifier"
+        },
+        "messageCount": {
+          "type": "integer",
+          "description": "Total messages processed in this session"
+        },
+        "lastSuccessfulMessage": {
+          "type": "string",
+          "description": "Trace ID of last successful message"
+        },
+        "uptime": {
+          "type": "number",
+          "description": "Bridge uptime in milliseconds"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "type": "ERROR",
+      "traceId": "a1b2c3d4-e5f6-4789-0abc-def123456789",
+      "timestamp": "2025-10-08T14:35:00.000Z",
+      "version": "1.0",
+      "error": {
+        "code": "BRIDGE_CONNECTION_LOST",
+        "message": "IPC bridge connection lost unexpectedly",
+        "severity": "high",
+        "category": "connection",
+        "details": {
+          "lastPing": "2025-10-08T14:34:55.000Z",
+          "connectionDuration": 3600000,
+          "messagesProcessed": 1247
+        }
+      },
+      "recovery": {
+        "retryable": true,
+        "retryAfter": 1000,
+        "maxRetries": 3,
+        "fallbackAction": "RECONNECT",
+        "userMessage": "Connection lost. Attempting to reconnect..."
+      },
+      "context": {
+        "source": "bridge",
+        "component": "WebKitBridge",
+        "state": {
+          "activeConnections": 0,
+          "pendingMessages": 3
+        }
+      },
+      "diagnostics": {
+        "bridgeVersion": "1.0.0",
+        "platform": "swift",
+        "connectionId": "conn-abc123",
+        "messageCount": 1247,
+        "lastSuccessfulMessage": "550e8400-e29b-41d4-a716-446655440000",
+        "uptime": 3600000
+      }
+    },
+    {
+      "type": "ERROR",
+      "traceId": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+      "timestamp": "2025-10-08T14:36:00.000Z",
+      "version": "1.0",
+      "error": {
+        "code": "SCHEMA_VALIDATION_FAILED",
+        "message": "Message failed schema validation",
+        "severity": "medium",
+        "category": "validation",
+        "details": {
+          "validationErrors": [
+            {
+              "path": "payload.target.type",
+              "message": "Must be one of: panel, sidebar, widget, grid, approvalTray"
+            },
+            {
+              "path": "payload.parameters.width",
+              "message": "Must be a positive number"
+            }
+          ]
+        }
+      },
+      "recovery": {
+        "retryable": false,
+        "userMessage": "Invalid message format. Please check the request and try again."
+      },
+      "context": {
+        "source": "web",
+        "component": "MessageValidator",
+        "originalIntent": {
+          "type": "UI_INTENT",
+          "intent": "openPanel"
+        }
+      }
+    }
+  ]
+}

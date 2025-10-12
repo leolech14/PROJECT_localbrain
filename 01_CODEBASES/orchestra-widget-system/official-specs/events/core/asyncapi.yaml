@@ -1,0 +1,436 @@
+asyncapi: 2.6.0
+info:
+  title: Orchestra LocalBrain Events
+  description: Event-driven architecture for real-time updates and agent coordination
+  version: 2.0.0
+  contact:
+    name: Orchestra LocalBrain Team
+    email: team@localbrain.ai
+
+servers:
+  production:
+    url: wss://api.localbrain.ai/ws
+    description: Production WebSocket server
+  development:
+    url: ws://localhost:3000/ws
+    description: Development WebSocket server
+
+channels:
+  ai.response.stream:
+    description: Streaming AI responses
+    subscribe:
+      operationId: subscribeAIResponse
+      summary: Subscribe to AI response streaming
+      message:
+        $ref: '#/components/messages/StreamChunk'
+      binding:
+        ws:
+          method: SUBSCRIBE
+
+  context.updated:
+    description: Context updates and rebuilds
+    subscribe:
+      operationId: subscribeContextUpdates
+      summary: Subscribe to context changes
+      message:
+        $ref: '#/components/messages/ContextUpdate'
+      binding:
+        ws:
+          method: SUBSCRIBE
+
+  agent.task.status:
+    description: Agent task status updates
+    subscribe:
+      operationId: subscribeAgentStatus
+      summary: Subscribe to agent task status
+      message:
+        $ref: '#/components/messages/AgentStatusUpdate'
+      binding:
+        ws:
+          method: SUBSCRIBE
+
+  system.metrics:
+    description: System performance metrics
+    subscribe:
+      operationId: subscribeSystemMetrics
+      summary: Subscribe to system metrics
+      message:
+        $ref: '#/components/messages/SystemMetrics'
+      binding:
+        ws:
+          method: SUBSCRIBE
+
+  ui.layout.changed:
+    description: UI layout changes
+    subscribe:
+      operationId: subscribeLayoutChanges
+      summary: Subscribe to layout updates
+      message:
+        $ref: '#/components/messages/LayoutChange'
+      binding:
+        ws:
+          method: SUBSCRIBE
+
+  notification.system:
+    description: System notifications
+    subscribe:
+      operationId: subscribeNotifications
+      summary: Subscribe to system notifications
+      message:
+        $ref: '#/components/messages/SystemNotification'
+      binding:
+        ws:
+          method: SUBSCRIBE
+
+components:
+  messages:
+    StreamChunk:
+      name: StreamChunk
+      title: AI Response Stream Chunk
+      summary: A chunk of streaming AI response
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/StreamChunkPayload'
+
+    ContextUpdate:
+      name: ContextUpdate
+      title: Context Update
+      summary: Context rebuild or update notification
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ContextUpdatePayload'
+
+    AgentStatusUpdate:
+      name: AgentStatusUpdate
+      title: Agent Status Update
+      summary: Agent task status change
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/AgentStatusUpdatePayload'
+
+    SystemMetrics:
+      name: SystemMetrics
+      title: System Metrics
+      summary: System performance metrics
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SystemMetricsPayload'
+
+    LayoutChange:
+      name: LayoutChange
+      title: Layout Change
+      summary: UI layout modification
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LayoutChangePayload'
+
+    SystemNotification:
+      name: SystemNotification
+      title: System Notification
+      summary: System notification
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SystemNotificationPayload'
+
+  schemas:
+    StreamChunkPayload:
+      type: object
+      required:
+        - type
+        - messageId
+        - content
+      properties:
+        type:
+          type: string
+          enum: [chunk, complete, error]
+        messageId:
+          type: string
+          format: uuid
+        content:
+          type: string
+        provider:
+          type: string
+          enum: [anthropic, openai, google, ollama, openrouter]
+        usage:
+          $ref: '#/components/schemas/TokenUsage'
+        timestamp:
+          type: string
+          format: date-time
+
+    ContextUpdatePayload:
+      type: object
+      required:
+        - type
+        - contextId
+      properties:
+        type:
+          type: string
+          enum: [built, updated, deleted, error]
+        contextId:
+          type: string
+        query:
+          type: string
+        tokenCount:
+          type: integer
+        buildTime:
+          type: number
+          description: Build time in milliseconds
+        sources:
+          type: array
+          items:
+            type: string
+        timestamp:
+          type: string
+          format: date-time
+        error:
+          $ref: '#/components/schemas/ErrorResponse'
+
+    AgentStatusUpdatePayload:
+      type: object
+      required:
+        - taskId
+        - status
+      properties:
+        taskId:
+          type: string
+          format: uuid
+        agentId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [queued, running, completed, failed, cancelled]
+        progress:
+          type: object
+          properties:
+            percentage:
+              type: number
+              minimum: 0
+              maximum: 100
+            currentStep:
+              type: string
+            totalSteps:
+              type: integer
+        result:
+          type: object
+          description: Task result if completed
+        error:
+          $ref: '#/components/schemas/ErrorResponse'
+        timestamp:
+          type: string
+          format: date-time
+
+    SystemMetricsPayload:
+      type: object
+      required:
+        - timestamp
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        cpu:
+          $ref: '#/components/schemas/CPUMetrics'
+        memory:
+          $ref: '#/components/schemas/MemoryMetrics'
+        ai:
+          $ref: '#/components/schemas/AIMetrics'
+        performance:
+          $ref: '#/components/schemas/PerformanceMetrics'
+        health:
+          $ref: '#/components/schemas/HealthMetrics'
+
+    LayoutChangePayload:
+      type: object
+      required:
+        - type
+        - layoutId
+      properties:
+        type:
+          type: string
+          enum: [widget_added, widget_removed, widget_moved, widget_resized, layout_saved, layout_loaded]
+        layoutId:
+          type: string
+        widgetId:
+          type: string
+        position:
+          $ref: '#/components/schemas/Position'
+        size:
+          $ref: '#/components/schemas/Size'
+        userId:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+
+    SystemNotificationPayload:
+      type: object
+      required:
+        - type
+        - message
+      properties:
+        type:
+          type: string
+          enum: [info, warning, error, success]
+        title:
+          type: string
+        message:
+          type: string
+        persistent:
+          type: boolean
+          default: false
+        actions:
+          type: array
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+              action:
+                type: string
+              style:
+                type: string
+                enum: [primary, secondary, danger]
+        timestamp:
+          type: string
+          format: date-time
+
+    CPUMetrics:
+      type: object
+      properties:
+        usage:
+          type: number
+          minimum: 0
+          maximum: 100
+        load:
+          type: array
+          items:
+            type: number
+          minItems: 1
+          maxItems: 3
+        processes:
+          type: integer
+
+    MemoryMetrics:
+      type: object
+      properties:
+        total:
+          type: integer
+        used:
+          type: integer
+        free:
+          type: integer
+        heap:
+          type: object
+          properties:
+            total:
+              type: integer
+            used:
+              type: integer
+            limit:
+              type: integer
+
+    AIMetrics:
+      type: object
+      properties:
+        activeConnections:
+          type: integer
+        requestsPerMinute:
+          type: integer
+        averageResponseTime:
+          type: number
+        errorRate:
+          type: number
+          minimum: 0
+          maximum: 1
+        tokenUsage:
+          $ref: '#/components/schemas/TokenUsage'
+
+    PerformanceMetrics:
+      type: object
+      properties:
+        contextBuildTime:
+          type: number
+        vectorSearchTime:
+          type: number
+        renderTime:
+          type: number
+        databaseQueryTime:
+          type: number
+
+    HealthMetrics:
+      type: object
+      properties:
+        overall:
+          type: string
+          enum: [healthy, degraded, unhealthy]
+        services:
+          type: object
+          additionalProperties:
+            type: string
+            enum: [healthy, degraded, unhealthy]
+        lastCheck:
+          type: string
+          format: date-time
+
+    Position:
+      type: object
+      required:
+        - x
+        - y
+      properties:
+        x:
+          type: integer
+          minimum: 0
+        y:
+          type: integer
+          minimum: 0
+
+    Size:
+      type: object
+      required:
+        - width
+        - height
+      properties:
+        width:
+          type: integer
+          minimum: 1
+        height:
+          type: integer
+          minimum: 1
+
+    TokenUsage:
+      type: object
+      required:
+        - input
+        - output
+        - total
+      properties:
+        input:
+          type: integer
+          minimum: 0
+        output:
+          type: integer
+          minimum: 0
+        total:
+          type: integer
+          minimum: 0
+        cost:
+          type: number
+          description: Cost in USD
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
+        timestamp:
+          type: string
+          format: date-time

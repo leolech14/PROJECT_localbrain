@@ -1,0 +1,438 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://localbrain.dev/schemas/agent-io.schema.json",
+  "title": "Agent I/O Schema",
+  "description": "Schema for validating agent input/output messages and data",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this I/O operation",
+      "pattern": "^[a-zA-Z0-9_-]+$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this I/O occurred"
+    },
+    "agentId": {
+      "type": "string",
+      "description": "ID of the agent generating this I/O",
+      "pattern": "^[A-D]$"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "REQUEST",
+        "RESPONSE",
+        "NOTIFICATION",
+        "ERROR",
+        "HEARTBEAT",
+        "DISCOVERY",
+        "COORDINATION",
+        "HANDOFF"
+      ],
+      "description": "Type of I/O message"
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["INBOUND", "OUTBOUND", "INTERNAL"],
+      "description": "Direction of the I/O flow"
+    },
+    "sessionId": {
+      "type": "string",
+      "description": "Session identifier for grouping related I/O operations",
+      "pattern": "^[a-zA-Z0-9_-]+$"
+    },
+    "correlationId": {
+      "type": "string",
+      "description": "ID for correlating request/response pairs",
+      "pattern": "^[a-zA-Z0-9_-]+$"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["LOW", "NORMAL", "HIGH", "CRITICAL", "URGENT"],
+      "description": "Priority level of this I/O operation",
+      "default": "NORMAL"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata about the I/O operation",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Source of the I/O (agent name, system component, etc.)"
+        },
+        "destination": {
+          "type": "string",
+          "description": "Destination of the I/O"
+        },
+        "format": {
+          "type": "string",
+          "enum": ["JSON", "PROTOBUF", "AVRO", "XML", "BINARY"],
+          "description": "Data format used",
+          "default": "JSON"
+        },
+        "encoding": {
+          "type": "string",
+          "description": "Character encoding used",
+          "default": "utf-8"
+        },
+        "compression": {
+          "type": "string",
+          "enum": ["NONE", "GZIP", "BROTLI", "LZ4"],
+          "description": "Compression algorithm used",
+          "default": "NONE"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Tags for categorizing and filtering I/O operations"
+        }
+      }
+    },
+    "payload": {
+      "type": "object",
+      "description": "The actual payload data",
+      "oneOf": [
+        {
+          "title": "Request Payload",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to be performed"
+            },
+            "parameters": {
+              "type": "object",
+              "description": "Parameters for the operation"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context information for the request"
+            },
+            "expectedResponseType": {
+              "type": "string",
+              "description": "Expected type of response"
+            },
+            "timeout": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Timeout in milliseconds"
+            }
+          },
+          "required": ["operation"]
+        },
+        {
+          "title": "Response Payload",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["SUCCESS", "ERROR", "PARTIAL", "TIMEOUT"],
+              "description": "Status of the response"
+            },
+            "data": {
+              "description": "Response data"
+            },
+            "error": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "Error code"
+                },
+                "message": {
+                  "type": "string",
+                  "description": "Error message"
+                },
+                "details": {
+                  "type": "object",
+                  "description": "Additional error details"
+                },
+                "stack": {
+                  "type": "string",
+                  "description": "Error stack trace"
+                }
+              },
+              "required": ["code", "message"]
+            },
+            "executionTime": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Execution time in milliseconds"
+            },
+            "warnings": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Warning messages"
+            }
+          },
+          "required": ["status"]
+        },
+        {
+          "title": "Notification Payload",
+          "properties": {
+            "event": {
+              "type": "string",
+              "description": "Event type being notified"
+            },
+            "data": {
+              "description": "Event data"
+            },
+            "severity": {
+              "type": "string",
+              "enum": ["INFO", "WARNING", "ERROR", "CRITICAL"],
+              "description": "Severity level of the notification",
+              "default": "INFO"
+            }
+          },
+          "required": ["event"]
+        },
+        {
+          "title": "Error Payload",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "Error code"
+            },
+            "message": {
+              "type": "string",
+              "description": "Error message"
+            },
+            "category": {
+              "type": "string",
+              "enum": ["VALIDATION", "PERMISSION", "SYSTEM", "NETWORK", "TIMEOUT", "BUSINESS"],
+              "description": "Category of error"
+            },
+            "retryable": {
+              "type": "boolean",
+              "description": "Whether this error is retryable",
+              "default": false
+            },
+            "retryAfter": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Suggested retry delay in milliseconds"
+            },
+            "context": {
+              "type": "object",
+              "description": "Additional context about the error"
+            },
+            "suggestions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Suggested actions to resolve the error"
+            }
+          },
+          "required": ["code", "message"]
+        },
+        {
+          "title": "Heartbeat Payload",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["ALIVE", "BUSY", "ERROR", "SHUTTING_DOWN"],
+              "description": "Agent status"
+            },
+            "load": {
+              "type": "object",
+              "properties": {
+                "cpu": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "description": "CPU usage percentage"
+                },
+                "memory": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "description": "Memory usage percentage"
+                },
+                "queue": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Number of items in queue"
+                }
+              }
+            },
+            "capabilities": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Current capabilities of the agent"
+            },
+            "lastActivity": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Timestamp of last activity"
+            }
+          },
+          "required": ["status"]
+        },
+        {
+          "title": "Discovery Payload",
+          "properties": {
+            "agentId": {
+              "type": "string",
+              "pattern": "^[A-D]$",
+              "description": "ID of the discovering agent"
+            },
+            "serviceType": {
+              "type": "string",
+              "description": "Type of service being discovered"
+            },
+            "services": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "Service ID"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Service name"
+                  },
+                  "version": {
+                    "type": "string",
+                    "description": "Service version"
+                  },
+                  "endpoint": {
+                    "type": "string",
+                    "description": "Service endpoint"
+                  },
+                  "capabilities": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Service capabilities"
+                  }
+                },
+                "required": ["id", "name", "endpoint"]
+              },
+              "description": "List of discovered services"
+            }
+          },
+          "required": ["agentId", "serviceType"]
+        },
+        {
+          "title": "Coordination Payload",
+          "properties": {
+            "coordinationType": {
+              "type": "string",
+              "enum": ["HANDSHAKE", "SYNC", "LOCK", "UNLOCK", "BROADCAST", "NEGOTIATE"],
+              "description": "Type of coordination operation"
+            },
+            "targetAgents": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[A-D]$"
+              },
+              "description": "Target agents for coordination"
+            },
+            "resource": {
+              "type": "string",
+              "description": "Resource being coordinated (if applicable)"
+            },
+            "lockId": {
+              "type": "string",
+              "description": "Lock identifier (for lock/unlock operations)"
+            },
+            "data": {
+              "description": "Coordination data"
+            }
+          },
+          "required": ["coordinationType"]
+        },
+        {
+          "title": "Handoff Payload",
+          "properties": {
+            "fromAgent": {
+              "type": "string",
+              "pattern": "^[A-D]$",
+              "description": "Agent handing off"
+            },
+            "toAgent": {
+              "type": "string",
+              "pattern": "^[A-D]$",
+              "description": "Agent receiving handoff"
+            },
+            "taskType": {
+              "type": "string",
+              "description": "Type of task being handed off"
+            },
+            "taskId": {
+              "type": "string",
+              "description": "ID of the task being handed off"
+            },
+            "context": {
+              "type": "object",
+              "description": "Context information for the handoff"
+            },
+            "state": {
+              "type": "object",
+              "description": "Current state of the task being handed off"
+            },
+            "instructions": {
+              "type": "string",
+              "description": "Instructions for the receiving agent"
+            }
+          },
+          "required": ["fromAgent", "toAgent", "taskType", "taskId"]
+        }
+      ]
+    },
+    "validation": {
+      "type": "object",
+      "description": "Validation information",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "description": "Schema used for validation"
+        },
+        "valid": {
+          "type": "boolean",
+          "description": "Whether the payload passed validation"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "JSON path to the error"
+              },
+              "message": {
+                "type": "string",
+                "description": "Validation error message"
+              },
+              "code": {
+                "type": "string",
+                "description": "Validation error code"
+              }
+            }
+          },
+          "description": "Validation errors if any"
+        },
+        "validatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When validation was performed"
+        }
+      }
+    }
+  },
+  "required": ["id", "timestamp", "agentId", "type", "direction", "payload"],
+  "additionalProperties": false
+}

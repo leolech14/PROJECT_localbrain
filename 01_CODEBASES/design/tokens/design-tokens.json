@@ -1,0 +1,286 @@
+{
+  "$schema": "https://design-tokens.org/v1/",
+  "version": "1.0.0",
+  "created": "2025-10-08",
+  "description": "LocalBrain Design System - Semantic Design Tokens",
+  "tokens": {
+    "color": {
+      "surface": {
+        "bg": {
+          "value": "oklch(0.97 0.02 250)",
+          "type": "color",
+          "description": "Primary surface background",
+          "apca": {
+            "kind": "background",
+            "pairsWithText": ["color.surface.text", "color.surface.textMuted"]
+          }
+        },
+        "bgSubtle": {
+          "value": "oklch(0.95 0.02 250)",
+          "type": "color",
+          "description": "Subtle surface background for nested content"
+        },
+        "bgHover": {
+          "value": "oklch(0.90 0.02 250)",
+          "type": "color",
+          "description": "Surface hover state"
+        },
+        "text": {
+          "value": "oklch(0.22 0.04 262)",
+          "type": "color",
+          "description": "Primary text on surface - APCA ≥75",
+          "apca": {
+            "kind": "body",
+            "targetContrast": 75
+          }
+        },
+        "textMuted": {
+          "value": "oklch(0.58 0.03 255)",
+          "type": "color",
+          "description": "Muted text on surface - APCA ≥60",
+          "apca": {
+            "kind": "body",
+            "targetContrast": 60
+          }
+        },
+        "border": {
+          "value": "oklch(0.82 0.02 250)",
+          "type": "color",
+          "description": "Surface borders and dividers"
+        }
+      },
+      "accent": {
+        "bg": {
+          "value": "oklch(0.50 0.12 230)",
+          "type": "color",
+          "description": "Primary accent background - interactive elements",
+          "apca": {
+            "kind": "interactive",
+            "targetContrast": 75
+          }
+        },
+        "bgHover": {
+          "value": "oklch(0.42 0.12 230)",
+          "type": "color",
+          "description": "Accent hover state"
+        },
+        "bgActive": {
+          "value": "oklch(0.34 0.12 230)",
+          "type": "color",
+          "description": "Accent active/pressed state"
+        },
+        "text": {
+          "value": "oklch(0.98 0.01 230)",
+          "type": "color",
+          "description": "Text on accent background - APCA ≥75"
+        },
+        "textSubtle": {
+          "value": "oklch(0.60 0.12 230)",
+          "type": "color",
+          "description": "Accent text on light backgrounds"
+        },
+        "border": {
+          "value": "oklch(0.42 0.12 230)",
+          "type": "color",
+          "description": "Accent borders"
+        }
+      },
+      "muted": {
+        "bg": {
+          "value": "oklch(0.90 0.02 250)",
+          "type": "color",
+          "description": "Muted background for secondary content"
+        },
+        "bgHover": {
+          "value": "oklch(0.82 0.02 250)",
+          "type": "color",
+          "description": "Muted hover state"
+        },
+        "text": {
+          "value": "oklch(0.46 0.03 255)",
+          "type": "color",
+          "description": "Text on muted backgrounds - APCA ≥75"
+        },
+        "border": {
+          "value": "oklch(0.70 0.02 250)",
+          "type": "color",
+          "description": "Muted borders"
+        }
+      },
+      "success": {
+        "bg": {
+          "value": "oklch(0.50 0.10 150)",
+          "type": "color",
+          "description": "Success background"
+        },
+        "bgSubtle": {
+          "value": "oklch(0.92 0.10 150)",
+          "type": "color",
+          "description": "Subtle success background"
+        },
+        "text": {
+          "value": "oklch(0.98 0.01 150)",
+          "type": "color",
+          "description": "Text on success background"
+        },
+        "textSubtle": {
+          "value": "oklch(0.34 0.10 150)",
+          "type": "color",
+          "description": "Success text on light backgrounds"
+        },
+        "border": {
+          "value": "oklch(0.42 0.10 150)",
+          "type": "color",
+          "description": "Success borders"
+        }
+      },
+      "warning": {
+        "bg": {
+          "value": "oklch(0.52 0.11 60)",
+          "type": "color",
+          "description": "Warning background"
+        },
+        "bgSubtle": {
+          "value": "oklch(0.92 0.11 60)",
+          "type": "color",
+          "description": "Subtle warning background"
+        },
+        "text": {
+          "value": "oklch(0.15 0.02 60)",
+          "type": "color",
+          "description": "Text on warning background"
+        },
+        "textSubtle": {
+          "value": "oklch(0.36 0.11 60)",
+          "type": "color",
+          "description": "Warning text on light backgrounds"
+        },
+        "border": {
+          "value": "oklch(0.44 0.11 60)",
+          "type": "color",
+          "description": "Warning borders"
+        }
+      },
+      "error": {
+        "bg": {
+          "value": "oklch(0.50 0.13 25)",
+          "type": "color",
+          "description": "Error background"
+        },
+        "bgSubtle": {
+          "value": "oklch(0.92 0.13 25)",
+          "type": "color",
+          "description": "Subtle error background"
+        },
+        "text": {
+          "value": "oklch(0.98 0.01 25)",
+          "type": "color",
+          "description": "Text on error background"
+        },
+        "textSubtle": {
+          "value": "oklch(0.34 0.13 25)",
+          "type": "color",
+          "description": "Error text on light backgrounds"
+        },
+        "border": {
+          "value": "oklch(0.42 0.13 25)",
+          "type": "color",
+          "description": "Error borders"
+        }
+      },
+      "interactive": {
+        "bg": {
+          "value": "oklch(0.50 0.12 230)",
+          "type": "color",
+          "description": "Interactive element backgrounds",
+          "apca": {
+            "kind": "interactive",
+            "targetContrast": 75,
+            "minTouchTarget": "44px"
+          }
+        },
+        "bgHover": {
+          "value": "oklch(0.42 0.12 230)",
+          "type": "color",
+          "description": "Interactive hover state"
+        },
+        "bgActive": {
+          "value": "oklch(0.34 0.12 230)",
+          "type": "color",
+          "description": "Interactive active state"
+        },
+        "bgDisabled": {
+          "value": "oklch(0.82 0.02 250)",
+          "type": "color",
+          "description": "Disabled interactive elements"
+        },
+        "text": {
+          "value": "oklch(0.98 0.01 230)",
+          "type": "color",
+          "description": "Text on interactive backgrounds"
+        },
+        "textDisabled": {
+          "value": "oklch(0.70 0.02 250)",
+          "type": "color",
+          "description": "Disabled interactive text"
+        },
+        "border": {
+          "value": "oklch(0.42 0.12 230)",
+          "type": "color",
+          "description": "Interactive element borders"
+        },
+        "borderFocus": {
+          "value": "oklch(0.50 0.12 230)",
+          "type": "color",
+          "description": "Focus ring for keyboard navigation - WCAG 2.2 AA"
+        }
+      }
+    },
+    "spacing": {
+      "xs": { "value": "0.25rem", "type": "dimension", "description": "4px - Extra small spacing" },
+      "sm": { "value": "0.5rem", "type": "dimension", "description": "8px - Small spacing" },
+      "md": { "value": "1rem", "type": "dimension", "description": "16px - Medium spacing" },
+      "lg": { "value": "1.5rem", "type": "dimension", "description": "24px - Large spacing" },
+      "xl": { "value": "2rem", "type": "dimension", "description": "32px - Extra large spacing" },
+      "2xl": { "value": "3rem", "type": "dimension", "description": "48px - 2X large spacing" }
+    },
+    "borderRadius": {
+      "none": { "value": "0", "type": "dimension" },
+      "sm": { "value": "0.25rem", "type": "dimension", "description": "4px - Small corners" },
+      "md": { "value": "0.5rem", "type": "dimension", "description": "8px - Medium corners" },
+      "lg": { "value": "0.75rem", "type": "dimension", "description": "12px - Large corners" },
+      "xl": { "value": "1rem", "type": "dimension", "description": "16px - Extra large corners" },
+      "full": { "value": "9999px", "type": "dimension", "description": "Fully rounded" }
+    },
+    "typography": {
+      "fontSize": {
+        "xs": { "value": "0.75rem", "type": "dimension", "description": "12px" },
+        "sm": { "value": "0.875rem", "type": "dimension", "description": "14px" },
+        "base": { "value": "1rem", "type": "dimension", "description": "16px - Base font size" },
+        "lg": { "value": "1.125rem", "type": "dimension", "description": "18px" },
+        "xl": { "value": "1.25rem", "type": "dimension", "description": "20px" },
+        "2xl": { "value": "1.5rem", "type": "dimension", "description": "24px" },
+        "3xl": { "value": "1.875rem", "type": "dimension", "description": "30px" },
+        "4xl": { "value": "2.25rem", "type": "dimension", "description": "36px" }
+      },
+      "fontWeight": {
+        "normal": { "value": "400", "type": "number" },
+        "medium": { "value": "500", "type": "number" },
+        "semibold": { "value": "600", "type": "number" },
+        "bold": { "value": "700", "type": "number" }
+      },
+      "lineHeight": {
+        "tight": { "value": "1.25", "type": "number" },
+        "normal": { "value": "1.5", "type": "number" },
+        "relaxed": { "value": "1.75", "type": "number" }
+      }
+    }
+  },
+  "metadata": {
+    "wcag": "2.2 AA compliant",
+    "apca": "APCA ≥60 for body text, ≥75 for interactive elements",
+    "colorSpace": "OKLCH - Perceptually uniform lightness",
+    "touchTargets": "Minimum 44px for interactive elements",
+    "focusVisible": "3:1 contrast minimum for focus indicators"
+  }
+}

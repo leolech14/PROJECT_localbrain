@@ -1,0 +1,158 @@
+/**
+ * Reduced Motion Global Styles
+ *
+ * Automatically disables animations for users with prefers-reduced-motion
+ * WCAG 2.2 AA compliant
+ */
+
+/* Default: Animations enabled */
+:root {
+  --motion-enabled: 1;
+}
+
+/* Reduced Motion: Disable most animations */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-enabled: 0;
+  }
+
+  /* Global animation override */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Allow fade-only transitions for essential feedback */
+  .motion-fade-only {
+    animation-duration: 150ms !important;
+    transition-duration: 150ms !important;
+    transition-property: opacity !important;
+  }
+
+  /* Allow slower motion alternative */
+  .motion-slower {
+    animation-duration: calc(var(--original-duration, 300ms) * 1.5) !important;
+    transition-duration: calc(var(--original-duration, 300ms) * 1.5) !important;
+  }
+}
+
+/* Motion-safe alternative: Only apply animations when motion is safe */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-safe {
+    /* Animations only apply when motion is not reduced */
+  }
+}
+
+/* Utility classes for developers */
+
+/* Apply this to elements that should never animate in reduced motion */
+.motion-strict-reduce {
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Apply this to elements that should fade-only in reduced motion */
+.motion-fade-reduce {
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+    transition: opacity 150ms linear !important;
+  }
+}
+
+/* Apply this to elements that should be slower in reduced motion */
+.motion-slow-reduce {
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: calc(var(--duration) * 1.5) !important;
+    transition-duration: calc(var(--duration) * 1.5) !important;
+  }
+}
+
+/* Motion token CSS variables */
+:root {
+  /* Duration tokens */
+  --motion-instant: 0ms;
+  --motion-fast: 100ms;
+  --motion-quick: 200ms;
+  --motion-normal: 300ms;
+  --motion-moderate: 500ms;
+  --motion-slow: 700ms;
+  --motion-very-slow: 1000ms;
+
+  /* Easing tokens */
+  --motion-linear: cubic-bezier(0, 0, 1, 1);
+  --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --motion-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --motion-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --motion-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --motion-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Reduced motion overrides */
+  --motion-reduced-duration: 0ms;
+  --motion-reduced-fade-only: 150ms;
+}
+
+/* Reduced motion: Override duration variables */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-instant: 0ms;
+    --motion-fast: 0ms;
+    --motion-quick: 0ms;
+    --motion-normal: 0ms;
+    --motion-moderate: 0ms;
+    --motion-slow: 0ms;
+    --motion-very-slow: 0ms;
+
+    /* Simplified easing for reduced motion */
+    --motion-ease-in: linear;
+    --motion-ease-out: linear;
+    --motion-ease-in-out: linear;
+    --motion-emphasized-decelerate: linear;
+    --motion-emphasized-accelerate: linear;
+    --motion-spring: linear;
+    --motion-elastic: linear;
+  }
+}
+
+/* Example usage classes */
+
+.button-transition {
+  transition: all var(--motion-quick) var(--motion-ease-out);
+}
+
+.modal-transition {
+  transition: opacity var(--motion-normal) var(--motion-ease-out),
+              transform var(--motion-normal) var(--motion-emphasized-decelerate);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-transition {
+    transition: opacity var(--motion-reduced-fade-only) linear;
+  }
+}
+
+.menu-transition {
+  transition: all var(--motion-normal) var(--motion-emphasized-decelerate);
+}
+
+.notification-spring {
+  animation: spring-in var(--motion-moderate) var(--motion-spring);
+}
+
+@keyframes spring-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

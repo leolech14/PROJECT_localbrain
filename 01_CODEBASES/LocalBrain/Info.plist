@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>LocalBrain uses the microphone to capture audio for voice input and real-time voice interaction with AI models.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>LocalBrain uses speech recognition to convert your voice input into text for AI conversation.</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>LocalBrain pode automatizar apps após sua confirmação explícita.</string>
+	<key>UIBackgroundModes</key>
+	<array/>
+</dict>
+</plist>

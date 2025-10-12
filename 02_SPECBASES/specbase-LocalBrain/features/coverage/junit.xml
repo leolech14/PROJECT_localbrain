@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="ExecutableSpecs" tests="12">
+    <testcase name="LB-BROWSE-003">
+      <failure>[
+  {
+    "ac_id": "AC-0201",
+    "pass": false
+  },
+  {
+    "ac_id": "AC-0202",
+    "pass": false,
+    "reason": "output missing"
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-CONTAINER-009">
+      <failure>[
+  {
+    "ac_id": "AC-0801",
+    "pass": false
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-DATA-POOL-011">
+      <failure>[
+  {
+    "instancePath": "/spec_id",
+    "schemaPath": "#/properties/spec_id/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^[A-Z]{2,5}-[A-Z0-9]+-[0-9]{3,4}$"
+    },
+    "message": "must match pattern \"^[A-Z]{2,5}-[A-Z0-9]+-[0-9]{3,4}$\""
+  },
+  {
+    "instancePath": "/tests/0/id",
+    "schemaPath": "#/properties/tests/items/properties/id/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^T-[A-Z]+-[0-9]{3,4}$"
+    },
+    "message": "must match pattern \"^T-[A-Z]+-[0-9]{3,4}$\""
+  },
+  {
+    "instancePath": "/assertions/0/event",
+    "schemaPath": "#/properties/assertions/items/properties/event/type",
+    "keyword": "type",
+    "params": {
+      "type": "string"
+    },
+    "message": "must be string"
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-EDIT-006">
+      <failure>[
+  {
+    "ac_id": "AC-0502",
+    "pass": false
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-FILE-004">
+      <failure>[
+  {
+    "instancePath": "/assertions/0/event",
+    "schemaPath": "#/properties/assertions/items/properties/event/type",
+    "keyword": "type",
+    "params": {
+      "type": "string"
+    },
+    "message": "must be string"
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-ITERZIP-010">
+      <failure>[
+  {
+    "ac_id": "AC-0901",
+    "pass": false
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-MEM-005">
+      <failure>[
+  {
+    "ac_id": "AC-0401",
+    "pass": false,
+    "reason": "output missing"
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-ORCH-002">
+      <failure>[
+  {
+    "ac_id": "AC-0101",
+    "pass": false
+  },
+  {
+    "ac_id": "AC-0102",
+    "pass": true,
+    "value": 0,
+    "optional": false
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-ORCH-CORE-012">
+      <failure>[
+  {
+    "instancePath": "/spec_id",
+    "schemaPath": "#/properties/spec_id/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^[A-Z]{2,5}-[A-Z0-9]+-[0-9]{3,4}$"
+    },
+    "message": "must match pattern \"^[A-Z]{2,5}-[A-Z0-9]+-[0-9]{3,4}$\""
+  },
+  {
+    "instancePath": "/tests/0/id",
+    "schemaPath": "#/properties/tests/items/properties/id/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^T-[A-Z]+-[0-9]{3,4}$"
+    },
+    "message": "must match pattern \"^T-[A-Z]+-[0-9]{3,4}$\""
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-TASK-007">
+      <failure>[
+  {
+    "ac_id": "AC-0602",
+    "pass": false
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-TELEMETRY-008">
+      <failure>[
+  {
+    "ac_id": "AC-0701",
+    "pass": false
+  }
+]</failure>
+    </testcase>
+    <testcase name="LB-VOICE-001">
+      <failure>[
+  {
+    "ac_id": "AC-0001",
+    "pass": false,
+    "reason": "metric unavailable"
+  },
+  {
+    "ac_id": "AC-0002",
+    "pass": false,
+    "reason": "metric unavailable"
+  }
+]</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

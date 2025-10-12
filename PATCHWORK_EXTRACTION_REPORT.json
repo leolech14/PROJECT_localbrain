@@ -1,0 +1,266 @@
+{
+  "extraction_date": "2025-10-10",
+  "total_files_processed": 19,
+  "components_summary": {
+    "headers": {
+      "count": 94,
+      "total_size": 59926,
+      "unique_sources": 18,
+      "sources": [
+        "GOLDEN_STANDARD_COMPLETE_HTML.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "test-data_16Fri10Oct2025.html",
+        "LocalBrain_analysis_report.html",
+        "LocalBrain_ULTRATHINK_REAL.html"
+      ]
+    },
+    "navigation": {
+      "count": 13,
+      "total_size": 60384,
+      "unique_sources": 13,
+      "sources": [
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "test-data_16Fri10Oct2025.html",
+        "LocalBrain_analysis_report.html",
+        "EXTRACTED_LocalBrain_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_test-data_16Fri10Oct2025.html_BROWSER_18Thu10Oct2025.html"
+      ]
+    },
+    "dashboards": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "calendars": {
+      "count": 80,
+      "total_size": 85577,
+      "unique_sources": 3,
+      "sources": [
+        "EXTRACTED_calendar_file_explorer_demo.html_BROWSER_18Thu10Oct2025.html",
+        "GOLDEN_STANDARD_COMPLETE_HTML.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html"
+      ]
+    },
+    "sessions": {
+      "count": 79,
+      "total_size": 75059,
+      "unique_sources": 2,
+      "sources": [
+        "GOLDEN_STANDARD_COMPLETE_HTML.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html"
+      ]
+    },
+    "color_schemas": {
+      "count": 43,
+      "total_size": 21545,
+      "unique_sources": 14,
+      "sources": [
+        "GOLDEN_STANDARD_COMPLETE_HTML.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "test-data_16Fri10Oct2025.html",
+        "LocalBrain_analysis_report.html",
+        "EXTRACTED_LocalBrain_analysis_report.html_BROWSER_18Thu10Oct2025.html"
+      ]
+    },
+    "tooltips": {
+      "count": 1412,
+      "total_size": 1348827,
+      "unique_sources": 8,
+      "sources": [
+        "GOLDEN_STANDARD_COMPLETE_HTML.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "EXTRACTED_LocalBrain_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_test-data_16Fri10Oct2025.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_--help_analysis_report.html_BROWSER_18Thu10Oct2025.html"
+      ]
+    },
+    "charts": {
+      "count": 30,
+      "total_size": 1081671,
+      "unique_sources": 6,
+      "sources": [
+        "EXTRACTED_LocalBrain_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_test-data_16Fri10Oct2025.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_--help_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_maximum_extraction_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_PRODUCT_analysis_report.html_BROWSER_18Thu10Oct2025.html"
+      ]
+    },
+    "tables": {
+      "count": 17,
+      "total_size": 26782,
+      "unique_sources": 3,
+      "sources": [
+        "maximum_extraction_report.html",
+        "GOLDEN_STANDARD_COMPLETE_HTML.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html"
+      ]
+    },
+    "cards": {
+      "count": 207,
+      "total_size": 101157,
+      "unique_sources": 15,
+      "sources": [
+        "test-data_16Fri10Oct2025.html",
+        "LocalBrain_analysis_report.html",
+        "LocalBrain_ULTRATHINK_REAL.html",
+        "maximum_extraction_report.html",
+        "EXTRACTED_LocalBrain_analysis_report.html_BROWSER_18Thu10Oct2025.html"
+      ]
+    },
+    "forms": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "modals": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "tabs": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "accordions": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "progress_bars": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "badges": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "buttons": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "javascript_functions": {
+      "count": 419,
+      "total_size": 3936218,
+      "unique_sources": 16,
+      "sources": [
+        "GOLDEN_STANDARD_COMPLETE_HTML.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "test-data_16Fri10Oct2025.html",
+        "LocalBrain_analysis_report.html",
+        "maximum_extraction_report.html"
+      ]
+    },
+    "css_styles": {
+      "count": 1671,
+      "total_size": 7871187,
+      "unique_sources": 18,
+      "sources": [
+        "GOLDEN_STANDARD_COMPLETE_HTML.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "test-data_16Fri10Oct2025.html",
+        "LocalBrain_analysis_report.html",
+        "LocalBrain_ULTRATHINK_REAL.html"
+      ]
+    },
+    "data_visualizations": {
+      "count": 22,
+      "total_size": 3404,
+      "unique_sources": 1,
+      "sources": [
+        "current_centralized_output.html"
+      ]
+    },
+    "file_explorers": {
+      "count": 1265,
+      "total_size": 1240834,
+      "unique_sources": 16,
+      "sources": [
+        "GOLDEN_STANDARD_COMPLETE_HTML.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "test-data_16Fri10Oct2025.html",
+        "LocalBrain_analysis_report.html",
+        "maximum_extraction_report.html"
+      ]
+    },
+    "dependency_maps": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "mermaid_diagrams": {
+      "count": 71,
+      "total_size": 642725,
+      "unique_sources": 13,
+      "sources": [
+        "test-data_16Fri10Oct2025.html",
+        "LocalBrain_analysis_report.html",
+        "LocalBrain_ULTRATHINK_REAL.html",
+        "EXTRACTED_LocalBrain_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_test-data_16Fri10Oct2025.html_BROWSER_18Thu10Oct2025.html"
+      ]
+    },
+    "code_blocks": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "statistics": {
+      "count": 165,
+      "total_size": 37205,
+      "unique_sources": 16,
+      "sources": [
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "test-data_16Fri10Oct2025.html",
+        "LocalBrain_analysis_report.html",
+        "LocalBrain_ULTRATHINK_REAL.html",
+        "EXTRACTED_LocalBrain_analysis_report.html_BROWSER_18Thu10Oct2025.html"
+      ]
+    },
+    "health_indicators": {
+      "count": 40,
+      "total_size": 6365,
+      "unique_sources": 15,
+      "sources": [
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "test-data_16Fri10Oct2025.html",
+        "LocalBrain_analysis_report.html",
+        "maximum_extraction_report.html",
+        "EXTRACTED_LocalBrain_analysis_report.html_BROWSER_18Thu10Oct2025.html"
+      ]
+    },
+    "file_type_distributions": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "naming_patterns": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    },
+    "project_evolution": {
+      "count": 0,
+      "total_size": 0,
+      "unique_sources": 0,
+      "sources": []
+    }
+  },
+  "total_components_extracted": 5628
+}

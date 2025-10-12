@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "localbrain-task-registry": {
+      "command": "node",
+      "args": [
+        "/Users/lech/PROJECTS_all/LocalBrain/01_CODEBASES/mcp-servers/localbrain-task-registry/dist/index.js"
+      ],
+      "env": {
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}

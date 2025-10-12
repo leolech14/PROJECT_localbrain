@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pluggy Sandbox Test</title>
+    <meta charset="UTF-8">
+</head>
+<body style="font-family: system-ui; max-width: 600px; margin: 50px auto; padding: 20px;">
+    <h1>🧪 Pluggy Sandbox Test</h1>
+
+    <div id="status" style="padding: 15px; background: #e3f2fd; border-radius: 8px; margin: 20px 0;">
+        Clique no botão para conectar banco sandbox
+    </div>
+
+    <button onclick="testPluggy()" style="width: 100%; padding: 15px; font-size: 16px; background: #1976d2; color: white; border: none; border-radius: 8px; cursor: pointer;">
+        🏦 Conectar Banco Sandbox
+    </button>
+
+    <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 8px;">
+        <h3 style="margin-top: 0;">📋 Credenciais Sandbox:</h3>
+        <p><strong>Username:</strong> user-ok</p>
+        <p><strong>Password:</strong> password-ok</p>
+        <p><strong>MFA Token:</strong> 123456</p>
+    </div>
+
+    <div id="results" style="margin-top: 20px;"></div>
+
+    <script src="https://cdn.pluggy.ai/pluggy-connect/v2.8.2/pluggy-connect.js"></script>
+    <script>
+        const CLIENT_ID = '231eb11f-8583-4fe1-9a83-175603a2f207';
+        const CLIENT_SECRET = '03b826cb-d243-4ef0-8506-63b5526defd4';
+        let globalApiKey = null;
+
+        async function testPluggy() {
+            const status = document.getElementById('status');
+            const results = document.getElementById('results');
+
+            status.style.background = '#fff3cd';
+            status.innerHTML = '⏳ Gerando API key...';
+
+            try {
+                // Step 1: Generate API Key
+                const authResp = await fetch('https://api.pluggy.ai/auth', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ clientId: CLIENT_ID, clientSecret: CLIENT_SECRET })
+                });
+                const { apiKey } = await authResp.json();
+                globalApiKey = apiKey;
+
+                status.innerHTML = '⏳ Criando connect token...';
+
+                // Step 2: Create Connect Token
+                const connectResp = await fetch('https://api.pluggy.ai/connect/token', {
+                    method: 'POST',
+                    headers: {
+                        'X-API-KEY': apiKey,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        options: {
+                            clientUserId: 'leonardo-test-' + Date.now()
+                        }
+                    })
+                });
+
+                const connectData = await connectResp.json();
+
+                if (!connectData.accessToken) {
+                    throw new Error('No access token: ' + JSON.stringify(connectData));
+                }
+
+                status.innerHTML = '✅ Abrindo widget Pluggy...';
+
+                // Step 3: Open Pluggy Widget
+                const pluggyConnect = new PluggyConnect({
+                    connectToken: connectData.accessToken,
+                    includeSandbox: true,
+                    onSuccess: async (data) => {
+                        console.log('Connected!', data);
+                        status.style.background = '#d4edda';
+                        status.innerHTML = '✅ Banco conectado! ItemId: ' + data.item.id;
+
+                        // Fetch data
+                        await fetchAccountsAndTransactions(data.item.id);
+                    },
+                    onError: (error) => {
+                        console.error('Error:', error);
+                        status.style.background = '#f8d7da';
+                        status.innerHTML = '❌ Erro: ' + (error.message || JSON.stringify(error));
+                    }
+                });
+
+                pluggyConnect.init();
+
+            } catch (error) {
+                status.style.background = '#f8d7da';
+                status.innerHTML = '❌ Erro: ' + error.message;
+                console.error(error);
+            }
+        }
+
+        async function fetchAccountsAndTransactions(itemId) {
+            const results = document.getElementById('results');
+            results.innerHTML = '<div style="padding: 15px; background: #e3f2fd; border-radius: 8px;">⏳ Buscando dados...</div>';
+
+            try {
+                // Fetch accounts
+                const accountsResp = await fetch(`https://api.pluggy.ai/accounts?itemId=${itemId}`, {
+                    headers: { 'X-API-KEY': globalApiKey }
+                });
+                const accounts = await accountsResp.json();
+
+                let html = '<div style="padding: 20px; background: white; border-radius: 8px; border: 1px solid #ddd;">';
+                html += `<h2>✅ Contas Encontradas: ${accounts.results.length}</h2>`;
+
+                for (const account of accounts.results) {
+                    html += `
+                        <div style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                            <h3>${account.name}</h3>
+                            <p><strong>Tipo:</strong> ${account.type} - ${account.subtype}</p>
+                            <p><strong>Saldo:</strong> R$ ${account.balance.toFixed(2)}</p>
+                            <p><strong>Número:</strong> ${account.number}</p>
+                        </div>
+                    `;
+
+                    // Fetch transactions
+                    const txResp = await fetch(`https://api.pluggy.ai/transactions?accountId=${account.id}&pageSize=20`, {
+                        headers: { 'X-API-KEY': globalApiKey }
+                    });
+                    const transactions = await txResp.json();
+
+                    html += `<h3>📊 Transações (${transactions.total} total, mostrando 20):</h3>`;
+                    html += '<div style="font-family: monospace; font-size: 12px; background: #282c34; color: #abb2bf; padding: 15px; border-radius: 8px; overflow-x: auto;">';
+
+                    transactions.results.slice(0, 20).forEach(tx => {
+                        const color = tx.type === 'CREDIT' ? '#98c379' : '#e06c75';
+                        html += `<div style="color: ${color}; margin: 3px 0;">`;
+                        html += `${tx.date.split('T')[0]} | ${tx.type.padEnd(6)} | R$ ${Math.abs(tx.amount).toFixed(2).padStart(10)} | ${tx.description}`;
+                        html += `</div>`;
+                    });
+
+                    html += '</div>';
+                }
+
+                html += `
+                    <div style="margin-top: 20px; padding: 15px; background: #d4edda; border-radius: 8px;">
+                        <strong>🎉 TESTE COMPLETO!</strong><br>
+                        ItemId: ${itemId}<br>
+                        Contas: ${accounts.results.length}<br>
+                        Transações disponíveis!
+                    </div>
+                `;
+
+                html += '</div>';
+                results.innerHTML = html;
+
+            } catch (error) {
+                results.innerHTML = `<div style="padding: 15px; background: #f8d7da; border-radius: 8px;">❌ Erro: ${error.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>

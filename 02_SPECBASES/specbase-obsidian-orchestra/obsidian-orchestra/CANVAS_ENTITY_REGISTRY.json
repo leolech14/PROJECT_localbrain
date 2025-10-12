@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "generated_at": "2025-09-28T16:45:00",
+    "canvas_file": "CANVAS VIEW.canvas",
+    "total_entities": 123,
+    "canvas_bounds": {
+      "min_x": -14400,
+      "max_x": 19400,
+      "min_y": -8900,
+      "max_y": 4700,
+      "total_width": 33800,
+      "total_height": 13600
+    },
+    "entity_summary": {
+      "file_nodes": 78,
+      "text_nodes": 45,
+      "connections": 12
+    }
+  },
+  "architectural_zones": {
+    "research_highlands": {
+      "bounds": {"x_min": -14400, "x_max": -10000, "y_min": -8900, "y_max": -4000},
+      "description": "PDF research library and documentation",
+      "color_theme": "blue/purple"
+    },
+    "orchestration_core": {
+      "bounds": {"x_min": -6000, "x_max": -1000, "y_min": -8000, "y_max": -3000},
+      "description": "Symphony Pattern and core orchestration",
+      "color_theme": "red/yellow"
+    },
+    "intelligence_nucleus": {
+      "bounds": {"x_min": 0, "x_max": 5000, "y_min": -6000, "y_max": 2000},
+      "description": "AI/Agent core intelligence systems",
+      "color_theme": "yellow/green"
+    },
+    "analytics_processing": {
+      "bounds": {"x_min": 5000, "x_max": 11000, "y_min": -5000, "y_max": 2000},
+      "description": "Financial analysis and visualization",
+      "color_theme": "orange"
+    },
+    "interface_district": {
+      "bounds": {"x_min": 12000, "x_max": 20000, "y_min": -4000, "y_max": 5000},
+      "description": "User interfaces and components",
+      "color_theme": "red"
+    }
+  },
+  "entities": [
+    {
+      "id": "complete-spec",
+      "type": "file",
+      "file_name": "COMPLETE_FINANCIAL_INTELLIGENCE_PLATFORM_SPECIFICATION.md",
+      "coordinates": {"x": -7840, "y": -4197, "width": 1000, "height": 1800},
+      "bounding_box": {"left": -7840, "top": -4197, "right": -6840, "bottom": -2397},
+      "color": "1",
+      "zone": "orchestration_core",
+      "content_metrics": {
+        "line_count": 894,
+        "complexity_score": "high",
+        "completion_state": "complete",
+        "main_topics": ["master_specification", "platform_architecture", "agentic_native_design"]
+      },
+      "architectural_classification": {
+        "domain": "Master Architecture",
+        "layer": "Strategic",
+        "priority": "critical",
+        "specification_type": "architectural"
+      }
+    },
+    {
+      "id": "orchestrator-maestro",
+      "type": "file",
+      "file_name": "0.3_ORCHESTRATOR_MAESTRO.md",
+      "coordinates": {"x": -5234, "y": -4147, "width": 720, "height": 2200},
+      "bounding_box": {"left": -5234, "top": -4147, "right": -4514, "bottom": -1947},
+      "color": "1",
+      "zone": "orchestration_core",
+      "content_metrics": {
+        "line_count": 1032,
+        "complexity_score": "high",
+        "completion_state": "complete",
+        "main_topics": ["symphony_orchestration", "agent_routing", "conversational_interface"]
+      },
+      "architectural_classification": {
+        "domain": "Agent Intelligence",
+        "layer": "Orchestration",
+        "priority": "critical",
+        "specification_type": "technical"
+      }
+    },
+    {
+      "id": "data-pool-nucleus",
+      "type": "file",
+      "file_name": "10_DATA_POOL.md",
+      "coordinates": {"x": 823, "y": -3918, "width": 700, "height": 8720},
+      "bounding_box": {"left": 823, "top": -3918, "right": 1523, "bottom": 4802},
+      "color": "6",
+      "zone": "intelligence_nucleus",
+      "content_metrics": {
+        "line_count": 436,
+        "complexity_score": "high",
+        "completion_state": "intermediate_i2",
+        "main_topics": ["poker_table_architecture", "data_centralization", "entity_management"]
+      },
+      "architectural_classification": {
+        "domain": "Data Processing",
+        "layer": "Core",
+        "priority": "critical",
+        "specification_type": "technical"
+      }
+    },
+    {
+      "id": "agent-builder",
+      "type": "file",
+      "file_name": "60_AGENT_BUILDER.md",
+      "coordinates": {"x": -13083, "y": -4423, "width": 592, "height": 11960},
+      "bounding_box": {"left": -13083, "top": -4423, "right": -12491, "bottom": 7537},
+      "color": "none",
+      "zone": "research_highlands",
+      "content_metrics": {
+        "line_count": 598,
+        "complexity_score": "very_high",
+        "completion_state": "intermediate_i1",
+        "main_topics": ["agent_creation", "meta_programming", "autonomous_systems"]
+      },
+      "architectural_classification": {
+        "domain": "Agentic Systems",
+        "layer": "Meta",
+        "priority": "high",
+        "specification_type": "technical"
+      }
+    },
+    {
+      "id": "revenue-analysis",
+      "type": "file",
+      "file_name": "30_REVENUE_SUMMARY.md",
+      "coordinates": {"x": 5395, "y": -4197, "width": 825, "height": 7284},
+      "bounding_box": {"left": 5395, "top": -4197, "right": 6220, "bottom": 3087},
+      "color": "4",
+      "zone": "analytics_processing",
+      "content_metrics": {
+        "line_count": 364,
+        "complexity_score": "medium",
+        "completion_state": "intermediate_i1",
+        "main_topics": ["revenue_tracking", "income_analysis", "financial_forecasting"]
+      },
+      "architectural_classification": {
+        "domain": "Financial Analytics",
+        "layer": "Business Logic",
+        "priority": "high",
+        "specification_type": "functional"
+      }
+    },
+    {
+      "id": "dashboard-output",
+      "type": "file",
+      "file_name": "20_DASHBOARD_INDICATORS.md",
+      "coordinates": {"x": 16920, "y": -3997, "width": 700, "height": 7402},
+      "bounding_box": {"left": 16920, "top": -3997, "right": 17620, "bottom": 3405},
+      "color": "1",
+      "zone": "interface_district",
+      "content_metrics": {
+        "line_count": 370,
+        "complexity_score": "medium",
+        "completion_state": "intermediate_i1",
+        "main_topics": ["kpi_display", "dashboard_widgets", "user_interface"]
+      },
+      "architectural_classification": {
+        "domain": "User Interface",
+        "layer": "Presentation",
+        "priority": "high",
+        "specification_type": "functional"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "id": "finance-to-adapters",
+      "from": "open-finance-input",
+      "to": "external-adapters",
+      "color": "2",
+      "label": "API Data",
+      "relationship_type": "data_flow"
+    },
+    {
+      "id": "maestro-to-triface",
+      "from": "orchestrator-maestro",
+      "to": "module-agents-triface",
+      "color": "1",
+      "label": "Agent Routing",
+      "relationship_type": "orchestration"
+    },
+    {
+      "id": "triface-to-agents",
+      "from": "module-agents-triface",
+      "to": "agent-coordination",
+      "color": "1",
+      "label": "Agent Dispatch",
+      "relationship_type": "orchestration"
+    }
+  ],
+  "navigation_intelligence": {
+    "file_complexity_ranking": [
+      {"file": "60_AGENT_BUILDER.md", "lines": 598, "complexity": "very_high", "height": 11960},
+      {"file": "14_NERVOUS_SYSTEM.md", "lines": 481, "complexity": "high", "height": 10168},
+      {"file": "12_AGENT_LAYER.md", "lines": 555, "complexity": "high", "height": 9910},
+      {"file": "0.3_ORCHESTRATOR_MAESTRO.md", "lines": 1032, "complexity": "high", "height": 2200},
+      {"file": "COMPLETE_PLATFORM_SPEC.md", "lines": 894, "complexity": "high", "height": 1800}
+    ],
+    "domain_distribution": {
+      "Agent Intelligence": 8,
+      "Data Processing": 6,
+      "User Interface": 12,
+      "Financial Analytics": 8,
+      "Security Framework": 6,
+      "Documentation": 15
+    },
+    "spatial_queries": {
+      "find_by_coordinates": "Filter entities by x,y bounds",
+      "find_by_domain": "Filter by architectural domain",
+      "find_by_complexity": "Sort by content complexity",
+      "find_connections": "Trace dependency relationships"
+    }
+  },
+  "usage_examples": {
+    "find_core_intelligence": {
+      "query": "entities in zone 'intelligence_nucleus' with color '6'",
+      "results": ["10_DATA_POOL.md", "11_AI_LAYER.md", "12_AGENT_LAYER.md", "14_NERVOUS_SYSTEM.md"]
+    },
+    "find_tallest_files": {
+      "query": "entities with height > 8000px",
+      "results": ["60_AGENT_BUILDER.md (11960px)", "14_NERVOUS_SYSTEM.md (10168px)", "12_AGENT_LAYER.md (9910px)"]
+    },
+    "trace_data_flow": {
+      "query": "follow connections from external sources to interfaces",
+      "path": "Open Finance → External Adapters → Data Pool → Intelligence → Analytics → Dashboard"
+    }
+  }
+}

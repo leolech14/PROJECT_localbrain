@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependency-Edits Mermaid Visualizer</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .controls {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .control-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .control-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-item label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #495057;
+        }
+
+        .control-item input,
+        .control-item select,
+        .control-item textarea {
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .control-item input:focus,
+        .control-item select:focus,
+        .control-item textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .control-item textarea {
+            min-height: 100px;
+            resize: vertical;
+            font-family: 'Courier New', monospace;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #6c757d;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab:hover {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .diagram-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mermaid {
+            font-size: 14px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-left: 5px solid #667eea;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #6c757d;
+            font-weight: 600;
+        }
+
+        .code-container {
+            background: #2d3748;
+            border-radius: 12px;
+            padding: 20px;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #f5c6cb;
+            margin-bottom: 20px;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            margin-bottom: 20px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #6c757d;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .export-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #dee2e6;
+            display: none;
+            z-index: 1000;
+            min-width: 200px;
+        }
+
+        .export-menu.show {
+            display: block;
+        }
+
+        .export-menu button {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            background: none;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .export-menu button:hover {
+            background: #f8f9fa;
+        }
+
+        .export-menu button:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .export-menu button:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+
+        .legend {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .legend h3 {
+            margin-bottom: 15px;
+            color: #495057;
+        }
+
+        .legend-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            border: 2px solid #dee2e6;
+        }
+
+        .legend-color.new-feature {
+            background: #ffcccc;
+            border-color: #ff6666;
+        }
+
+        .legend-color.direct-dep {
+            background: #cce5ff;
+            border-color: #66aaff;
+        }
+
+        .legend-color.indirect-dep {
+            background: #ccffcc;
+            border-color: #66cc66;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦋 Dependency-Edits Visualizer</h1>
+            <p>Interactive Mermaid Diagram Generator for Project Dependencies</p>
+        </header>
+
+        <section class="controls">
+            <div class="control-group">
+                <div class="control-item">
+                    <label for="projectRoot">Project Root Path:</label>
+                    <input type="text" id="projectRoot" placeholder="/Users/lech/PROJECTS_all/LocalBrain" value="/Users/lech/PROJECTS_all/LocalBrain">
+                </div>
+                <div class="control-item">
+                    <label for="newFeature">New Feature File:</label>
+                    <input type="text" id="newFeature" placeholder="Path to new feature file">
+                </div>
+                <div class="control-item">
+                    <label for="diagramType">Diagram Type:</label>
+                    <select id="diagramType">
+                        <option value="TD">Top-Down (TD)</option>
+                        <option value="LR">Left-Right (LR)</option>
+                        <option value="BT">Bottom-Up (BT)</option>
+                        <option value="RL">Right-Left (RL)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-item">
+                <label for="mermaidCode">Mermaid Code (or generate automatically):</label>
+                <textarea id="mermaidCode" placeholder="Paste your Mermaid diagram code here or use the generator above..."></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="generateDiagram()">
+                    <span>🔄</span> Generate from Analysis
+                </button>
+                <button class="btn btn-success" onclick="renderDiagram()">
+                    <span>📊</span> Render Mermaid
+                </button>
+                <button class="btn btn-secondary" onclick="clearAll()">
+                    <span>🗑️</span> Clear
+                </button>
+                <div style="position: relative; display: inline-block;">
+                    <button class="btn btn-secondary" onclick="toggleExportMenu()">
+                        <span>💾</span> Export
+                    </button>
+                    <div id="exportMenu" class="export-menu">
+                        <button onclick="exportAsPNG()">Export as PNG</button>
+                        <button onclick="exportAsSVG()">Export as SVG</button>
+                        <button onclick="exportAsHTML()">Export as HTML</button>
+                        <button onclick="copyMermaidCode()">Copy Mermaid Code</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main class="content">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('diagram')">📊 Dependency Diagram</button>
+                <button class="tab" onclick="switchTab('statistics')">📈 Statistics</button>
+                <button class="tab" onclick="switchTab('code')">💻 Mermaid Code</button>
+                <button class="tab" onclick="switchTab('help')">❓ Help</button>
+            </div>
+
+            <div id="diagram-tab" class="tab-content active">
+                <div class="legend">
+                    <h3>Legend</h3>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="legend-color new-feature"></div>
+                            <span>New Feature</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color direct-dep"></div>
+                            <span>Direct Dependencies</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color indirect-dep"></div>
+                            <span>Indirect Dependencies</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="diagram-container">
+                    <div id="mermaidDiagram" class="mermaid">
+                        Loading Mermaid diagram...
+                    </div>
+                </div>
+            </div>
+
+            <div id="statistics-tab" class="tab-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalFiles">0</div>
+                        <div class="stat-label">Total Files Analyzed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="directDeps">0</div>
+                        <div class="stat-label">Direct Dependencies</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="indirectDeps">0</div>
+                        <div class="stat-label">Indirect Dependencies</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="riskLevel">LOW</div>
+                        <div class="stat-label">Risk Level</div>
+                    </div>
+                </div>
+                <div id="recommendations" class="code-container">
+                    Recommendations will appear here after analysis...
+                </div>
+            </div>
+
+            <div id="code-tab" class="tab-content">
+                <div class="code-container" id="codeDisplay">
+                    Mermaid code will appear here...
+                </div>
+            </div>
+
+            <div id="help-tab" class="tab-content">
+                <div style="padding: 20px;">
+                    <h2>How to Use Dependency-Edits Visualizer</h2>
+                    <br>
+                    <h3>🚀 Quick Start</h3>
+                    <ol style="line-height: 1.8;">
+                        <li>Enter your project root path (e.g., <code>/Users/lech/PROJECTS_all/LocalBrain</code>)</li>
+                        <li>Specify the path to your new feature file</li>
+                        <li>Click "Generate from Analysis" to analyze dependencies</li>
+                        <li>View the interactive Mermaid diagram</li>
+                        <li>Export the diagram in your preferred format</li>
+                    </ol>
+                    <br>
+                    <h3>📊 Diagram Types</h3>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>Top-Down (TD)</strong>: Classic hierarchy layout</li>
+                        <li><strong>Left-Right (LR)</strong>: Horizontal flow</li>
+                        <li><strong>Bottom-Up (BT)</strong>: Reverse hierarchy</li>
+                        <li><strong>Right-Left (RL)</strong>: Reverse horizontal</li>
+                    </ul>
+                    <br>
+                    <h3>🎨 Features</h3>
+                    <ul style="line-height: 1.8;">
+                        <li>Automatic dependency analysis</li>
+                        <li>Interactive Mermaid diagrams</li>
+                        <li>Risk assessment and recommendations</li>
+                        <li>Multiple export formats (PNG, SVG, HTML)</li>
+                        <li>Real-time code editing and preview</li>
+                    </ul>
+                    <br>
+                    <h3>💡 Tips</h3>
+                    <ul style="line-height: 1.8;">
+                        <li>Use the "Statistics" tab to see detailed metrics</li>
+                        <li>Click on nodes in the diagram to highlight dependencies</li>
+                        <li>Export as SVG for scalable vector graphics</li>
+                        <li>Copy Mermaid code to use in documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#667eea',
+                primaryTextColor: '#2d3748',
+                primaryBorderColor: '#667eea',
+                lineColor: '#667eea',
+                secondaryColor: '#764ba2',
+                tertiaryColor: '#f8f9fa'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+
+        let currentDiagram = '';
+
+        // Tab switching
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Generate diagram from analysis
+        async function generateDiagram() {
+            const projectRoot = document.getElementById('projectRoot').value;
+            const newFeature = document.getElementById('newFeature').value;
+            const diagramType = document.getElementById('diagramType').value;
+
+            if (!projectRoot || !newFeature) {
+                showMessage('Please enter both project root and new feature paths', 'error');
+                return;
+            }
+
+            showMessage('Analyzing dependencies...', 'loading');
+
+            // Simulate dependency analysis (replace with actual API call)
+            setTimeout(() => {
+                const mockMermaidCode = generateMockMermaidCode(newFeature, diagramType);
+                document.getElementById('mermaidCode').value = mockMermaidCode;
+                renderDiagram();
+                updateStatistics();
+                showMessage('Analysis complete! Check the diagram and statistics tabs.', 'success');
+            }, 2000);
+        }
+
+        // Generate mock Mermaid code (replace with real implementation)
+        function generateMockMermaidCode(featurePath, diagramType) {
+            return `graph ${diagramType}
+    %% Dependency-Edits Analysis
+    %% New Feature: ${featurePath}
+
+    %% New Feature Node
+    NEW_FEATURE["${featurePath.split('/').pop()}<br/><span style='color:red;'>NEW FEATURE</span>"]
+
+    %% Direct Dependencies
+    COMPONENT["Component.ts<br/><span style='color:blue;'>CODE</span>"]
+    SPEC["spec.md<br/><span style='color:blue;'>SPEC</span>"]
+    CONFIG["config.json<br/><span style='color:blue;'>CONFIG</span>"]
+
+    %% Indirect Dependencies
+    TEST["test.spec.ts<br/><span style='color:green;'>TEST</span>"]
+    DOCS["README.md<br/><span style='color:green;'>DOCS</span>"]
+
+    %% Connections
+    NEW_FEATURE --> COMPONENT
+    NEW_FEATURE --> SPEC
+    NEW_FEATURE --> CONFIG
+    NEW_FEATURE -.-> TEST
+    NEW_FEATURE -.-> DOCS
+
+    %% Styling
+    classDef newFeature fill:#ffcccc,stroke:#ff6666,stroke-width:3px
+    classDef directDep fill:#cce5ff,stroke:#66aaff,stroke-width:2px
+    classDef indirectDep fill:#ccffcc,stroke:#66cc66,stroke-width:1px
+
+    class NEW_FEATURE newFeature
+    class COMPONENT,SPEC,CONFIG directDep
+    class TEST,DOCS indirectDep`;
+        }
+
+        // Render Mermaid diagram
+        async function renderDiagram() {
+            const mermaidCode = document.getElementById('mermaidCode').value;
+            const diagramContainer = document.getElementById('mermaidDiagram');
+
+            if (!mermaidCode.trim()) {
+                showMessage('Please enter Mermaid code or generate from analysis', 'error');
+                return;
+            }
+
+            try {
+                diagramContainer.innerHTML = '<div class="loading">Rendering diagram...</div>';
+
+                // Extract graph definition from mermaid code
+                const graphDefinition = mermaidCode.replace(/```mermaid\n?|\n?```/g, '').trim();
+
+                // Render the diagram
+                const { svg } = await mermaid.render('dependency-diagram', graphDefinition);
+                diagramContainer.innerHTML = svg;
+
+                currentDiagram = mermaidCode;
+                updateCodeDisplay();
+                showMessage('Diagram rendered successfully!', 'success');
+            } catch (error) {
+                diagramContainer.innerHTML = `<div class="error-message">Error rendering diagram: ${error.message}</div>`;
+                showMessage('Error rendering diagram: ' + error.message, 'error');
+            }
+        }
+
+        // Update statistics
+        function updateStatistics() {
+            // Mock statistics (replace with real data from analysis)
+            document.getElementById('totalFiles').textContent = '127';
+            document.getElementById('directDeps').textContent = '8';
+            document.getElementById('indirectDeps').textContent = '23';
+            document.getElementById('riskLevel').textContent = 'MEDIUM';
+
+            const recommendations = `📋 Dependency-Edits Recommendations:
+
+🎯 HIGH PRIORITY:
+• Update API documentation to include new component endpoints
+• Add integration tests for the new feature
+• Update configuration schema to include new settings
+
+⚠️ MEDIUM PRIORITY:
+• Review related components for breaking changes
+• Update user documentation with new feature examples
+• Consider backward compatibility
+
+💡 LOW PRIORITY:
+• Add performance monitoring for new feature
+• Update developer onboarding guides
+• Consider adding feature flags for gradual rollout
+
+🦋 Dependency Impact Analysis:
+• Direct Impact: 8 files require immediate updates
+• Indirect Impact: 23 files may need future consideration
+• Risk Level: MEDIUM (some breaking changes possible)
+• Estimated Update Time: 2-4 hours`;
+
+            document.getElementById('recommendations').textContent = recommendations;
+        }
+
+        // Update code display
+        function updateCodeDisplay() {
+            document.getElementById('codeDisplay').textContent = currentDiagram || 'No code to display...';
+        }
+
+        // Export functions
+        function toggleExportMenu() {
+            const menu = document.getElementById('exportMenu');
+            menu.classList.toggle('show');
+        }
+
+        function exportAsPNG() {
+            if (!currentDiagram) {
+                showMessage('No diagram to export', 'error');
+                return;
+            }
+            // Implementation for PNG export
+            showMessage('PNG export coming soon!', 'success');
+        }
+
+        function exportAsSVG() {
+            if (!currentDiagram) {
+                showMessage('No diagram to export', 'error');
+                return;
+            }
+
+            const svgElement = document.querySelector('#mermaidDiagram svg');
+            if (svgElement) {
+                const svgData = new XMLSerializer().serializeToString(svgElement);
+                const blob = new Blob([svgData], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'dependency-diagram.svg';
+                a.click();
+                URL.revokeObjectURL(url);
+                showMessage('SVG exported successfully!', 'success');
+            }
+        }
+
+        function exportAsHTML() {
+            if (!currentDiagram) {
+                showMessage('No diagram to export', 'error');
+                return;
+            }
+
+            const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependency Diagram</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="mermaid">
+${currentDiagram}
+    </div>
+    <script>
+        mermaid.initialize({startOnLoad: true});
+    </script>
+</body>
+</html>`;
+
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'dependency-diagram.html';
+            a.click();
+            URL.revokeObjectURL(url);
+            showMessage('HTML exported successfully!', 'success');
+        }
+
+        function copyMermaidCode() {
+            if (!currentDiagram) {
+                showMessage('No code to copy', 'error');
+                return;
+            }
+
+            navigator.clipboard.writeText(currentDiagram).then(() => {
+                showMessage('Mermaid code copied to clipboard!', 'success');
+            });
+        }
+
+        // Clear all
+        function clearAll() {
+            document.getElementById('mermaidCode').value = '';
+            document.getElementById('mermaidDiagram').innerHTML = '<div class="mermaid">Mermaid diagram will appear here...</div>';
+            document.getElementById('codeDisplay').textContent = 'Mermaid code will appear here...';
+            document.getElementById('projectRoot').value = '/Users/lech/PROJECTS_all/LocalBrain';
+            document.getElementById('newFeature').value = '';
+            currentDiagram = '';
+            showMessage('All fields cleared', 'success');
+        }
+
+        // Show message
+        function showMessage(message, type) {
+            // Remove existing messages
+            document.querySelectorAll('.error-message, .success-message').forEach(msg => msg.remove());
+
+            if (type === 'loading') {
+                const loadingDiv = document.createElement('div');
+                loadingDiv.className = 'loading';
+                loadingDiv.textContent = message;
+                document.querySelector('.content').prepend(loadingDiv);
+                return;
+            }
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type === 'error' ? 'error-message' : 'success-message';
+            messageDiv.textContent = message;
+            document.querySelector('.content').prepend(messageDiv);
+
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        }
+
+        // Close export menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const exportMenu = document.getElementById('exportMenu');
+            if (!e.target.closest('.btn-secondary') && !e.target.closest('.export-menu')) {
+                exportMenu.classList.remove('show');
+            }
+        });
+
+        // Initialize with sample diagram
+        window.addEventListener('load', () => {
+            const sampleCode = `graph TD
+    %% Sample Dependency Analysis
+    NEW_FEATURE["NewComponent.ts<br/><span style='color:red;'>NEW FEATURE</span>"]
+    COMPONENT["ExistingComponent.ts<br/><span style='color:blue;'>CODE</span>"]
+    SPEC["component.spec.md<br/><span style='color:blue;'>SPEC</span>"]
+
+    NEW_FEATURE --> COMPONENT
+    NEW_FEATURE --> SPEC
+
+    classDef newFeature fill:#ffcccc,stroke:#ff6666,stroke-width:3px
+    classDef directDep fill:#cce5ff,stroke:#66aaff,stroke-width:2px
+    class NEW_FEATURE newFeature
+    class COMPONENT,SPEC directDep`;
+
+            document.getElementById('mermaidCode').value = sampleCode;
+            renderDiagram();
+        });
+    </script>
+</body>
+</html>

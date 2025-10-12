@@ -1,0 +1,31 @@
+🚀 Starting MCP server connection test...
+
+📡 MCP Server started (PID: 35226)
+⏳ Waiting for server initialization...
+
+✅ Server ready! Sending getAvailableTasks request...
+
+📦 MCP Server Response:
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"agent\": \"A\",\n  \"availableTasks\": 0,\n  \"tasks\": [],\n  \"message\": \"✅ No available tasks for Agent A (either all complete or blocked on dependencies)\"\n}"
+      }
+    ]
+  },
+  "jsonrpc": "2.0",
+  "id": 1
+}
+
+✅ TEST SUCCESSFUL - MCP Server is responding!
+
+📊 Task Data:
+   Agent: A
+   Available Tasks: 0
+   Message: ✅ No available tasks for Agent A (either all complete or blocked on dependencies)
+⏱️  Waiting for response...
+
+
+🔌 Closing connection...

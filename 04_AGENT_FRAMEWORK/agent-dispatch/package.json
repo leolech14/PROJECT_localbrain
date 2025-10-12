@@ -1,0 +1,32 @@
+{
+  "name": "@localbrain/agent-dispatch",
+  "version": "1.0.0",
+  "description": "Revolutionary simple auto-dispatch system for 6-agent coordination",
+  "type": "module",
+  "main": "dist/cli.js",
+  "bin": {
+    "agent-dispatch": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "dev": "tsc && node dist/cli.js",
+    "autonomous": "tsc && node dist/cli-autonomous.js",
+    "autonomous:demo": "tsc && NODE_ENV=demo node dist/cli-autonomous.js"
+  },
+  "keywords": [
+    "agent",
+    "dispatch",
+    "coordination",
+    "auto-assign"
+  ],
+  "author": "Agent D (Sonnet-4.5)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.7.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}

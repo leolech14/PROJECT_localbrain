@@ -1,0 +1,17 @@
+extends: spectral:oas
+
+rules:
+  info-description: warn
+  info-contact: warn
+  info-license: warn
+  operation-operationId: warn
+  operation-description: warn
+  operation-tag-defined: warn
+  path-params-defined: error
+  path-keys-no-trailing-slash: error
+  path-declaration-must-exist: error
+  path-not-include-query: error
+  no-unresolved-refs: error
+  no-enum-type-mismatch: error
+  operation-parameters-unique: error
+  operation-operationId-unique: error

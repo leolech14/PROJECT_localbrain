@@ -1,0 +1,612 @@
+openapi: 3.1.0
+info:
+  title: Orchestra LocalBrain Core API
+  description: Core API for AI provider routing, context management, and agent orchestration
+  version: 2.0.0
+  contact:
+    name: Orchestra LocalBrain Team
+    email: team@localbrain.ai
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: http://localhost:3000/api
+    description: Local development server
+  - url: https://api.localbrain.ai/v2
+    description: Production API
+
+paths:
+  /ai/chat:
+    post:
+      summary: Send message to AI provider
+      operationId: sendChatMessage
+      tags:
+        - AI Services
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ChatStreamResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /ai/providers:
+    get:
+      summary: List available AI providers
+      operationId: listProviders
+      tags:
+        - AI Services
+      responses:
+        '200':
+          description: List of available providers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AIProvider'
+
+  /context/build:
+    post:
+      summary: Build context payload for AI
+      operationId: buildContext
+      tags:
+        - Context Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContextBuildRequest'
+      responses:
+        '200':
+          description: Context payload built successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContextPayload'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /context/ingest:
+    post:
+      summary: Ingest content into vector store
+      operationId: ingestContent
+      tags:
+        - Context Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestionRequest'
+      responses:
+        '200':
+          description: Content ingested successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestionResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /agents/execute:
+    post:
+      summary: Execute agent task
+      operationId: executeAgentTask
+      tags:
+        - Agent Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentTaskRequest'
+      responses:
+        '200':
+          description: Task execution initiated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentTaskResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /agents/{taskId}/status:
+    get:
+      summary: Get agent task status
+      operationId: getAgentTaskStatus
+      tags:
+        - Agent Management
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Task status retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentTaskStatus'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  schemas:
+    # Core Types
+    ProviderType:
+      type: string
+      enum:
+        - anthropic
+        - openai
+        - google
+        - ollama
+        - openrouter
+      description: Supported AI provider types
+
+    MessageRole:
+      type: string
+      enum:
+        - user
+        - assistant
+        - system
+      description: Message sender roles
+
+    # Request/Response Schemas
+    ChatRequest:
+      type: object
+      required:
+        - message
+        - provider
+      properties:
+        message:
+          type: string
+          description: User message to send
+          minLength: 1
+          maxLength: 100000
+        provider:
+          $ref: '#/components/schemas/ProviderType'
+        context:
+          $ref: '#/components/schemas/ContextPayload'
+        conversationId:
+          type: string
+          format: uuid
+          description: Conversation ID for context continuity
+        stream:
+          type: boolean
+          default: true
+          description: Whether to stream the response
+        temperature:
+          type: number
+          minimum: 0
+          maximum: 2
+          default: 0.7
+        maxTokens:
+          type: integer
+          minimum: 1
+          maximum: 100000
+          default: 4000
+
+    ChatStreamResponse:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [chunk, complete, error]
+        content:
+          type: string
+          description: Response content chunk
+        messageId:
+          type: string
+          format: uuid
+        usage:
+          $ref: '#/components/schemas/TokenUsage'
+        error:
+          $ref: '#/components/schemas/ErrorResponse'
+
+    AIProvider:
+      type: object
+      required:
+        - id
+        - name
+        - type
+        - status
+      properties:
+        id:
+          type: string
+          description: Unique provider identifier
+        name:
+          type: string
+          description: Human-readable provider name
+        type:
+          $ref: '#/components/schemas/ProviderType'
+        status:
+          type: string
+          enum: [active, inactive, error]
+        models:
+          type: array
+          items:
+            type: string
+          description: Available models for this provider
+        capabilities:
+          type: array
+          items:
+            type: string
+            enum: [chat, vision, audio, function_calling]
+        rateLimits:
+          $ref: '#/components/schemas/RateLimits'
+
+    ContextBuildRequest:
+      type: object
+      required:
+        - query
+        - rawContext
+      properties:
+        query:
+          type: string
+          description: User query for context relevance
+          minLength: 1
+        rawContext:
+          $ref: '#/components/schemas/RawContextSnapshot'
+        tokenBudget:
+          type: integer
+          minimum: 100
+          maximum: 100000
+          default: 8000
+          description: Maximum tokens for context payload
+        includeMemory:
+          type: boolean
+          default: true
+        includeRealtime:
+          type: boolean
+          default: true
+
+    ContextPayload:
+      type: object
+      required:
+        - contextString
+        - metadata
+      properties:
+        contextString:
+          type: string
+          description: Formatted context string for AI
+        metadata:
+          type: object
+          properties:
+            totalTokens:
+              type: integer
+            budget:
+              type: integer
+            itemsUsed:
+              type: array
+              items:
+                type: object
+                properties:
+                  source:
+                    type: string
+                  tokens:
+                    type: integer
+            buildTime:
+              type: number
+              description: Build time in milliseconds
+
+    IngestionRequest:
+      type: object
+      required:
+        - sourceId
+        - content
+      properties:
+        sourceId:
+          type: string
+          description: Unique identifier for content source
+        content:
+          type: string
+          description: Text content to ingest
+          minLength: 1
+        metadata:
+          type: object
+          description: Additional metadata for the content
+        chunkSize:
+          type: integer
+          minimum: 100
+          maximum: 10000
+          default: 1000
+          description: Size of text chunks for vectorization
+
+    IngestionResponse:
+      type: object
+      required:
+        - success
+        - chunkCount
+      properties:
+        success:
+          type: boolean
+        chunkCount:
+          type: integer
+          description: Number of chunks created
+        vectorCount:
+          type: integer
+          description: Number of vectors created
+        processingTime:
+          type: number
+          description: Processing time in milliseconds
+        error:
+          $ref: '#/components/schemas/ErrorResponse'
+
+    AgentTaskRequest:
+      type: object
+      required:
+        - agentId
+        - task
+      properties:
+        agentId:
+          type: string
+          format: uuid
+          description: ID of the agent to execute
+        task:
+          type: object
+          properties:
+            type:
+              type: string
+              enum: [analysis, generation, research, orchestration]
+            description:
+              type: string
+            parameters:
+              type: object
+              description: Task-specific parameters
+        context:
+          $ref: '#/components/schemas/ContextPayload'
+        priority:
+          type: string
+          enum: [low, normal, high, urgent]
+          default: normal
+        timeout:
+          type: integer
+          minimum: 1000
+          maximum: 300000
+          default: 60000
+          description: Timeout in milliseconds
+
+    AgentTaskResponse:
+      type: object
+      required:
+        - taskId
+        - status
+      properties:
+        taskId:
+          type: string
+          format: uuid
+          description: Unique task identifier
+        status:
+          type: string
+          enum: [queued, running, completed, failed, cancelled]
+        estimatedDuration:
+          type: integer
+          description: Estimated completion time in milliseconds
+        createdAt:
+          type: string
+          format: date-time
+        startedAt:
+          type: string
+          format: date-time
+        completedAt:
+          type: string
+          format: date-time
+
+    AgentTaskStatus:
+      type: object
+      required:
+        - taskId
+        - status
+        - progress
+      properties:
+        taskId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [queued, running, completed, failed, cancelled]
+        progress:
+          type: object
+          properties:
+            percentage:
+              type: number
+              minimum: 0
+              maximum: 100
+            currentStep:
+              type: string
+            totalSteps:
+              type: integer
+        result:
+          type: object
+          description: Task result if completed
+        error:
+          $ref: '#/components/schemas/ErrorResponse'
+        logs:
+          type: array
+          items:
+            type: object
+            properties:
+              timestamp:
+                type: string
+                format: date-time
+              level:
+                type: string
+                enum: [debug, info, warn, error]
+              message:
+                type: string
+
+    # Utility Schemas
+    RawContextSnapshot:
+      type: object
+      properties:
+        activeApplication:
+          type: object
+          properties:
+            name:
+              type: string
+            windowTitle:
+              type: string
+        browserContext:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+            title:
+              type: string
+        fileSystem:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              type:
+                type: string
+              lastModified:
+                type: string
+                format: date-time
+        screenshot:
+          type: string
+          format: base64
+          description: Base64 encoded screenshot data
+
+    TokenUsage:
+      type: object
+      required:
+        - input
+        - output
+        - total
+      properties:
+        input:
+          type: integer
+          minimum: 0
+        output:
+          type: integer
+          minimum: 0
+        total:
+          type: integer
+          minimum: 0
+        cost:
+          type: number
+          description: Cost in USD for this request
+
+    RateLimits:
+      type: object
+      properties:
+        requestsPerMinute:
+          type: integer
+          minimum: 1
+        tokensPerMinute:
+          type: integer
+          minimum: 1
+        dailyLimit:
+          type: integer
+          minimum: 1
+        remaining:
+          type: integer
+          minimum: 0
+        resetAt:
+          type: string
+          format: date-time
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Error code identifier
+        message:
+          type: string
+          description: Human-readable error message
+        details:
+          type: object
+          description: Additional error details
+        timestamp:
+          type: string
+          format: date-time
+
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    Unauthorized:
+      description: Unauthorized - invalid or missing credentials
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    RateLimited:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+    InternalError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT authentication token
+
+security:
+  - BearerAuth: []
+
+tags:
+  - name: AI Services
+    description: AI provider integration and chat functionality
+  - name: Context Management
+    description: Context building, retrieval, and ingestion
+  - name: Agent Management
+    description: Agent task execution and monitoring

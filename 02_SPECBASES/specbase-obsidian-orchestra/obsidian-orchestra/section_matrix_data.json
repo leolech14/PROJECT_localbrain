@@ -1,0 +1,5106 @@
+[
+  {
+    "file": "cfg.BRAZILIAN_COMPLIANCE.md",
+    "category": "cfg",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 76
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "exact",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Compliance'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "exact",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "cfg.BRAZILIAN_FINTECH.md",
+    "category": "cfg",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 8
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "cfg.KILL_SWITCH_AUDIT.md",
+    "category": "cfg",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "as 'Behavior'",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Compliance'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "cfg.POLICY_AS_CODE.md",
+    "category": "cfg",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Compliance'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "scf.00_MAIN_PAGE.md",
+    "category": "scf",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "scf.01_HEADER.md",
+    "category": "scf",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "as 'Sub-Components'",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "scf.02_SIDEBAR.md",
+    "category": "scf",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "as 'Sub-Components'",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "scf.03_FOOTER.md",
+    "category": "scf",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "as 'Sub-Components'",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "scf.04_GRID_VIEW.md",
+    "category": "scf",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "as 'Widget Behavior'",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "scf.05_CHIP_VIEW.md",
+    "category": "scf",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "scf.06_MARKETPLACE.md",
+    "category": "scf",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "scf.70_OKLCH_DESIGN.md",
+    "category": "scf",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "as 'Core Features'",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "scf.80_DESIGN_REF.md",
+    "category": "scf",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.0.2_TRIFACE.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.0.3_MAESTRO.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.0.4_BUILDER_ARCH.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.10_DATA_POOL.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.11_AI_LAYER.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "as 'Core Responsibilities'",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "as 'Sub-Components'",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.12_AGENT_LAYER.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.13_USER_IDENTITY.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "as 'Core Responsibilities'",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.14_NERVOUS_SYSTEM.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.15_SECURITY_FABRIC.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.16_OPEN_FINANCE.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.17_INGESTION_PIPELINE.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 79
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "exact",
+        "lines": 0
+      },
+      "8": {
+        "status": "exact",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "exact",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.20_DASHBOARD.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.21_AGENT_CONSOLE.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "as 'Sub-Components'",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.22_APPROVAL_TRAY.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.30_REVENUE.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.31_EXPENSE.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.32_BANKS.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.33_TRANSACTIONS.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.34_REALTIME_STREAMING.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 78
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "exact",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.35_TRANSFER_MATCHING.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 78
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "exact",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "exact",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.40_CALENDAR.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "as 'Core Features'",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.41_FORECAST.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.42_BUDGET.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.43_CHARTS.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.44_DATABASE.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.50_POOL_ENGINE.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "as 'Core Responsibilities'",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.51_AGENT_RUNTIME.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "as 'Core Capabilities'",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.52_MARKETPLACE_ENGINE.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "as 'Core Features'",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.53_INTELLIGENCE.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "as 'Core Capabilities'",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.54_BACKGROUND_JOBS.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 79
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "exact",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "exact",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.60_AGENT_BUILDER.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "as 'Core Features'",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.61_WALLETS.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.62_ADAPTERS.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "mod.90_PACKAGE_CONFIG.md",
+    "category": "mod",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.AGENT_ONBOARDING.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.CHATGPT5_INTEGRATION.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 21
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.CHATGPT5_REVIEW_REQUEST.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.COMPLETE_SPEC.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.EDIT_RULES.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.IMPLEMENTATION_ROADMAP.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 21
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.MODULE_INDEX.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.MONOREPO_ARCH.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 7
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.PROJECT_ARCHITECTURE.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "exact",
+        "lines": 0
+      },
+      "5": {
+        "status": "as 'Sub-Components'",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "as 'Implementation'",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "exact",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.SECURITY_TESTING.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.SYSTEMATIC_TRANSFORM.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "gov.TRANSFORMATION_REPORT.md",
+    "category": "gov",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "as 'Implementation'",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "as 'Validation'",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.ALGEBRAIC_ANALYSIS.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.ALGEBRAIC_TAXONOMY.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.CANVAS_EXPLORER.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Integration'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.CANVAS_NAVIGATION.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.CANVAS_REGISTRY.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.CANVAS_SNIPER.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "as 'Production'",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.CI_SECRETS_BROKER.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 4
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "exact",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "as 'Implementation'",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.COMMUNITY.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.COMPREHENSIVE_UNDERSTANDING.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.CONTENT_STRATEGY.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.CONTEXT_FILES.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.DESIGN_QUALITY_GATES.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 4
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.FIVE_CATEGORY_ANALYSIS.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.GENETIC_MANIFEST.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.GENETIC_ORGANIZATION.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.GRAPH_VIEW.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 15
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "as 'Related'",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.IMPL_KNOWLEDGE.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 26
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.MASTER_REGISTRY.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.MEANINGFUL_SECTIONS.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "as 'Security'",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "as 'Agent'",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.MONITORING_DASHBOARDS.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 4
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.MONITORING_SETUP.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 4
+      },
+      "1": {
+        "status": "exact",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "exact",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Success Criteria'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.PRECISION_SECTIONS.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.REGISTRY_DELIVERY.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "as 'Validation'",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.REGISTRY_SUMMARY.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.SEMANTIC_ANALYSIS.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.SEPARATION_COMMANDS.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.SEPARATION_PLAN.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "missing",
+        "lines": 0
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.TIME_TRACKING.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 6
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "missing",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "missing",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  },
+  {
+    "file": "ops.VAULT_OPTIMIZATION.md",
+    "category": "ops",
+    "sections": {
+      "0": {
+        "status": "present",
+        "lines": 77
+      },
+      "1": {
+        "status": "missing",
+        "lines": 0
+      },
+      "2": {
+        "status": "missing",
+        "lines": 0
+      },
+      "3": {
+        "status": "missing",
+        "lines": 0
+      },
+      "4": {
+        "status": "missing",
+        "lines": 0
+      },
+      "5": {
+        "status": "missing",
+        "lines": 0
+      },
+      "6": {
+        "status": "as 'State Progression'",
+        "lines": 0
+      },
+      "7": {
+        "status": "missing",
+        "lines": 0
+      },
+      "8": {
+        "status": "missing",
+        "lines": 0
+      },
+      "9": {
+        "status": "missing",
+        "lines": 0
+      },
+      "10": {
+        "status": "as 'Metrics'",
+        "lines": 0
+      },
+      "11": {
+        "status": "missing",
+        "lines": 0
+      },
+      "12": {
+        "status": "missing",
+        "lines": 0
+      }
+    }
+  }
+]

@@ -1,0 +1,171 @@
+{
+  "$schema": "https://design-tokens.org/v1/",
+  "version": "1.0.0",
+  "created": "2025-10-08",
+  "description": "LocalBrain Motion Design Tokens - Duration, Easing, and Accessibility",
+  "tokens": {
+    "motion": {
+      "duration": {
+        "instant": {
+          "value": "0ms",
+          "type": "duration",
+          "description": "No animation - immediate state change",
+          "usage": "Reduced motion fallback, instant feedback"
+        },
+        "fast": {
+          "value": "100ms",
+          "type": "duration",
+          "description": "Very fast animation - micro-interactions",
+          "usage": "Hover states, ripples, small UI changes"
+        },
+        "quick": {
+          "value": "200ms",
+          "type": "duration",
+          "description": "Quick animation - most UI transitions",
+          "usage": "Button presses, toggles, menu items"
+        },
+        "normal": {
+          "value": "300ms",
+          "type": "duration",
+          "description": "Normal animation - standard transitions",
+          "usage": "Modal open/close, panel slides, default"
+        },
+        "moderate": {
+          "value": "500ms",
+          "type": "duration",
+          "description": "Moderate animation - emphasized transitions",
+          "usage": "Page transitions, large panels, drawer"
+        },
+        "slow": {
+          "value": "700ms",
+          "type": "duration",
+          "description": "Slow animation - dramatic transitions",
+          "usage": "Full-screen overlays, complex choreography"
+        },
+        "verySlow": {
+          "value": "1000ms",
+          "type": "duration",
+          "description": "Very slow animation - showcase animations",
+          "usage": "Intro sequences, decorative animations"
+        }
+      },
+      "easing": {
+        "linear": {
+          "value": "cubic-bezier(0, 0, 1, 1)",
+          "type": "cubicBezier",
+          "description": "Linear easing - constant speed",
+          "usage": "Mechanical motion, progress indicators"
+        },
+        "easeIn": {
+          "value": "cubic-bezier(0.4, 0, 1, 1)",
+          "type": "cubicBezier",
+          "description": "Ease in - starts slow, ends fast",
+          "usage": "Exiting elements, fade out"
+        },
+        "easeOut": {
+          "value": "cubic-bezier(0, 0, 0.2, 1)",
+          "type": "cubicBezier",
+          "description": "Ease out - starts fast, ends slow (recommended default)",
+          "usage": "Entering elements, fade in, most UI"
+        },
+        "easeInOut": {
+          "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "type": "cubicBezier",
+          "description": "Ease in-out - symmetric acceleration",
+          "usage": "Position changes, movement between states"
+        },
+        "emphasizedDecelerate": {
+          "value": "cubic-bezier(0.05, 0.7, 0.1, 1)",
+          "type": "cubicBezier",
+          "description": "Emphasized deceleration - Material Design 3",
+          "usage": "Entering UI elements, expanding content"
+        },
+        "emphasizedAccelerate": {
+          "value": "cubic-bezier(0.3, 0, 0.8, 0.15)",
+          "type": "cubicBezier",
+          "description": "Emphasized acceleration - Material Design 3",
+          "usage": "Exiting UI elements, collapsing content"
+        },
+        "spring": {
+          "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "type": "cubicBezier",
+          "description": "Spring easing - slight overshoot",
+          "usage": "Playful interactions, attention-grabbing"
+        },
+        "elastic": {
+          "value": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+          "type": "cubicBezier",
+          "description": "Elastic easing - pronounced bounce",
+          "usage": "Notification badges, celebratory animations"
+        }
+      },
+      "reducedMotion": {
+        "duration": {
+          "value": "0ms",
+          "type": "duration",
+          "description": "Duration for prefers-reduced-motion",
+          "usage": "All animations become instant when reduced motion enabled"
+        },
+        "fadeOnly": {
+          "value": "150ms",
+          "type": "duration",
+          "description": "Short duration for opacity-only transitions",
+          "usage": "Reduced motion alternative - fade instead of slide/scale"
+        },
+        "strategy": {
+          "value": "instant",
+          "type": "string",
+          "description": "Strategy: instant | fade-only | slower",
+          "usage": "Controls how to handle animations when reduced motion enabled"
+        }
+      }
+    }
+  },
+  "presets": {
+    "buttonPress": {
+      "duration": "motion.duration.quick",
+      "easing": "motion.easing.easeOut",
+      "reducedMotion": "motion.reducedMotion.duration"
+    },
+    "menuOpen": {
+      "duration": "motion.duration.normal",
+      "easing": "motion.easing.emphasizedDecelerate",
+      "reducedMotion": "motion.reducedMotion.fadeOnly"
+    },
+    "menuClose": {
+      "duration": "motion.duration.quick",
+      "easing": "motion.easing.emphasizedAccelerate",
+      "reducedMotion": "motion.reducedMotion.duration"
+    },
+    "modalOpen": {
+      "duration": "motion.duration.moderate",
+      "easing": "motion.easing.easeOut",
+      "reducedMotion": "motion.reducedMotion.fadeOnly"
+    },
+    "modalClose": {
+      "duration": "motion.duration.normal",
+      "easing": "motion.easing.easeIn",
+      "reducedMotion": "motion.reducedMotion.duration"
+    },
+    "tooltip": {
+      "duration": "motion.duration.fast",
+      "easing": "motion.easing.easeOut",
+      "reducedMotion": "motion.reducedMotion.duration"
+    },
+    "notification": {
+      "duration": "motion.duration.moderate",
+      "easing": "motion.easing.spring",
+      "reducedMotion": "motion.reducedMotion.fadeOnly"
+    },
+    "pageTransition": {
+      "duration": "motion.duration.slow",
+      "easing": "motion.easing.easeInOut",
+      "reducedMotion": "motion.reducedMotion.instant"
+    }
+  },
+  "metadata": {
+    "accessibility": "WCAG 2.2 AA compliant with prefers-reduced-motion support",
+    "framework": "Material Design 3 easing curves + custom extensions",
+    "reducedMotionStrategy": "Instant animations by default, fade-only for essential feedback"
+  }
+}

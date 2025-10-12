@@ -1,0 +1,5 @@
+symbols:
+  "Swift:LocalBrain.VoiceIndicatorView.update(with:)": { file: "LocalBrain/UI/VoiceIndicatorView.swift" }
+  "Swift:CentralOrchestrator.handle(_:)":              { file: "LocalBrain/Services/CentralOrchestrator.swift" }
+  "Swift:BrowserService.open(url:)":                   { file: "LocalBrain/Services/BrowserService.swift" }
+  "Swift:FileAccessService.search(root:pattern:depth:)": { file: "LocalBrain/Services/FileAccessService.swift" }

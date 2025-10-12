@@ -1,0 +1,5641 @@
+{
+  "nodes": [
+    {
+      "id": "EDIT-RULES",
+      "centrality": 9.3489,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 1163
+    },
+    {
+      "id": "15_SECURITY_FABRIC",
+      "centrality": 73.7189,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 1063
+    },
+    {
+      "id": "COMPLETE_FINANCIAL_INTELLIGENCE_PLATFORM_SPECIFICATION",
+      "centrality": 0.6206999999999999,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 2069
+    },
+    {
+      "id": "62_EXTERNAL_ADAPTERS",
+      "centrality": 71.98360000000001,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 612
+    },
+    {
+      "id": "20_DASHBOARD_INDICATORS",
+      "centrality": 60.82590000000001,
+      "community": "Content_agentcontr",
+      "links": 0,
+      "words": 753
+    },
+    {
+      "id": "04_GRID_VIEW_CANVAS",
+      "centrality": 61.040000000000006,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 800
+    },
+    {
+      "id": "06_MARKETPLACE_PAGE",
+      "centrality": 63.4439,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 813
+    },
+    {
+      "id": "44_DATABASE_VIEWER",
+      "centrality": 27.4492,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 164
+    },
+    {
+      "id": "90_PACKAGE_CONFIGURATION",
+      "centrality": 17.456100000000003,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 187
+    },
+    {
+      "id": "16_OPEN_FINANCE_CONNECTOR",
+      "centrality": 81.8356,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 1452
+    },
+    {
+      "id": "61_WALLET_MANAGEMENT",
+      "centrality": 75.5788,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 596
+    },
+    {
+      "id": "70_OKLCH_DESIGN_SYSTEM",
+      "centrality": 25.250100000000003,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 167
+    },
+    {
+      "id": "22_APPROVAL_TRAY",
+      "centrality": 59.0709,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 903
+    },
+    {
+      "id": "0.2_MODULE_AGENTS_TRIFACE",
+      "centrality": 77.12110000000001,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 1737
+    },
+    {
+      "id": "03_FOOTER_COMPONENT",
+      "centrality": 63.807900000000004,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 693
+    },
+    {
+      "id": "10_DATA_POOL",
+      "centrality": 57.252900000000004,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 843
+    },
+    {
+      "id": "SECURITY_TESTING_STRATEGY",
+      "centrality": 65.8815,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 1605
+    },
+    {
+      "id": "2025-09-27",
+      "centrality": 0.0,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 0
+    },
+    {
+      "id": "51_AGENT_RUNTIME",
+      "centrality": 71.9689,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 563
+    },
+    {
+      "id": "21_AGENT_CONSOLE",
+      "centrality": 59.672700000000006,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 909
+    },
+    {
+      "id": "14_NERVOUS_SYSTEM",
+      "centrality": 55.677800000000005,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 926
+    },
+    {
+      "id": "01_HEADER_COMPONENT",
+      "centrality": 63.807,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 690
+    },
+    {
+      "id": "POLICY_AS_CODE",
+      "centrality": 68.489,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 1630
+    },
+    {
+      "id": "33_TRANSACTION_VIEWER",
+      "centrality": 56.355700000000006,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 519
+    },
+    {
+      "id": "KILL_SWITCH_AUDIT_TRAIL",
+      "centrality": 67.5061,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 1687
+    },
+    {
+      "id": "30_REVENUE_SUMMARY",
+      "centrality": 56.3599,
+      "community": "Content_agentcontr",
+      "links": 0,
+      "words": 533
+    },
+    {
+      "id": "50_DATA_POOL_ENGINE",
+      "centrality": 72.1722,
+      "community": "Content_production",
+      "links": 0,
+      "words": 574
+    },
+    {
+      "id": "43_CHART_VIEWER",
+      "centrality": 31.051300000000005,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 171
+    },
+    {
+      "id": "41_FORECAST_ENGINE",
+      "centrality": 31.050700000000003,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 169
+    },
+    {
+      "id": "05_CHIP_VIEW_CANVAS",
+      "centrality": 61.840300000000006,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 801
+    },
+    {
+      "id": "60_AGENT_BUILDER",
+      "centrality": 25.652800000000003,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 176
+    },
+    {
+      "id": "31_EXPENSE_ANALYSIS",
+      "centrality": 56.344,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 480
+    },
+    {
+      "id": "13_USER_IDENTITY",
+      "centrality": 55.28380000000001,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 946
+    },
+    {
+      "id": "PROJECT_ARCHITECTURE",
+      "centrality": 0.7043999999999999,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 2348
+    },
+    {
+      "id": "80_DESIGN_SYSTEM_REFERENCE",
+      "centrality": 9.0576,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 192
+    },
+    {
+      "id": "MODULE_INDEX",
+      "centrality": 12.9563,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 521
+    },
+    {
+      "id": "00_MAIN_PAGE",
+      "centrality": 79.42110000000001,
+      "community": "Content_production",
+      "links": 0,
+      "words": 737
+    },
+    {
+      "id": "32_BANK_ACCOUNTS",
+      "centrality": 59.9551,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 517
+    },
+    {
+      "id": "40_CALENDAR_HEATMAP",
+      "centrality": 26.067500000000003,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 225
+    },
+    {
+      "id": "0.4_AGENT_BUILDER",
+      "centrality": 78.13520000000001,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 1784
+    },
+    {
+      "id": "TRANSFORMATION_COMPLETION_REPORT",
+      "centrality": 27.7325,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 1775
+    },
+    {
+      "id": "0.3_ORCHESTRATOR_MAESTRO",
+      "centrality": 81.4851,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 1617
+    },
+    {
+      "id": "02_SIDEBAR_COMPONENT",
+      "centrality": 63.8172,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 724
+    },
+    {
+      "id": "53_INTELLIGENCE_LAYER",
+      "centrality": 72.1701,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 567
+    },
+    {
+      "id": "42_BUDGET_VIEWER",
+      "centrality": 31.046800000000005,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 156
+    },
+    {
+      "id": "12_AGENT_LAYER",
+      "centrality": 55.883500000000005,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 945
+    },
+    {
+      "id": "CONTEXT_FILES_GROUP",
+      "centrality": 21.8028,
+      "community": "Topic_module",
+      "links": 0,
+      "words": 676
+    },
+    {
+      "id": "11_AI_LAYER",
+      "centrality": 70.261,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 870
+    },
+    {
+      "id": "52_MARKETPLACE_ENGINE",
+      "centrality": 73.1722,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 574
+    },
+    {
+      "id": "front-matter-template",
+      "centrality": 76.7365,
+      "community": "uncategorized",
+      "links": 0,
+      "words": 455
+    }
+  ],
+  "edges": [
+    {
+      "source": "CONTEXT_FILES_GROUP",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 8.399999999999999
+    },
+    {
+      "source": "EDIT-RULES",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.4
+    },
+    {
+      "source": "EDIT-RULES",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.4
+    },
+    {
+      "source": "EDIT-RULES",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.4
+    },
+    {
+      "source": "EDIT-RULES",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "EDIT-RULES",
+      "target": "front-matter-template",
+      "weight": 0.4
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 7.2
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 1.6
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.4
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 7.2
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 1.6
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "POLICY_AS_CODE",
+      "weight": 6.4
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 6.4
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 7.2
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "15_SECURITY_FABRIC",
+      "target": "front-matter-template",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "POLICY_AS_CODE",
+      "weight": 6.4
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 6.4
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "62_EXTERNAL_ADAPTERS",
+      "target": "front-matter-template",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 5.2
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 5.2
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "43_CHART_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 2.0
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 5.2
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.6
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "20_DASHBOARD_INDICATORS",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 5.2
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "06_MARKETPLACE_PAGE",
+      "weight": 6.4
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 1.6
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 5.2
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "10_DATA_POOL",
+      "weight": 5.2
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 5.2
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "05_CHIP_VIEW_CANVAS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "13_USER_IDENTITY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.2
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "12_AGENT_LAYER",
+      "weight": 5.2
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "11_AI_LAYER",
+      "weight": 1.6
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "04_GRID_VIEW_CANVAS",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 1.6
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "10_DATA_POOL",
+      "weight": 5.2
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 5.2
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 5.2
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 5.2
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "43_CHART_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 2.0
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 5.2
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "13_USER_IDENTITY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "12_AGENT_LAYER",
+      "weight": 5.2
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "11_AI_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "06_MARKETPLACE_PAGE",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "44_DATABASE_VIEWER",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "90_PACKAGE_CONFIGURATION",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "90_PACKAGE_CONFIGURATION",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "90_PACKAGE_CONFIGURATION",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "90_PACKAGE_CONFIGURATION",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "90_PACKAGE_CONFIGURATION",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "90_PACKAGE_CONFIGURATION",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "90_PACKAGE_CONFIGURATION",
+      "target": "front-matter-template",
+      "weight": 0.8
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 1.6
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 7.2
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.4
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "POLICY_AS_CODE",
+      "weight": 7.6000000000000005
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 7.2
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "MODULE_INDEX",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 1.6
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 7.2
+    },
+    {
+      "source": "16_OPEN_FINANCE_CONNECTOR",
+      "target": "front-matter-template",
+      "weight": 8.4
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 7.2
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "POLICY_AS_CODE",
+      "weight": 6.4
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 6.4
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "61_WALLET_MANAGEMENT",
+      "target": "front-matter-template",
+      "weight": 7.2
+    },
+    {
+      "source": "70_OKLCH_DESIGN_SYSTEM",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "70_OKLCH_DESIGN_SYSTEM",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "70_OKLCH_DESIGN_SYSTEM",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "70_OKLCH_DESIGN_SYSTEM",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "70_OKLCH_DESIGN_SYSTEM",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "70_OKLCH_DESIGN_SYSTEM",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "70_OKLCH_DESIGN_SYSTEM",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "70_OKLCH_DESIGN_SYSTEM",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "70_OKLCH_DESIGN_SYSTEM",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 5.2
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 5.2
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 5.2
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.2
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.6
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "22_APPROVAL_TRAY",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "04_GRID_VIEW_CANVAS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "06_MARKETPLACE_PAGE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 9.200000000000001
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "03_FOOTER_COMPONENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "10_DATA_POOL",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.4
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 1.6
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "01_HEADER_COMPONENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "POLICY_AS_CODE",
+      "weight": 7.6000000000000005
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 7.2
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "05_CHIP_VIEW_CANVAS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "13_USER_IDENTITY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "00_MAIN_PAGE",
+      "weight": 7.2
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "0.4_AGENT_BUILDER",
+      "weight": 9.200000000000001
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "0.3_ORCHESTRATOR_MAESTRO",
+      "weight": 9.200000000000001
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "02_SIDEBAR_COMPONENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "12_AGENT_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "11_AI_LAYER",
+      "weight": 6.4
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 7.2
+    },
+    {
+      "source": "0.2_MODULE_AGENTS_TRIFACE",
+      "target": "front-matter-template",
+      "weight": 7.6000000000000005
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "04_GRID_VIEW_CANVAS",
+      "weight": 6.0
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "06_MARKETPLACE_PAGE",
+      "weight": 6.4
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 1.6
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 5.2
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "10_DATA_POOL",
+      "weight": 5.2
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 5.2
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 5.2
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "43_CHART_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 2.0
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "05_CHIP_VIEW_CANVAS",
+      "weight": 6.0
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 5.2
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "13_USER_IDENTITY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "12_AGENT_LAYER",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "11_AI_LAYER",
+      "weight": 1.6
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "03_FOOTER_COMPONENT",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 5.2
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 1.6
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "13_USER_IDENTITY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.2
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "12_AGENT_LAYER",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "11_AI_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "10_DATA_POOL",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "SECURITY_TESTING_STRATEGY",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "SECURITY_TESTING_STRATEGY",
+      "target": "front-matter-template",
+      "weight": 6.4
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.4
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "POLICY_AS_CODE",
+      "weight": 6.4
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 6.4
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 7.2
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "51_AGENT_RUNTIME",
+      "target": "front-matter-template",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 6.0
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 5.2
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 5.2
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 5.2
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.2
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.6
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "21_AGENT_CONSOLE",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 1.6
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 1.6
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 5.2
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 5.2
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "POLICY_AS_CODE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "14_NERVOUS_SYSTEM",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "04_GRID_VIEW_CANVAS",
+      "weight": 6.0
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "06_MARKETPLACE_PAGE",
+      "weight": 6.4
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 1.6
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 5.2
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "03_FOOTER_COMPONENT",
+      "weight": 7.2
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "10_DATA_POOL",
+      "weight": 5.2
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 5.2
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 5.2
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "43_CHART_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 2.0
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "05_CHIP_VIEW_CANVAS",
+      "weight": 6.0
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 5.2
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "13_USER_IDENTITY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "02_SIDEBAR_COMPONENT",
+      "weight": 7.2
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "12_AGENT_LAYER",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "11_AI_LAYER",
+      "weight": 1.6
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "01_HEADER_COMPONENT",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "POLICY_AS_CODE",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 7.2
+    },
+    {
+      "source": "POLICY_AS_CODE",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "POLICY_AS_CODE",
+      "target": "front-matter-template",
+      "weight": 6.4
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "33_TRANSACTION_VIEWER",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "KILL_SWITCH_AUDIT_TRAIL",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 7.2
+    },
+    {
+      "source": "KILL_SWITCH_AUDIT_TRAIL",
+      "target": "POLICY_AS_CODE",
+      "weight": 8.4
+    },
+    {
+      "source": "KILL_SWITCH_AUDIT_TRAIL",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "KILL_SWITCH_AUDIT_TRAIL",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "KILL_SWITCH_AUDIT_TRAIL",
+      "target": "front-matter-template",
+      "weight": 6.4
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 5.2
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 5.2
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.2
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "30_REVENUE_SUMMARY",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.4
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 7.2
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "POLICY_AS_CODE",
+      "weight": 6.4
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 6.4
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "50_DATA_POOL_ENGINE",
+      "target": "front-matter-template",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "43_CHART_VIEWER",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "43_CHART_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "41_FORECAST_ENGINE",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "06_MARKETPLACE_PAGE",
+      "weight": 6.4
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 1.6
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "10_DATA_POOL",
+      "weight": 5.2
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "13_USER_IDENTITY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.2
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.6
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "12_AGENT_LAYER",
+      "weight": 5.2
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "11_AI_LAYER",
+      "weight": 1.6
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "05_CHIP_VIEW_CANVAS",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.6
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "60_AGENT_BUILDER",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 5.2
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.2
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "31_EXPENSE_ANALYSIS",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 2.0
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 5.2
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 5.2
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 5.2
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "13_USER_IDENTITY",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "80_DESIGN_SYSTEM_REFERENCE",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "80_DESIGN_SYSTEM_REFERENCE",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.4
+    },
+    {
+      "source": "80_DESIGN_SYSTEM_REFERENCE",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.4
+    },
+    {
+      "source": "80_DESIGN_SYSTEM_REFERENCE",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.4
+    },
+    {
+      "source": "80_DESIGN_SYSTEM_REFERENCE",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.4
+    },
+    {
+      "source": "80_DESIGN_SYSTEM_REFERENCE",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "80_DESIGN_SYSTEM_REFERENCE",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.4
+    },
+    {
+      "source": "80_DESIGN_SYSTEM_REFERENCE",
+      "target": "front-matter-template",
+      "weight": 0.4
+    },
+    {
+      "source": "MODULE_INDEX",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.4
+    },
+    {
+      "source": "MODULE_INDEX",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.4
+    },
+    {
+      "source": "MODULE_INDEX",
+      "target": "front-matter-template",
+      "weight": 0.8
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 7.2
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 1.6
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "04_GRID_VIEW_CANVAS",
+      "weight": 2.4000000000000004
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "06_MARKETPLACE_PAGE",
+      "weight": 2.4000000000000004
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 7.6000000000000005
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 7.2
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "03_FOOTER_COMPONENT",
+      "weight": 2.8000000000000003
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "10_DATA_POOL",
+      "weight": 1.6
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.4
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 7.2
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "01_HEADER_COMPONENT",
+      "weight": 2.8000000000000003
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "POLICY_AS_CODE",
+      "weight": 6.4
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 6.4
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 7.2
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "05_CHIP_VIEW_CANVAS",
+      "weight": 2.4000000000000004
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "13_USER_IDENTITY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 1.6
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "02_SIDEBAR_COMPONENT",
+      "weight": 2.8000000000000003
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "12_AGENT_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "11_AI_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "00_MAIN_PAGE",
+      "target": "front-matter-template",
+      "weight": 7.6000000000000005
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 5.2
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "43_CHART_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 2.0
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "32_BANK_ACCOUNTS",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.6
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.6
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "40_CALENDAR_HEATMAP",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 7.2
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "04_GRID_VIEW_CANVAS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "06_MARKETPLACE_PAGE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 9.600000000000001
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "03_FOOTER_COMPONENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "10_DATA_POOL",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.4
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 1.6
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "01_HEADER_COMPONENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "POLICY_AS_CODE",
+      "weight": 7.6000000000000005
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 7.2
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "05_CHIP_VIEW_CANVAS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.6
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "13_USER_IDENTITY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "00_MAIN_PAGE",
+      "weight": 7.2
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "02_SIDEBAR_COMPONENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "12_AGENT_LAYER",
+      "weight": 1.6
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "11_AI_LAYER",
+      "weight": 6.4
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 7.2
+    },
+    {
+      "source": "0.4_AGENT_BUILDER",
+      "target": "front-matter-template",
+      "weight": 7.6000000000000005
+    },
+    {
+      "source": "TRANSFORMATION_COMPLETION_REPORT",
+      "target": "front-matter-template",
+      "weight": 3.2
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 7.2
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "04_GRID_VIEW_CANVAS",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "06_MARKETPLACE_PAGE",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 10.4
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 7.2
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "03_FOOTER_COMPONENT",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "10_DATA_POOL",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.4
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "01_HEADER_COMPONENT",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "POLICY_AS_CODE",
+      "weight": 7.6000000000000005
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 7.2
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "05_CHIP_VIEW_CANVAS",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "13_USER_IDENTITY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "00_MAIN_PAGE",
+      "weight": 7.6000000000000005
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "0.4_AGENT_BUILDER",
+      "weight": 9.600000000000001
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "02_SIDEBAR_COMPONENT",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "12_AGENT_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "11_AI_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 7.2
+    },
+    {
+      "source": "0.3_ORCHESTRATOR_MAESTRO",
+      "target": "front-matter-template",
+      "weight": 8.0
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "04_GRID_VIEW_CANVAS",
+      "weight": 6.0
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "06_MARKETPLACE_PAGE",
+      "weight": 6.4
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 1.6
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 5.2
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "03_FOOTER_COMPONENT",
+      "weight": 7.2
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "10_DATA_POOL",
+      "weight": 5.2
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 5.2
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 5.2
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "43_CHART_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 2.0
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "05_CHIP_VIEW_CANVAS",
+      "weight": 6.0
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 5.2
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "13_USER_IDENTITY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "12_AGENT_LAYER",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "11_AI_LAYER",
+      "weight": 1.6
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "02_SIDEBAR_COMPONENT",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 7.2
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 7.2
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "POLICY_AS_CODE",
+      "weight": 6.4
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 6.4
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "53_INTELLIGENCE_LAYER",
+      "target": "front-matter-template",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.6
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.6
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "43_CHART_VIEWER",
+      "weight": 2.0
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "42_BUDGET_VIEWER",
+      "target": "front-matter-template",
+      "weight": 1.6
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 1.6
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 5.6000000000000005
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 5.2
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 5.2
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.6
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "13_USER_IDENTITY",
+      "weight": 5.2
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 4.800000000000001
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "12_AGENT_LAYER",
+      "target": "front-matter-template",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "CONTEXT_FILES_GROUP",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "CONTEXT_FILES_GROUP",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 0.8
+    },
+    {
+      "source": "CONTEXT_FILES_GROUP",
+      "target": "POLICY_AS_CODE",
+      "weight": 0.8
+    },
+    {
+      "source": "CONTEXT_FILES_GROUP",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 0.8
+    },
+    {
+      "source": "CONTEXT_FILES_GROUP",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "CONTEXT_FILES_GROUP",
+      "target": "front-matter-template",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "15_SECURITY_FABRIC",
+      "weight": 6.4
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "20_DASHBOARD_INDICATORS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "44_DATABASE_VIEWER",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "16_OPEN_FINANCE_CONNECTOR",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 7.2
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "22_APPROVAL_TRAY",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "51_AGENT_RUNTIME",
+      "weight": 6.4
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "21_AGENT_CONSOLE",
+      "weight": 1.6
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "14_NERVOUS_SYSTEM",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "POLICY_AS_CODE",
+      "weight": 6.4
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "33_TRANSACTION_VIEWER",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 6.4
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "30_REVENUE_SUMMARY",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "50_DATA_POOL_ENGINE",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "43_CHART_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "41_FORECAST_ENGINE",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "60_AGENT_BUILDER",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "31_EXPENSE_ANALYSIS",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "13_USER_IDENTITY",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "MODULE_INDEX",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "32_BANK_ACCOUNTS",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "40_CALENDAR_HEATMAP",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "42_BUDGET_VIEWER",
+      "weight": 1.2000000000000002
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "12_AGENT_LAYER",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "52_MARKETPLACE_ENGINE",
+      "weight": 6.4
+    },
+    {
+      "source": "11_AI_LAYER",
+      "target": "front-matter-template",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "EDIT-RULES",
+      "weight": 0.4
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "62_EXTERNAL_ADAPTERS",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "90_PACKAGE_CONFIGURATION",
+      "weight": 0.8
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "61_WALLET_MANAGEMENT",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "70_OKLCH_DESIGN_SYSTEM",
+      "weight": 1.6
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "SECURITY_TESTING_STRATEGY",
+      "weight": 6.4
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "POLICY_AS_CODE",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "KILL_SWITCH_AUDIT_TRAIL",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "60_AGENT_BUILDER",
+      "weight": 1.6
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "80_DESIGN_SYSTEM_REFERENCE",
+      "weight": 0.4
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "MODULE_INDEX",
+      "weight": 0.4
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "TRANSFORMATION_COMPLETION_REPORT",
+      "weight": 3.2
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "53_INTELLIGENCE_LAYER",
+      "weight": 6.800000000000001
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "CONTEXT_FILES_GROUP",
+      "weight": 0.8
+    },
+    {
+      "source": "52_MARKETPLACE_ENGINE",
+      "target": "front-matter-template",
+      "weight": 6.800000000000001
+    }
+  ],
+  "communities": {
+    "Topic_module": [
+      "CONTEXT_FILES_GROUP",
+      "CONTEXT_FILES_GROUP",
+      "CONTEXT_FILES_GROUP",
+      "CONTEXT_FILES_GROUP",
+      "CONTEXT_FILES_GROUP",
+      "CONTEXT_FILES_GROUP",
+      "CONTEXT_FILES_GROUP",
+      "CONTEXT_FILES_GROUP"
+    ],
+    "Content_agentcontr": [
+      "20_DASHBOARD_INDICATORS",
+      "30_REVENUE_SUMMARY"
+    ],
+    "Content_production": [
+      "50_DATA_POOL_ENGINE",
+      "00_MAIN_PAGE"
+    ]
+  }
+}

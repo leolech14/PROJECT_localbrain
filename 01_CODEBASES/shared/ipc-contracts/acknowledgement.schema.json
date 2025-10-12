@@ -1,0 +1,184 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://localbrain.dev/schemas/ipc/acknowledgement.schema.json",
+  "title": "Acknowledgement Message (ACK/NACK)",
+  "description": "Response message acknowledging receipt and processing status of UI intents",
+  "type": "object",
+  "required": ["type", "traceId", "timestamp", "version", "status"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["ACK", "NACK"],
+      "description": "ACK = success, NACK = failure/rejection"
+    },
+    "traceId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Must match the traceId of the original UI_INTENT"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of acknowledgement"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Schema version",
+      "default": "1.0"
+    },
+    "status": {
+      "type": "object",
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "description": "Status code (HTTP-like): 200-299 success, 400-499 client error, 500-599 server error"
+        },
+        "message": {
+          "type": "string",
+          "description": "Human-readable status message"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "success",
+            "validation_error",
+            "permission_denied",
+            "not_found",
+            "timeout",
+            "rate_limited",
+            "internal_error",
+            "unavailable"
+          ],
+          "description": "Error category for easier handling"
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "description": "Result data from successful operation (ACK only)",
+      "properties": {
+        "data": {
+          "type": ["object", "array", "string", "number", "boolean", "null"],
+          "description": "Operation result data"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "processingTime": {
+              "type": "number",
+              "description": "Time taken to process in milliseconds"
+            },
+            "affectedElements": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "IDs of UI elements affected by the operation"
+            }
+          }
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "description": "Error details (NACK only)",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Machine-readable error code"
+        },
+        "message": {
+          "type": "string",
+          "description": "Human-readable error message"
+        },
+        "details": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Additional error context"
+        },
+        "retryable": {
+          "type": "boolean",
+          "description": "Whether the operation can be retried"
+        },
+        "retryAfter": {
+          "type": "number",
+          "description": "Suggested retry delay in milliseconds"
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "object",
+      "description": "Optional diagnostic information",
+      "properties": {
+        "requestDuration": {
+          "type": "number",
+          "description": "Time from intent to acknowledgement in milliseconds"
+        },
+        "queueTime": {
+          "type": "number",
+          "description": "Time spent in queue before processing"
+        },
+        "source": {
+          "type": "string",
+          "description": "Component that generated this acknowledgement"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "type": "ACK",
+      "traceId": "550e8400-e29b-41d4-a716-446655440000",
+      "timestamp": "2025-10-08T14:30:00.150Z",
+      "version": "1.0",
+      "status": {
+        "code": 200,
+        "message": "Panel opened successfully",
+        "category": "success"
+      },
+      "result": {
+        "data": {
+          "panelId": "agent-proposals-panel",
+          "visible": true,
+          "width": 400
+        },
+        "metadata": {
+          "processingTime": 145,
+          "affectedElements": ["agent-proposals-panel", "main-grid"]
+        }
+      },
+      "diagnostics": {
+        "requestDuration": 150,
+        "queueTime": 5,
+        "source": "web-ui-handler"
+      }
+    },
+    {
+      "type": "NACK",
+      "traceId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+      "timestamp": "2025-10-08T14:31:00.050Z",
+      "version": "1.0",
+      "status": {
+        "code": 403,
+        "message": "Insufficient permissions to display agent proposal",
+        "category": "permission_denied"
+      },
+      "error": {
+        "code": "PERMISSION_DENIED",
+        "message": "User does not have 'agent.proposals.view' permission",
+        "details": {
+          "required": ["agent.proposals.view"],
+          "actual": ["agent.proposals.read"]
+        },
+        "retryable": false
+      },
+      "diagnostics": {
+        "requestDuration": 45,
+        "queueTime": 2,
+        "source": "swift-permission-manager"
+      }
+    }
+  ]
+}

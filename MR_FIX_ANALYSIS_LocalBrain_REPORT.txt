@@ -1,0 +1,239 @@
+========================================================================================
+🔥 ULTRATHINK META-ANALYSIS: mr-fix-my-project-please.py
+   The Analyzer Analyzing Itself!
+========================================================================================
+
+📊 FILE STATISTICS:
+----------------------------------------------------------------------------------------
+  File Size: 711.3 KB
+  Total Lines: 14,430
+  Total Functions: 206
+  Average Lines per Function: 70
+  Code Density: 29.0 functions per 100KB
+
+🧬 FUNCTION CATEGORIES:
+----------------------------------------------------------------------------------------
+  HTML Generation: 65 functions
+    • _generate_action_plan_html (complexity: 29, lines: 200)
+    • _generate_action_plan_html_optimized (complexity: 33, lines: 200)
+    • _generate_ascii_tree (complexity: 12, lines: 38)
+    • _generate_color_system_dashboard_html (complexity: 5, lines: 200)
+    • _generate_color_system_dashboard_html_compact (complexity: 4, lines: 87)
+    ... and 60 more
+
+  Other: 43 functions
+    • add_directory (complexity: 12, lines: 34)
+    • aggregate_project_stats (complexity: 24, lines: 60)
+    • assess_ecosystem_coordination (complexity: 19, lines: 76)
+    • assess_overall_complexity (complexity: 21, lines: 34)
+    • assess_overall_maturity (complexity: 7, lines: 18)
+    ... and 38 more
+
+  Getters: 28 functions
+    • _get_calendar_javascript (complexity: 1, lines: 2)
+    • _get_calendar_styles (complexity: 1, lines: 69)
+    • _get_calendar_template (complexity: 1, lines: 28)
+    • _get_clean_purpose (complexity: 18, lines: 26)
+    • _get_core_nodes (complexity: 4, lines: 12)
+    ... and 23 more
+
+  Private/Helper: 16 functions
+    • _assess_real_risk (complexity: 9, lines: 29)
+    • _assess_strength (complexity: 4, lines: 8)
+    • _categorize_by_layer (complexity: 6, lines: 22)
+    • _classify_dependency (complexity: 10, lines: 12)
+    • _count_total_lines (complexity: 2, lines: 10)
+    ... and 11 more
+
+  Creation: 10 functions
+    • _create_component_clusters_diagram (complexity: 3, lines: 24)
+    • _create_critical_paths_diagram (complexity: 3, lines: 18)
+    • _create_main_core_diagram (complexity: 2, lines: 18)
+    • _create_risk_analysis_diagram (complexity: 2, lines: 18)
+    • _create_service_layers_diagram (complexity: 2, lines: 18)
+    ... and 5 more
+
+  Initialization: 10 functions
+    • __init__ (complexity: 1, lines: 12)
+    • __init__ (complexity: 1, lines: 12)
+    • __init__ (complexity: 1, lines: 12)
+    • __init__ (complexity: 1, lines: 12)
+    • __init__ (complexity: 1, lines: 12)
+    ... and 5 more
+
+  Analysis: 10 functions
+    • _analyze_file_dependencies (complexity: 7, lines: 17)
+    • _analyze_generic_dependencies (complexity: 4, lines: 20)
+    • _analyze_javascript_dependencies (complexity: 5, lines: 35)
+    • _analyze_python_dependencies (complexity: 14, lines: 30)
+    • analyze_and_heal (complexity: 9, lines: 82)
+    ... and 5 more
+
+  Calculations: 8 functions
+    • _calculate_function_complexity (complexity: 23, lines: 47)
+    • _calculate_ripple_effects (complexity: 12, lines: 39)
+    • _calculate_risk (complexity: 6, lines: 12)
+    • calculate_critical_score (complexity: 17, lines: 51)
+    • calculate_performance_metrics (complexity: 9, lines: 30)
+    ... and 3 more
+
+  Extraction: 4 functions
+    • _extract_class_methods (complexity: 8, lines: 30)
+    • _extract_component_props (complexity: 7, lines: 33)
+    • assess_data_extraction_quality (complexity: 11, lines: 38)
+    • perform_maximum_extraction_analysis (complexity: 16, lines: 79)
+
+  Predicates: 3 functions
+    • assess_analysis_effectiveness (complexity: 8, lines: 33)
+    • determine_analysis_strategy (complexity: 18, lines: 141)
+    • identify_analysis_limitations (complexity: 7, lines: 23)
+
+  Updates: 2 functions
+    • _update_ascii_section_map (complexity: 10, lines: 29)
+    • _update_zone_metadata (complexity: 6, lines: 20)
+
+  Building: 2 functions
+    • _build_dependency_graph (complexity: 7, lines: 19)
+    • _build_enhanced_dependency_data (complexity: 25, lines: 81)
+
+  Setters: 1 functions
+    • set_schema (complexity: 1, lines: 3)
+
+  Rendering: 1 functions
+    • render_component (complexity: 5, lines: 26)
+
+  Validation: 1 functions
+    • _validate_ascii_art (complexity: 1, lines: 6)
+
+  Checking: 1 functions
+    • check_time_limit (complexity: 5, lines: 25)
+
+  Parsing: 1 functions
+    • _parse_markdown_to_html (complexity: 43, lines: 172)
+
+⚠️ HIGH COMPLEXITY FUNCTIONS (Refactoring Candidates):
+----------------------------------------------------------------------------------------
+  • _enforce_width_limits
+    - Complexity: 77
+    - Lines: 200
+    - Priority: 🔥 CRITICAL
+  • generate_ascii_section_map
+    - Complexity: 56
+    - Lines: 127
+    - Priority: 🔥 CRITICAL
+  • _parse_markdown_to_html
+    - Complexity: 43
+    - Lines: 172
+    - Priority: ⚠️ HIGH
+  • _generate_temporal_html_optimized
+    - Complexity: 42
+    - Lines: 200
+    - Priority: ⚠️ HIGH
+  • scan_project_optimized
+    - Complexity: 37
+    - Lines: 200
+    - Priority: ⚠️ HIGH
+  • _sniper_entity_scan
+    - Complexity: 35
+    - Lines: 163
+    - Priority: ⚠️ HIGH
+  • perform_optimized_surface_scan
+    - Complexity: 34
+    - Lines: 192
+    - Priority: ⚠️ HIGH
+  • _generate_action_plan_html_optimized
+    - Complexity: 33
+    - Lines: 200
+    - Priority: ⚠️ HIGH
+  • _generate_action_plan_html
+    - Complexity: 29
+    - Lines: 200
+    - Priority: 📋 MEDIUM
+  • _get_relatable_time_label
+    - Complexity: 27
+    - Lines: 87
+    - Priority: 📋 MEDIUM
+  • generate_llm_analysis
+    - Complexity: 27
+    - Lines: 124
+    - Priority: 📋 MEDIUM
+  • _build_enhanced_dependency_data
+    - Complexity: 25
+    - Lines: 81
+    - Priority: 📋 MEDIUM
+  • _generate_entity_details_html
+    - Complexity: 25
+    - Lines: 166
+    - Priority: 📋 MEDIUM
+  • analyze_with_gpt5
+    - Complexity: 25
+    - Lines: 200
+    - Priority: 📋 MEDIUM
+  • generate_agent_remediation_instructions
+    - Complexity: 25
+    - Lines: 200
+    - Priority: 📋 MEDIUM
+  • aggregate_project_stats
+    - Complexity: 24
+    - Lines: 60
+    - Priority: 📋 MEDIUM
+  • detect_patterns
+    - Complexity: 24
+    - Lines: 54
+    - Priority: 📋 MEDIUM
+  • detect_duplicates
+    - Complexity: 24
+    - Lines: 110
+    - Priority: 📋 MEDIUM
+  • _calculate_function_complexity
+    - Complexity: 23
+    - Lines: 47
+    - Priority: 📋 MEDIUM
+  • analyze_naming_patterns
+    - Complexity: 22
+    - Lines: 68
+    - Priority: 📋 MEDIUM
+
+🎨 HTML COMPONENTS GENERATED:
+----------------------------------------------------------------------------------------
+  • Divs: 503 instances
+  • Spans: 131 instances
+  • Lists: 48 instances
+  • Interactive Buttons: 39 instances
+  • Tables: 14 instances
+  • Scripts: 6 instances
+  • Styles: 5 instances
+  • Form Elements: 2 instances
+
+🌈 COLOR SCHEMAS AVAILABLE:
+----------------------------------------------------------------------------------------
+  Total Schemas: 0
+
+📦 EXTERNAL DEPENDENCIES:
+----------------------------------------------------------------------------------------
+  • ast
+  • calendar
+  • collections
+  • concurrent.futures
+  • dataclasses
+  • datetime
+  • difflib
+  • enum
+  • glob
+  • hashlib
+  • json
+  • logging
+  • math
+  • openai
+  • os
+  • pathlib
+  • psutil
+  • re
+  • requests
+  • shutil
+  • subprocess
+  • sys
+  • threading
+  • time
+  • typing
+  Total Dependencies: 25

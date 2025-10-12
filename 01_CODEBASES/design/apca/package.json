@@ -1,0 +1,28 @@
+{
+  "name": "@localbrain/apca-validator",
+  "version": "1.0.0",
+  "description": "APCA contrast validation tooling for LocalBrain design system",
+  "main": "validator.js",
+  "type": "module",
+  "scripts": {
+    "validate": "node validator.js",
+    "validate:tokens": "node validate-tokens.js",
+    "report": "node generate-report.js"
+  },
+  "dependencies": {
+    "apca-w3": "^0.1.9",
+    "colorjs.io": "^0.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  },
+  "keywords": [
+    "apca",
+    "contrast",
+    "accessibility",
+    "wcag3",
+    "design-tokens"
+  ],
+  "author": "Agent B (Design System Specialist)",
+  "license": "MIT"
+}

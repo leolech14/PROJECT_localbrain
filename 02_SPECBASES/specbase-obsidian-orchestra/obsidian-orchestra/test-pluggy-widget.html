@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluggy Sandbox Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #1a73e8; margin-bottom: 10px; }
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .warning { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        button {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+        }
+        button:hover { background: #1557b0; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        .credentials {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .credentials h3 { margin-top: 0; color: #856404; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔌 Pluggy Sandbox - Test Your Integration</h1>
+        <p>Connect test banks and fetch transaction data</p>
+
+        <div id="status" class="status info">
+            ⏳ Click the button below to start...
+        </div>
+
+        <button id="connectBtn" onclick="startPluggyConnect()">
+            🏦 Connect Sandbox Bank
+        </button>
+
+        <div class="credentials">
+            <h3>📋 Sandbox Test Credentials</h3>
+            <p><strong>Bank:</strong> MeuPluggy (or any sandbox bank)</p>
+            <p><strong>Username:</strong> user-ok</p>
+            <p><strong>Password:</strong> password-ok</p>
+            <p><strong>MFA Token:</strong> 123456</p>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <!-- Pluggy Connect SDK -->
+    <script src="https://cdn.pluggy.ai/pluggy-connect/v2.8.2/pluggy-connect.js"></script>
+
+    <script>
+        const CLIENT_ID = '231eb11f-8583-4fe1-9a83-175603a2f207';
+        const CLIENT_SECRET = '03b826cb-d243-4ef0-8506-63b5526defd4';
+
+        async function startPluggyConnect() {
+            const btn = document.getElementById('connectBtn');
+            const status = document.getElementById('status');
+
+            btn.disabled = true;
+            status.className = 'status info';
+            status.innerHTML = '⏳ Generating connect token...';
+
+            try {
+                // Step 1: Generate API Key
+                const authResponse = await fetch('https://api.pluggy.ai/auth', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        clientId: CLIENT_ID,
+                        clientSecret: CLIENT_SECRET
+                    })
+                });
+                const { apiKey } = await authResponse.json();
+
+                // Step 2: Create Connect Token
+                const connectResponse = await fetch('https://api.pluggy.ai/connect/token', {
+                    method: 'POST',
+                    headers: {
+                        'X-API-KEY': apiKey,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        itemId: null,
+                        options: {
+                            clientUserId: 'leonardo-sandbox-' + Date.now(),
+                            includeSandbox: true
+                        }
+                    })
+                });
+
+                const connectData = await connectResponse.json();
+
+                if (connectData.accessToken) {
+                    status.className = 'status success';
+                    status.innerHTML = '✅ Opening Pluggy widget...';
+
+                    // Step 3: Initialize Pluggy Connect
+                    const pluggyConnect = new PluggyConnect({
+                        connectToken: connectData.accessToken,
+                        includeSandbox: true,
+                        onSuccess: async (itemData) => {
+                            console.log('Success!', itemData);
+
+                            status.className = 'status success';
+                            status.innerHTML = `✅ Bank connected! ItemId: ${itemData.item.id}`;
+
+                            // Fetch accounts and transactions
+                            await fetchBankData(apiKey, itemData.item.id);
+
+                            btn.disabled = false;
+                        },
+                        onError: (error) => {
+                            console.error('Error:', error);
+                            status.className = 'status warning';
+                            status.innerHTML = `❌ Error: ${error.message || 'Connection failed'}`;
+                            btn.disabled = false;
+                        },
+                        onClose: () => {
+                            console.log('Widget closed');
+                            btn.disabled = false;
+                        }
+                    });
+
+                    pluggyConnect.init();
+                } else {
+                    throw new Error('Failed to create connect token: ' + JSON.stringify(connectData));
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                status.className = 'status warning';
+                status.innerHTML = `❌ Error: ${error.message}`;
+                btn.disabled = false;
+            }
+        }
+
+        async function fetchBankData(apiKey, itemId) {
+            const result = document.getElementById('result');
+            result.innerHTML = '<div class="status info">⏳ Fetching your bank data...</div>';
+
+            try {
+                // Fetch accounts
+                const accountsResponse = await fetch(`https://api.pluggy.ai/accounts?itemId=${itemId}`, {
+                    headers: { 'X-API-KEY': apiKey }
+                });
+                const accounts = await accountsResponse.json();
+
+                let html = '<h2>✅ Your Connected Accounts</h2>';
+                html += `<p>Found ${accounts.results.length} account(s)</p>`;
+
+                for (const account of accounts.results) {
+                    html += `
+                        <div class="status success">
+                            <strong>${account.name}</strong><br>
+                            Type: ${account.type} - ${account.subtype}<br>
+                            Balance: R$ ${account.balance.toFixed(2)}<br>
+                            Account: ${account.number}
+                        </div>
+                    `;
+
+                    // Fetch transactions for this account
+                    const txResponse = await fetch(`https://api.pluggy.ai/transactions?accountId=${account.id}&pageSize=10`, {
+                        headers: { 'X-API-KEY': apiKey }
+                    });
+                    const transactions = await txResponse.json();
+
+                    html += `<h3>Recent Transactions (${transactions.total} total)</h3>`;
+                    html += '<pre>';
+                    transactions.results.slice(0, 10).forEach(tx => {
+                        html += `${tx.date.split('T')[0]} | ${tx.type.padEnd(6)} | R$ ${tx.amount.toFixed(2).padStart(10)} | ${tx.description}\n`;
+                    });
+                    html += '</pre>';
+                }
+
+                html += `
+                    <div class="status success">
+                        <strong>✅ TEST COMPLETE!</strong><br>
+                        ItemId: ${itemId}<br>
+                        Accounts: ${accounts.results.length}<br>
+                        Sample transactions fetched successfully!
+                    </div>
+                `;
+
+                result.innerHTML = html;
+
+            } catch (error) {
+                result.innerHTML = `<div class="status warning">❌ Error fetching data: ${error.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>

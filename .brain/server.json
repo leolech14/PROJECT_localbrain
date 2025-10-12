@@ -1,0 +1,10 @@
+{
+  "serverPath": "/Users/lech/PROJECTS_all/PROJECT_central-mcp/central-mcp/dist/index.js",
+  "serverType": "stdio",
+  "autoStart": true,
+  "projects": ["LocalBrain"],
+  "version": "2.0.0",
+  "centralMcp": true,
+  "migrated": "2025-10-09",
+  "independence": "CONFIRMED"
+}

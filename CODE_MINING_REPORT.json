@@ -1,0 +1,79 @@
+{
+  "mining_date": "2025-10-10",
+  "total_html_files": 18,
+  "implementations_found": {
+    "calendar_systems": {
+      "count": 14,
+      "sources": [
+        "LocalBrain_analysis_report.html",
+        "EXTRACTED_calendar_file_explorer_demo.html_BROWSER_18Thu10Oct2025.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "test-data_analysis_report.html",
+        "PRODUCT_analysis_report.html",
+        "EXTRACTED_test-data_16Fri10Oct2025.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_LocalBrain_16Fri10Oct2025.html_BROWSER_18Thu10Oct2025.html",
+        "LocalBrain_16Fri10Oct2025.html",
+        "test-data_16Fri10Oct2025.html",
+        "EXTRACTED_--help_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_PRODUCT_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_LocalBrain_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_maximum_extraction_report.html_BROWSER_18Thu10Oct2025.html",
+        "--help_analysis_report.html"
+      ],
+      "total_features": 77
+    },
+    "session_timelines": {
+      "count": 2,
+      "sources": [
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "maximum_extraction_report.html"
+      ],
+      "total_features": 4
+    },
+    "color_schemas": {
+      "count": 17,
+      "sources": [
+        "LocalBrain_analysis_report.html",
+        "EXTRACTED_calendar_file_explorer_demo.html_BROWSER_18Thu10Oct2025.html",
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html",
+        "test-data_analysis_report.html",
+        "LocalBrain_ULTRATHINK_REAL.html",
+        "PRODUCT_analysis_report.html",
+        "EXTRACTED_test-data_16Fri10Oct2025.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_LocalBrain_16Fri10Oct2025.html_BROWSER_18Thu10Oct2025.html",
+        "LocalBrain_16Fri10Oct2025.html",
+        "maximum_extraction_report.html",
+        "test-data_16Fri10Oct2025.html",
+        "EXTRACTED_--help_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_PRODUCT_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "current_centralized_output.html",
+        "EXTRACTED_LocalBrain_analysis_report.html_BROWSER_18Thu10Oct2025.html",
+        "EXTRACTED_maximum_extraction_report.html_BROWSER_18Thu10Oct2025.html",
+        "--help_analysis_report.html"
+      ],
+      "total_features": 639
+    },
+    "tooltip_systems": {
+      "count": 1,
+      "sources": [
+        "COMPLETE_PROJECT_LECHWORLD_WITH_ALL_FEATURES.html"
+      ],
+      "total_features": 1364
+    },
+    "interactive_elements": {
+      "count": 0,
+      "sources": [],
+      "total_features": 0
+    },
+    "css_variables": {
+      "count": 0,
+      "sources": [],
+      "total_features": 0
+    },
+    "javascript_functions": {
+      "count": 0,
+      "sources": [],
+      "total_features": 0
+    }
+  }
+}

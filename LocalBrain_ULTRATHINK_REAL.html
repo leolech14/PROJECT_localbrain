@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalBrain ULTRATHINK Architecture Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg: oklch(0.15 0.02 250);
+            --surface: oklch(0.20 0.02 250);
+            --text: oklch(0.95 0.01 250);
+            --accent: oklch(0.65 0.15 270);
+            --border: oklch(0.30 0.02 250);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: oklch(0.70 0.05 250);
+            margin-bottom: 3rem;
+        }
+        .diagram-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        .diagram-title {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        .diagram-desc {
+            color: oklch(0.70 0.05 250);
+            margin-bottom: 24px;
+        }
+        .mermaid {
+            background: oklch(0.25 0.02 250);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        .stat-label {
+            color: oklch(0.70 0.05 250);
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 LocalBrain ULTRATHINK</h1>
+        <p class="subtitle">Complete Architecture Analysis - 48,144 Files Mapped</p>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">9</div>
+                <div class="stat-label">Codebases</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Architecture Layers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">48K</div>
+                <div class="stat-label">Total Files</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">1.1GB</div>
+                <div class="stat-label">Project Size</div>
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <h2 class="diagram-title">1. Complete System Architecture</h2>
+            <p class="diagram-desc">Shows all 9 codebases and their interconnections across frontend, backend, core, and infrastructure layers.</p>
+            <div class="mermaid">
+flowchart TD
+    %% LocalBrain Complete Architecture
+
+    subgraph Frontend["🎨 Frontend Layer"]
+        Electron["localbrain-electron<br/>Desktop App"]
+        UI["localbrain-ui<br/>Web Interface"]
+        Design["design<br/>Storybook + Tokens"]
+    end
+
+    subgraph Backend["⚙️ Backend Layer"]
+        RAG["backend/rag<br/>Search & Indexing"]
+        MetaLayer["meta-layer<br/>Orchestration"]
+    end
+
+    subgraph Core["🧠 Core Systems"]
+        MainLB["LocalBrain<br/>Core Logic"]
+        Shared["shared<br/>Common Utils"]
+    end
+
+    subgraph Infrastructure["🔧 Infrastructure"]
+        Orchestra["orchestra-widget-system<br/>Widget Framework"]
+        Agents["04_AGENT_FRAMEWORK<br/>MCP Task Registry"]
+        Specs["02_SPECBASES<br/>Specifications"]
+    end
+
+    %% Connections
+    Electron -->|uses| Design
+    Electron -->|IPC| RAG
+    Electron -->|imports| Shared
+    UI -->|uses| Design
+    UI -->|API| RAG
+    RAG -->|queries| MainLB
+    MetaLayer -->|orchestrates| RAG
+    MetaLayer -->|manages| Agents
+    Orchestra -->|widgets| Electron
+    Specs -->|defines| MainLB
+    Agents -->|coordinates| MetaLayer
+
+    classDef frontend fill:#4f46e5,stroke:#312e81,color:#fff
+    classDef backend fill:#059669,stroke:#065f46,color:#fff
+    classDef core fill:#dc2626,stroke:#991b1b,color:#fff
+    classDef infra fill:#7c3aed,stroke:#5b21b6,color:#fff
+
+    class Electron,UI,Design frontend
+    class RAG,MetaLayer backend
+    class MainLB,Shared core
+    class Orchestra,Agents,Specs infra
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <h2 class="diagram-title">2. Electron Desktop App</h2>
+            <p class="diagram-desc">Internal architecture of the Electron application showing main process, renderer process, and IPC communication.</p>
+            <div class="mermaid">
+flowchart TD
+    %% Electron App Architecture
+
+    subgraph Main["Main Process"]
+        IPC["IPC Handlers"]
+        Window["Window Manager"]
+        FileSystem["File System Access"]
+    end
+
+    subgraph Renderer["Renderer Process"]
+        App["App.tsx<br/>Root Component"]
+        Context["AppContext<br/>State Management"]
+
+        subgraph Components["Components"]
+            MessageBubble["MessageBubble"]
+            TopNav["TopNav"]
+            Sidebar["Sidebar"]
+        end
+
+        subgraph Services["Services"]
+            IPCService["ipc.ts<br/>IPC Communication"]
+            AIService["AI Provider Service"]
+        end
+
+        subgraph Types["TypeScript Types"]
+            SettingsType["Settings.ts"]
+            MessageType["Message.ts"]
+            ContextType["Context.ts"]
+            AIProviderType["AIProvider.ts"]
+        end
+    end
+
+    %% Connections
+    App --> Context
+    Context --> Components
+    Components --> Services
+    IPCService -->|electron.ipcRenderer| IPC
+    IPC --> FileSystem
+    Services --> Types
+    AIService --> IPCService
+
+    classDef process fill:#1e40af,stroke:#1e3a8a,color:#fff
+    classDef ui fill:#7c3aed,stroke:#5b21b6,color:#fff
+    classDef service fill:#059669,stroke:#065f46,color:#fff
+    classDef type fill:#d97706,stroke:#92400e,color:#fff
+
+    class IPC,Window,FileSystem process
+    class App,Context,Components ui
+    class Services service
+    class Types type
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <h2 class="diagram-title">3. Backend RAG System</h2>
+            <p class="diagram-desc">RAG (Retrieval Augmented Generation) backend with search, indexing, and vector database integration.</p>
+            <div class="mermaid">
+flowchart TD
+    %% Backend RAG Architecture
+
+    subgraph API["API Layer"]
+        Server["server/index.ts<br/>Express Server"]
+        Routes["API Routes"]
+    end
+
+    subgraph Core["Core Services"]
+        Search["search/index.ts<br/>Search Service"]
+        Indexer["indexer/index.ts<br/>Document Indexer"]
+        Scheduler["scheduler/index.ts<br/>Cron Jobs"]
+    end
+
+    subgraph Data["Data Layer"]
+        DB["database/index.ts<br/>Vector DB"]
+        Config["config/index.ts<br/>Configuration"]
+    end
+
+    subgraph CLI["CLI Tools"]
+        CLITool["cli.ts<br/>Admin Commands"]
+    end
+
+    %% Connections
+    Server --> Routes
+    Routes --> Search
+    Routes --> Indexer
+    Search --> DB
+    Indexer --> DB
+    Scheduler --> Indexer
+    Server --> Config
+    DB --> Config
+    CLITool --> Search
+    CLITool --> Indexer
+
+    classDef api fill:#3b82f6,stroke:#1e40af,color:#fff
+    classDef service fill:#10b981,stroke:#059669,color:#fff
+    classDef data fill:#f59e0b,stroke:#d97706,color:#fff
+    classDef cli fill:#8b5cf6,stroke:#7c3aed,color:#fff
+
+    class Server,Routes api
+    class Search,Indexer,Scheduler service
+    class DB,Config data
+    class CLITool cli
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <h2 class="diagram-title">4. Agent Framework & MCP</h2>
+            <p class="diagram-desc">Multi-agent coordination system with MCP task registry managing 19 tasks across 4 specialized agents.</p>
+            <div class="mermaid">
+flowchart TD
+    %% Agent Framework & MCP Architecture
+
+    subgraph MCP["MCP Server"]
+        TaskRegistry["Task Registry<br/>SQLite Database"]
+        Tools["MCP Tools<br/>get/claim/update/complete"]
+    end
+
+    subgraph Agents["Multi-Agent System"]
+        AgentA["Agent A<br/>UI Specialist"]
+        AgentB["Agent B<br/>Architecture"]
+        AgentC["Agent C<br/>Backend"]
+        AgentD["Agent D<br/>Integration"]
+    end
+
+    subgraph Tasks["Task Management"]
+        CentralRegistry["CENTRAL_TASK_REGISTRY.md<br/>19 Tasks Defined"]
+        Dependencies["Dependency Graph"]
+        Progress["Progress Tracking"]
+    end
+
+    subgraph Integration["MCP Integration"]
+        Client["TaskRegistryClient"]
+        Protocol["Connection Protocol"]
+    end
+
+    %% Connections
+    CentralRegistry --> TaskRegistry
+    TaskRegistry --> Tools
+    Tools --> Agents
+    AgentA -->|claim/update| Tools
+    AgentB -->|claim/update| Tools
+    AgentC -->|claim/update| Tools
+    AgentD -->|claim/update| Tools
+    Tools --> Dependencies
+    Dependencies --> Progress
+    Client --> Protocol
+    Protocol --> Tools
+
+    classDef mcp fill:#dc2626,stroke:#991b1b,color:#fff
+    classDef agent fill:#7c3aed,stroke:#5b21b6,color:#fff
+    classDef task fill:#059669,stroke:#065f46,color:#fff
+    classDef integration fill:#f59e0b,stroke:#d97706,color:#fff
+
+    class TaskRegistry,Tools mcp
+    class AgentA,AgentB,AgentC,AgentD agent
+    class CentralRegistry,Dependencies,Progress task
+    class Client,Protocol integration
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <h2 class="diagram-title">5. Design System</h2>
+            <p class="diagram-desc">Storybook-based design system with components, tokens, and motion system with accessibility support.</p>
+            <div class="mermaid">
+flowchart TD
+    %% Design System Architecture
+
+    subgraph Storybook["Storybook"]
+        Stories["Component Stories"]
+        Tokens["Design Tokens"]
+    end
+
+    subgraph Components["UI Components"]
+        TopNav["TopNav Component"]
+        Sidebar["Sidebar Component"]
+        Generic["Generic Templates"]
+    end
+
+    subgraph DesignTokens["Design Tokens"]
+        Colors["colors.stories.tsx"]
+        Typography["typography.stories.tsx"]
+        Motion["motion.stories.tsx"]
+        Spacing["spacing.stories.tsx"]
+    end
+
+    subgraph Motion["Motion System"]
+        ReducedMotion["reduced-motion.ts<br/>Accessibility"]
+        Animations["Animation Presets"]
+    end
+
+    %% Connections
+    Stories --> Components
+    Tokens --> DesignTokens
+    DesignTokens --> Colors
+    DesignTokens --> Typography
+    DesignTokens --> Motion
+    DesignTokens --> Spacing
+    Motion --> ReducedMotion
+    Components --> DesignTokens
+
+    classDef storybook fill:#ff4785,stroke:#c9284d,color:#fff
+    classDef component fill:#7c3aed,stroke:#5b21b6,color:#fff
+    classDef token fill:#f59e0b,stroke:#d97706,color:#fff
+    classDef motion fill:#10b981,stroke:#059669,color:#fff
+
+    class Stories,Tokens storybook
+    class Components component
+    class DesignTokens token
+    class Motion motion
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#4f46e5',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#312e81',
+                lineColor: '#7c3aed',
+                secondaryColor: '#059669',
+                tertiaryColor: '#dc2626'
+            }
+        });
+    </script>
+</body>
+</html>

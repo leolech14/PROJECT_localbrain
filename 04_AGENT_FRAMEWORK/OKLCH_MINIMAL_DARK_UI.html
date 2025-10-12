@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKLCH Minimal Dark UI</title>
+    <style>
+        :root {
+            /* OKLCH Color System - Minimal Dark */
+            --bg-primary: oklch(0.11 0.02 264);
+            --bg-secondary: oklch(0.14 0.02 264);
+            --bg-tertiary: oklch(0.17 0.02 264);
+            --bg-card: oklch(0.09 0.01 264);
+            --text-primary: oklch(0.98 0.01 264);
+            --text-secondary: oklch(0.78 0.01 264);
+            --text-muted: oklch(0.62 0.01 264);
+            --accent: oklch(0.68 0.17 292);
+            --accent-hover: oklch(0.72 0.19 292);
+            --border: oklch(0.22 0.02 264 / 0.3);
+            --success: oklch(0.70 0.15 145);
+            --warning: oklch(0.75 0.12 65);
+            --error: oklch(0.65 0.18 25);
+
+            /* Spacing System */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            /* Typography */
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', system-ui, sans-serif;
+            --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: var(--space-lg) 0;
+            margin-bottom: var(--space-xl);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--space-lg);
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .card-header {
+            margin-bottom: var(--space-md);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .card-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-secondary);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px oklch(0.68 0.17 292 / 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        .grid-cols-1 { grid-template-columns: 1fr; }
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+        @media (max-width: 768px) {
+            .grid-cols-2,
+            .grid-cols-3,
+            .grid-cols-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Mermaid Diagram Container */
+        .mermaid-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        /* Code Block */
+        .code-block {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: var(--space-md);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            color: var(--text-secondary);
+        }
+
+        /* Alert Messages */
+        .alert {
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+            border: 1px solid;
+        }
+
+        .alert-success {
+            background: oklch(0.70 0.15 145 / 0.1);
+            color: var(--success);
+            border-color: oklch(0.70 0.15 145 / 0.3);
+        }
+
+        .alert-warning {
+            background: oklch(0.75 0.12 65 / 0.1);
+            color: var(--warning);
+            border-color: oklch(0.75 0.12 65 / 0.3);
+        }
+
+        .alert-error {
+            background: oklch(0.65 0.18 25 / 0.1);
+            color: var(--error);
+            border-color: oklch(0.65 0.18 25 / 0.3);
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-2xl);
+            color: var(--text-muted);
+        }
+
+        .loading::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-top: 2px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: var(--space-sm);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-md);
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus States */
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .btn {
+                border: 1px solid black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <span>🎨</span>
+                <span>OKLCH Minimal Dark</span>
+            </a>
+            <nav class="nav">
+                <a href="#demo">Demo</a>
+                <a href="#components">Components</a>
+                <a href="#generator">Generator</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section id="demo" class="card">
+            <div class="card-header">
+                <h1 class="card-title">OKLCH Minimal Dark UI System</h1>
+                <p class="card-subtitle">A modern, accessible dark theme using OKLCH color space for better contrast and color accuracy</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">OKLCH</div>
+                    <div class="stat-label">Color Space</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">WCAG AA</div>
+                    <div class="stat-label">Accessibility</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">99%</div>
+                    <div class="stat-label">Browser Support</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Dependencies</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Demo -->
+        <section id="components" class="card">
+            <div class="card-header">
+                <h2 class="card-title">Component Demo</h2>
+                <p class="card-subtitle">Interactive form with OKLCH styling</p>
+            </div>
+
+            <form id="demoForm">
+                <div class="grid grid-cols-2">
+                    <div class="form-group">
+                        <label class="form-label" for="projectName">Project Name</label>
+                        <input type="text" id="projectName" class="form-input" placeholder="Enter project name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="componentType">Component Type</label>
+                        <select id="componentType" class="form-input">
+                            <option value="">Select type...</option>
+                            <option value="dashboard">Dashboard</option>
+                            <option value="form">Form</option>
+                            <option value="table">Table</option>
+                            <option value="chart">Chart</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea id="description" class="form-input form-textarea" placeholder="Describe your component..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary">
+                            <span>✨</span>
+                            Generate UI
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                            <span>🔄</span>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Generated Output -->
+        <section id="generator" class="card">
+            <div class="card-header">
+                <h2 class="card-title">Generated Output</h2>
+                <p class="card-subtitle">Your customized OKLCH dark UI component</p>
+            </div>
+
+            <div id="outputContainer">
+                <div class="loading">Generating your component...</div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // OKLCH Color Utilities
+        const OKLCH_COLORS = {
+            bg: {
+                primary: 'oklch(0.11 0.02 264)',
+                secondary: 'oklch(0.14 0.02 264)',
+                tertiary: 'oklch(0.17 0.02 264)',
+                card: 'oklch(0.09 0.01 264)'
+            },
+            text: {
+                primary: 'oklch(0.98 0.01 264)',
+                secondary: 'oklch(0.78 0.01 264)',
+                muted: 'oklch(0.62 0.01 264)'
+            },
+            accent: {
+                primary: 'oklch(0.68 0.17 292)',
+                hover: 'oklch(0.72 0.19 292)',
+                success: 'oklch(0.70 0.15 145)',
+                warning: 'oklch(0.75 0.12 65)',
+                error: 'oklch(0.65 0.18 25)'
+            }
+        };
+
+        // Component Templates
+        const COMPONENT_TEMPLATES = {
+            dashboard: (data) => `
+                <div style="background: ${OKLCH_COLORS.bg.card}; border: 1px solid oklch(0.22 0.02 264 / 0.3); border-radius: 12px; padding: 2rem; margin-bottom: 1rem;">
+                    <h3 style="color: ${OKLCH_COLORS.text.primary}; margin-bottom: 1rem;">${data.projectName} Dashboard</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div style="background: ${OKLCH_COLORS.bg.secondary}; padding: 1rem; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: ${OKLCH_COLORS.accent.primary};">2,847</div>
+                            <div style="color: ${OKLCH_COLORS.text.muted};">Total Users</div>
+                        </div>
+                        <div style="background: ${OKLCH_COLORS.bg.secondary}; padding: 1rem; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: ${OKLCH_COLORS.accent.success};">94.2%</div>
+                            <div style="color: ${OKLCH_COLORS.text.muted};">Performance</div>
+                        </div>
+                        <div style="background: ${OKLCH_COLORS.bg.secondary}; padding: 1rem; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: ${OKLCH_COLORS.accent.warning};">1,293</div>
+                            <div style="color: ${OKLCH_COLORS.text.muted};">Active Sessions</div>
+                        </div>
+                    </div>
+                    <p style="color: ${OKLCH_COLORS.text.secondary}; margin-top: 1rem;">${data.description}</p>
+                </div>
+            `,
+
+            form: (data) => `
+                <div style="background: ${OKLCH_COLORS.bg.card}; border: 1px solid oklch(0.22 0.02 264 / 0.3); border-radius: 12px; padding: 2rem; margin-bottom: 1rem;">
+                    <h3 style="color: ${OKLCH_COLORS.text.primary}; margin-bottom: 1.5rem;">${data.projectName} Form</h3>
+                    <form style="display: flex; flex-direction: column; gap: 1rem;">
+                        <input type="text" placeholder="Name" style="background: ${OKLCH_COLORS.bg.secondary}; border: 1px solid oklch(0.22 0.02 264 / 0.3); color: ${OKLCH_COLORS.text.primary}; padding: 0.75rem; border-radius: 6px;">
+                        <input type="email" placeholder="Email" style="background: ${OKLCH_COLORS.bg.secondary}; border: 1px solid oklch(0.22 0.02 264 / 0.3); color: ${OKLCH_COLORS.text.primary}; padding: 0.75rem; border-radius: 6px;">
+                        <textarea placeholder="${data.description}" style="background: ${OKLCH_COLORS.bg.secondary}; border: 1px solid oklch(0.22 0.02 264 / 0.3); color: ${OKLCH_COLORS.text.primary}; padding: 0.75rem; border-radius: 6px; min-height: 100px; resize: vertical;"></textarea>
+                        <button type="submit" style="background: ${OKLCH_COLORS.accent.primary}; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 500;">Submit</button>
+                    </form>
+                </div>
+            `,
+
+            table: (data) => `
+                <div style="background: ${OKLCH_COLORS.bg.card}; border: 1px solid oklch(0.22 0.02 264 / 0.3); border-radius: 12px; padding: 2rem; margin-bottom: 1rem; overflow-x: auto;">
+                    <h3 style="color: ${OKLCH_COLORS.text.primary}; margin-bottom: 1.5rem;">${data.projectName} Data Table</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: ${OKLCH_COLORS.bg.secondary};">
+                                <th style="padding: 0.75rem; text-align: left; color: ${OKLCH_COLORS.text.primary}; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.3);">ID</th>
+                                <th style="padding: 0.75rem; text-align: left; color: ${OKLCH_COLORS.text.primary}; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.3);">Name</th>
+                                <th style="padding: 0.75rem; text-align: left; color: ${OKLCH_COLORS.text.primary}; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.3);">Status</th>
+                                <th style="padding: 0.75rem; text-align: left; color: ${OKLCH_COLORS.text.primary}; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.3);">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 0.75rem; color: ${OKLCH_COLORS.text.secondary}; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.1);">#001</td>
+                                <td style="padding: 0.75rem; color: ${OKLCH_COLORS.text.secondary}; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.1);">Item Alpha</td>
+                                <td style="padding: 0.75rem; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.1);">
+                                    <span style="background: ${OKLCH_COLORS.accent.success}; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem;">Active</span>
+                                </td>
+                                <td style="padding: 0.75rem; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.1);">
+                                    <button style="background: ${OKLCH_COLORS.accent.primary}; color: white; border: none; padding: 0.25rem 0.75rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; color: ${OKLCH_COLORS.text.secondary}; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.1);">#002</td>
+                                <td style="padding: 0.75rem; color: ${OKLCH_COLORS.text.secondary}; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.1);">Item Beta</td>
+                                <td style="padding: 0.75rem; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.1);">
+                                    <span style="background: ${OKLCH_COLORS.accent.warning}; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem;">Pending</span>
+                                </td>
+                                <td style="padding: 0.75rem; border-bottom: 1px solid oklch(0.22 0.02 264 / 0.1);">
+                                    <button style="background: ${OKLCH_COLORS.accent.primary}; color: white; border: none; padding: 0.25rem 0.75rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `,
+
+            chart: (data) => `
+                <div style="background: ${OKLCH_COLORS.bg.card}; border: 1px solid oklch(0.22 0.02 264 / 0.3); border-radius: 12px; padding: 2rem; margin-bottom: 1rem;">
+                    <h3 style="color: ${OKLCH_COLORS.text.primary}; margin-bottom: 1.5rem;">${data.projectName} Chart</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.5rem; align-items: end; height: 200px;">
+                        <div style="background: ${OKLCH_COLORS.accent.primary}; height: 60%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="background: ${OKLCH_COLORS.accent.primary}; height: 80%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="background: ${OKLCH_COLORS.accent.primary}; height: 45%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="background: ${OKLCH_COLORS.accent.primary}; height: 90%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="background: ${OKLCH_COLORS.accent.primary}; height: 70%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="background: ${OKLCH_COLORS.accent.primary}; height: 85%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="background: ${OKLCH_COLORS.accent.primary}; height: 55%; border-radius: 4px 4px 0 0;"></div>
+                        <div style="background: ${OKLCH_COLORS.accent.primary}; height: 75%; border-radius: 4px 4px 0 0;"></div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.5rem; margin-top: 0.5rem;">
+                        <div style="text-align: center; color: ${OKLCH_COLORS.text.muted}; font-size: 0.8rem;">Jan</div>
+                        <div style="text-align: center; color: ${OKLCH_COLORS.text.muted}; font-size: 0.8rem;">Feb</div>
+                        <div style="text-align: center; color: ${OKLCH_COLORS.text.muted}; font-size: 0.8rem;">Mar</div>
+                        <div style="text-align: center; color: ${OKLCH_COLORS.text.muted}; font-size: 0.8rem;">Apr</div>
+                        <div style="text-align: center; color: ${OKLCH_COLORS.text.muted}; font-size: 0.8rem;">May</div>
+                        <div style="text-align: center; color: ${OKLCH_COLORS.text.muted}; font-size: 0.8rem;">Jun</div>
+                        <div style="text-align: center; color: ${OKLCH_COLORS.text.muted}; font-size: 0.8rem;">Jul</div>
+                        <div style="text-align: center; color: ${OKLCH_COLORS.text.muted}; font-size: 0.8rem;">Aug</div>
+                    </div>
+                    <p style="color: ${OKLCH_COLORS.text.secondary}; margin-top: 1rem;">${data.description}</p>
+                </div>
+            `
+        };
+
+        // Form handling
+        document.getElementById('demoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const projectName = document.getElementById('projectName').value || 'My Project';
+            const componentType = document.getElementById('componentType').value || 'dashboard';
+            const description = document.getElementById('description').value || 'A beautiful OKLCH dark UI component';
+
+            const data = { projectName, componentType, description };
+
+            const outputContainer = document.getElementById('outputContainer');
+            outputContainer.innerHTML = '<div class="loading">Generating your OKLCH component...</div>';
+
+            setTimeout(() => {
+                const template = COMPONENT_TEMPLATES[componentType];
+                if (template) {
+                    outputContainer.innerHTML = template(data);
+                } else {
+                    outputContainer.innerHTML = `
+                        <div class="alert alert-error">
+                            Please select a component type to generate.
+                        </div>
+                    `;
+                }
+            }, 1000);
+        });
+
+        function resetForm() {
+            document.getElementById('demoForm').reset();
+            document.getElementById('outputContainer').innerHTML = `
+                <div style="text-align: center; color: var(--text-muted); padding: 2rem;">
+                    <p>Fill out the form above to generate your OKLCH dark UI component.</p>
+                </div>
+            `;
+        }
+
+        // Initialize output container
+        resetForm();
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add theme toggle functionality
+        function toggleTheme() {
+            // This could be extended to support light theme
+            document.body.classList.toggle('light-theme');
+        }
+
+        // Initialize page
+        console.log('OKLCH Minimal Dark UI System loaded successfully!');
+    </script>
+</body>
+</html>

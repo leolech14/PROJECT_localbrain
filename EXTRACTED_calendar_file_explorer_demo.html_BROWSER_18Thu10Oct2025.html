@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>📅 Interactive Calendar with File Explorer - Demo</title>
+  <style>
+    :root {
+      --bg: oklch(0.96 0.01 250);
+      --surface: oklch(1 0.01 250);
+      --surface-2: oklch(0.98 0.01 250);
+      --text: oklch(0.15 0.02 250);
+      --muted: oklch(0.45 0.02 250);
+      --border: oklch(0.85 0.02 250);
+      --accent: oklch(0.65 0.08 240);
+      --success: oklch(73% 0.15 166);
+    }
+
+    body {
+      margin: 0;
+      padding: 40px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .calendar-explorer-layout {
+      display: grid;
+      grid-template-columns: 600px 1fr;
+      gap: 24px;
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .calendar-section {
+      border-right: 2px solid var(--border);
+      padding-right: 24px;
+    }
+
+    .calendar-day {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+    }
+
+    .calendar-day:hover {
+      transform: scale(1.1);
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .calendar-day.selected {
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 4px rgba(101, 123, 255, 0.3);
+    }
+
+    /* File Explorer Styles - Finder-inspired */
+    .file-explorer {
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+    }
+
+    .explorer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--surface-2);
+      border-radius: 8px 8px 0 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .explorer-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .explorer-count {
+      font-size: 13px;
+      color: var(--muted);
+      background: var(--surface);
+      padding: 4px 12px;
+      border-radius: 12px;
+    }
+
+    .explorer-toolbar {
+      display: flex;
+      gap: 8px;
+      padding: 12px 16px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .toolbar-btn {
+      padding: 6px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .toolbar-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* Column View like Finder */
+    .file-list-container {
+      flex: 1;
+      overflow-y: auto;
+      background: var(--surface);
+    }
+
+    .file-item {
+      display: grid;
+      grid-template-columns: 40px 2fr 1fr 1fr 100px;
+      gap: 12px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+
+    .file-item:hover {
+      background: var(--surface-2);
+    }
+
+    .file-icon {
+      font-size: 24px;
+    }
+
+    .file-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .file-path {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: monospace;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .file-size {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .file-time {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .column-header {
+      display: grid;
+      grid-template-columns: 40px 2fr 1fr 1fr 100px;
+      gap: 12px;
+      padding: 8px 16px;
+      background: var(--surface-2);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      color: var(--muted);
+    }
+
+    .empty-state-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📅 Interactive Calendar + File Explorer Demo</h1>
+    <p style="color: var(--muted); margin-bottom: 32px">Click any calendar day to see files modified that day → Finder-style column view</p>
+
+    <div class="calendar-explorer-layout">
+      <!-- LEFT: Calendar -->
+      <div class="calendar-section">
+        <h3>📅 Activity Calendar</h3>
+        <div id="calendar-grid" style="display: grid; grid-template-columns: repeat(7, 60px); gap: 8px; margin-top: 20px;">
+          <!-- Calendar days will be generated here -->
+        <div class="calendar-day" data-date="2025-10-01" style="background: oklch(0.55 0.15 220); cursor: pointer;"><div style="font-size: 14px">1</div></div><div class="calendar-day" data-date="2025-10-02" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">2</div></div><div class="calendar-day" data-date="2025-10-03" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">3</div></div><div class="calendar-day" data-date="2025-10-04" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">4</div></div><div class="calendar-day" data-date="2025-10-05" style="background: oklch(0.65 0.15 180); cursor: pointer;"><div style="font-size: 14px">5</div></div><div class="calendar-day" data-date="2025-10-06" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">6</div></div><div class="calendar-day" data-date="2025-10-07" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">7</div></div><div class="calendar-day" data-date="2025-10-08" style="background: oklch(0.75 0.15 140); cursor: pointer;"><div style="font-size: 14px">8</div></div><div class="calendar-day" data-date="2025-10-09" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">9</div></div><div class="calendar-day" data-date="2025-10-10" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">10</div></div><div class="calendar-day" data-date="2025-10-11" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">11</div></div><div class="calendar-day" data-date="2025-10-12" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">12</div></div><div class="calendar-day" data-date="2025-10-13" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">13</div></div><div class="calendar-day" data-date="2025-10-14" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">14</div></div><div class="calendar-day" data-date="2025-10-15" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">15</div></div><div class="calendar-day" data-date="2025-10-16" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">16</div></div><div class="calendar-day" data-date="2025-10-17" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">17</div></div><div class="calendar-day" data-date="2025-10-18" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">18</div></div><div class="calendar-day" data-date="2025-10-19" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">19</div></div><div class="calendar-day" data-date="2025-10-20" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">20</div></div><div class="calendar-day" data-date="2025-10-21" style="background: oklch(0.2 0.02 260);"><div style="font-size: 14px">21</div></div></div>
+      </div>
+
+      <!-- RIGHT: File Explorer -->
+      <div class="file-explorer">
+        <div class="explorer-header">
+          <div class="explorer-title" id="explorer-title">📂 Select a day</div>
+          <div class="explorer-count" id="explorer-count">0 files</div>
+        </div>
+
+        <div class="explorer-toolbar">
+          <button class="toolbar-btn" onclick="sortFiles('name')">📝 Name</button>
+          <button class="toolbar-btn" onclick="sortFiles('size')">💾 Size</button>
+          <button class="toolbar-btn" onclick="sortFiles('time')">🕐 Time</button>
+          <button class="toolbar-btn" onclick="filterFiles('.js')">JS</button>
+          <button class="toolbar-btn" onclick="filterFiles('.ts')">TS</button>
+          <button class="toolbar-btn" onclick="filterFiles('')">All</button>
+        </div>
+
+        <div class="file-list-container">
+          <div class="column-header">
+            <div></div>
+            <div>Name</div>
+            <div>Path</div>
+            <div>Size</div>
+            <div>Modified</div>
+          </div>
+          <div id="file-list">
+            <!-- Files will be displayed here -->
+            <div class="empty-state">
+              <div class="empty-state-icon">📁</div>
+              <div>Click a calendar day to view files</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sample data: Map dates to files
+    const filesPerDay = {
+      '2025-10-01': [
+        { name: 'app.tsx', path: 'src/components/', size: 12500, time: '14:30', ext: '.tsx' },
+        { name: 'utils.ts', path: 'src/lib/', size: 8200, time: '15:45', ext: '.ts' },
+        { name: 'styles.css', path: 'src/styles/', size: 3400, time: '16:20', ext: '.css' }
+      ],
+      '2025-10-05': [
+        { name: 'index.html', path: 'public/', size: 5600, time: '10:15', ext: '.html' },
+        { name: 'main.js', path: 'src/', size: 22000, time: '11:30', ext: '.js' },
+        { name: 'config.json', path: './', size: 1200, time: '12:00', ext: '.json' },
+        { name: 'README.md', path: './', size: 4500, time: '13:45', ext: '.md' },
+        { name: 'package.json', path: './', size: 2100, time: '14:10', ext: '.json' }
+      ],
+      '2025-10-08': [
+        { name: 'api.ts', path: 'src/api/', size: 15300, time: '09:00', ext: '.ts' },
+        { name: 'database.ts', path: 'src/lib/', size: 18700, time: '10:20', ext: '.ts' },
+        { name: 'auth.ts', path: 'src/middleware/', size: 7800, time: '11:15', ext: '.ts' },
+        { name: 'routes.ts', path: 'src/', size: 9400, time: '12:30', ext: '.ts' },
+        { name: 'types.ts', path: 'src/types/', size: 4200, time: '13:00', ext: '.ts' },
+        { name: 'hooks.ts', path: 'src/hooks/', size: 6500, time: '14:15', ext: '.ts' },
+        { name: 'constants.ts', path: 'src/', size: 2800, time: '15:00', ext: '.ts' }
+      ]
+    };
+
+    let currentFiles = [];
+    let currentFilter = '';
+    let selectedDay = null;
+
+    // Generate calendar
+    function generateCalendar() {
+      const calendar = document.getElementById('calendar-grid');
+      const days = Object.keys(filesPerDay);
+
+      // Create 21 day cells (3 weeks)
+      for (let i = 1; i <= 21; i++) {
+        const date = new Date(2025, 9, i); // October 2025
+        const dateStr = date.toISOString().split('T')[0];
+        const fileCount = filesPerDay[dateStr]?.length || 0;
+
+        const day = document.createElement('div');
+        day.className = 'calendar-day';
+        day.dataset.date = dateStr;
+        day.style.background = fileCount > 0
+          ? `oklch(${40 + fileCount * 5}% 0.15 ${280 - fileCount * 20})`
+          : 'oklch(20% 0.02 260)';
+
+        day.innerHTML = `<div style="font-size: 14px">${i}</div>`;
+
+        if (fileCount > 0) {
+          day.style.cursor = 'pointer';
+          day.onclick = () => selectDay(dateStr, i);
+        }
+
+        calendar.appendChild(day);
+      }
+    }
+
+    // Select a day and show files
+    function selectDay(dateStr, dayNum) {
+      // Update selected state
+      document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+      document.querySelector(`[data-date="${dateStr}"]`).classList.add('selected');
+
+      selectedDay = dateStr;
+      currentFiles = filesPerDay[dateStr] || [];
+      currentFilter = '';
+
+      updateExplorer(dateStr, dayNum);
+    }
+
+    // Update file explorer display
+    function updateExplorer(dateStr, dayNum) {
+      const filtered = currentFilter
+        ? currentFiles.filter(f => f.ext === currentFilter)
+        : currentFiles;
+
+      document.getElementById('explorer-title').textContent = `📂 October ${dayNum}, 2025`;
+      document.getElementById('explorer-count').textContent = `${filtered.length} files`;
+
+      const fileList = document.getElementById('file-list');
+
+      if (filtered.length === 0) {
+        fileList.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">📭</div>
+            <div>No files match the current filter</div>
+          </div>
+        `;
+        return;
+      }
+
+      fileList.innerHTML = filtered.map(file => `
+        <div class="file-item" onclick="alert('File: ${file.path}${file.name}')">
+          <div class="file-icon">${getFileIcon(file.ext)}</div>
+          <div>
+            <div class="file-name">${file.name}</div>
+          </div>
+          <div class="file-path">${file.path}</div>
+          <div class="file-size">${formatBytes(file.size)}</div>
+          <div class="file-time">${file.time}</div>
+        </div>
+      `).join('');
+    }
+
+    // Get icon for file type
+    function getFileIcon(ext) {
+      const icons = {
+        '.tsx': '⚛️', '.ts': '📘', '.js': '📜', '.jsx': '⚛️',
+        '.css': '🎨', '.html': '🌐', '.json': '📋', '.md': '📝'
+      };
+      return icons[ext] || '📄';
+    }
+
+    // Format bytes to human-readable
+    function formatBytes(bytes) {
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    // Sort files
+    function sortFiles(key) {
+      if (!currentFiles.length) return;
+
+      currentFiles.sort((a, b) => {
+        if (key === 'name') return a.name.localeCompare(b.name);
+        if (key === 'size') return b.size - a.size;
+        if (key === 'time') return a.time.localeCompare(b.time);
+        return 0;
+      });
+
+      updateExplorer(selectedDay, new Date(selectedDay).getDate());
+    }
+
+    // Filter files by extension
+    function filterFiles(ext) {
+      if (!currentFiles.length) return;
+      currentFilter = ext;
+      updateExplorer(selectedDay, new Date(selectedDay).getDate());
+    }
+
+    // Initialize
+    generateCalendar();
+  </script>
+
+
+</body></html>

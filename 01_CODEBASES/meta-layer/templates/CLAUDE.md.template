@@ -1,0 +1,243 @@
+# Claude Agent Instructions - {{projectName}}
+
+## 🎯 Project Overview
+
+**{{projectName}}** - {{description}}
+
+**Project Type**: {{projectType}}
+**Built by**: META Layer AutoScaffolder (Agent A)
+**Created**: {{date format="YYYY-MM-DD"}}
+**Author**: {{author}}
+
+## 🏗️ Architecture
+
+### Project Structure
+```
+{{projectName}}/
+├── src/                    # Source code
+{{#if projectType === "TOOL"}}
+│   ├── core/              # Core functionality
+│   ├── utils/             # Utility functions
+│   ├── cli/               # Command line interface
+│   └── types/             # Type definitions
+{{/if}}
+{{#if projectType === "APP"}}
+│   ├── components/        # React components
+│   ├── pages/             # Page components
+│   ├── hooks/             # Custom hooks
+│   ├── services/          # API services
+│   ├── utils/             # Utility functions
+│   └── styles/            # Styling
+{{/if}}
+{{#if projectType === "INFRASTRUCTURE"}}
+│   ├── terraform/         # Infrastructure as code
+│   ├── docker/            # Docker configurations
+│   └── kubernetes/        # K8s manifests
+{{/if}}
+├── docs/                  # Documentation
+├── tests/                 # Test files
+└── scripts/               # Build and deployment scripts
+```
+
+## 🛠️ Development Workflow
+
+### Quick Start Commands
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
+
+# Lint code
+npm run lint
+```
+
+{{#if projectType === "TOOL"}}
+## 🔧 CLI Tool Development
+
+### Command Structure
+- Tool uses Commander.js for CLI interface
+- Supports multiple subcommands with options
+- Configuration via config files and environment variables
+
+### Adding New Commands
+1. Create command file in `src/cli/commands/`
+2. Register command in `src/cli/index.ts`
+3. Add command tests in `tests/cli/`
+
+### Key Components
+- **Core**: Business logic in `src/core/`
+- **CLI**: Command line interface in `src/cli/`
+- **Utils**: Helper functions in `src/utils/`
+{{/if}}
+
+{{#if projectType === "APP"}}
+## ⚛️ React Application Development
+
+### Component Guidelines
+- Use functional components with hooks
+- Follow TypeScript best practices
+- Implement proper error boundaries
+- Use consistent naming conventions
+
+### State Management
+- Local state with useState/useReducer
+- Global state with Context API or Redux Toolkit
+- Server state with React Query
+
+### Styling
+- CSS modules for component styling
+- Global styles in `src/styles/`
+- Responsive design with CSS Grid/Flexbox
+{{/if}}
+
+{{#if projectType === "INFRASTRUCTURE"}}
+## 🏗️ Infrastructure Management
+
+### Terraform Structure
+- Main configuration in `terraform/main.tf`
+- Variables in `terraform/variables.tf`
+- Outputs in `terraform/outputs.tf`
+- Environment-specific configs in `terraform/envs/`
+
+### Docker Configuration
+- Multi-stage builds in `docker/`
+- Development and production Dockerfiles
+- Docker Compose for local development
+
+### Kubernetes Deployment
+- manifests/ for K8s resources
+- ConfigMaps and Secrets management
+- Helm charts for complex deployments
+{{/if}}
+
+## 📋 Development Guidelines
+
+### Code Standards
+- **TypeScript**: Strict mode enabled
+- **ESLint**: Airbnb style guide
+- **Prettier**: Consistent formatting
+- **Husky**: Pre-commit hooks
+
+### Testing Strategy
+- Unit tests with Jest
+- Integration tests for critical flows
+{{#if projectType === "APP"}}
+- E2E tests with Cypress/Playwright
+{{/if}}
+- Coverage target: 80%+
+
+### Git Workflow
+- Main branch: `main`
+- Feature branches: `feature/description`
+- Commit format: `type(scope): description`
+- PR reviews required for all changes
+
+## 🚀 Deployment
+
+{{#if projectType === "TOOL"}}
+### NPM Package
+- Automated publishing to npm
+- Semantic versioning with semantic-release
+- GitHub releases with changelogs
+{{/if}}
+
+{{#if projectType === "APP"}}
+### Web Application
+- Static hosting on Vercel/Netlify
+- CI/CD with GitHub Actions
+- Environment-specific configurations
+{{/if}}
+
+{{#if projectType === "INFRASTRUCTURE"}}
+### Infrastructure Deployment
+- Terraform Cloud/AWS for state management
+- Automated deployment pipelines
+- Infrastructure monitoring and alerting
+{{/if}}
+
+## 📚 Documentation
+
+### Required Documentation
+- **README.md**: Project overview and quick start
+- **API.md**: API documentation (if applicable)
+- **ARCHITECTURE.md**: System design decisions
+- **CONTRIBUTING.md**: Development guidelines
+- **CHANGELOG.md**: Version history
+
+### Documentation Standards
+- Clear, concise writing
+- Code examples for complex concepts
+- Diagrams for architecture visualization
+- Troubleshooting guides
+
+## 🔍 Context for Claude Agents
+
+When working on this project:
+
+1. **Read First**: Always read existing code before making changes
+2. **Follow Patterns**: Maintain consistency with existing code style
+3. **Test Everything**: Write tests for new functionality
+4. **Document Changes**: Update relevant documentation
+5. **Security First**: Never commit sensitive information
+
+### Key Files to Understand
+{{#if projectType === "TOOL"}}
+- `src/core/index.ts` - Main business logic
+- `src/cli/index.ts` - CLI entry point
+- `src/utils/` - Shared utilities
+{{/if}}
+{{#if projectType === "APP"}}
+- `src/App.tsx` - Main application component
+- `src/components/` - Reusable UI components
+- `src/services/` - API and business logic
+{{/if}}
+{{#if projectType === "INFRASTRUCTURE"}}
+- `terraform/main.tf` - Core infrastructure
+- `docker/Dockerfile` - Container definition
+- `kubernetes/` - Deployment manifests
+{{/if}}
+
+### Development Tips
+- Use TypeScript for type safety
+- Follow existing naming conventions
+- Write meaningful commit messages
+- Keep documentation up to date
+- Test across different environments
+
+---
+
+## 🎯 Project Goals
+
+{{#if projectType === "TOOL"}}
+- Provide reliable command-line functionality
+- Support multiple platforms (Linux, macOS, Windows)
+- Maintain backward compatibility when possible
+- Offer clear and helpful error messages
+{{/if}}
+
+{{#if projectType === "APP"}}
+- Deliver exceptional user experience
+- Ensure fast loading times
+- Implement responsive design
+- Maintain accessibility standards (WCAG 2.1)
+{{/if}}
+
+{{#if projectType === "INFRASTRUCTURE"}}
+- Ensure infrastructure reliability
+- Implement security best practices
+- Optimize for cost efficiency
+- Enable automated scaling
+{{/if}}
+
+---
+
+*This file was generated by META Layer AutoScaffolder (Agent A)*
+*Last updated: {{date format="YYYY-MM-DD HH:mm:ss"}}*

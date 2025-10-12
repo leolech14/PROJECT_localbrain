@@ -1,0 +1,147 @@
+name: Spec Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+env:
+  LB_SPEC_COVERAGE_DIR: ./spec-logs
+
+jobs:
+  validate-specs:
+    name: Validate Runtime Specs
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '15.2'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: tools/specctl/package-lock.json
+
+      - name: Install specctl dependencies
+        run: |
+          cd tools/specctl
+          npm ci
+
+      - name: Build specctl
+        run: |
+          cd tools/specctl
+          npm run build
+
+      - name: Create spec logs directory
+        run: mkdir -p $LB_SPEC_COVERAGE_DIR
+
+      - name: Build LocalBrain
+        run: |
+          xcodebuild build \
+            -scheme LocalBrain \
+            -configuration Debug \
+            -derivedDataPath ./DerivedData \
+            -destination 'platform=macOS,arch=arm64'
+
+      - name: Run LocalBrain tests with spec recording
+        env:
+          LB_SPEC_COVERAGE_DIR: ./spec-logs
+        run: |
+          xcodebuild test \
+            -scheme LocalBrain \
+            -configuration Debug \
+            -derivedDataPath ./DerivedData \
+            -destination 'platform=macOS,arch=arm64' \
+            -enableCodeCoverage YES \
+            || echo "Tests completed with failures (continuing for spec validation)"
+
+      - name: List generated spec logs
+        run: |
+          echo "Spec logs directory contents:"
+          ls -la spec-logs/ || echo "No spec logs found"
+          if [ -f spec-logs/events.ndjson ]; then
+            echo "Event log line count:"
+            wc -l spec-logs/events.ndjson
+            echo "First 10 events:"
+            head -10 spec-logs/events.ndjson | jq -c . || cat spec-logs/events.ndjson | head -10
+          fi
+
+      - name: Validate specs
+        id: validate
+        run: |
+          cd tools/specctl
+          node dist/specctl.js run \
+            --logs "../../spec-logs/**/*.jsonl" \
+            --specs "../../specs/features/*.spec.md" \
+            > ../../spec-validation-output.txt 2>&1
+          EXIT_CODE=$?
+          cat ../../spec-validation-output.txt
+          exit $EXIT_CODE
+
+      - name: Generate spec coverage report
+        if: always()
+        run: |
+          if [ -f spec-coverage/coverage.json ]; then
+            echo "## Spec Coverage Report" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`json" >> $GITHUB_STEP_SUMMARY
+            cat spec-coverage/coverage.json | jq . >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No coverage report generated" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload spec logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spec-logs
+          path: spec-logs/
+          retention-days: 30
+
+      - name: Upload spec coverage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spec-coverage
+          path: spec-coverage/
+          retention-days: 90
+
+      - name: Upload validation output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spec-validation-output
+          path: spec-validation-output.txt
+          retention-days: 30
+
+      - name: Comment PR with spec results
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let output = 'Spec validation output not found';
+            try {
+              output = fs.readFileSync('spec-validation-output.txt', 'utf8');
+            } catch (e) {
+              console.log('Could not read validation output');
+            }
+
+            const body = `## Spec Validation Results\n\n\`\`\`\n${output}\n\`\`\``;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });

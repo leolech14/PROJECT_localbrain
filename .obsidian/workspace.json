@@ -1,0 +1,214 @@
+{
+  "main": {
+    "id": "3a50916f36152a1f",
+    "type": "split",
+    "children": [
+      {
+        "id": "f43e771a1f92e3ab",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4f8e4f11573e8aab",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "docs/LocalBrain_Architecture.canvas",
+                "viewState": {
+                  "x": 1231.5697618219428,
+                  "y": 209.90097897091505,
+                  "zoom": -0.11999348511510545
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "LocalBrain_Architecture"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2f1598d6c69ba084",
+    "type": "split",
+    "children": [
+      {
+        "id": "96952aafa758253d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c24a238992e04d69",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "0c2936b2c27d0c81",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "b0e5367b7d0d194c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "2acc2dcdab496eee",
+    "type": "split",
+    "children": [
+      {
+        "id": "cc1bfed3a027ca48",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cd77403af8316ef7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/LocalBrain_Architecture.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for LocalBrain_Architecture"
+            }
+          },
+          {
+            "id": "c3dd3282cdacdaa1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/LocalBrain_Architecture.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from LocalBrain_Architecture"
+            }
+          },
+          {
+            "id": "b2187380866311f0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "60496d5cde8af5a0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/LocalBrain_Architecture.canvas",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of LocalBrain_Architecture"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "4f8e4f11573e8aab",
+  "lastOpenFiles": [
+    "docs/reports/COMPREHENSIVE_AUDIT_REPORT_20251005.md",
+    "docs/ZAI_SETUP.md",
+    "docs/COMPREHENSIVE_INTEGRATION_REPORT.md",
+    "LocalBrain/Services/KeychainHelper.swift.tmp.95573.1759637312629",
+    "LocalBrain/Services/GLMService.swift",
+    "docs/FINAL_BUILD_REPORT.md",
+    "docs/BUILD_COMPLETE_ALL_PHASES.md",
+    "docs/BUILD_PROGRESS_PHASE_1.md",
+    "LocalBrain/LocalBrainApp.swift.tmp.95573.1759636223245",
+    "tools/specctl/dist/types.js",
+    "tools/specctl/dist/specctl.js",
+    "tools/specctl/dist/loader.js",
+    "tools/specctl/dist/engine.js",
+    "tools/specctl/dist",
+    "tools/specctl/node_modules/typescript/ThirdPartyNoticeText.txt",
+    "tools/specctl/node_modules/typescript/LICENSE.txt",
+    "tools/specctl/node_modules/typescript/SECURITY.md",
+    "tools/specctl/node_modules/typescript/README.md",
+    "tools/specctl/node_modules/yaml/README.md",
+    "tools/specctl/node_modules/ts-node/README.md",
+    "tools/specctl/node_modules/lru-cache/README.md",
+    "tools/specctl/node_modules/path-scurry/README.md",
+    "tools/specctl/node_modules/path-scurry/LICENSE.md",
+    "tools/specctl/node_modules/minimatch/README.md",
+    "tools/specctl/node_modules/glob/README.md",
+    "tools/specctl/node_modules/diff/release-notes.md",
+    "tools/specctl/node_modules/diff/README.md",
+    "tools/specctl/node_modules/diff/CONTRIBUTING.md",
+    "tools/specctl/node_modules/jackspeak/README.md",
+    "tools/specctl/node_modules/jackspeak/LICENSE.md",
+    "tools/specctl/node_modules/foreground-child/README.md",
+    "tools/specctl/node_modules/ts-node/dist-raw/NODE-LICENSE.md",
+    "tools/specctl/node_modules/ts-node/dist-raw/README.md",
+    "tools/specctl/node_modules/minipass/README.md",
+    "tools/specctl/node_modules/signal-exit/README.md",
+    "tools/specctl/node_modules/acorn/README.md"
+  ]
+}

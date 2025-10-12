@@ -1,0 +1,5 @@
+symbols:
+  "TS:ui/VoiceIndicator.tsx#update": { selector: "[data-testid=voice-indicator]" }
+  "TS:services/orchestrator.ts#handle": { path: "src/services/orchestrator.ts" }
+  "TS:services/browser.ts#open": { path: "src/services/browser.ts" }
+  "TS:services/fileAccess.ts#search": { path: "src/services/fileAccess.ts" }

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 FinOps Vault - 3D Intelligence Graph</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        #info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #00d4ff;
+            max-width: 300px;
+        }
+
+        #controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ff6b9d;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ff6b9d;
+            font-size: 12px;
+        }
+
+        input[type="range"] {
+            width: 150px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #00d4ff, #ff6b9d);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 2px;
+            font-size: 11px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #nodeInfo {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #c471ed;
+            max-width: 400px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .metric {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .metric-value {
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        .title {
+            text-align: center;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #ff6b9d;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        <div class="title">🧠 FinOps Intelligence Graph</div>
+        <div class="subtitle">Reverse Engineered InfraNodus</div>
+        <div class="metric">Nodes: <span class="metric-value">50</span></div>
+        <div class="metric">Connections: <span class="metric-value">1,053</span></div>
+        <div class="metric">Density: <span class="metric-value">85.96%</span></div>
+        <div class="metric">Communities: <span class="metric-value">3</span></div>
+        <hr style="border-color: #333; margin: 10px 0;">
+        <div style="font-size: 11px; color: #aaa;">
+            💰 FREE vs InfraNodus ($600/year)<br>
+            🔒 100% Private & Local<br>
+            🚀 Enhanced Features
+        </div>
+    </div>
+
+    <div id="controls">
+        <div class="title">🎮 Graph Controls</div>
+
+        <div class="control-group">
+            <label>Node Size</label>
+            <input type="range" id="nodeSize" min="0.5" max="3" step="0.1" value="1.2">
+        </div>
+
+        <div class="control-group">
+            <label>Connection Strength</label>
+            <input type="range" id="linkStrength" min="0.1" max="3" step="0.1" value="1">
+        </div>
+
+        <div class="control-group">
+            <label>Repulsion Force</label>
+            <input type="range" id="repelForce" min="50" max="500" step="10" value="200">
+        </div>
+
+        <div class="control-group">
+            <button onclick="resetView()">🎯 Reset View</button>
+            <button onclick="toggleCommunities()">🏘️ Communities</button>
+        </div>
+
+        <div class="control-group">
+            <button onclick="showCentrality()">⭐ Centrality</button>
+            <button onclick="exportView()">💾 Export</button>
+        </div>
+    </div>
+
+    <div id="nodeInfo"></div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        // FinOps Graph Data (simplified for demo)
+        const graphData = {
+            nodes: [
+                // Top influential nodes from your analysis
+                {id: "16_OPEN_FINANCE_CONNECTOR", centrality: 81.84, community: "Financial", type: "hub"},
+                {id: "0.3_ORCHESTRATOR_MAESTRO", centrality: 81.49, community: "Core", type: "hub"},
+                {id: "00_MAIN_PAGE", centrality: 79.42, community: "Navigation", type: "hub"},
+                {id: "0.4_AGENT_BUILDER", centrality: 78.14, community: "Core", type: "hub"},
+                {id: "15_SECURITY_FABRIC", centrality: 73.72, community: "Security", type: "hub"},
+                {id: "61_WALLET_MANAGEMENT", centrality: 75.58, community: "Financial", type: "module"},
+                {id: "50_DATA_POOL_ENGINE", centrality: 72.17, community: "Core", type: "module"},
+                {id: "53_INTELLIGENCE_LAYER", centrality: 72.17, community: "AI", type: "module"},
+                {id: "51_AGENT_RUNTIME", centrality: 71.97, community: "Core", type: "module"},
+                {id: "11_AI_LAYER", centrality: 70.26, community: "AI", type: "module"},
+                // UI Components
+                {id: "01_HEADER_COMPONENT", centrality: 45.2, community: "UI", type: "component"},
+                {id: "02_SIDEBAR_COMPONENT", centrality: 44.8, community: "UI", type: "component"},
+                {id: "03_FOOTER_COMPONENT", centrality: 44.1, community: "UI", type: "component"},
+                {id: "04_GRID_VIEW_CANVAS", centrality: 43.9, community: "UI", type: "component"},
+                {id: "05_CHIP_VIEW_CANVAS", centrality: 43.7, community: "UI", type: "component"},
+                // Data & Analytics
+                {id: "20_DASHBOARD_INDICATORS", centrality: 60.83, community: "Analytics", type: "module"},
+                {id: "30_REVENUE_SUMMARY", centrality: 35.2, community: "Analytics", type: "module"},
+                {id: "31_EXPENSE_ANALYSIS", centrality: 34.8, community: "Analytics", type: "module"},
+                {id: "32_BANK_ACCOUNTS", centrality: 34.5, community: "Financial", type: "module"},
+                {id: "33_TRANSACTION_VIEWER", centrality: 34.2, community: "Financial", type: "module"}
+            ],
+            links: []
+        };
+
+        // Generate connections based on communities and centrality
+        function generateConnections() {
+            for (let i = 0; i < graphData.nodes.length; i++) {
+                for (let j = i + 1; j < graphData.nodes.length; j++) {
+                    const node1 = graphData.nodes[i];
+                    const node2 = graphData.nodes[j];
+
+                    let shouldConnect = false;
+                    let strength = 1;
+
+                    // Same community connections
+                    if (node1.community === node2.community) {
+                        shouldConnect = Math.random() > 0.3;
+                        strength = 2;
+                    }
+                    // Hub to hub connections
+                    else if (node1.type === "hub" && node2.type === "hub") {
+                        shouldConnect = Math.random() > 0.5;
+                        strength = 3;
+                    }
+                    // Hub to module connections
+                    else if ((node1.type === "hub" && node2.type === "module") ||
+                            (node1.type === "module" && node2.type === "hub")) {
+                        shouldConnect = Math.random() > 0.6;
+                        strength = 1.5;
+                    }
+                    // Random cross-community connections
+                    else if (Math.random() > 0.8) {
+                        shouldConnect = true;
+                        strength = 0.5;
+                    }
+
+                    if (shouldConnect) {
+                        graphData.links.push({
+                            source: node1.id,
+                            target: node2.id,
+                            strength: strength
+                        });
+                    }
+                }
+            }
+        }
+
+        generateConnections();
+
+        // Set up the visualization
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const svg = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Community colors
+        const communityColors = {
+            "Financial": "#00d4ff",
+            "Core": "#ff6b9d",
+            "Navigation": "#c471ed",
+            "Security": "#ff4444",
+            "AI": "#44ff44",
+            "UI": "#ffaa44",
+            "Analytics": "#4444ff"
+        };
+
+        // Create force simulation
+        const simulation = d3.forceSimulation(graphData.nodes)
+            .force("link", d3.forceLink(graphData.links).id(d => d.id).strength(d => d.strength * 0.5))
+            .force("charge", d3.forceManyBody().strength(-200))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(d => Math.sqrt(d.centrality) * 2));
+
+        // Create links
+        const link = svg.append("g")
+            .selectAll("line")
+            .data(graphData.links)
+            .enter().append("line")
+            .attr("stroke", "#333")
+            .attr("stroke-opacity", 0.6)
+            .attr("stroke-width", d => Math.sqrt(d.strength) * 2);
+
+        // Create nodes
+        const node = svg.append("g")
+            .selectAll("circle")
+            .data(graphData.nodes)
+            .enter().append("circle")
+            .attr("r", d => Math.sqrt(d.centrality) * 0.8)
+            .attr("fill", d => communityColors[d.community] || "#999")
+            .attr("stroke", "#fff")
+            .attr("stroke-width", 2)
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended))
+            .on("click", showNodeInfo)
+            .on("mouseover", function(event, d) {
+                d3.select(this).attr("stroke-width", 4);
+            })
+            .on("mouseout", function(event, d) {
+                d3.select(this).attr("stroke-width", 2);
+            });
+
+        // Add labels
+        const label = svg.append("g")
+            .selectAll("text")
+            .data(graphData.nodes)
+            .enter().append("text")
+            .text(d => d.id.replace(/_/g, ' ').substring(0, 20))
+            .attr("font-size", "10px")
+            .attr("fill", "#fff")
+            .attr("text-anchor", "middle")
+            .attr("dy", ".35em");
+
+        // Update positions on simulation tick
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+
+            label
+                .attr("x", d => d.x)
+                .attr("y", d => d.y + Math.sqrt(d.centrality) * 0.8 + 15);
+        });
+
+        // Control functions
+        function resetView() {
+            simulation.alpha(1).restart();
+        }
+
+        function toggleCommunities() {
+            node.attr("fill", (d, i) => {
+                const colors = ["#ff4444", "#44ff44", "#4444ff", "#ffaa44", "#ff44aa", "#44aaff", "#aaff44"];
+                return colors[i % colors.length];
+            });
+        }
+
+        function showCentrality() {
+            node
+                .transition()
+                .duration(1000)
+                .attr("r", d => Math.sqrt(d.centrality) * 1.2)
+                .attr("fill", d => {
+                    const intensity = d.centrality / 85; // Max centrality is ~85
+                    return d3.interpolateReds(intensity);
+                });
+        }
+
+        function exportView() {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = width;
+            canvas.height = height;
+
+            const svgData = new XMLSerializer().serializeToString(svg.node());
+            const img = new Image();
+            img.onload = function() {
+                context.drawImage(img, 0, 0);
+                const link = document.createElement('a');
+                link.download = 'finops_graph.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            };
+            img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+        }
+
+        function showNodeInfo(event, d) {
+            const info = document.getElementById('nodeInfo');
+            info.innerHTML = `
+                <div class="title">📊 ${d.id.replace(/_/g, ' ')}</div>
+                <div class="metric">Centrality: <span class="metric-value">${d.centrality.toFixed(2)}</span></div>
+                <div class="metric">Community: <span class="metric-value">${d.community}</span></div>
+                <div class="metric">Type: <span class="metric-value">${d.type}</span></div>
+                <div class="metric">Connections: <span class="metric-value">${graphData.links.filter(l => l.source.id === d.id || l.target.id === d.id).length}</span></div>
+            `;
+            info.style.display = 'block';
+        }
+
+        // Control event listeners
+        document.getElementById('nodeSize').addEventListener('input', (e) => {
+            const scale = parseFloat(e.target.value);
+            node.attr('r', d => Math.sqrt(d.centrality) * 0.8 * scale);
+        });
+
+        document.getElementById('linkStrength').addEventListener('input', (e) => {
+            const strength = parseFloat(e.target.value);
+            simulation.force("link").strength(d => d.strength * 0.5 * strength);
+            simulation.alpha(0.3).restart();
+        });
+
+        document.getElementById('repelForce').addEventListener('input', (e) => {
+            const force = -parseFloat(e.target.value);
+            simulation.force("charge").strength(force);
+            simulation.alpha(0.3).restart();
+        });
+
+        // Drag functions
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Hide node info when clicking elsewhere
+        svg.on("click", function(event) {
+            if (event.target === this) {
+                document.getElementById('nodeInfo').style.display = 'none';
+            }
+        });
+
+        console.log("🧠 FinOps Intelligence Graph loaded!");
+        console.log("📊 Nodes:", graphData.nodes.length);
+        console.log("🕸️ Links:", graphData.links.length);
+        console.log("💰 FREE alternative to InfraNodus ($600/year)");
+    </script>
+</body>
+</html>

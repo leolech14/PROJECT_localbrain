@@ -1,0 +1,221 @@
+name: Specification Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '**/*.md'
+      - 'ci/**'
+      - '.github/workflows/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**/*.md'
+      - 'ci/**'
+      - '.github/workflows/**'
+
+jobs:
+  validate-specifications:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: ci/package.json
+
+    - name: Install dependencies
+      run: |
+        cd ci
+        npm ci
+
+    - name: Run front-matter validation
+      run: |
+        cd ci
+        npm run validate:front-matter
+
+    - name: Run promotion gate validation
+      run: |
+        cd ci
+        npm run validate:promotion-gates
+
+    - name: Run security boundary linting
+      run: |
+        cd ci
+        npm run validate:security
+
+    - name: Run comprehensive validation
+      run: |
+        cd ci
+        npm run validate
+
+    - name: Upload validation artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: validation-results
+        path: |
+          rag-index.json
+          ci/validation-report.json
+        retention-days: 30
+
+    - name: Comment PR with validation results
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const path = require('path');
+
+          // Check if validation passed
+          const ragIndexExists = fs.existsSync('rag-index.json');
+
+          let comment = '## Specification Validation Results\n\n';
+
+          if (ragIndexExists) {
+            comment += '✅ **All validations passed!**\n\n';
+            comment += 'The specifications are ready for implementation.\n\n';
+
+            // Read RAG index for statistics
+            try {
+              const ragIndex = JSON.parse(fs.readFileSync('rag-index.json', 'utf8'));
+              comment += `### Statistics\n`;
+              comment += `- Total modules: ${ragIndex.total_modules}\n`;
+              comment += `- RAG index generated: ${ragIndex.generated_at}\n\n`;
+            } catch (e) {
+              // Ignore errors reading RAG index
+            }
+          } else {
+            comment += '❌ **Validation failed!**\n\n';
+            comment += 'Please check the validation logs and fix the issues before merging.\n\n';
+          }
+
+          comment += '### Validation Checks\n';
+          comment += '- ✅ Front-matter structure validation\n';
+          comment += '- ✅ Promotion gate criteria validation\n';
+          comment += '- ✅ Security boundary linting\n';
+          comment += '- ✅ Architecture consistency check\n';
+          comment += '- ✅ RAG index generation\n\n';
+
+          comment += '---\n';
+          comment += '*Automated validation by Financial Intelligence Platform CI*';
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
+
+  security-audit:
+    runs-on: ubuntu-latest
+    needs: validate-specifications
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: ci/package.json
+
+    - name: Install dependencies
+      run: |
+        cd ci
+        npm ci
+
+    - name: Run security audit
+      run: |
+        cd ci
+        npm audit --audit-level=moderate
+
+    - name: Enhanced security boundary check
+      run: |
+        cd ci
+        node security-boundary-linter.js --strict-mode
+
+    - name: Generate security report
+      run: |
+        echo "# Security Audit Report" > security-report.md
+        echo "Generated on: $(date)" >> security-report.md
+        echo "" >> security-report.md
+        echo "## Dependencies" >> security-report.md
+        cd ci && npm audit --json | jq -r '.vulnerabilities | length' | xargs -I {} echo "Found {} vulnerabilities" >> ../security-report.md
+
+    - name: Upload security report
+      uses: actions/upload-artifact@v4
+      with:
+        name: security-report
+        path: security-report.md
+        retention-days: 90
+
+  generate-documentation:
+    runs-on: ubuntu-latest
+    needs: validate-specifications
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: ci/package.json
+
+    - name: Install dependencies
+      run: |
+        cd ci
+        npm ci
+
+    - name: Generate RAG index
+      run: |
+        cd ci
+        node validate-all.js
+
+    - name: Generate module documentation
+      run: |
+        # Create a comprehensive module index
+        echo "# Financial Intelligence Platform - Module Index" > MODULE_INDEX_GENERATED.md
+        echo "Generated on: $(date)" >> MODULE_INDEX_GENERATED.md
+        echo "" >> MODULE_INDEX_GENERATED.md
+
+        # Process all markdown files
+        find . -name "*.md" -not -path "./ci/*" -not -path "./.github/*" | sort | while read file; do
+          echo "Processing $file"
+          # Extract title from front-matter
+          title=$(grep "^title:" "$file" | head -1 | sed 's/title: *"//' | sed 's/"$//')
+          if [ ! -z "$title" ]; then
+            echo "- [$title]($file)" >> MODULE_INDEX_GENERATED.md
+          fi
+        done
+
+    - name: Commit generated documentation
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+        if [ -f "rag-index.json" ]; then
+          git add rag-index.json
+        fi
+
+        if [ -f "MODULE_INDEX_GENERATED.md" ]; then
+          git add MODULE_INDEX_GENERATED.md
+        fi
+
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Auto-generate documentation and RAG index [skip ci]"
+          git push
+        fi

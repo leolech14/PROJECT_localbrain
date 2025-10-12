@@ -1,0 +1,158 @@
+{
+  "missing_type": {
+    "description": "Missing required 'type' field",
+    "message": {
+      "traceId": "test-invalid-001",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0"
+    },
+    "expectedError": "Missing required field: type"
+  },
+  "invalid_message_type": {
+    "description": "Invalid message type value",
+    "message": {
+      "type": "INVALID_TYPE",
+      "traceId": "test-invalid-002",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0"
+    },
+    "expectedError": "Invalid message type"
+  },
+  "missing_traceId": {
+    "description": "Missing required 'traceId' field",
+    "message": {
+      "type": "UI_INTENT",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0"
+    },
+    "expectedError": "Missing required field: traceId"
+  },
+  "invalid_timestamp_format": {
+    "description": "Invalid ISO 8601 timestamp format",
+    "message": {
+      "type": "UI_INTENT",
+      "traceId": "test-invalid-003",
+      "timestamp": "invalid-timestamp",
+      "version": "1.0"
+    },
+    "expectedError": "Invalid timestamp format"
+  },
+  "ui_intent_missing_payload": {
+    "description": "UI_INTENT missing required payload",
+    "message": {
+      "type": "UI_INTENT",
+      "traceId": "test-invalid-004",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0",
+      "source": "web"
+    },
+    "expectedError": "Missing required field: payload"
+  },
+  "ui_intent_missing_target": {
+    "description": "UI_INTENT payload missing target",
+    "message": {
+      "type": "UI_INTENT",
+      "traceId": "test-invalid-005",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0",
+      "source": "web",
+      "payload": {
+        "intent": "openPanel"
+      }
+    },
+    "expectedError": "Missing required field: payload.target"
+  },
+  "ui_intent_invalid_intent": {
+    "description": "UI_INTENT with unknown intent type",
+    "message": {
+      "type": "UI_INTENT",
+      "traceId": "test-invalid-006",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0",
+      "source": "web",
+      "payload": {
+        "intent": "unknownIntent",
+        "target": {
+          "type": "sidebar",
+          "id": "test"
+        }
+      }
+    },
+    "expectedError": "Unknown intent type (warning only)"
+  },
+  "ack_missing_status": {
+    "description": "ACK message missing status",
+    "message": {
+      "type": "ACK",
+      "traceId": "test-invalid-007",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0"
+    },
+    "expectedError": "Missing required field: status"
+  },
+  "ack_invalid_status_code": {
+    "description": "ACK with invalid HTTP status code",
+    "message": {
+      "type": "ACK",
+      "traceId": "test-invalid-008",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0",
+      "status": {
+        "code": 999,
+        "message": "Invalid code"
+      }
+    },
+    "expectedError": "Invalid status code"
+  },
+  "error_missing_error_field": {
+    "description": "ERROR message missing error object",
+    "message": {
+      "type": "ERROR",
+      "traceId": "test-invalid-009",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0"
+    },
+    "expectedError": "Missing required field: error"
+  },
+  "error_invalid_severity": {
+    "description": "ERROR with invalid severity",
+    "message": {
+      "type": "ERROR",
+      "traceId": "test-invalid-010",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0",
+      "error": {
+        "code": "TEST_ERROR",
+        "severity": "invalid",
+        "message": "Test error"
+      }
+    },
+    "expectedError": "Invalid severity value"
+  },
+  "heartbeat_missing_health": {
+    "description": "HEARTBEAT missing health status",
+    "message": {
+      "type": "HEARTBEAT",
+      "traceId": "test-invalid-011",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0",
+      "source": "web"
+    },
+    "expectedError": "Missing required field: health"
+  },
+  "heartbeat_invalid_status": {
+    "description": "HEARTBEAT with invalid health status",
+    "message": {
+      "type": "HEARTBEAT",
+      "traceId": "test-invalid-012",
+      "timestamp": "2025-10-08T15:30:00.000Z",
+      "version": "1.0",
+      "source": "web",
+      "health": {
+        "status": "invalid_status",
+        "uptime": 3600
+      }
+    },
+    "expectedError": "Invalid health status"
+  }
+}

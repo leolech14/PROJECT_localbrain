@@ -1,0 +1,264 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://localbrain.dev/schemas/ipc/ui-intent.schema.json",
+  "title": "UI Intent Message",
+  "description": "Message format for UI intents sent from Swift to Web or vice versa",
+  "type": "object",
+  "required": ["type", "traceId", "timestamp", "version", "payload"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "UI_INTENT",
+      "description": "Message type identifier"
+    },
+    "traceId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for request tracing across the bridge"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of message creation"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Schema version (e.g., '1.0')",
+      "default": "1.0"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["swift", "web"],
+      "description": "Origin of the message"
+    },
+    "payload": {
+      "type": "object",
+      "required": ["intent", "target"],
+      "properties": {
+        "intent": {
+          "type": "string",
+          "enum": [
+            "openPanel",
+            "closePanel",
+            "togglePanel",
+            "resizePanel",
+            "maximizePanel",
+            "minimizePanel",
+            "focusPanel",
+            "updateLayout",
+            "showSidebar",
+            "hideSidebar",
+            "toggleSidebar",
+            "displayAgentProposal",
+            "approveProposal",
+            "rejectProposal",
+            "executeCommand",
+            "updateState",
+            "requestData",
+            "streamData",
+            "cancelOperation"
+          ],
+          "description": "The UI action to perform"
+        },
+        "target": {
+          "type": "object",
+          "required": ["type", "id"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "panel",
+                "sidebar",
+                "widget",
+                "grid",
+                "approvalTray",
+                "agentControl",
+                "terminal",
+                "fileExplorer",
+                "chat",
+                "task"
+              ],
+              "description": "Type of UI element to target"
+            },
+            "id": {
+              "type": "string",
+              "description": "Unique identifier of the target element"
+            },
+            "selector": {
+              "type": "string",
+              "description": "Optional CSS-like selector for precise targeting"
+            }
+          }
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Intent-specific parameters",
+          "additionalProperties": true,
+          "properties": {
+            "width": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Width in pixels (for resize operations)"
+            },
+            "height": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Height in pixels (for resize operations)"
+            },
+            "position": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              },
+              "description": "Position coordinates"
+            },
+            "data": {
+              "type": ["object", "array", "string", "number", "boolean", "null"],
+              "description": "Generic data payload for state updates or data requests"
+            },
+            "animation": {
+              "type": "object",
+              "properties": {
+                "duration": {
+                  "type": "number",
+                  "minimum": 0,
+                  "description": "Animation duration in milliseconds"
+                },
+                "easing": {
+                  "type": "string",
+                  "enum": ["linear", "ease", "ease-in", "ease-out", "ease-in-out"],
+                  "description": "Animation easing function"
+                }
+              },
+              "description": "Animation parameters for UI transitions"
+            },
+            "options": {
+              "type": "object",
+              "additionalProperties": true,
+              "description": "Additional intent-specific options"
+            }
+          }
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "priority": {
+              "type": "string",
+              "enum": ["low", "normal", "high", "critical"],
+              "default": "normal",
+              "description": "Processing priority for the intent"
+            },
+            "timeout": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Maximum processing time in milliseconds"
+            },
+            "retryable": {
+              "type": "boolean",
+              "default": true,
+              "description": "Whether this intent can be retried on failure"
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "description": "Key for ensuring operation is performed only once"
+            }
+          }
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "description": "Additional contextual information",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User identifier if applicable"
+        },
+        "sessionId": {
+          "type": "string",
+          "description": "Session identifier"
+        },
+        "agentId": {
+          "type": "string",
+          "description": "Agent identifier if intent originates from an agent"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required permissions for this intent"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "type": "UI_INTENT",
+      "traceId": "550e8400-e29b-41d4-a716-446655440000",
+      "timestamp": "2025-10-08T14:30:00.000Z",
+      "version": "1.0",
+      "source": "swift",
+      "payload": {
+        "intent": "openPanel",
+        "target": {
+          "type": "sidebar",
+          "id": "agent-proposals-panel"
+        },
+        "parameters": {
+          "width": 400,
+          "animation": {
+            "duration": 200,
+            "easing": "ease-out"
+          }
+        },
+        "metadata": {
+          "priority": "high",
+          "timeout": 5000
+        }
+      },
+      "context": {
+        "sessionId": "session-123",
+        "agentId": "agent-a"
+      }
+    },
+    {
+      "type": "UI_INTENT",
+      "traceId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+      "timestamp": "2025-10-08T14:31:00.000Z",
+      "version": "1.0",
+      "source": "web",
+      "payload": {
+        "intent": "displayAgentProposal",
+        "target": {
+          "type": "approvalTray",
+          "id": "main-approval-tray"
+        },
+        "parameters": {
+          "data": {
+            "proposalId": "proposal-456",
+            "title": "Update Grid Layout",
+            "description": "Rearrange dashboard widgets for better visibility",
+            "changes": [
+              {
+                "type": "layout",
+                "target": "grid-main",
+                "operation": "resize"
+              }
+            ]
+          }
+        },
+        "metadata": {
+          "priority": "normal",
+          "retryable": false
+        }
+      }
+    }
+  ]
+}
