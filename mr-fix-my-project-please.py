@@ -3515,25 +3515,9 @@ Keep descriptions CONCISE and PURPOSE-FOCUSED."""
                 }.get(diagram['risk_level'], '#6b7280')
 
                 diagrams_html += f"""
-              <div class="diagram-card" id="diagram-{diagram['id']}" style="background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:12px;transition:all 0.3s ease;">
-                <div class="diagram-header" style="margin-bottom:16px;">
-                  <h4 style="font-size:18px;font-weight:600;color:var(--text);margin:0 0 8px 0;display:flex;align-items:center;gap:8px;">
-                    {diagram['title']}
-                    <span style="background:{risk_color};color:white;font-size:12px;padding:4px 8px;border-radius:12px;font-weight:500;">
-                      {diagram['risk_level']}
-                    </span>
-                  </h4>
-                  <p style="color:var(--muted);font-size:14px;margin:0;">{diagram['description']}</p>
-                  <div style="display:flex;gap:16px;margin-top:8px;font-size:13px;color:var(--muted);">
-                    <span>📊 {diagram['node_count']} nodes</span>
-                    <span>🔗 {diagram['edge_count']} edges</span>
-                  </div>
-                </div>
-
-                <div class="diagram-container" style="background:#0a0a0a;border:1px solid #3f3f46;border-radius:8px;padding:20px;min-height:300px;">
-                  <div class="mermaid" id="mermaid-{diagram['id']}" style="font-family:'Monaco','Menlo','Ubuntu Mono',monospace;font-size:13px;color:#f8fafc;">
-{diagram['mermaid_code']}
-                  </div>
+              <div class="diagram-card" style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:16px;cursor:pointer;">
+                <div class="mermaid-diagram" id="mermaid-{diagram['id']}" style="background:#0a0a0a;border:1px solid #3f3f46;border-radius:6px;padding:20px;min-height:300px;">
+                  <div class="mermaid">{diagram['mermaid_code']}</div>
                 </div>
               </div>
 """
@@ -3602,26 +3586,23 @@ Keep descriptions CONCISE and PURPOSE-FOCUSED."""
             {self._generate_ripple_html(ripple_analysis)}
           </div>
 
-          <!-- 🚀 ULTRATHINK 5-DIAGRAM SYSTEM -->
-          <div class="ultrathink-diagrams" style="margin-bottom:32px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
-              <h3 style="font-size:20px;font-weight:600;color:var(--text);margin:0;">🚀 ULTRATHINK Smart Diagrams</h3>
-              <div style="display:flex;gap:12px;">
-                <button onclick="zoomInDiagrams()" style="background:var(--accent);color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:14px;font-weight:500;">
-                  🔍+ Zoom
-                </button>
-                <button onclick="resetDiagrams()" style="background:var(--surface-2);color:var(--text);border:1px solid var(--border);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:14px;font-weight:500;">
-                  🔄 Reset
-                </button>
-              </div>
-            </div>
-
+          <!-- SMART DIAGRAMS -->
+          <div class="smart-diagrams" style="margin-bottom:32px;">
+            <h3 style="font-size:20px;font-weight:600;color:var(--text);margin:0 0 20px 0;">Smart Diagrams</h3>
             <div class="diagram-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:20px;">
               {diagrams_html}
             </div>
+          </div>
+
+          <!-- FULLSCREEN PNG DISPLAY -->
+          <div id="fullscreen-display" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.9);z-index:9999;overflow:hidden;">
+            <div id="fullscreen-image-container" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative;cursor:grab;">
+              <img id="fullscreen-image" style="max-width:100%;max-height:100%;object-fit:contain;user-select:none;" />
+              <button onclick="closeFullscreen()" style="position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.2);padding:10px 20px;border-radius:6px;cursor:pointer;font-size:14px;">✕ Close</button>
             </div>
           </div>
 
+  
           <!-- 🎯 DIAGRAM INTERACTIVE CONTROLS -->
           <div class="diagram-controls" style="background:linear-gradient(135deg, rgba(99,102,241,0.05) 0%, rgba(139,92,246,0.05) 100%);border:1px solid var(--accent);border-radius:12px;padding:12px;margin-bottom:32px;">
             <h4 style="font-size:18px;font-weight:600;color:var(--text);margin:0 0 16px 0;">🎯 Interactive Controls</h4>
@@ -3638,69 +3619,297 @@ Keep descriptions CONCISE and PURPOSE-FOCUSED."""
             </div>
           </div>
 
-          <!-- ULTRATHINK INTERACTIVE SCRIPT -->
+          <!-- SIMPLE DIAGRAM SCRIPT -->
           <script>
-            // ULTRATHINK Interactive Diagram Controls
-            let currentZoom = 1;
-            let diagramsVisible = true;
+            let isDragging = false;
+            let currentX;
+            let currentY;
+            let initialX;
+            let initialY;
+            let xOffset = 0;
+            let yOffset = 0;
 
-            function toggleAllDiagrams() {{
-              diagramsVisible = !diagramsVisible;
-              const containers = document.querySelectorAll('.diagram-container');
-              containers.forEach(container => {{
-                container.style.display = diagramsVisible ? 'block' : 'none';
+            function closeFullscreen() {{
+              document.getElementById('fullscreen-display').style.display = 'none';
+              document.body.style.overflow = '';
+            }}
+
+            function openFullscreen(imageSrc) {{
+              const fullscreenDiv = document.getElementById('fullscreen-display');
+              const img = document.getElementById('fullscreen-image');
+              img.src = imageSrc;
+              fullscreenDiv.style.display = 'block';
+              document.body.style.overflow = 'hidden';
+
+              // Reset position and zoom
+              const container = document.getElementById('fullscreen-image-container');
+              container.style.transform = 'scale(1) translate(0px, 0px)';
+              xOffset = 0;
+              yOffset = 0;
+            }}
+
+            function mermaidToPng(mermaidElement, callback) {{
+              if (typeof mermaid === 'undefined') {{
+                callback(null);
+                return;
+              }}
+
+              const mermaidCode = mermaidElement.textContent.trim();
+              mermaid.render('temp-' + Date.now(), mermaidCode)
+                .then(result => {{
+                  const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                  svgElement.innerHTML = result.svg;
+                  svgElement.setAttribute('width', '800px');
+                  svgElement.setAttribute('height', '600px');
+
+                  const svgData = new XMLSerializer().serializeToString(svgElement);
+                  const svgBlob = new Blob([svgData], {{type: 'image/svg+xml;charset=utf-8'}});
+                  const svgUrl = URL.createObjectURL(svgBlob);
+
+                  const img = new Image();
+                  img.onload = function() {{
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 800;
+                    canvas.height = 600;
+                    const ctx = canvas.getContext('2d');
+
+                    // Transparent background
+                    ctx.clearRect(0, 0, 800, 600);
+
+                    // Draw SVG
+                    ctx.drawImage(img, 0, 0, 800, 600);
+
+                    canvas.toBlob(function(pngBlob) {{
+                      const pngUrl = URL.createObjectURL(pngBlob);
+                      callback(pngUrl);
+                      URL.revokeObjectURL(svgUrl);
+                    }}, 'image/png');
+                  }};
+                  img.src = svgUrl;
+                }})
+                .catch(error => {{
+                  console.error('Mermaid rendering error:', error);
+                  callback(null);
+                }});
+            }}
+
+            // Set up event listeners when document is ready
+            document.addEventListener('DOMContentLoaded', function() {{
+              // Add event listeners to all diagram cards
+              const diagramCards = document.querySelectorAll('.diagram-card');
+              diagramCards.forEach(card => {{
+                const mermaidDiv = card.querySelector('.mermaid');
+
+                // Double click to open fullscreen
+                card.addEventListener('dblclick', function(e) {{
+                  e.preventDefault();
+                  mermaidToPng(mermaidDiv, function(pngUrl) {{
+                    if (pngUrl) {{
+                      openFullscreen(pngUrl);
+                    }}
+                  }});
+                }});
+
+                // Right click to open fullscreen
+                card.addEventListener('contextmenu', function(e) {{
+                  e.preventDefault();
+                  mermaidToPng(mermaidDiv, function(pngUrl) {{
+                    if (pngUrl) {{
+                      openFullscreen(pngUrl);
+                    }}
+                  }});
+                }});
+
+                // Prevent default drag behavior
+                card.addEventListener('dragstart', function(e) {{
+                  e.preventDefault();
+                }});
               }});
-            }}
 
-            function zoomInDiagrams() {{
-              currentZoom = currentZoom >= 2 ? 1 : currentZoom + 0.25;
-              document.querySelectorAll('.diagram-container').forEach(container => {{
-                container.style.transform = `scale(${{currentZoom}})`;
-                container.style.transformOrigin = 'top left';
-              }});
-            }}
+              // Fullscreen drag functionality
+              const fullscreenContainer = document.getElementById('fullscreen-image-container');
+              const fullscreenImg = document.getElementById('fullscreen-image');
 
-            function resetDiagrams() {{
-              currentZoom = 1;
-              document.querySelectorAll('.diagram-container').forEach(container => {{
-                container.style.transform = 'scale(1)';
-              }});
-            }}
+              fullscreenContainer.addEventListener('mousedown', dragStart);
+              document.addEventListener('mousemove', drag);
+              document.addEventListener('mouseup', dragEnd);
 
-            function exportDiagrams() {{
-              const diagrams = document.querySelectorAll('.diagram-card');
-              let exportText = 'ULTRATHINK DEPENDENCY MAP EXPORT\\n';
-              exportText += 'Generated: ' + new Date().toISOString() + '\\n\\n';
+              // Zoom with scroll
+              fullscreenContainer.addEventListener('wheel', function(e) {{
+                e.preventDefault();
+                const scale = e.deltaY < 0 ? 1.1 : 0.9;
+                const currentTransform = fullscreenContainer.style.transform || 'scale(1) translate(0px, 0px)';
+                const match = currentTransform.match(/scale\(([\d.]+)\)\s+translate\(([-\d.]+)px,\s*([-\d.]+)px\)/);
 
-              diagrams.forEach((diagram, index) => {{
-                const title = diagram.querySelector('h4').textContent.trim();
-                const mermaidCode = diagram.querySelector('.mermaid').textContent.trim();
-                exportText += `=== DIAGRAM ${{index + 1}}: ${{title}} ===\\n`;
-                exportText += mermaidCode + '\\n\\n';
+                if (match) {{
+                  const currentScale = parseFloat(match[1]);
+                  const newScale = Math.min(Math.max(currentScale * scale, 0.1), 5);
+                  fullscreenContainer.style.transform = `scale(${{newScale}}) translate(${{xOffset}}px, ${{yOffset}}px)`;
+                }}
               }});
 
-              // Create download
-              const blob = new Blob([exportText], {{ type: 'text/plain' }});
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement('a');
-              a.href = url;
-              a.download = 'ultrathink-dependency-map-export.txt';
-              a.click();
-              URL.revokeObjectURL(url);
+              // ESC to close
+              document.addEventListener('keydown', function(e) {{
+                if (e.key === 'Escape') {{
+                  closeFullscreen();
+                }}
+              }});
+            }});
+
+            function dragStart(e) {{
+              const fullscreenContainer = document.getElementById('fullscreen-image-container');
+              if (e.target === fullscreenContainer || e.target === fullscreenContainer.firstElementChild) {{
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+                isDragging = true;
+                fullscreenContainer.style.cursor = 'grabbing';
+              }}
             }}
 
-            function showDiagramHelp() {{
-              alert('🚀 ULTRATHINK DEPENDENCY MAP HELP\\n\\n' +
-                    '• 5 Smart Diagrams: Each diagram shows different aspects of your codebase\\n' +
-                    '• Risk Levels: GREEN (Low) → YELLOW (Medium) → RED (High) → DARK RED (Critical)\\n' +
-                    '• Interactive Controls: Zoom, export, and toggle diagrams\\n' +
-                    '• Real Analysis: Based on actual code scanning and dependency mapping\\n\\n' +
-                    'This is the most comprehensive dependency analysis available!');
+            function drag(e) {{
+              if (isDragging) {{
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                xOffset = currentX;
+                yOffset = currentY;
+
+                const fullscreenContainer = document.getElementById('fullscreen-image-container');
+                const currentTransform = fullscreenContainer.style.transform || 'scale(1) translate(0px, 0px)';
+                const match = currentTransform.match(/scale\(([\d.]+)\)\s+translate\(([-\d.]+)px,\s*([-\d.]+)px\)/);
+
+                if (match) {{
+                  const currentScale = match[1];
+                  fullscreenContainer.style.transform = `scale(${{currentScale}}) translate(${{currentX}}px, ${{currentY}}px)`;
+                }}
+              }}
             }}
 
-            // Initialize when ready
-            console.log('🚀 ULTRATHINK DEPENDENCY MAP LOADED');
+            function dragEnd(e) {{
+              isDragging = false;
+              const fullscreenContainer = document.getElementById('fullscreen-image-container');
+              fullscreenContainer.style.cursor = 'grab';
+            }}
           </script>
+
+          <!-- ♿ ACCESSIBILITY ENHANCEMENT STYLES -->
+          <style>
+            /* High Contrast Modes */
+            body.contrast-high {{
+              --surface-1: #000000;
+              --surface-2: #1a1a1a;
+              --surface-3: #2a2a2a;
+              --text: #ffffff;
+              --text-secondary: #e0e0e0;
+              --muted: #b0b0b0;
+              --accent: #0066ff;
+              --border: #404040;
+              --black-20: rgba(255,255,255,0.2);
+            }}
+
+            body.contrast-very-high {{
+              --surface-1: #000000;
+              --surface-2: #000000;
+              --surface-3: #1a1a1a;
+              --text: #ffffff;
+              --text-secondary: #ffffff;
+              --muted: #ffffff;
+              --accent: #ffff00;
+              --border: #ffffff;
+              --black-20: rgba(255,255,255,0.3);
+            }}
+
+            /* Enhanced Focus Indicators */
+            .enhanced-focus button:focus,
+            .enhanced-focus input:focus,
+            .enhanced-focus select:focus,
+            .enhanced-focus [tabindex="0"]:focus {{
+              outline: 3px solid #6366f1 !important;
+              outline-offset: 2px !important;
+              box-shadow: 0 0 0 2px #1e293b !important;
+            }}
+
+            /* Large Click Targets */
+            .large-target {{
+              min-height: 44px !important;
+              min-width: 44px !important;
+              padding: 12px 20px !important;
+              font-size: 16px !important;
+            }}
+
+            /* Diagram Card Hover Effects */
+            .diagram-card:hover {{
+              transform: translateY(-2px);
+              box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+              border-color: var(--accent);
+            }}
+
+            .diagram-card:focus {{
+              outline: 2px solid var(--accent);
+              outline-offset: 2px;
+            }}
+
+            /* Smooth Animations */
+            .diagram-card,
+            .fullscreen-hologram,
+            .accessibility-panel {{
+              transition: all 0.3s ease;
+            }}
+
+            /* Reduced Motion */
+            @media (prefers-reduced-motion: reduce) {{
+              .diagram-card,
+              .fullscreen-hologram,
+              .accessibility-panel {{
+                transition: none !important;
+              }}
+            }}
+
+            /* Screen Reader Only Text */
+            .sr-only {{
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              padding: 0;
+              margin: -1px;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              white-space: nowrap;
+              border: 0;
+            }}
+
+            /* Keyboard Navigation Visual Cues */
+            [tabindex="0"]:hover {{
+              cursor: pointer;
+            }}
+
+            /* Hologram Container Accessibility */
+            #fullscreen-hologram[aria-hidden="true"] {{
+              visibility: hidden;
+            }}
+
+            #fullscreen-hologram[aria-hidden="false"] {{
+              visibility: visible;
+            }}
+
+            /* Accessibility Panel Improvements */
+            .accessibility-panel select:focus,
+            .accessibility-panel input:focus {{
+              outline: 2px solid var(--accent);
+              outline-offset: 2px;
+            }}
+
+            .accessibility-section label {{
+              display: block;
+              margin-bottom: 8px;
+              font-weight: 500;
+              cursor: pointer;
+            }}
+
+            .accessibility-section label:hover {{
+              color: var(--accent);
+            }}
+          </style>
 
           <!-- 🎯 ADVANCED ACTIONS -->
           <div class="dependency-actions" style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">

@@ -1,0 +1,26 @@
+{
+  "name": "universal-viewer",
+  "version": "1.0.0",
+  "description": "Universal Viewer - AI-Controlled Underwater Desktop Environment",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter desktop dev",
+    "build": "pnpm --filter desktop build",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint packages --ext .ts,.tsx",
+    "clean": "pnpm --recursive clean"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "vite": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

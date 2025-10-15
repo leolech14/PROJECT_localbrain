@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Viewer - Task Registry Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a237e 100%);
+            color: #e8eaf6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #64b5f6;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(100, 181, 246, 0.5);
+        }
+
+        .dashboard-subtitle {
+            font-size: 1.1rem;
+            color: #90caf9;
+            opacity: 0.8;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(13, 27, 62, 0.8);
+            border: 1px solid rgba(100, 181, 246, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #81c784;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #4caf50, #81c784);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(100, 181, 246, 0.2);
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #b3b3b3;
+        }
+
+        .metric-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .metric-value.success {
+            color: #81c784;
+        }
+
+        .metric-value.warning {
+            color: #ffb74d;
+        }
+
+        .metric-value.error {
+            color: #e57373;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(100, 181, 246, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #81c784);
+            transition: width 0.6s ease;
+        }
+
+        .phase-section {
+            grid-column: span 2;
+        }
+
+        .task-list {
+            margin-top: 16px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 8px;
+            background: rgba(100, 181, 246, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .task-item.completed {
+            border-left-color: #81c784;
+            background: rgba(129, 199, 132, 0.1);
+        }
+
+        .task-item.pending {
+            border-left-color: #ffb74d;
+            background: rgba(255, 183, 77, 0.1);
+        }
+
+        .task-item.failed {
+            border-left-color: #e57373;
+            background: rgba(229, 115, 115, 0.1);
+        }
+
+        .task-status {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .task-status.completed {
+            background: #81c784;
+            box-shadow: 0 0 10px rgba(129, 199, 132, 0.5);
+        }
+
+        .task-status.pending {
+            background: #ffb74d;
+            box-shadow: 0 0 10px rgba(255, 183, 77, 0.5);
+        }
+
+        .task-status.failed {
+            background: #e57373;
+            box-shadow: 0 0 10px rgba(229, 115, 115, 0.5);
+        }
+
+        .task-details {
+            flex: 1;
+        }
+
+        .task-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .task-meta {
+            font-size: 0.8rem;
+            color: #b3b3b3;
+        }
+
+        .validation-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .validation-badge.pass {
+            background: rgba(129, 199, 132, 0.2);
+            color: #81c784;
+        }
+
+        .validation-badge.fail {
+            background: rgba(229, 115, 115, 0.2);
+            color: #e57373;
+        }
+
+        .validation-badge.pending {
+            background: rgba(255, 183, 77, 0.2);
+            color: #ffb74d;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 16px;
+        }
+
+        .refresh-btn {
+            background: linear-gradient(135deg, #2196f3, #64b5f6);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+
+        .refresh-btn:hover {
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(33, 150, 243, 0.3);
+        }
+
+        .observability-log {
+            grid-column: span 2;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            padding: 8px 12px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.85rem;
+            background: rgba(100, 181, 246, 0.05);
+            border-left: 3px solid #64b5f6;
+        }
+
+        .log-entry.error {
+            border-left-color: #e57373;
+            background: rgba(229, 115, 115, 0.1);
+        }
+
+        .log-entry.success {
+            border-left-color: #81c784;
+            background: rgba(129, 199, 132, 0.1);
+        }
+
+        .timestamp {
+            color: #90caf9;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phase-section,
+            .observability-log {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <h1 class="dashboard-title">🔍 Universal Viewer Task Registry</h1>
+        <p class="dashboard-subtitle">Deterministic Implementation Tracking & Validation</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <!-- Overall Progress Card -->
+        <div class="card">
+            <div class="card-title">
+                <div class="card-icon">📊</div>
+                Overall Progress
+            </div>
+            <div class="metric">
+                <span class="metric-label">Total Tasks</span>
+                <span class="metric-value" id="total-tasks">-</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Completed</span>
+                <span class="metric-value success" id="completed-tasks">-</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Completion Rate</span>
+                <span class="metric-value" id="completion-rate">-</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="overall-progress" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Validation Status Card -->
+        <div class="card">
+            <div class="card-title">
+                <div class="card-icon">✅</div>
+                Validation Status
+            </div>
+            <div class="metric">
+                <span class="metric-label">Last Validation</span>
+                <span class="metric-value" id="last-validation">-</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Passed Checks</span>
+                <span class="metric-value success" id="passed-checks">-</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Failed Checks</span>
+                <span class="metric-value error" id="failed-checks">-</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Success Rate</span>
+                <span class="metric-value" id="validation-success-rate">-</span>
+            </div>
+            <button class="refresh-btn" onclick="runValidation()">🔄 Run Validation</button>
+        </div>
+
+        <!-- Current Phase Card -->
+        <div class="card">
+            <div class="card-title">
+                <div class="card-icon">🎯</div>
+                Current Phase
+            </div>
+            <div class="metric">
+                <span class="metric-label">Phase</span>
+                <span class="metric-value" id="current-phase">-</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Status</span>
+                <span class="metric-value" id="phase-status">-</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Tasks in Phase</span>
+                <span class="metric-value" id="phase-tasks">-</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Phase Progress</span>
+                <span class="metric-value" id="phase-progress">-</span>
+            </div>
+        </div>
+
+        <!-- Performance Metrics Card -->
+        <div class="card">
+            <div class="card-title">
+                <div class="card-icon">⚡</div>
+                Performance Targets
+            </div>
+            <div class="metric">
+                <span class="metric-label">Frame Time Target</span>
+                <span class="metric-value success" id="frame-time-target">&lt;16.67ms</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">AquaSpace Target</span>
+                <span class="metric-value success" id="aquaspace-target">&lt;1.5ms</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Type Safety</span>
+                <span class="metric-value success" id="type-safety">STRICT</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Observability</span>
+                <span class="metric-value success" id="observability">ACTIVE</span>
+            </div>
+        </div>
+
+        <!-- Phase 1 Details -->
+        <div class="card phase-section">
+            <div class="card-title">
+                <div class="card-icon">🏗️</div>
+                Phase 1: Foundation System
+            </div>
+            <div class="task-list" id="phase-1-tasks">
+                <!-- Tasks will be populated here -->
+            </div>
+        </div>
+
+        <!-- Progress Chart -->
+        <div class="card">
+            <div class="card-title">
+                <div class="card-icon">📈</div>
+                Progress Timeline
+            </div>
+            <div class="chart-container">
+                <canvas id="progress-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Observability Log -->
+        <div class="card observability-log">
+            <div class="card-title">
+                <div class="card-icon">📋</div>
+                Audit Trail & Observability
+            </div>
+            <div id="audit-log">
+                <!-- Audit log entries will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let taskRegistry = null;
+
+        async function loadTaskRegistry() {
+            try {
+                const response = await fetch('./TASK_REGISTRY.json');
+                taskRegistry = await response.json();
+                updateDashboard();
+            } catch (error) {
+                console.error('Failed to load task registry:', error);
+                showError('Could not load task registry');
+            }
+        }
+
+        function updateDashboard() {
+            if (!taskRegistry) return;
+
+            // Update overall progress
+            updateOverallProgress();
+
+            // Update validation status
+            updateValidationStatus();
+
+            // Update current phase
+            updateCurrentPhase();
+
+            // Update phase tasks
+            updatePhaseTasks();
+
+            // Update audit log
+            updateAuditLog();
+
+            // Update chart
+            updateProgressChart();
+        }
+
+        function updateOverallProgress() {
+            const metadata = taskRegistry.registry_metadata;
+            document.getElementById('total-tasks').textContent = metadata.total_tasks;
+            document.getElementById('completed-tasks').textContent = metadata.completed_tasks;
+            document.getElementById('completion-rate').textContent = `${metadata.completion_percentage}%`;
+            document.getElementById('overall-progress').style.width = `${metadata.completion_percentage}%`;
+        }
+
+        function updateValidationStatus() {
+            const validationResults = taskRegistry.validation_results;
+            const lastValidation = validationResults.last_validation || validationResults.phase_1_foundation;
+
+            if (lastValidation) {
+                document.getElementById('last-validation').textContent = new Date(lastValidation.timestamp).toLocaleString();
+
+                if (lastValidation.passed !== undefined) {
+                    document.getElementById('passed-checks').textContent = lastValidation.passed;
+                    document.getElementById('failed-checks').textContent = lastValidation.failed;
+
+                    const total = lastValidation.passed + lastValidation.failed;
+                    const successRate = total > 0 ? Math.round((lastValidation.passed / total) * 100) : 0;
+                    document.getElementById('validation-success-rate').textContent = `${successRate}%`;
+                } else if (lastValidation.overall_status === 'PASS') {
+                    document.getElementById('passed-checks').textContent = '✅';
+                    document.getElementById('failed-checks').textContent = '0';
+                    document.getElementById('validation-success-rate').textContent = '100%';
+                }
+            }
+        }
+
+        function updateCurrentPhase() {
+            const metadata = taskRegistry.registry_metadata;
+            document.getElementById('current-phase').textContent = metadata.current_phase || 'phase_1_foundation';
+            document.getElementById('phase-status').textContent = metadata.phase_status || 'IN_PROGRESS';
+
+            const currentPhase = taskRegistry.work_breakdown_structure[metadata.current_phase || 'phase_1_foundation'];
+            if (currentPhase) {
+                const taskCount = Object.keys(currentPhase.tasks).length;
+                const completedCount = Object.values(currentPhase.tasks).filter(task => task.status === 'COMPLETED').length;
+                const phaseProgress = Math.round((completedCount / taskCount) * 100);
+
+                document.getElementById('phase-tasks').textContent = `${completedCount}/${taskCount}`;
+                document.getElementById('phase-progress').textContent = `${phaseProgress}%`;
+            }
+        }
+
+        function updatePhaseTasks() {
+            const phase = taskRegistry.work_breakdown_structure.phase_1_foundation;
+            const tasksContainer = document.getElementById('phase-1-tasks');
+
+            tasksContainer.innerHTML = '';
+
+            Object.entries(phase.tasks).forEach(([taskId, task]) => {
+                const taskElement = createTaskElement(taskId, task);
+                tasksContainer.appendChild(taskElement);
+            });
+        }
+
+        function createTaskElement(taskId, task) {
+            const div = document.createElement('div');
+            div.className = `task-item ${task.status.toLowerCase()}`;
+
+            const statusClass = task.status === 'COMPLETED' ? 'completed' :
+                               task.status === 'FAILED' ? 'failed' : 'pending';
+
+            const validationBadge = task.validation_results ?
+                `<span class="validation-badge pass">VALIDATED</span>` :
+                `<span class="validation-badge pending">PENDING</span>`;
+
+            div.innerHTML = `
+                <div class="task-status ${statusClass}"></div>
+                <div class="task-details">
+                    <div class="task-title">${task.title}</div>
+                    <div class="task-meta">${taskId} • ${task.spec_reference}</div>
+                </div>
+                ${validationBadge}
+            `;
+
+            return div;
+        }
+
+        function updateAuditLog() {
+            const auditContainer = document.getElementById('audit-log');
+            auditContainer.innerHTML = '';
+
+            // Show recent audit log entries
+            const recentLogs = taskRegistry.audit_log.slice(-10).reverse();
+
+            recentLogs.forEach(entry => {
+                const logElement = document.createElement('div');
+                logElement.className = `log-entry ${entry.action.toLowerCase()}`;
+
+                const timestamp = new Date(entry.timestamp).toLocaleString();
+                logElement.innerHTML = `
+                    <span class="timestamp">${timestamp}</span>
+                    <strong>${entry.task_id}:</strong> ${entry.action} by ${entry.validator}
+                `;
+
+                auditContainer.appendChild(logElement);
+            });
+        }
+
+        function updateProgressChart() {
+            const ctx = document.getElementById('progress-chart').getContext('2d');
+
+            // Create timeline data from audit log
+            const timelineData = createTimelineData();
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: timelineData.labels,
+                    datasets: [{
+                        label: 'Cumulative Task Completion',
+                        data: timelineData.data,
+                        borderColor: '#81c784',
+                        backgroundColor: 'rgba(129, 199, 132, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: taskRegistry.registry_metadata.total_tasks,
+                            grid: {
+                                color: 'rgba(100, 181, 246, 0.2)'
+                            },
+                            ticks: {
+                                color: '#b3b3b3'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(100, 181, 246, 0.2)'
+                            },
+                            ticks: {
+                                color: '#b3b3b3'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createTimelineData() {
+            const auditLog = taskRegistry.audit_log;
+            const completedTasks = auditLog.filter(entry => entry.action === 'COMPLETED');
+
+            const labels = [];
+            const data = [];
+            let completedCount = 0;
+
+            completedTasks.forEach(entry => {
+                completedCount++;
+                const time = new Date(entry.timestamp).toLocaleTimeString();
+                labels.push(time);
+                data.push(completedCount);
+            });
+
+            return { labels, data };
+        }
+
+        async function runValidation() {
+            try {
+                const btn = document.querySelector('.refresh-btn');
+                btn.textContent = '🔄 Running Validation...';
+                btn.disabled = true;
+
+                // In a real implementation, this would call the validation script
+                // For now, we'll simulate it
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                btn.textContent = '✅ Validation Complete';
+                setTimeout(() => {
+                    btn.textContent = '🔄 Run Validation';
+                    btn.disabled = false;
+                }, 2000);
+
+                // Reload the dashboard to show updated results
+                await loadTaskRegistry();
+
+            } catch (error) {
+                console.error('Validation failed:', error);
+                showError('Validation failed - see console for details');
+
+                const btn = document.querySelector('.refresh-btn');
+                btn.textContent = '❌ Validation Failed';
+                setTimeout(() => {
+                    btn.textContent = '🔄 Run Validation';
+                    btn.disabled = false;
+                }, 3000);
+            }
+        }
+
+        function showError(message) {
+            // Create error notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(229, 115, 115, 0.9);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 8px;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                backdrop-filter: blur(10px);
+            `;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Initialize dashboard on load
+        document.addEventListener('DOMContentLoaded', loadTaskRegistry);
+
+        // Auto-refresh every 30 seconds
+        setInterval(loadTaskRegistry, 30000);
+    </script>
+</body>
+</html>

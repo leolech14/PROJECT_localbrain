@@ -1,0 +1,630 @@
+{
+  "generated": "2025-10-15",
+  "files": [
+    {
+      "path": "INDEX.md",
+      "bytes": 1207,
+      "sha256": "965fc5e9aa02598c3d996320dd42ff86b06f8a51680d70aa8a950641db305a5e"
+    },
+    {
+      "path": "MANIFEST.json",
+      "bytes": 21657,
+      "sha256": "d2d7af8a7d6819e6111c3ef5f9001bddfd9e434f1a4846cbae4e8cb4ab872826"
+    },
+    {
+      "path": "batch1-core-runtime/1-mod/CAMERA_AND_NAVIGATION.md",
+      "bytes": 1277,
+      "sha256": "899069ed4cb74f23c489f52dd056895906b58ef1bd36d4f9bbeb389bbc2aea65"
+    },
+    {
+      "path": "batch1-core-runtime/1-mod/LAYER_API.md",
+      "bytes": 2413,
+      "sha256": "dc448b8ca606581e64a7f2857e4c3eed2cbe9fdf2e58c732561209e0e4a0c88c"
+    },
+    {
+      "path": "batch1-core-runtime/1-mod/MATERIAL_AND_STYLE_ENGINE.md",
+      "bytes": 1659,
+      "sha256": "6b188f24566deba134ac61be5084b2f1604f7a2fcae3e468dbfd7711faf77c3e"
+    },
+    {
+      "path": "batch1-core-runtime/1-mod/PICKING_AND_SELECTION.md",
+      "bytes": 1591,
+      "sha256": "85f114fdf5b164d145e38bd85c05062b6191c84a1a1d24639e6411eaad124819"
+    },
+    {
+      "path": "batch1-core-runtime/1-mod/RENDER_CORE_ADAPTER.md",
+      "bytes": 2599,
+      "sha256": "4f310daadd46578702723da65f7e910fad89df130d3a7abb7b64b526b48cba9a"
+    },
+    {
+      "path": "batch1-core-runtime/1-mod/SCENE_GRAPH_AND_DEPENDENCIES.md",
+      "bytes": 1479,
+      "sha256": "2e6db5fee63a328dc17cdf669e267898fd1a9e1c33dc67d9599662fe856ce17a"
+    },
+    {
+      "path": "batch1-core-runtime/1-mod/TRANSFORM_AND_CRS_SERVICE.md",
+      "bytes": 1532,
+      "sha256": "5eee19115e62af4a5a329a4eebfac1c59b96bd2e607f6ac9d1755137a8cc9935"
+    },
+    {
+      "path": "batch1-core-runtime/2-scf/APP_SHELL_ELECTRON.md",
+      "bytes": 1563,
+      "sha256": "78d2e9a50fa5fc6f991404bb2f838802e7045c54e337a816f447ef22c31dd614"
+    },
+    {
+      "path": "batch1-core-runtime/2-scf/PANEL_LAYOUT.md",
+      "bytes": 1180,
+      "sha256": "ac2c3c9ab1d4c09f93078fa02e3e57e77f740c92b184a7864e1ac8a76de2c4ee"
+    },
+    {
+      "path": "batch1-core-runtime/IMPLEMENTATION_REPORT.md",
+      "bytes": 1239,
+      "sha256": "2a23bdff20dd1593ffeb61e3eecf8a3e459b927d0a4477efff4fbc84c0c8dacd"
+    },
+    {
+      "path": "batch1-core-runtime/README.md",
+      "bytes": 494,
+      "sha256": "ee5e219ee14c7e06719645eabcfc02a00b8f9a970faf4da2c25e550eda5810cb"
+    },
+    {
+      "path": "batch10-build-test-release-docs/5-ops/BENCHMARKS_AND_GATES.md",
+      "bytes": 1646,
+      "sha256": "721a7cfdf65390c722d217b60c00ca114c53eec293a2a450363b81ac6929fa39"
+    },
+    {
+      "path": "batch10-build-test-release-docs/5-ops/BUILD_AND_SIGNING.md",
+      "bytes": 1855,
+      "sha256": "2149f60cbcb5952340eb6e6e2a764ad65841773c49c22d1ad0b51f8240ad7450"
+    },
+    {
+      "path": "batch10-build-test-release-docs/5-ops/CI_CD_PIPELINE.md",
+      "bytes": 1967,
+      "sha256": "ed6f0b10214c7bc900e8017616ef0411cff4c8852054b83b7d02cbaee82e4c87"
+    },
+    {
+      "path": "batch10-build-test-release-docs/5-ops/DOCUMENTATION_PLAN.md",
+      "bytes": 1506,
+      "sha256": "3a7fe2f163a6b0553d4abba3636101c61354b7205ef09310bdf291eaf4f86719"
+    },
+    {
+      "path": "batch10-build-test-release-docs/5-ops/GPU_TEST_HARNESS.md",
+      "bytes": 1691,
+      "sha256": "2c20d8082a95a5e4e280ff2968f619f7996e448115fc7c33a09572ff1c5066cc"
+    },
+    {
+      "path": "batch10-build-test-release-docs/5-ops/PACKAGING_AND_RELEASES.md",
+      "bytes": 1615,
+      "sha256": "b500236b45eed97b23809bd91b4897926a82ed73e71d3b3ddfe69c5aabb734ae"
+    },
+    {
+      "path": "batch10-build-test-release-docs/5-ops/SUPPORT_MATRIX.md",
+      "bytes": 1431,
+      "sha256": "8400125949c6a6dc48489a6621e3730fe90b8ee39b5854af00e24963dc9a35f3"
+    },
+    {
+      "path": "batch10-build-test-release-docs/5-ops/TEST_STRATEGY.md",
+      "bytes": 1677,
+      "sha256": "3750ff58e23969acb1308476dd8e48ac6650bf9bd70677e4e8f7833cea6fe370"
+    },
+    {
+      "path": "batch10-build-test-release-docs/IMPLEMENTATION_REPORT.md",
+      "bytes": 1677,
+      "sha256": "36816692888705fad1f08651f997e04e5de7d12b273904176efc1a83e0ec02a9"
+    },
+    {
+      "path": "batch10-build-test-release-docs/README.md",
+      "bytes": 680,
+      "sha256": "d040c0783bcfd0e4dff2274ccf32cd440765cda0a1473c658032e8c21691c1ff"
+    },
+    {
+      "path": "batch11-scripting-extensibility/1-mod/PLUGIN_MODEL.md",
+      "bytes": 2649,
+      "sha256": "afd6851e50b461d4a4102640589cb6bfc39bb1da39d12c31e42d5bc431392568"
+    },
+    {
+      "path": "batch11-scripting-extensibility/1-mod/PYTHON_BRIDGE.md",
+      "bytes": 1892,
+      "sha256": "fe70b4e3db702d973eb1e88e5c44ba61a146506ae921c9af396e78b20d633882"
+    },
+    {
+      "path": "batch11-scripting-extensibility/1-mod/SCRIPTING_ENGINE_JS.md",
+      "bytes": 3009,
+      "sha256": "f81ca8b7f9a4e77d1c4298f58e8b06101b930ab09e2e59a07fea47ae1f175b7f"
+    },
+    {
+      "path": "batch11-scripting-extensibility/3-cfg/SCRIPTING_POLICY.md",
+      "bytes": 1869,
+      "sha256": "290e2f9c3cd31e879ba2231b2baa1da4355f8aa1b43a03c5bdcb93157cebaa70"
+    },
+    {
+      "path": "batch11-scripting-extensibility/IMPLEMENTATION_REPORT.md",
+      "bytes": 1941,
+      "sha256": "899967b8309e41f82cf403598908901e0331537785408391599774bcad637af6"
+    },
+    {
+      "path": "batch11-scripting-extensibility/README.md",
+      "bytes": 622,
+      "sha256": "2981feb2ec526091671f74310d663cc1a73d46da9edd13f9207e9c950128917d"
+    },
+    {
+      "path": "batch12-context-integration/1-mod/DRAG_AND_DROP_UX.md",
+      "bytes": 2013,
+      "sha256": "ac1f99f2484c71a3b29ca903d5712582129fd3c6ae0d89a006558ee5b35c1740"
+    },
+    {
+      "path": "batch12-context-integration/1-mod/ERROR_HANDLING_AND_RECOVERY.md",
+      "bytes": 1734,
+      "sha256": "0736a93af7176106b99bb8a081f3dd1abc60345c703e14f40f29ebbf69ac42d9"
+    },
+    {
+      "path": "batch12-context-integration/1-mod/FILE_EXPLORER_AND_PREVIEW.md",
+      "bytes": 1881,
+      "sha256": "f580166999496139d81323a0320400325543e9a1588f259420e696baecb80b99"
+    },
+    {
+      "path": "batch12-context-integration/1-mod/NOTIFICATIONS_AND_TASK_CENTER.md",
+      "bytes": 1691,
+      "sha256": "8665fb804df7d8f225699143464816e5f09d776623acdc7712eef69d3e94e3ad"
+    },
+    {
+      "path": "batch12-context-integration/1-mod/RECENTS_AND_PROJECT_HUB.md",
+      "bytes": 1609,
+      "sha256": "c56dfa6e69180d802ef7d9e6f5922e8f70d93a986fce08d1612bafae6200835b"
+    },
+    {
+      "path": "batch12-context-integration/2-scf/KEYMAP_AND_SHORTCUTS_OVERLAY.md",
+      "bytes": 1467,
+      "sha256": "bf5d9b70bb5d12b5163f424827535b5e431c7474cafa459ea05a6f1f36369989"
+    },
+    {
+      "path": "batch12-context-integration/2-scf/ONBOARDING_AND_HELP.md",
+      "bytes": 1541,
+      "sha256": "28c64b68601ffd27390675fec55f3044023584aa322d936062e69821725174ad"
+    },
+    {
+      "path": "batch12-context-integration/3-cfg/CONSENT_AND_PRIVACY_SURFACES.md",
+      "bytes": 1607,
+      "sha256": "c5774e2cc499f37a0b6749cd76307f04a0521416586dbabb102c15d9acf1d75e"
+    },
+    {
+      "path": "batch12-context-integration/3-cfg/STARTUP_PROFILES_AND_TEMPLATES.md",
+      "bytes": 1487,
+      "sha256": "f7cfcce4bc4971ead23b12dfdb1ebad48d87d3bab8d8d09af68559148b5b993d"
+    },
+    {
+      "path": "batch12-context-integration/IMPLEMENTATION_REPORT.md",
+      "bytes": 2232,
+      "sha256": "0117392c9ab24f06a25e95b4d29dfdda9e8b3fc0b3fe003a13748c2eec117ae9"
+    },
+    {
+      "path": "batch12-context-integration/README.md",
+      "bytes": 866,
+      "sha256": "05dffac1ddfa4ba352ff0dc4b3cd5c00992dfb91a2b1af60b0e851c32fa76ce1"
+    },
+    {
+      "path": "batch13-ai-control-plane/1-mod/AI_CONTROL_PLANE.md",
+      "bytes": 2287,
+      "sha256": "f9562bd455fd556a55c4e0a2d39cddd53d6e9ce7cc16a76f0d4f71f6130cb03f"
+    },
+    {
+      "path": "batch13-ai-control-plane/1-mod/CONTROL_REFLECTION_PROTOCOL.md",
+      "bytes": 1673,
+      "sha256": "a6d1902c72e736e41d1336be1f08b44620b68503484831fbfc34996541388620"
+    },
+    {
+      "path": "batch13-ai-control-plane/1-mod/LOCALBRAIN_BRIDGE.md",
+      "bytes": 1833,
+      "sha256": "bc2e7dd52f9d94a0c26b4ed1ebc07e3896d2754791ddbee126304de21de5c46c"
+    },
+    {
+      "path": "batch13-ai-control-plane/1-mod/UNIVERSAL_CONTROL_CONTRACT.md",
+      "bytes": 2673,
+      "sha256": "35cd6269dbd8d6c53cff9a33988349ba31cc99566e22f2cba54132a5c18ce314"
+    },
+    {
+      "path": "batch13-ai-control-plane/2-scf/VOICE_HUD_WIDGET.md",
+      "bytes": 1665,
+      "sha256": "97b505be33213a759e56826331c6c65ad9b47487a0ff1e7c2c90cbdd2c4210f4"
+    },
+    {
+      "path": "batch13-ai-control-plane/3-cfg/AI_POLICY_LIMITS.md",
+      "bytes": 1811,
+      "sha256": "a8ee3ec4c308e06c87850b8d953472f01c295dc9d01392ac1bb675c75c3ea0fe"
+    },
+    {
+      "path": "batch13-ai-control-plane/3-cfg/UV_INTENT_SCHEMA.md",
+      "bytes": 1722,
+      "sha256": "e616ee517caa897efc8cbea233a83a07970b2c2c613fc641805b9e23ab7a174e"
+    },
+    {
+      "path": "batch13-ai-control-plane/4-gov/AI_USER_ACCESS_AND_ROLES.md",
+      "bytes": 1709,
+      "sha256": "a5357e0e1cdaa70900b88ca80d498598b3d7a6dbd8805d4b2190232d2f1f7c81"
+    },
+    {
+      "path": "batch13-ai-control-plane/IMPLEMENTATION_REPORT.md",
+      "bytes": 2596,
+      "sha256": "9e108af356ed50600d989967d0258babadac28a759f502cbc01a3cdc752885de"
+    },
+    {
+      "path": "batch13-ai-control-plane/README.md",
+      "bytes": 817,
+      "sha256": "f09f962f84eae80172b664e03499eb707f04e18661801dc6801257934d2b43e8"
+    },
+    {
+      "path": "batch13-ambient-ui-agentic-control/1-mod/AGENT_BRIDGE.md",
+      "bytes": 1879,
+      "sha256": "58fa2b496f2a36a94e556b50f5a9754e043444fd52465c49c1b50132e4967604"
+    },
+    {
+      "path": "batch13-ambient-ui-agentic-control/1-mod/AMBIENT_SCENE.md",
+      "bytes": 1799,
+      "sha256": "151f6dbd98f21d030890f65ee27afd1bfa8307306ced028eb2227cef28725059"
+    },
+    {
+      "path": "batch13-ambient-ui-agentic-control/1-mod/INTENT_SCHEMA.md",
+      "bytes": 1958,
+      "sha256": "32d879efc0fff376a3b851c88665c4db63575acd7f444d2428c6dc109a8c59e9"
+    },
+    {
+      "path": "batch13-ambient-ui-agentic-control/1-mod/WIDGET_SYSTEM.md",
+      "bytes": 1691,
+      "sha256": "95d9dc1b0921a0aa96f59e17bb0edc691f876733e97bae4994e2d820895205b7"
+    },
+    {
+      "path": "batch13-ambient-ui-agentic-control/2-scf/SIDEBAR_AND_WIDGET_DOCK.md",
+      "bytes": 1283,
+      "sha256": "fdd6b3f278c797262d55dac6c084ede0870d15585e6dc6773afea51e9b9a75b1"
+    },
+    {
+      "path": "batch13-ambient-ui-agentic-control/2-scf/VOICE_UI_AND_TRANSCRIPTS.md",
+      "bytes": 1472,
+      "sha256": "7c3d9d844aac140020d43ddf10f5fae0670b4f51c3eec1e5bcf836ed92d2ee09"
+    },
+    {
+      "path": "batch13-ambient-ui-agentic-control/3-cfg/AGENT_PERMISSIONS_AND_GUARDS.md",
+      "bytes": 1450,
+      "sha256": "8bb9808da76bce547e2a7e4695db71b19e767edc6422f58cad6604bcd6031484"
+    },
+    {
+      "path": "batch13-ambient-ui-agentic-control/5-ops/PLANNER_VALIDATION_AND_SAFETY.md",
+      "bytes": 1772,
+      "sha256": "4dbb3a46625693f04671c119d81f73d53fafba49bcb9b56a9f5d4c18d7adb58a"
+    },
+    {
+      "path": "batch13-ambient-ui-agentic-control/IMPLEMENTATION_REPORT.md",
+      "bytes": 2108,
+      "sha256": "b480db1635bc5dad9478a59c3116d6e6fd7ab99ee442c0957630199c56055141"
+    },
+    {
+      "path": "batch13-ambient-ui-agentic-control/README.md",
+      "bytes": 710,
+      "sha256": "459797d4838852dd0cef4e65e7a5b5656a4e096ca3e4b9f3efd5ae58e7d64f35"
+    },
+    {
+      "path": "batch2-io-caching-importers/1-mod/CACHE_AND_STORAGE.md",
+      "bytes": 1883,
+      "sha256": "09cf43b2922223dad7984ac8fe4cca845f8ead46162032f5e85710c7056a67b3"
+    },
+    {
+      "path": "batch2-io-caching-importers/1-mod/IMPORTER_PIPELINE.md",
+      "bytes": 2456,
+      "sha256": "62c2bc617e871cbea5781c11d40f756765820ce470a3b424982a9d2df3670933"
+    },
+    {
+      "path": "batch2-io-caching-importers/1-mod/IO_AND_SNIFFERS.md",
+      "bytes": 2434,
+      "sha256": "6186857698ea4d2de52b46768966b318466e38a2c9e4b3920ae6a037f128e93e"
+    },
+    {
+      "path": "batch2-io-caching-importers/1-mod/REALTIME_INGEST.md",
+      "bytes": 1692,
+      "sha256": "5ecc77d4decc22141b9c4ce7ff8759046fac1dabcb3c87cc2362a546da15f4d5"
+    },
+    {
+      "path": "batch2-io-caching-importers/1-mod/TILE_SOURCE_MANAGER.md",
+      "bytes": 1768,
+      "sha256": "2da43af4dac58eb447925de4af88549f8afe810c2da983e6500a89e17d566582"
+    },
+    {
+      "path": "batch2-io-caching-importers/3-cfg/NETWORK_RULES.md",
+      "bytes": 1368,
+      "sha256": "9396c731ddf8b98734f53cff343de24c3408c150f96038dcc2f6a9e8e2f8bd52"
+    },
+    {
+      "path": "batch2-io-caching-importers/5-ops/EXTERNAL_TOOLING.md",
+      "bytes": 1473,
+      "sha256": "4f81835ff851de568b318d693a26314737b891622b8bc9758bbb29ef4923f898"
+    },
+    {
+      "path": "batch2-io-caching-importers/5-ops/SAMPLE_DATASETS.md",
+      "bytes": 1550,
+      "sha256": "1c9204f119d99a833fdbe609a6c6c34b7fd32f805d3e1096da3cb4f4dddfbf08"
+    },
+    {
+      "path": "batch2-io-caching-importers/IMPLEMENTATION_REPORT.md",
+      "bytes": 1757,
+      "sha256": "c10246e3c9ee718ba02514b2fbbea2826d6d2b87cf2ddd624925a757281ce488"
+    },
+    {
+      "path": "batch2-io-caching-importers/README.md",
+      "bytes": 618,
+      "sha256": "34680d1da78904f401713827bd0d7656b773b85b16b2831bf53a57af841f5cfe"
+    },
+    {
+      "path": "batch3-maps-globe-layers/1-mod/GLOBE_3D_LAYER.md",
+      "bytes": 1762,
+      "sha256": "1cdafda5d3435c92802c06cbddc4552a83fbb808c0f660b1763141e6c7e082ad"
+    },
+    {
+      "path": "batch3-maps-globe-layers/1-mod/MAP_2D_LAYER.md",
+      "bytes": 1939,
+      "sha256": "b5c2f1b3b7108903214c4d4107903bf44462ccd3eecb7e4e149c051ada1266a1"
+    },
+    {
+      "path": "batch3-maps-globe-layers/1-mod/RASTER_LAYER.md",
+      "bytes": 1699,
+      "sha256": "fad63f1dd475a45dae6cf201fcfa9c247e915e8aea62d742062d028c9a6bc23c"
+    },
+    {
+      "path": "batch3-maps-globe-layers/1-mod/TERRAIN_LAYER.md",
+      "bytes": 1578,
+      "sha256": "4ab4a484b90143408f05e070c9fc6e41008b983b5fd4bcfc12ede7cbfbf285f5"
+    },
+    {
+      "path": "batch3-maps-globe-layers/1-mod/VECTOR_LAYER.md",
+      "bytes": 2044,
+      "sha256": "d488f928146d8af0347130a5f9898c458f1c4ed34cdd81a06318491d99b12314"
+    },
+    {
+      "path": "batch3-maps-globe-layers/2-scf/MAP_AND_GLOBE_WINDOW.md",
+      "bytes": 1556,
+      "sha256": "8d79b8842538d61d67536a8ea8be5a7f941dc0e42875f925abcea5f46ba1abb3"
+    },
+    {
+      "path": "batch3-maps-globe-layers/2-scf/STYLE_PANEL.md",
+      "bytes": 1662,
+      "sha256": "7b9d12b5fb516e7cabc5e7e81ea941082e816c2b2620c46fd86910e597fee65d"
+    },
+    {
+      "path": "batch3-maps-globe-layers/IMPLEMENTATION_REPORT.md",
+      "bytes": 1537,
+      "sha256": "973f4280cc31930c66f7fe00c4d9e2c6ea2ff40b40b04f609230c59955494d44"
+    },
+    {
+      "path": "batch3-maps-globe-layers/README.md",
+      "bytes": 556,
+      "sha256": "c4ba987592760a8c2fcbfe655c6a271dbee0e2e40d6bfc750f01b78450e32f73"
+    },
+    {
+      "path": "batch4-geometry-tiles-pointcloud/1-mod/MESH_LAYER.md",
+      "bytes": 1899,
+      "sha256": "dc4ac73a8fcde2d6d458e48255656b6f9a0c4d9d26d2184418dcd5af31188bbd"
+    },
+    {
+      "path": "batch4-geometry-tiles-pointcloud/1-mod/POINT_CLOUD_LAYER.md",
+      "bytes": 2135,
+      "sha256": "4e58f72a63d582f83bf2e70a4b4c7af9b8d9ca1e81541b2fafa049a56c7dd9a5"
+    },
+    {
+      "path": "batch4-geometry-tiles-pointcloud/1-mod/TILES_3D_LAYER.md",
+      "bytes": 2113,
+      "sha256": "f0f38ebc186eef14440e08818b50b5f43c4b519963a112fdc23d76796cadcec2"
+    },
+    {
+      "path": "batch4-geometry-tiles-pointcloud/2-scf/INSPECTOR_PANEL.md",
+      "bytes": 1645,
+      "sha256": "96a829c14571bc3d626535ea02fcaad600b2abca6494857f4f3bd995ac07f6a7"
+    },
+    {
+      "path": "batch4-geometry-tiles-pointcloud/2-scf/TRANSFORM_PANEL.md",
+      "bytes": 1713,
+      "sha256": "d7f5f852388a7452e806c0c017ac1227f747bf32ad0f17faf0cfe2be61486aaa"
+    },
+    {
+      "path": "batch4-geometry-tiles-pointcloud/IMPLEMENTATION_REPORT.md",
+      "bytes": 1679,
+      "sha256": "d9039816d5e18ad81b6e4babb9d104b9b7dd7a476dc0561419927cb10b1a3871"
+    },
+    {
+      "path": "batch4-geometry-tiles-pointcloud/README.md",
+      "bytes": 579,
+      "sha256": "d9af6cb4a31f262010d2226304f0eea7c392e7dbcacb0b051eb15f5bcbaf125c"
+    },
+    {
+      "path": "batch5-data-viz-charts/1-mod/CHART_2D_LAYER.md",
+      "bytes": 2182,
+      "sha256": "7fb2c046789d49cc6c6728af4ff029a8205fbce190b439fad9d8a5d728d37d81"
+    },
+    {
+      "path": "batch5-data-viz-charts/1-mod/LINK_BRUSH_ENGINE.md",
+      "bytes": 2230,
+      "sha256": "b359db88fcc6449d78d81d2ecb1b8956d8febca0f8417deceb080b2f1a92298d"
+    },
+    {
+      "path": "batch5-data-viz-charts/1-mod/TABLE_INGEST_ENGINE.md",
+      "bytes": 2840,
+      "sha256": "57a210627e79ecf31afd0b4c0503cef31379168e829b20f6651caef092c6efb0"
+    },
+    {
+      "path": "batch5-data-viz-charts/2-scf/CHARTS_OVERLAY.md",
+      "bytes": 1603,
+      "sha256": "93af467c3856adeeb4f1e7661329a3dd0ed2ef4a9a87db4c297ea84e19144f72"
+    },
+    {
+      "path": "batch5-data-viz-charts/2-scf/DATA_PANEL.md",
+      "bytes": 1710,
+      "sha256": "bf51064de14024110d7fbb103ff7512155edbea1ade61bd6f1b0a0f0beff34e9"
+    },
+    {
+      "path": "batch5-data-viz-charts/IMPLEMENTATION_REPORT.md",
+      "bytes": 1678,
+      "sha256": "ad64285a31aa68a1e3904af9c2e5890c0c06c93f958cbd1441277b69a8a5c5f7"
+    },
+    {
+      "path": "batch5-data-viz-charts/README.md",
+      "bytes": 561,
+      "sha256": "3bbdb4468b1779cee55cf91c6f426ffe2a06421c699a26defe666e73409a8274"
+    },
+    {
+      "path": "batch6-volume-scientific-mode/1-mod/SCIENTIFIC_MODE_BRIDGE.md",
+      "bytes": 2451,
+      "sha256": "f91a083ead80e59e994246d9665d56a0422b91689c866629379508cce108b7ac"
+    },
+    {
+      "path": "batch6-volume-scientific-mode/1-mod/VOLUME_LAYER.md",
+      "bytes": 2745,
+      "sha256": "50bdcdee6b9c2561c74cef151ee88850050545e7b7849fe8402dafe8ab0664d0"
+    },
+    {
+      "path": "batch6-volume-scientific-mode/2-scf/SCIENTIFIC_MODE_WINDOW.md",
+      "bytes": 1795,
+      "sha256": "56eda6e0e968dfb0cad9b3a23644a2d16ed59ad18f347cba610568c3d6703608"
+    },
+    {
+      "path": "batch6-volume-scientific-mode/3-cfg/SCIENTIFIC_MODE_LIMITS.md",
+      "bytes": 1802,
+      "sha256": "b62e8be19c83e4fc9194ddda15bc62abe082626a119c375f8d9728bf841ac2b9"
+    },
+    {
+      "path": "batch6-volume-scientific-mode/IMPLEMENTATION_REPORT.md",
+      "bytes": 1901,
+      "sha256": "310604c2e1c39fa7afb6956194d28afce755af648b2ad430782f366075b155c1"
+    },
+    {
+      "path": "batch6-volume-scientific-mode/README.md",
+      "bytes": 620,
+      "sha256": "c67f379d5138dcfdf493bab347f9f26658195b0da70bfa0bdaab08ec411604f8"
+    },
+    {
+      "path": "batch7-operators-tools-ux/1-mod/CAMERA_PATHS_AND_RECORDING.md",
+      "bytes": 1601,
+      "sha256": "a4acd1fbbd9a8b7c8c7c33479d554885a28eb26cfc0ba7e0b97009d6a5f149ac"
+    },
+    {
+      "path": "batch7-operators-tools-ux/1-mod/COMPARE_TOOLS.md",
+      "bytes": 1617,
+      "sha256": "60a8bcb83fbf5d604a68481266a1c3707c1899aad71adb5a8f6555639bb5a2d1"
+    },
+    {
+      "path": "batch7-operators-tools-ux/1-mod/MEASUREMENT_TOOLS.md",
+      "bytes": 1697,
+      "sha256": "f3349d7185cffa38162886115695576a1b8bbc2b441dd4b54d4e60f5e4f5d658"
+    },
+    {
+      "path": "batch7-operators-tools-ux/1-mod/OPERATORS_AND_UNDO.md",
+      "bytes": 2381,
+      "sha256": "f481aa796cbceda7663169d7b453dafb2ac2730be07560a3c11a708b0fb8935a"
+    },
+    {
+      "path": "batch7-operators-tools-ux/1-mod/PRESET_SYSTEM.md",
+      "bytes": 1502,
+      "sha256": "66fb1a260d6e0e918c14b186a4b38c1bee6ffafb464dd9a990b5200b9f3ecc46"
+    },
+    {
+      "path": "batch7-operators-tools-ux/1-mod/SNAP_AND_ALIGN.md",
+      "bytes": 1621,
+      "sha256": "7042e1ef50d6f6352f6517ee2950a12420d2677540651ff80a9eb20f15b59e8c"
+    },
+    {
+      "path": "batch7-operators-tools-ux/2-scf/COMMAND_PALETTE.md",
+      "bytes": 1305,
+      "sha256": "286892b83ecbef9d162fdb502f9cd12616e4476b2580b85a8a901267e90a800e"
+    },
+    {
+      "path": "batch7-operators-tools-ux/2-scf/LAYERS_PANEL.md",
+      "bytes": 1417,
+      "sha256": "be43c196b6111941634ba33785b162799b9cf0899442694a22f52a4ee8cb715c"
+    },
+    {
+      "path": "batch7-operators-tools-ux/2-scf/OPERATORS_PANEL.md",
+      "bytes": 1328,
+      "sha256": "ec8f3bd93342a24be95cc263d3c6681f20292c69ee898e8c848d6cf0edc606ed"
+    },
+    {
+      "path": "batch7-operators-tools-ux/IMPLEMENTATION_REPORT.md",
+      "bytes": 1946,
+      "sha256": "0fa58727e4651df0dd00c4654b5372cf0f8e58f3dd920c58f8fae66a785e3737"
+    },
+    {
+      "path": "batch7-operators-tools-ux/README.md",
+      "bytes": 659,
+      "sha256": "03201e92100eb741f0a920cd0d3a56fd4b573fa7fc2a2a7c8e3bec1a77ba6f4c"
+    },
+    {
+      "path": "batch8-project-export-save-share/1-mod/EXPORT_SUBSYSTEM.md",
+      "bytes": 2515,
+      "sha256": "0be3f5f446e6df407e7ee3dd23116f0f74dfc16874b65d0bdee0b30a1fc18785"
+    },
+    {
+      "path": "batch8-project-export-save-share/1-mod/PROJECT_FORMAT.md",
+      "bytes": 2529,
+      "sha256": "af763e5669b6602fb9ad38e6ce712f88c3b4c7538bc43c09e038ba56b84c25d9"
+    },
+    {
+      "path": "batch8-project-export-save-share/1-mod/VIEW_RECIPE_LINKS.md",
+      "bytes": 1829,
+      "sha256": "1b0a0f9460744cb3eec47e0836078bea986556d72b59406f1c4f140276f0903f"
+    },
+    {
+      "path": "batch8-project-export-save-share/2-scf/LOGS_AND_PERF_PANEL.md",
+      "bytes": 1583,
+      "sha256": "5849e62b68bab64eec5ab69df584a87318ed3552d7b5246a3632d098f0505448"
+    },
+    {
+      "path": "batch8-project-export-save-share/2-scf/SETTINGS_PANEL.md",
+      "bytes": 1513,
+      "sha256": "1a5f5a6a8d1a9ca3ed47317c83f7e03a92a42d2d191bf9890e1aa57c628207c5"
+    },
+    {
+      "path": "batch8-project-export-save-share/IMPLEMENTATION_REPORT.md",
+      "bytes": 1713,
+      "sha256": "9faa98c6ccb98a3f951787b4051f3e3a1293f4870b018a252000213759959da9"
+    },
+    {
+      "path": "batch8-project-export-save-share/README.md",
+      "bytes": 559,
+      "sha256": "960150a9eca1c115d0326308b9bd200f59bb9cd3157f0e66d8069676d299e661"
+    },
+    {
+      "path": "batch9-observability-security-governance/1-mod/EVENT_BUS_AND_AGENTS.md",
+      "bytes": 2086,
+      "sha256": "f3e97833b5e8b89ae79ec6235770741c6473ffc52c3c21b691964b49c7e70717"
+    },
+    {
+      "path": "batch9-observability-security-governance/1-mod/PERMISSIONS_SERVICE.md",
+      "bytes": 2154,
+      "sha256": "f45000873e30de14626c7da147324d5f3b69806e0fd334e08b04d06f6fc33305"
+    },
+    {
+      "path": "batch9-observability-security-governance/1-mod/PROFILER_AND_METRICS.md",
+      "bytes": 1929,
+      "sha256": "ff8bbda99b7730bdf1c84ce307300e1357a556ddc45e51aef67b1bf63edf325e"
+    },
+    {
+      "path": "batch9-observability-security-governance/4-gov/LICENSES_AND_PROVIDERS_POLICY.md",
+      "bytes": 1716,
+      "sha256": "3c6e42f65caeb99d3b81a9f7bdcc734b25aba9e5ccb7c5ecb8d89701c2c625f0"
+    },
+    {
+      "path": "batch9-observability-security-governance/4-gov/PRIVACY_AND_DATA_CLASSIFICATION.md",
+      "bytes": 1754,
+      "sha256": "55d654679d2dfc7907cc9e440f2b43c1a9c43187a0f246408f55babdc6a5efde"
+    },
+    {
+      "path": "batch9-observability-security-governance/4-gov/RISK_REGISTER.md",
+      "bytes": 1553,
+      "sha256": "5755d04ee17697709d69c2e859b74b3b1e310738bfb93d73d66a8e2fd02747ef"
+    },
+    {
+      "path": "batch9-observability-security-governance/IMPLEMENTATION_REPORT.md",
+      "bytes": 1810,
+      "sha256": "c554ad13685a73ccbb5ee3606902fa46c88631cb04b5e0364dd533fb783e3606"
+    },
+    {
+      "path": "batch9-observability-security-governance/README.md",
+      "bytes": 535,
+      "sha256": "4a46da37e2b4a91a3ce24c38a499cc99abdd61cee7dd2915c947f98bdbf67c53"
+    }
+  ]
+}

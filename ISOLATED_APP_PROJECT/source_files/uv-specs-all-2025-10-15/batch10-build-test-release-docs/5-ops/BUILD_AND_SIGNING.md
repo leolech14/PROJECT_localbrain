@@ -1,0 +1,53 @@
+---
+spec_id: BUILD_AND_SIGNING
+title: Build & Signing
+version: 0.1.0
+owner: Leo
+status: draft
+batch: 10
+created: 2025-10-15
+promotion_gates:
+  i1:
+    - "Sections stubbed; cross-links to prior batches resolved"
+    - "Pipelines/interfaces named; examples included"
+  i2:
+    - "Acceptance demos defined with measurable outcomes"
+    - "Budgets/gates aligned to Batch 0 performance targets"
+  i3:
+    - "Reference CI configs and harness stubs attached"
+    - "Observability events and metrics enumerated"
+  complete:
+    - "All gates green; consistency checks passed"
+observability:
+  events_namespace: uv.build.and.signing
+  metrics_prefix: uv.build.and.signing
+risks:
+  - id: R-BUILD_AND_SIGNING-1
+    desc: "Flaky GPU tests and non-deterministic snapshots"
+    mitigation: "Deterministic seeds, tolerance windows, device matrix, retries"
+---
+
+## Purpose
+Produce deterministic, reproducible builds that are signed and (on macOS) notarized,
+with artifacts and symbols published for debugging.
+
+## Build system
+- **Node/Electron** app with lockfile; `npm ci` (or `pnpm i --frozen-lockfile`).
+- Compiler flags pinned; environment variables scrubbed; reproducible timestamps via SOURCE_DATE_EPOCH.
+
+## Codesign & notarize (macOS)
+- Use Developer ID Application cert; entitlements limited (sandbox + file access as needed).
+- Staple notarization tickets; verify with `spctl --assess`.
+
+## Artifacts
+- App bundle, installer (DMG/PKG), symbol files (dSYMs), source maps, license files.
+
+## Determinism checklist
+- Freeze dependency versions; strip non-deterministic metadata; canonicalize zip ordering.
+- Verify with hash compare in CI step.
+
+## Observability
+- `uv.build.start|end`, `uv.build.artifact`, `uv.sign.start|end`, `uv.notarize.start|end`.
+
+## Acceptance
+- Two builds on same runner → identical hashes (excluding time stamps in container formats).

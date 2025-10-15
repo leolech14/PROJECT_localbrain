@@ -1,0 +1,20 @@
+{
+  "name": "@uv/layers",
+  "version": "0.1.0",
+  "description": "Universal Viewer - Geographic Layers",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@uv/types": "workspace:*",
+    "cesium": "^1.110.0"
+  },
+  "keywords": ["universal-viewer", "layers", "cesium", "3d", "maps"],
+  "author": "Universal Viewer Team",
+  "license": "MIT"
+}

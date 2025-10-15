@@ -1,0 +1,24 @@
+{
+  "name": "@uv/render-core",
+  "version": "0.1.0",
+  "description": "Universal Viewer - Render Core Adapter with AquaSpace",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@uv/types": "workspace:*",
+    "cesium": "^1.110.0",
+    "three": "^0.158.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.158.0"
+  },
+  "keywords": ["universal-viewer", "render", "cesium", "aquaspace", "webgl"],
+  "author": "Universal Viewer Team",
+  "license": "MIT"
+}

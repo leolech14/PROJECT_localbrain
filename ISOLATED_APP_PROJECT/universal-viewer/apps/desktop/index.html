@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Viewer - Underwater Intelligence Desktop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #001a22;
+            color: #e0f7fa;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Underwater theme */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg,
+                #003d4d 0%,
+                #005566 20%,
+                #006677 50%,
+                #004455 80%,
+                #002233 100%);
+            opacity: 0.9;
+            z-index: -1;
+        }
+
+        /* Animated water effect */
+        @keyframes waterEffect {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-2px) rotate(1deg); }
+            50% { transform: translateY(-1px) rotate(-1deg); }
+            75% { transform: translateY(-3px) rotate(1deg); }
+        }
+
+        .water-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%,
+                rgba(0, 150, 200, 0.1) 0%,
+                transparent 50%),
+                radial-gradient(circle at 70% 80%,
+                rgba(0, 100, 150, 0.1) 0%,
+                transparent 50%);
+            animation: waterEffect 8s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        #canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #render-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* HUD Container */
+        .hud-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Header */
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 300;
+            color: #80deea;
+            text-shadow: 0 0 20px rgba(128, 222, 234, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #4dd0e1;
+            font-weight: 600;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            width: 300px;
+            background: rgba(0, 40, 50, 0.8);
+            border: 1px solid rgba(128, 222, 234, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            pointer-events: auto;
+        }
+
+        .panel-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #80deea;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-label {
+            font-size: 12px;
+            color: #b2ebf2;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .slider {
+            width: 100%;
+            height: 4px;
+            background: rgba(128, 222, 234, 0.2);
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #4dd0e1;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(77, 208, 225, 0.5);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #4dd0e1;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(77, 208, 225, 0.5);
+        }
+
+        /* Status Panel */
+        .status-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 40, 50, 0.8);
+            border: 1px solid rgba(128, 222, 234, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            pointer-events: auto;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 11px;
+        }
+
+        .status-item {
+            margin-bottom: 5px;
+            color: #80deea;
+        }
+
+        .status-value {
+            color: #4dd0e1;
+        }
+
+        /* Voice HUD */
+        .voice-hud {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 40, 50, 0.9);
+            border: 1px solid rgba(128, 222, 234, 0.5);
+            border-radius: 25px;
+            padding: 12px 20px;
+            backdrop-filter: blur(15px);
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 0 30px rgba(77, 208, 225, 0.3);
+        }
+
+        .voice-indicator {
+            width: 12px;
+            height: 12px;
+            background: #4dd0e1;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(77, 208, 225, 0.8);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        .voice-text {
+            font-size: 14px;
+            color: #e0f7fa;
+            font-style: italic;
+        }
+
+        /* Loading */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 100;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(128, 222, 234, 0.3);
+            border-top: 2px solid #4dd0e1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 14px;
+            color: #80deea;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="water-overlay"></div>
+
+    <div id="canvas-container">
+        <canvas id="render-canvas"></canvas>
+    </div>
+
+    <div class="hud-container">
+        <header class="header">
+            <div class="logo">Universal <span>Viewer</span></div>
+            <div style="color: #4dd0e1; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+                AI-Controlled Underwater Desktop
+            </div>
+        </header>
+
+        <div class="control-panel">
+            <div class="panel-title">AquaSpace Controls</div>
+
+            <div class="control-group">
+                <label class="control-label">Water Intensity</label>
+                <input type="range" class="slider" id="water-intensity" min="0" max="100" value="70">
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Caustics Strength</label>
+                <input type="range" class="slider" id="caustics-strength" min="0" max="100" value="50">
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Fog Density</label>
+                <input type="range" class="slider" id="fog-density" min="0" max="100" value="30">
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Current Speed</label>
+                <input type="range" class="slider" id="current-speed" min="0" max="100" value="20">
+            </div>
+        </div>
+
+        <div class="control-panel" style="top: 320px; right: 20px;">
+            <div class="panel-title">🌍 Cesium Controls</div>
+
+            <div class="control-group">
+                <label class="control-label">Terrain Visibility</label>
+                <input type="range" class="slider" id="terrain-visibility" min="0" max="100" value="100">
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Imagery Brightness</label>
+                <input type="range" class="slider" id="imagery-brightness" min="0" max="200" value="100">
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Buildings Height</label>
+                <input type="range" class="slider" id="buildings-height" min="1" max="200" value="50">
+            </div>
+
+            <button id="add-buildings" style="width: 100%; padding: 8px; margin-top: 10px; background: rgba(100, 181, 246, 0.3); border: 1px solid rgba(100, 181, 246, 0.5); color: #e0f7fa; border-radius: 4px; cursor: pointer;">
+                Add Sample Buildings
+            </button>
+        </div>
+
+        <div class="status-panel">
+            <div class="status-item">Frame Time: <span class="status-value" id="frame-time">0ms</span></div>
+            <div class="status-item">Draw Calls: <span class="status-value" id="draw-calls">0</span></div>
+            <div class="status-item">VRAM: <span class="status-value" id="vram">0MB</span></div>
+            <div class="status-item">FPS: <span class="status-value" id="fps">60</span></div>
+        </div>
+
+        <div class="voice-hud">
+            <div class="voice-indicator"></div>
+            <div class="voice-text" id="voice-status">Ready for AI commands...</div>
+        </div>
+    </div>
+
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Initializing Underwater Environment...</div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "@uv/types",
+  "version": "0.1.0",
+  "description": "Universal Viewer - Core TypeScript Types",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["universal-viewer", "typescript", "types"],
+  "author": "Universal Viewer Team",
+  "license": "MIT"
+}

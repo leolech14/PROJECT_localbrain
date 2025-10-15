@@ -1,194 +1,270 @@
-# Claude Agent Instructions - LocalBrain + Orchestra Blue
+# PROJECT_localbrain - Core Work Intelligence System
 
-## 🎯 Project Overview
+## Project Overview
+**Name**: PROJECT_localbrain
+**Type**: Core Work Intelligence System (Swiss Army Knife)
+**Purpose**: User's primary interface for all computer-based work activities
+**Platform**: macOS Exclusive
+**Architecture**: Multi-modal AI-powered work environment
 
-**LocalBrain + Orchestra Blue** - Revolutionary AI-powered development environment implementing **spec-first development with UI prototyping refinement**.
+## Core Capabilities
 
-## 🏗️ Architecture
+### 🗂️ File System Intelligence
+**Advanced File Explorer with AI Context**
+- **Smart File Discovery**: Natural language file search with contextual understanding
+- **Universal File Preview**: Preview ALL file formats (documents, images, code, data, archives)
+- **Intelligent File Operations**: Bulk operations with AI-suggested organization
+- **Real-time File Monitoring**: Track file changes and maintain conversation context
+- **Contextual File Relationships**: Understand file dependencies and project structures
 
-**Core Applications:**
-- **Swift App**: macOS production interface (`01_CODEBASES/LocalBrain/`)
-- **Next.js Prototype**: UI laboratory with hot reload (`01_CODEBASES/localbrain-electron/`)
-- **Widget System**: Extensible widget architecture (`01_CODEBASES/orchestra-widget-system/`)
-- **Design System**: OKLCH color system + accessibility (`01_CODEBASES/design/`)
-- **MCP Task Registry**: 6-agent coordination server (`01_CODEBASES/mcp-servers/localbrain-task-registry/`)
+### 🎤 Real-Time Voice Interface
+**Voice-First AI Communication System**
+- **Continuous Voice Recognition**: Real-time speech-to-text with high accuracy
+- **Context-Aware Conversation**: Current session context injected into AI responses
+- **Voice Command System**: Natural language commands for all system operations
+- **Real-Time Status Updates**: Live system state shared with AI during conversation
+- **Multi-Modal Input**: Seamlessly switch between voice, text, and visual interactions
 
-**Agent Coordination:**
-- **Task Registry Server**: MCP-based coordination with Git verification + Real-time progress
-- **Sniper Gun Server**: Cloud-hosted semantic HTML component analysis (24/7 online)
-- **Client Wrappers**:
-  - TaskRegistryClient for coordination (`04_AGENT_FRAMEWORK/mcp-integration/`)
-  - SniperGunClient for code analysis (`04_AGENT_FRAMEWORK/mcp-integration/SniperGunClient.ts`)
-- **Central Registry**: Official task list (`04_AGENT_FRAMEWORK/CENTRAL_TASK_REGISTRY.md`)
-- **Architecture Docs**:
-  - MCP System Architecture (`04_AGENT_FRAMEWORK/MCP_SYSTEM_ARCHITECTURE.md`)
-  - Sniper Gun Integration (`04_AGENT_FRAMEWORK/mcp-integration/`)
+### 🖥️ IDE Capabilities
+**Full-Featured Development Environment**
+- **Multi-Language Support**: Python, JavaScript, Swift, Shell, Markdown, etc.
+- **Syntax Highlighting**: Intelligent code highlighting with error detection
+- **Code Intelligence**: Auto-completion, refactoring, and code suggestions
+- **Project Management**: Workspace management with intelligent project discovery
+- **Debug Integration**: Built-in debugging with breakpoints and variable inspection
 
-## 📋 Current Status: 30% Compliance
+### 🌐 Intelligent Web Browsing
+**AI-Managed Internet Research**
+- **Contextual Web Search**: Search based on current conversation and work context
+- **Multi-Tab Management**: AI organizes and switches between browser windows
+- **Content Extraction**: Extract relevant information from web pages automatically
+- **Research Mode**: Continuous research with context preservation across sessions
+- **Integration with Local Files**: Link web research with local documents and projects
 
-**Critical Gaps:**
-- ❌ Agent Communication Panel (P1-Critical) - No interface for agent coordination
-- ❌ Security & Permissions (P1-Critical) - No authentication framework
-- 🟡 Search Functionality (P2-High) - Users cannot find information
-- 🟡 Module Navigation Logic (P2-High) - Navigation difficulties
+### 📊 Data Visualization & Analysis
+**Interactive Data Exploration**
+- **Universal Data Viewer**: View CSV, JSON, databases, logs, and structured data
+- **Interactive Charts**: Create charts from data with natural language commands
+- **Code Generation**: Generate analysis code from natural language descriptions
+- **Report Generation**: Create comprehensive reports with AI assistance
+- **Data Transformation**: Clean, transform, and analyze data with AI guidance
 
-## 🤖 6-Agent Hyper-Specialized System
+### 🤖 AI Context Management
+**Intelligent Context Injection System**
+- **Real-Time Context Tracking**: Monitor system state, file changes, and user actions
+- **Context Blueprints**: Configurable context templates for different work modes
+- **Conversation Memory**: Maintain context across voice and text interactions
+- **Work Mode Switching**: Automatically adjust context based on current task type
+- **Multi-Layer Context**: System, project, file, and conversation-level context
 
-### **Ground Agents (5 specialists with 200K-1M context):**
+## Technical Architecture
 
-#### **Agent A & C - GLM-4.6 (200K context) - Worker Specialists**
-- **Agent A**: UI Velocity Specialist
-  - Frontend components, React/SwiftUI development
-  - Rapid prototyping, interface implementation
-  - Design system application
-  - **Sniper Gun Integration**: Uses SniperGunClient for HTML component analysis (@html:form, @component:modal)
-
-- **Agent C**: Backend Services Specialist
-  - API development, database operations
-  - Service architecture, data management
-  - Infrastructure implementation
-  - **Sniper Gun Integration**: Uses SniperGunClient for component extraction and refactoring
-
-#### **Agent B & D - Sonnet-4.5 (200K context) - Integration Specialists**
-- **Agent B**: Design System Specialist
-  - OKLCH color system, accessibility (WCAG 2.2 AA)
-  - Component library, visual consistency
-  - UI/UX architecture
-  - **Sniper Gun Integration**: Uses SniperGunClient for design impact analysis
-
-- **Agent D**: Integration Specialist
-  - Swift ↔ Electron IPC bridge
-  - Multi-platform coordination
-  - System integration & testing
-  - **Sniper Gun Integration**: Uses SniperGunClient for semantic code analysis
-
-#### **Agent E - Gemini-2.5-Pro (1M context) - Ground Supervisor/Librarian**
-- **Role**: Coherence Specialist & Ground Supervisor
-- **Responsibilities**:
-  - Complete codebase understanding (1M context)
-  - Cross-agent coordination & conflict resolution
-  - Knowledge management & architectural coherence
-  - General librarian tasks & context preservation
-  - Ground-level supervision of 4 worker agents
-
-### **Cloud Supervisor (Strategic oversight):**
-
-#### **Agent F - ChatGPT-5 - Strategic Supervisor**
-- **Role**: Cloud Supervisor & Instruction Provider
-- **Responsibilities**:
-  - Strategic guidance & roadmap planning
-  - Instruction-set generation for each agent
-  - Clear step-by-step task lists with success criteria
-  - Definition of Done validation
-  - Zip iteration system orchestration
-  - High-level architectural decisions
-
-### **Human Decision Maker:**
-- **Lech**: HITL (Human-in-the-Loop) Decision Maker
-  - Final approval authority
-  - Strategic direction
-  - Critical decision validation
-
-### **Expected Velocity**: 300%+ increase through hyper-specialization
-
-## 🚀 Development Workflow
-
-### Spec-First Development with UI Prototyping:
+### Multi-Modal Interface Layer
 ```
-Natural Language Requirements → Complete Spec Base → UI Prototype Refinement → Final Implementation
+Voice Input ↔ Text Input ↔ Visual Interface
+    ↓              ↓              ↓
+     Multi-Modal Context Manager
+    ↓              ↓              ↓
+AI Processing Layer (with Context Injection)
+    ↓              ↓              ↓
+File System ↔ Web Browser ↔ Development Tools
 ```
 
-### Zip Iteration System:
-```
-1. Ground Agents work on LocalBrain directory
-2. Compress entire repo → zip file
-3. Upload zip to ChatGPT-5 (Cloud Supervisor)
-4. ChatGPT-5 audits, provides instructions, edits
-5. ChatGPT-5 returns SAME zip with edits applied
-6. Extract zip → continue development
-7. Repeat cycle (always maintaining full content)
-```
+### Context Injection System
+```typescript
+interface ContextBlueprint {
+  workMode: 'development' | 'research' | 'analysis' | 'writing';
+  activeFiles: FileInfo[];
+  systemStatus: SystemStatus;
+  conversationHistory: ConversationContext;
+  currentProjects: ProjectContext[];
+  webResearchContext: WebContext;
+  userPreferences: UserPreferences;
+}
 
-**Key Principles:**
-- ✅ **Full content preservation** - Never loses information
-- ✅ **Convention respect** - Maintains directory structure
-- ✅ **Edit tracking** - All changes documented
-- ✅ **Iteration continuity** - Seamless cycle continuation
-- ✅ **Fast compression** - Quick upload/download cycles
-
-### Testing Environment:
-- **Next.js Prototype**: `cd 01_CODEBASES/localbrain-electron && npm run dev`
-- **Swift App**: Open `01_CODEBASES/LocalBrain/LocalBrain.xcodeproj`
-
-## 📁 Directory Structure
-
-```
-LocalBrain/
-├── 01_CODEBASES/          # Functional code
-├── 02_SPECBASES/         # Complete specifications
-├── 03_ITERATION_CONTEXT/ # Iteration context
-├── 04_AGENT_FRAMEWORK/   # Agent coordination
-└── 05_EXECUTION_STATUS/  # Real status
+class ContextManager {
+  async injectContext(conversation: Conversation): Promise<EnrichedConversation> {
+    const blueprint = await this.createContextBlueprint();
+    return this.enrichConversation(conversation, blueprint);
+  }
+}
 ```
 
-## 🎯 Agent Separation of Concerns
+### File System Integration
+```typescript
+class IntelligentFileExplorer {
+  // Natural language file search
+  async searchFiles(query: string, context: WorkContext): Promise<FileSearchResult[]>;
 
-### **Clear Boundaries:**
-- **GLM-4.6 (A+C)**: Worker tasks - UI & Backend implementation
-- **Sonnet-4.5 (B+D)**: Specialist tasks - Design system & Integration
-- **Gemini-2.5-Pro (E)**: Ground supervision - Coherence & Knowledge management (1M context)
-- **ChatGPT-5 (F)**: Strategic supervision - Instructions & Validation
+  // Universal file preview
+  async previewFile(filePath: string): Promise<FilePreview>;
 
-### **Your Role as Ground Agent:**
-- **Follow instructions** from ChatGPT-5 (Cloud Supervisor)
-- **Respect specialization** boundaries between agents
-- **Coordinate with Agent E** (Ground Supervisor) for coherence
-- **Document all work** for iteration tracking
-- **Maintain full content** across all edits
+  // Smart file operations
+  async organizeFiles(strategy: 'project' | 'date' | 'type', context: WorkContext): Promise<void>;
 
-## 🎯 Guidelines
+  // Real-time monitoring
+  async watchDirectory(path: string, callback: FileChangeCallback): Promise<FileWatcher>;
+}
+```
 
-### When Working on Code:
-1. **Read Before Edit** - Understand existing patterns
-2. **Follow Existing Architecture** - Maintain consistency
-3. **Update Specifications** - Keep specs in sync with implementation
-4. **Test Changes** - Ensure functionality
-5. **Coordinate with other agents** - Respect separation of concerns
+### Voice Interface System
+```typescript
+class VoiceInterface {
+  // Continuous voice recognition
+  async startVoiceRecognition(): Promise<VoiceStream>;
 
-### When Working on UI:
-1. **Use Next.js Prototype** - Test patterns before implementation
-2. **Follow Design System** - Maintain visual consistency (Agent B territory)
-3. **Validate in Swift** - Ensure patterns work in production
-4. **Document Patterns** - Update specs with validated patterns
+  // Context-aware processing
+  async processVoiceCommand(audio: AudioBuffer, context: ContextBlueprint): Promise<Command>;
 
-### When Using Sniper Gun (All Agents):
-1. **Initialize Client** - `import { SniperGunClient } from './mcp-integration/SniperGunClient.js'`
-2. **Health Check First** - `await sniperGun.healthCheck()` to verify server availability
-3. **Scan Before Query** - `await sniperGun.scanComponents(scriptPath)` to index components
-4. **Use Semantic Queries** - Examples: `@html:form`, `@component:modal`, `@method:_generate_*`
-5. **Analyze Impact** - Always `await sniperGun.impactAnalysis()` before making changes
-6. **Apply Surgical Edits** - Use precise line ranges for targeted modifications
-7. **Extract When Needed** - Use `sniperGun.extractComponent()` for large component refactoring
+  // Real-time response
+  async generateResponse(command: Command, context: ContextBlueprint): Promise<Response>;
 
-**🎯 Agent-Specific Sniper Gun Usage:**
-- **Agent A (UI)**: Find and update UI components with `@html:form AND @component:modal`
-- **Agent B (Design)**: Analyze design impact with `sniperGun.impactAnalysis()`
-- **Agent C (Backend)**: Extract complex components with `sniperGun.extractComponent()`
-- **Agent D (Integration)**: Coordinate cross-component changes with semantic queries
+  // Voice synthesis
+  async speakResponse(text: string, voice: VoiceProfile): Promise<void>;
+}
+```
 
-### For Critical Decisions:
-1. **Consult Specifications** - Check `02_SPECBASES/` for requirements
-2. **Review Agent Framework** - Check `04_AGENT_FRAMEWORK/` for coordination
-3. **Consider Iteration Context** - Check `03_ITERATION_CONTEXT/` for current priorities
-4. **Await Cloud Supervisor guidance** - ChatGPT-5 provides strategic direction
+## User Experience Flow
 
-## 🔒 Security Guidelines
+### Typical Work Session
+1. **Context Initialization**: System detects current work mode and loads appropriate context
+2. **Voice Interaction**: User speaks commands while working on files
+3. **AI Understanding**: AI processes commands with full system context
+4. **Seamless Execution**: Commands executed across file system, web, and development tools
+5. **Continuous Learning**: System learns user patterns and improves suggestions
 
-- **Never hardcode API keys** - Use proper credential management
-- **Follow design system** - Ensure accessibility compliance
-- **Validate implementations** - Test against specifications
-- **Document changes** - Update relevant documentation
+### Example Interactions
+
+#### File Operations
+```
+User: "Show me all Python files from the data analysis project last week"
+AI: [Opens file explorer with filtered results]
+   "Found 23 Python files from your data analysis project.
+    The main analysis file is 'analyze_data.py' - would you like me to open it?"
+```
+
+#### Web Research
+```
+User: "Research the latest macOS automation techniques for our current project"
+AI: [Opens browser tabs with relevant research]
+   "I found 8 relevant resources. The first one from Apple's documentation
+    shows the latest automation APIs. I've opened it in tab 1 and saved the
+    link to your project bookmarks."
+```
+
+#### Code Development
+```
+User: "Create a function to process the CSV data we were just looking at"
+AI: [Generates code in the appropriate file]
+   "I've created a process_csv_data() function in your analysis script.
+    It handles the data format we discussed and includes error handling."
+```
+
+## Configuration & Customization
+
+### Work Mode Blueprints
+```json
+{
+  "development": {
+    "contextFiles": ["*.py", "*.js", "*.swift", "*.md"],
+    "tools": ["IDE", "Terminal", "Git"],
+    "webContext": ["Stack Overflow", "GitHub", "Documentation"],
+    "voiceCommands": ["code", "debug", "test", "deploy"]
+  },
+  "research": {
+    "contextFiles": ["*.md", "*.pdf", "*.txt", "*.csv"],
+    "tools": ["Browser", "Notes", "Bookmarks"],
+    "webContext": ["Academic papers", "News", "Forums"],
+    "voiceCommands": ["search", "save", "summarize", "cite"]
+  },
+  "analysis": {
+    "contextFiles": ["*.csv", "*.json", "*.sql", "*.xlsx"],
+    "tools": ["Data Viewer", "Charts", "Terminal"],
+    "webContext": ["Documentation", "Tutorials", "Examples"],
+    "voiceCommands": ["analyze", "visualize", "export", "report"]
+  }
+}
+```
+
+### Context Injection Rules
+```typescript
+interface ContextRule {
+  trigger: string;           // When to apply this rule
+  contextSource: string;     // Where to get context
+  priority: number;          // Rule priority
+  maxContext: number;        // Maximum context size
+  retention: number;         // How long to keep context
+}
+
+const contextRules: ContextRule[] = [
+  {
+    trigger: "file_open",
+    contextSource: "current_project",
+    priority: 1,
+    maxContext: 5000,
+    retention: 3600
+  },
+  {
+    trigger: "voice_command",
+    contextSource: "active_session",
+    priority: 2,
+    maxContext: 3000,
+    retention: 1800
+  }
+];
+```
+
+## Integration Points
+
+### macOS System Integration
+- **Spotlight Integration**: Use macOS search for file discovery
+- **Notifications**: System notifications for important events
+- **Keychain Access**: Secure credential management
+- **System Preferences**: Access to system settings
+
+### Development Tools
+- **Git Integration**: Version control operations and status
+- **Docker Integration**: Container management and monitoring
+- **Database Integration**: Connect to various database systems
+- **API Integration**: REST and GraphQL API testing
+
+### External Services
+- **Cloud Storage**: Integration with cloud storage providers
+- **Collaboration Tools**: Integration with team collaboration platforms
+- **Documentation Systems**: Integration with documentation platforms
+- **Analytics Services**: Integration with analytics and monitoring tools
+
+## Performance & Optimization
+
+### Resource Management
+- **Memory Optimization**: Efficient memory usage for large file operations
+- **Background Processing**: Non-blocking operations for user interactions
+- **Caching Strategy**: Intelligent caching for frequently accessed data
+- **Resource Monitoring**: Real-time resource usage tracking
+
+### User Experience
+- **Responsive Interface**: Sub-100ms response times for all interactions
+- **Offline Capability**: Core functionality available without internet
+- **Progressive Loading**: Load data progressively for large operations
+- **Error Recovery**: Graceful error handling and recovery
+
+## Security & Privacy
+
+### Data Protection
+- **Local Processing**: All sensitive data processed locally
+- **Encryption**: End-to-end encryption for data transmission
+- **Access Control**: Fine-grained permission management
+- **Audit Logging**: Comprehensive activity logging
+
+### Privacy Features
+- **User Control**: Full control over data sharing and context
+- **Data Minimization**: Only collect necessary data for functionality
+- **Transparent Operations**: Clear indication of what data is being used
+- **Data Retention**: Configurable data retention policies
 
 ---
 
-**Focus on implementing according to specifications while maintaining the revolutionary spec-first development methodology.**
+*PROJECT_localbrain - Core Work Intelligence System*
+*Version: 2.0*
+*Last Updated: 2025-10-14*
+*Platform: macOS 13.0+*
