@@ -1,11 +1,8 @@
 {
   "globs": [
-    "ISOLATED_APP_PROJECT/source_files/uv-specs/**/*.md",
-    "ISOLATED_APP_PROJECT/source_files/uv-specs-all-2025-10-15/**/*.md",
-    "source_files/uv-specs/**/*.md",
-    "uv-specs/**/*.md",
-    "uv-specs-all-2025-10-15/**/*.md",
-    "docs/specs/**/*.md"
+    "ISOLATED_APP_PROJECT/source_files/uv-specs-all-2025-10-15/batch*/*/1-mod/*.md",
+    "ISOLATED_APP_PROJECT/source_files/uv-specs-all-2025-10-15/batch*/*/2-scf/*.md",
+    "ISOLATED_APP_PROJECT/source_files/uv-specs-all-2025-10-15/batch*/*/3-cfg/*.md"
   ],
-  "sections_required": 12
+  "sections_required": 13
 }
