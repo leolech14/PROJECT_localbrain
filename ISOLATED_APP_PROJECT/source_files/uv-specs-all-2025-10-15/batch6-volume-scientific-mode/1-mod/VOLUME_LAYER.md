@@ -5,26 +5,29 @@ version: 0.1.0
 owner: Leo
 status: draft
 batch: 6
-created: 2025-10-15
+created: 2025-10-15T00:00:00.000Z
 promotion_gates:
   i1:
-    - "All sections stubbed; cross-links to prior batches resolved"
-    - "Interfaces and events named; examples included"
+    - All sections stubbed; cross-links to prior batches resolved
+    - Interfaces and events named; examples included
   i2:
-    - "Acceptance demos defined with measurable outcomes"
-    - "Performance & memory budgets aligned to Batch 0"
+    - Acceptance demos defined with measurable outcomes
+    - Performance & memory budgets aligned to Batch 0
   i3:
-    - "Golden snapshots, transfer-function presets, and test volumes attached"
-    - "Observability events and metrics enumerated"
+    - Golden snapshots, transfer-function presets, and test volumes attached
+    - Observability events and metrics enumerated
   complete:
-    - "All gates green; consistency checks passed"
+    - All gates green; consistency checks passed
 observability:
   events_namespace: uv.volume.layer
   metrics_prefix: uv.volume.layer
 risks:
   - id: R-VOLUME_LAYER-1
-    desc: "Cross-engine camera/selection drift and depth interop"
-    mitigation: "Linked state via adapters; no Z-buffer sharing; explicit conversions with tests"
+    desc: Cross-engine camera/selection drift and depth interop
+    mitigation: Linked state via adapters; no Z-buffer sharing; explicit conversions with tests
+category: 1-mod
+flavor: codegen
+updated: '2025-10-15'
 ---
 
 ## Purpose
@@ -67,3 +70,50 @@ type VolumeInfo = {
 
 ## Acceptance
 - Three orthogonal slices responsive; iso slider produces mesh within gate; probe stable and correct with unit conversion.
+
+## 1. Purpose & Outcomes
+TBD
+
+
+## 2. Context & Dependencies
+TBD
+
+
+## 3. Public API (Types & Contracts)
+TBD
+
+
+## 4. Data & State Model
+TBD
+
+
+## 5. Algorithms & Control Flow
+TBD
+
+
+## 6. UI & Controls (UCC/CCD)
+TBD
+
+
+## 7. Observability (Events & Metrics)
+TBD
+
+
+## 8. Performance Budget & Fallbacks
+TBD
+
+
+## 9. Security, Privacy & Permissions
+TBD
+
+
+## 10. Acceptance Demos & Test Plan
+TBD
+
+
+## 11. Implementation Recipe (Ingredients & Steps)
+TBD
+
+
+## 12. Integration Checklist & Promotion Gates
+TBD

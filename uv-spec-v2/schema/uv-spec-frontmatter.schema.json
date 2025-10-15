@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://orchestra.blue/uv-spec-frontmatter.v2.schema.json",
+  "title": "UV Spec Front Matter (v2)",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "proposed",
+        "accepted",
+        "deprecated"
+      ]
+    },
+    "owner": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "flavor": {
+      "type": "string",
+      "enum": [
+        "codegen",
+        "reference"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "package": {
+          "type": "string"
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "symbols": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tests": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "unit": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "integration": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "e2e": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "gpu_snapshot": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "benchmarks": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "package",
+        "paths",
+        "symbols",
+        "tests"
+      ]
+    },
+    "performance_budgets": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": [
+          "number",
+          "integer"
+        ]
+      }
+    },
+    "observability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "metrics_prefix": {
+          "type": "string",
+          "minLength": 1
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "when": {
+                "type": "string"
+              },
+              "payload": {
+                "type": "object"
+              },
+              "level": {
+                "type": "string",
+                "enum": [
+                  "debug",
+                  "info",
+                  "warn",
+                  "error"
+                ]
+              },
+              "sample_rate": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "privacy": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "pseudonymized",
+                  "anonymized"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "when",
+              "payload"
+            ]
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "counter",
+                  "gauge",
+                  "histogram",
+                  "timer"
+                ]
+              },
+              "unit": {
+                "type": "string"
+              },
+              "labels": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "name",
+              "type"
+            ]
+          }
+        }
+      },
+      "required": [
+        "metrics_prefix"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "status",
+    "owner",
+    "created",
+    "updated",
+    "flavor",
+    "observability"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "flavor": {
+            "const": "codegen"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "artifacts",
+          "performance_budgets"
+        ]
+      }
+    }
+  ]
+}

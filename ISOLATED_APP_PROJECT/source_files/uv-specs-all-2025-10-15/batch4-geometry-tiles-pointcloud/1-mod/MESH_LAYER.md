@@ -5,26 +5,29 @@ version: 0.1.0
 owner: Leo
 status: draft
 batch: 4
-created: 2025-10-15
+created: 2025-10-15T00:00:00.000Z
 promotion_gates:
   i1:
-    - "Sections stubbed; cross-links to Batches 0–3 resolved"
-    - "Interfaces, events, and examples included"
+    - Sections stubbed; cross-links to Batches 0–3 resolved
+    - Interfaces, events, and examples included
   i2:
-    - "Acceptance demos defined with measurable outcomes"
-    - "Performance & memory budgets aligned to Batch 0"
+    - Acceptance demos defined with measurable outcomes
+    - Performance & memory budgets aligned to Batch 0
   i3:
-    - "Reference snapshots/test scenes attached; importer notes updated"
-    - "Observability events and metrics enumerated"
+    - Reference snapshots/test scenes attached; importer notes updated
+    - Observability events and metrics enumerated
   complete:
-    - "All gates green; consistency checks passed"
+    - All gates green; consistency checks passed
 observability:
   events_namespace: uv.mesh.layer
   metrics_prefix: uv.mesh.layer
 risks:
   - id: R-MESH_LAYER-1
-    desc: "Huge datasets (tiles/point clouds) creating VRAM pressure"
-    mitigation: "LOD/SSE, density controls, eviction, and HUD warnings"
+    desc: Huge datasets (tiles/point clouds) creating VRAM pressure
+    mitigation: LOD/SSE, density controls, eviction, and HUD warnings
+category: 1-mod
+flavor: codegen
+updated: '2025-10-15'
 ---
 
 ## Purpose
@@ -53,3 +56,50 @@ Load and render local mesh files (glTF/GLB preferred) with PBR materials and ins
 
 ## Acceptance
 - 1M tri GLB loads and is interactive; material edits re-render < 50 ms.
+
+## 1. Purpose & Outcomes
+TBD
+
+
+## 2. Context & Dependencies
+TBD
+
+
+## 3. Public API (Types & Contracts)
+TBD
+
+
+## 4. Data & State Model
+TBD
+
+
+## 5. Algorithms & Control Flow
+TBD
+
+
+## 6. UI & Controls (UCC/CCD)
+TBD
+
+
+## 7. Observability (Events & Metrics)
+TBD
+
+
+## 8. Performance Budget & Fallbacks
+TBD
+
+
+## 9. Security, Privacy & Permissions
+TBD
+
+
+## 10. Acceptance Demos & Test Plan
+TBD
+
+
+## 11. Implementation Recipe (Ingredients & Steps)
+TBD
+
+
+## 12. Integration Checklist & Promotion Gates
+TBD

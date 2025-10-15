@@ -1,0 +1,29 @@
+#!/bin/sh
+# pre-commit: run spec linter and basic code lint if available
+set -e
+ROOT="$(git rev-parse --show-toplevel)"
+CONFIG="$ROOT/spec.config.json"
+LINTER="$ROOT/scripts/uv-spec-lint.mjs"
+
+if [ -x "$LINTER" ]; then
+  echo "Running spec linter..."
+  node "$LINTER" || { echo "Spec linter failed. Fix specs or run migrator."; exit 1; }
+fi
+
+# Optional: run project lints if present
+if [ -f "$ROOT/package.json" ] && jq -re '.scripts.lint' "$ROOT/package.json" >/dev/null 2>&1; then
+  echo "Running project lint..."
+  npm run -s lint || { echo "Project lint failed."; exit 1; }
+fi
+
+# Enforce registry update when code changes are staged
+CHANGED=$(git diff --cached --name-only)
+NEEDS_REG=0
+echo "$CHANGED" | grep -E '^(packages/|apps/)' >/dev/null 2>&1 && NEEDS_REG=1
+echo "$CHANGED" | grep -E '^04_AGENT_FRAMEWORK/CENTRAL_TASK_REGISTRY\.md$' >/dev/null 2>&1 && NEEDS_REG=0
+
+if [ "$REGISTRY_ENFORCE" = "1" ] && [ "$NEEDS_REG" = "1" ]; then
+  echo "ERROR: Code changes staged but CENTRAL_TASK_REGISTRY.md not staged."
+  echo "Please update 04_AGENT_FRAMEWORK/CENTRAL_TASK_REGISTRY.md (CLAIMED -> IN_PROGRESS -> COMPLETE) and stage it."
+  exit 1
+fi

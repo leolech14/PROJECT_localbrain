@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UV Spec Frontmatter v2",
+  "type": "object",
+  "required": [
+    "spec_id",
+    "title",
+    "version",
+    "owner",
+    "status",
+    "batch",
+    "category",
+    "flavor",
+    "created",
+    "promotion_gates",
+    "observability"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "spec_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "review",
+        "complete",
+        "deprecated"
+      ]
+    },
+    "batch": {
+      "type": [
+        "integer",
+        "string"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "1-mod",
+        "2-scf",
+        "3-cfg",
+        "4-gov",
+        "5-ops"
+      ]
+    },
+    "flavor": {
+      "type": "string",
+      "enum": [
+        "codegen",
+        "reference"
+      ]
+    },
+    "created": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "replaced_by": {
+      "type": "string"
+    },
+    "observability": {
+      "type": "object",
+      "required": [
+        "events_namespace",
+        "metrics_prefix"
+      ],
+      "properties": {
+        "events_namespace": {
+          "type": "string"
+        },
+        "metrics_prefix": {
+          "type": "string"
+        },
+        "event_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "performance_budgets": {
+      "type": "object"
+    },
+    "promotion_gates": {
+      "type": "object",
+      "properties": {
+        "i1": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "i2": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "i3": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "complete": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "i1",
+        "i2",
+        "i3",
+        "complete"
+      ]
+    },
+    "artifacts": {
+      "type": "array"
+    },
+    "ci": {
+      "type": "object"
+    },
+    "security": {
+      "type": "object"
+    },
+    "governance": {
+      "type": "object"
+    }
+  }
+}

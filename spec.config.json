@@ -1,0 +1,11 @@
+{
+  "globs": [
+    "ISOLATED_APP_PROJECT/source_files/uv-specs/**/*.md",
+    "ISOLATED_APP_PROJECT/source_files/uv-specs-all-2025-10-15/**/*.md",
+    "source_files/uv-specs/**/*.md",
+    "uv-specs/**/*.md",
+    "uv-specs-all-2025-10-15/**/*.md",
+    "docs/specs/**/*.md"
+  ],
+  "sections_required": 12
+}

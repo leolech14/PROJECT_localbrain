@@ -1,0 +1,32 @@
+name: Spec Validate (v2)
+
+on:
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - '**/*.md'
+      - 'uv-spec-v2/**'
+      - '.github/workflows/spec-validate.yml'
+  workflow_dispatch: {}
+
+jobs:
+  spec-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps for spec lint
+        run: |
+          npm --prefix uv-spec-v2 ci || npm --prefix uv-spec-v2 install
+
+      - name: Lint specs (schema + sections + artifacts)
+        env:
+          UV_SPEC_SCHEMA: uv-spec-v2/schema/uv-spec-frontmatter.schema.json
+        run: |
+          node uv-spec-v2/scripts/uv-spec-lint.mjs             --glob "source_files/uv-specs-all-2025-10-15/**/*.md"             --sections 13             --probe-code

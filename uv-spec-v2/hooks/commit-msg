@@ -1,0 +1,19 @@
+#!/bin/sh
+# commit-msg: enforce T<ID>: prefix and registry sync hints
+MSG_FILE="$1"
+FIRST_LINE=$(sed -n '1p' "$MSG_FILE")
+
+case "$FIRST_LINE" in
+  T[0-9]*:*) ;;
+  *)
+    if [ "$ALLOW_NON_TASK_COMMITS" = "1" ]; then
+      echo "Warning: commit message without task ID allowed by ALLOW_NON_TASK_COMMITS."
+    else
+      echo "ERROR: Commit message must start with T<ID>: description"
+      echo "Example: T022: Cesium 3D Tiles streaming and SSE hysteresis"
+      exit 1
+    fi
+  ;;
+esac
+
+exit 0

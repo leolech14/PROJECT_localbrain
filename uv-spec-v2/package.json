@@ -1,0 +1,23 @@
+{
+  "name": "uv-spec-v2",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "lint:specs": "node scripts/uv-spec-lint.mjs --glob \"source_files/uv-specs-all-2025-10-15/**/*.md\" --sections 13",
+    "lint:specs:probe": "node scripts/uv-spec-lint.mjs --glob \"source_files/uv-specs-all-2025-10-15/**/*.md\" --sections 13 --probe-code",
+    "spec:harvest": "node tools/spec-harvest.mjs --glob \"source_files/uv-specs-all-2025-10-15/**/*.md\" --out artifacts-manifest.json"
+  },
+  "dependencies": {
+    "globby": "^14.0.2",
+    "gray-matter": "^4.0.3",
+    "yaml": "^2.6.0"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "fast-glob": "^3.3.3",
+    "js-yaml": "^4.1.0"
+  }
+}
